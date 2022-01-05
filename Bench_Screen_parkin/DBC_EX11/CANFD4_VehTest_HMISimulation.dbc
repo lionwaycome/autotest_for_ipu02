@@ -1,0 +1,158 @@
+VERSION "SafetyCANFD4"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: ASDM ETC PAS Vector_XXX
+
+
+BO_ 781 AsdmSafetyCANFD4Fr07: 64 ASDM
+ SG_ PrkgIntrptReldBtn_UB : 131|1@0+ (1,0) [0|1] ""  PAS
+ SG_ PrkgIntrptReldBtn : 130|2@0+ (1,0) [0|3] ""  PAS
+
+BO_ 105 ASDMSafetyCANFD4Fr02: 64 ASDM
+ SG_ DrvrAsscSysBtnPush : 396|4@0+ (1,0) [0|15] ""  PAS
+ SG_ DrvrAsscSysBtnPush_UB : 392|1@0+ (1,0) [0|1] ""  PAS
+
+BO_ 69 ASDMSafetyCANFD4Fr09: 64 ASDM
+ SG_ DrvrAsscSysParkMod : 119|4@0+ (1,0) [0|15] ""  PAS
+ SG_ DrvrAsscSysParkMod_UB : 115|1@0+ (1,0) [0|1] ""  PAS
+ SG_ PrkgInOrOutAndCncl : 81|2@0+ (1,0) [0|3] ""  PAS
+ SG_ PrkgInOrOutAndCncl_UB : 112|1@0+ (1,0) [0|1] ""  PAS
+
+
+
+CM_ BU_ ETC "External Tester Connector";
+CM_ SG_ 781 PrkgIntrptReldBtn "Select Yes or No when parking interrupt";
+CM_ SG_ 105 DrvrAsscSysBtnPush "APA button requirement";
+CM_ SG_ 69 DrvrAsscSysParkMod "Park mode";
+CM_ SG_ 69 PrkgInOrOutAndCncl "cancel park in and park out.";
+BA_DEF_  "Baudrate" INT 1000 1000000;
+BA_DEF_  "BaudRateCANFD" FLOAT 1000 10000000;
+BA_DEF_ BO_  "VFrameFormat" ENUM  "StandardCAN","ExtendedCAN","reserved","J1939PG","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","reserved","StandardCAN_FD","ExtendedCAN_FD";
+BA_DEF_ BO_  "CANFD_BRS" ENUM  "0","1";
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclic","spontaneous","not-used","not-used","not-used","cyclicAndSpontaneous","not-used","cyclicIfActive","NoMsgSendType";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65536;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65536;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 65536;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType";
+BA_DEF_ SG_  "GenSigStartValue" HEX 0 80000000;
+BA_DEF_ BU_  "NmAsrNodeIdentifier" INT 0 255;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 100000;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" FLOAT 0 300000;
+BA_DEF_  "DBName" STRING ;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_  "ProtocolType" STRING ;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "NmAsrMessage" ENUM  "No","Yes";
+BA_DEF_  "NmAsrBaseAddress" HEX 0 536870911;
+BA_DEF_  "NmAsrMessageCount" INT 0 255;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "NmAsrNode" ENUM  "No","Yes";
+BA_DEF_ BU_  "ILused" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigFuncType" ENUM  "NoFunction","n/a","n/a","n/a","n/a","n/a","n/a","n/a","n/a","n/a","n/a","n/a","n/a","n/a","n/a","CHK","CNTR","n/a","n/a","n/a","CNTR_AR_01","CRC_AR_01_BOTH","CRC_AR_01_ALT","CRC_AR_01_LOW","CRC_AR_01_NIBBLE","CNTR_AR_04","CRC_AR_04A","CNTR_AR_05","CRC_AR_05";
+BA_DEF_ SG_  "GenSigDataID" STRING ;
+BA_DEF_ SG_  "SigGroup" STRING ;
+BA_DEF_DEF_  "Baudrate" 1000;
+BA_DEF_DEF_  "BaudRateCANFD" 1000;
+BA_DEF_DEF_  "VFrameFormat" "J1939PG";
+BA_DEF_DEF_  "CANFD_BRS" "1";
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenSigSendType" "NoSigSendType";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "NmAsrNodeIdentifier" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "DBName" "";
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "ProtocolType" "";
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "NmAsrMessage" "No";
+BA_DEF_DEF_  "NmAsrBaseAddress" 1280;
+BA_DEF_DEF_  "NmAsrMessageCount" 64;
+BA_DEF_DEF_  "NodeLayerModules" "CANoeILNLSPA.dll";
+BA_DEF_DEF_  "NmAsrNode" "No";
+BA_DEF_DEF_  "ILused" "Yes";
+BA_DEF_DEF_  "GenSigFuncType" "NoFunction";
+BA_DEF_DEF_  "GenSigDataID" "";
+BA_DEF_DEF_  "SigGroup" "";
+BA_ "NmAsrBaseAddress" 1280;
+BA_ "NmAsrMessageCount" 64;
+BA_ "BusType" "CAN FD";
+BA_ "ProtocolType" "CAN";
+BA_ "Baudrate" 500000;
+BA_ "BaudRateCANFD" 2000000;
+BA_ "DBName" "SafetyCANFD4";
+BA_ "NmAsrNodeIdentifier" BU_ ASDM 1;
+BA_ "NmAsrNode" BU_ ASDM 1;
+BA_ "NodeLayerModules" BU_ ASDM "CANoeILNLSPA.dll,AsrNM33.dll";
+BA_ "ILused" BU_ ASDM 1;
+BA_ "NmAsrNode" BU_ ETC 0;
+BA_ "NodeLayerModules" BU_ ETC "CANoeILNLSPA.dll";
+BA_ "ILused" BU_ ETC 0;
+BA_ "NmAsrNodeIdentifier" BU_ PAS 2;
+BA_ "NmAsrNode" BU_ PAS 1;
+BA_ "NodeLayerModules" BU_ PAS "CANoeILNLSPA.dll,AsrNM33.dll";
+BA_ "ILused" BU_ PAS 1;
+BA_ "GenMsgSendType" BO_ 781 1;
+BA_ "GenMsgDelayTime" BO_ 781 20;
+BA_ "GenMsgILSupport" BO_ 781 1;
+BA_ "NmAsrMessage" BO_ 781 0;
+BA_ "VFrameFormat" BO_ 781 14;
+BA_ "GenMsgSendType" BO_ 105 0;
+BA_ "GenMsgCycleTime" BO_ 105 20;
+BA_ "GenMsgStartDelayTime" BO_ 105 0;
+BA_ "GenMsgILSupport" BO_ 105 1;
+BA_ "NmAsrMessage" BO_ 105 0;
+BA_ "VFrameFormat" BO_ 105 14;
+BA_ "GenMsgSendType" BO_ 69 1;
+BA_ "GenMsgDelayTime" BO_ 69 20;
+BA_ "GenMsgILSupport" BO_ 69 1;
+BA_ "NmAsrMessage" BO_ 69 0;
+BA_ "VFrameFormat" BO_ 69 14;
+BA_ "GenSigSendType" SG_ 781 PrkgIntrptReldBtn 1;
+BA_ "GenSigStartValue" SG_ 781 PrkgIntrptReldBtn 0;
+BA_ "GenSigStartValue" SG_ 105 DrvrAsscSysBtnPush 0;
+BA_ "GenSigSendType" SG_ 105 DrvrAsscSysBtnPush 0;
+BA_ "GenSigSendType" SG_ 69 DrvrAsscSysParkMod 1;
+BA_ "GenSigStartValue" SG_ 69 DrvrAsscSysParkMod 0;
+BA_ "GenSigStartValue" SG_ 69 PrkgInOrOutAndCncl 0;
+BA_ "GenSigSendType" SG_ 69 PrkgInOrOutAndCncl 1;
+VAL_ 781 PrkgIntrptReldBtn 0 "ActvnAvl3_Idle" 1 "ActvnAvl3_Actvn" 2 "ActvnAvl3_Deactvn" ;
+VAL_ 105 DrvrAsscSysBtnPush 0 "DrvrAsscSysBtnPush_APAFunctionOnButtonNoPress" 1 "DrvrAsscSysBtnPush_APAFunctionOnButtionPressed" 2 "DrvrAsscSysBtnPush_Undobuttonnopress" 3 "DrvrAsscSysBtnPush_Undobuttonpressed" 4 "DrvrAsscSysBtnPush_Cancelparkingbuttonnopress" 5 "DrvrAsscSysBtnPush_Cancelparkingbuttonpressed" 6 "DrvrAsscSysBtnPush_Confirmparkingbuttonnopressed" 7 "DrvrAsscSysBtnPush_ManualButtonPressed" 8 "DrvrAsscSysBtnPush_ComfirmEnterAutoParkingButtonPressed" 9 "DrvrAsscSysBtnPush_PASbuttonPressed" 10 "DrvrAsscSysBtnPush_RPAbuttonpresse" 11 "DrvrAsscSysBtnPush_RPAbuttonPressed" 12 "DrvrAsscSysBtnPush_Reserved" ;
+VAL_ 69 DrvrAsscSysParkMod 0 "DrvrFbOfPrkgMod2_Default" 1 "DrvrFbOfPrkgMod2_Cancel" 2 "DrvrFbOfPrkgMod2_HorizontalParkingIn" 3 "DrvrFbOfPrkgMod2_PerpendicularParkingIn" 4 "DrvrFbOfPrkgMod2_PerpendicularParkingInForward" 5 "DrvrFbOfPrkgMod2_PerpendicularParkingInBackward" 6 "DrvrFbOfPrkgMod2_Reserved1" 7 "DrvrFbOfPrkgMod2_Reserved2" 8 "DrvrFbOfPrkgMod2_Reserved3" 9 "DrvrFbOfPrkgMod2_HorizontalLeftParkingOut" 10 "DrvrFbOfPrkgMod2_HorizontalRightParkingOut" 11 "DrvrFbOfPrkgMod2_PerpendicularLeftParkingOutForward" 12 "DrvrFbOfPrkgMod2_PerpendicularRightParkingOutForward" 13 "DrvrFbOfPrkgMod2_PerpendicularLeftParkingOutBackward" 14 "DrvrFbOfPrkgMod2_PerpendicularRightParkingOutBackward" 15 "DrvrFbOfPrkgMod2_Reserved6" ;
+VAL_ 69 PrkgInOrOutAndCncl 0 "PrkgInOrOutAndCncl1_Default" 1 "PrkgInOrOutAndCncl1_ParkingIn" 2 "PrkgInOrOutAndCncl1_ParkingOut" 3 "PrkgInOrOutAndCncl1_Cancel" ;
+

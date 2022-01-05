@@ -1,0 +1,6 @@
+/*@!Encoding:936*/
+variables
+{
+  char DBC[8]                 = "DBC.txt";
+}
+

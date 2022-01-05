@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><body><h1>IPU02自动冒烟测试报告</h1><table border="1" style="border-collapse: collapse;cellspacing="0""><tr><td bgcolor="#20B2AA"><font color="#FFFFFF">Time</font></td><td style="font-family: Verdana">2021/08/26 Thursday 14:33:33</td></tr><tr><td bgcolor="#20B2AA"><font color="#FFFFFF">Software version</font></td><td style="font-family: Verdana;width:100px;word-break:keep-all">OS_VERSION=IPU02_OS_210824_283;MAIN_VERSION=DailyBuild;BSP_VERSION=NA</td></tr><tr><td bgcolor="#20B2AA"><font color="#FFFFFF">Test result</font></td><td style="font-family: Verdana; font-size: 20px; font-weight: bold;background-color:red">Failed</td></table><br/><hr><table border="1" style="border-collapse: collapse;cellspacing="0";word-break:break-all";table-layout: fixed><tr><th bgcolor="#20B2AA"><font color="#FFFFFF">Num.</th><th bgcolor="#20B2AA"><font color="#FFFFFF">Title</th><th bgcolor="#20B2AA"><font color="#FFFFFF">TC_ID</th><th bgcolor="#20B2AA"><font color="#FFFFFF">Inital Condition</th><th bgcolor="#20B2AA"><font color="#FFFFFF">Action</th><th bgcolor="#20B2AA"><font color="#FFFFFF">Expected Result</th><th bgcolor="#20B2AA"><font color="#FFFFFF">Test Result</th><th bgcolor="#20B2AA"><font color="#FFFFFF">Describtion</th></tr><tr><td align="center">1</td><td align="center">USB升级</td><td align="center">TC_SmokeTest_001</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">通过USB升级软件</td><td align="left">1.车机升级成功
+2.车机正常上电启动，HMI界面正常</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">2</td><td align="center">版本确认测试</td><td align="center">TC_SmokeTest_002</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">软件升级后查看版本号</td><td align="left">SOC版本信息正确
+MCU版本信息正确</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL</td></tr><tr><td align="center">3</td><td align="center">IHU显示功能测试</td><td align="center">TC_SmokeTest_003</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.接入显示屏
+2.接入环视摄像头</td><td align="left">显示屏能够点亮</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">4</td><td align="center">CAN通讯测试</td><td align="center">TC_SmokeTest_006</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">通过CANoe 连接 IPU02 CAN2，CAN3通道</td><td align="left">1. "CAN2： 仪表盘CAN"数据收发正常
+2.“CAN3：DNL-5"数据收发正常</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL，CAN通讯测试失败</td></tr><tr><td align="center">5</td><td align="center">ETH通讯功能测试</td><td align="center">TC_SmokeTest_007</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.通过以太网转接盒连接电脑和板子
+2.配置电脑IP地址为198.18.36.100，子网掩码：255.255.255.0
+3.通过串口 ping 198.18.36.100
+4.电脑ping 198.18.36.96</td><td align="left">串口返回有ttl信息，表示已ping通</td><td align="center" style="background-color:green">Passed</td><td align="left">Data>
+					<c:Datum value = "321" xsi:type="ts:TS_double" flags = "0x2400"/>
+			</td></tr><tr><td align="center">6</td><td align="center">IPC通讯功能测试</td><td align="center">TC_SmokeTest_008</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">IPU02上电，串口输入：
+./vx_app_qnx_arm_ipc.out
+./vision_apps/vx_app_qnx_arm_ipc.out</td><td align="left">IPC脚本执行完输出结果pass</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">7</td><td align="center">USS距离检测值以太网数据输出接口测试</td><td align="center">TC_SmokeTest_009</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.点击start运行工程，打开USS页面
+3.通过以太网连接盒连接电脑和板子，检测电脑能否ping通板子
+4.板子进入开发者模式，在测试配置里打开Eth数据配置，并勾选USS，重启使之生效
+5.打开电脑以太网数据采集小工具，连接上板子，再打开板子上Eth数据采集，查看小工具主页USS项是否有绿色指示闪烁
+6.小工具start开始采集数据（首次录制的数据可能采集不到，最好丢弃）</td><td align="left">以太网读取的12个USS探头的距离检测值都正常</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">8</td><td align="center">AVM车位检测以太网数据输出接口测试</td><td align="center">TC_SmokeTest_013</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">以太网读取AVM车位坐标值</td><td align="left">以太网读取的AVM车位坐标值正常</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL</td></tr><tr><td align="center">9</td><td align="center">USS距离检测值XCP数据输出接口测试</td><td align="center">TC_SmokeTest_015</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.点击start运行工程，打开USS页面
+3.通过以太网连接盒连接电脑和板子，检测电脑能否ping通板子
+4.板子进入开发者模式，在测试配置里打开Eth数据配置，并勾选USS，重启使之生效
+5.打开板子上Eth数据采集，查看工程上USS对应项是否有数据变化</td><td align="left">XCP读取的12个USS探头的"自发自收测试值+三角定位值"都正常</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">10</td><td align="center">系统日志功能测试</td><td align="center">TC_SmokeTest_021</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">查看串口信息</td><td align="left">串口信息正常，能够正常输入指令，无异常log</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">11</td><td align="center">PD检测功能测试（回放）</td><td align="center">TC_SmokeTest_022</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">通过串口回放PD</td><td align="left">datalog能够正常回放，能正确检测到目标</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">12</td><td align="center">Freespace检测功能测试（回放）</td><td align="center">TC_SmokeTest_023</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">通过串口回放FreeSpace</td><td align="left">datalog能够正常回放，能正确勾选出freespace</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">13</td><td align="center">坡度检测功能测试</td><td align="center">TC_SmokeTest_024</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开坡度检测功能（默认已打开）
+2.挪动板子角度，查看xcp上vehicleSlope数值是否变化</td><td align="left">vehicleSlope数值正常变化，能正确检测到当前坡度</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL,坡度测量值为0</td></tr><tr><td align="center">14</td><td align="center">方向盘转动屏幕响应测试</td><td align="center">TC_SmokeTest_025</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">发送方向盘转角</td><td align="left">屏幕轨迹线正常响应</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">15</td><td align="center">BAF功能测试</td><td align="center">TC_SmokeTest_026</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.在"开发者模式"界面打开"测试配置"，点击盲区测试-是否开启盲区填充功能，查看车模是否变为透明(或者. ./svp.etc/appdbg.sh bfswitch1  打开)
+2.发送D档和车速，查看是否有盲区填充效果</td><td align="left">BAF启动后车底完成了盲区填充，视频显示正常</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL</td></tr><tr><td align="center">16</td><td align="center">CSD功能测试</td><td align="center">TC_SmokeTest_027</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开CSD功能
+2.发送大灯信号（CAN2 1F0），D档调大车速（大于5）
+3.制造脏污
+a) 泥污类不透光脏污，透光率< 10%（即脏污灰度值变化< 背景变化10%） 
+b) 300300像素> 单块脏污成像尺寸 > 25*25像素
+4.通过cat /storage/stdout.log，过滤send msg csd result，查看是否有值</td><td align="left">send msg csd result有值输出</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">17</td><td align="center">车位推荐功能测试</td><td align="center">TC_SmokeTest_028</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.点击“1.进入泊车”
+4.切换车辆档位到D档，给车速
+5.DUT识别到可用车位后（屏幕显示车位为绿框），踩刹车</td><td align="left">依据车位推荐策略锁定车位</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL,搜车位失败</td></tr><tr><td align="center">18</td><td align="center">环视水平车位检测功能测试</td><td align="center">TC_SmokeTest_029</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.点击“1.进入泊车”
+4.切换车辆档位到D档，给车速
+5.DUT识别到可用车位后（屏幕显示车位为绿框），踩刹车</td><td align="left">正常检测到车位</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">19</td><td align="center">环视垂直车位检测功能测试</td><td align="center">TC_SmokeTest_030</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.点击“1.进入泊车”
+4.切换车辆档位到D档，给车速
+5.DUT识别到可用车位后（屏幕显示车位为绿框），踩刹车</td><td align="left">正常检测到车位</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL</td></tr><tr><td align="center">20</td><td align="center">环视斜列式车位检测功能测试</td><td align="center">TC_SmokeTest_031</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.点击“1.进入泊车”
+4.切换车辆档位到D档，给车速
+5.DUT识别到可用车位后（屏幕显示车位为绿框），踩刹车</td><td align="left">正常检测到车位</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL</td></tr><tr><td align="center">21</td><td align="center">环视弯道车位检测功能测试</td><td align="center">TC_SmokeTest_032</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.点击“1.进入泊车”
+4.切换车辆档位到D档，给车速
+5.DUT识别到可用车位后（屏幕显示车位为绿框），踩刹车</td><td align="left">正常检测到车位</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL</td></tr><tr><td align="center">22</td><td align="center">环视水平车位车尾泊入功能测试</td><td align="center">TC_SmokeTest_040</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.点击“1.进入泊车”
+4.点击“2.选择泊入”
+5.切换车辆档位到D档，给点车速，注意车速不要太快
+6.DUT识别到可用车位后（屏幕显示车位为绿框），踩刹车，点击“确认泊车”，松开刹车</td><td align="left">正常完成泊入</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL,泊入失败</td></tr><tr><td align="center">23</td><td align="center">环视垂直车位车尾泊入功能测试</td><td align="center">TC_SmokeTest_041</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.点击“1.进入泊车”
+4.点击“2.选择泊入”
+5.切换车辆档位到D档，给点车速，注意车速不要太快
+6.DUT识别到可用车位后（屏幕显示车位为绿框），踩刹车，点击“确认泊车”，松开刹车</td><td align="left">正常完成泊入</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL,泊入失败</td></tr><tr><td align="center">24</td><td align="center">环视斜列式车位车尾泊入功能测试</td><td align="center">TC_SmokeTest_042</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.点击“1.进入泊车”
+4.点击“2.选择泊入”
+5.切换车辆档位到D档，给点车速，注意车速不要太快
+6.DUT识别到可用车位后（屏幕显示车位为绿框），踩刹车，点击“确认泊车”，松开刹车</td><td align="left">正常完成泊入</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL,泊入失败</td></tr><tr><td align="center">25</td><td align="center">环视弯道车位车尾泊入功能测试</td><td align="center">TC_SmokeTest_043</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.点击“1.进入泊车”
+4.点击“2.选择泊入”
+5.切换车辆档位到D档，给点车速，注意车速不要太快
+6.DUT识别到可用车位后（屏幕显示车位为绿框），踩刹车，点击“确认泊车”，松开刹车</td><td align="left">正常完成泊入</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL,泊入失败</td></tr><tr><td align="center">26</td><td align="center">环视垂直车位车头泊入功能测试</td><td align="center">TC_SmokeTest_044</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.点击“1.进入泊车”
+4.切换车辆档位到D档，给点车速，注意车速不要太快
+5.DUT识别到可用车位后（屏幕显示车位为绿框），踩刹车
+6.点击“车头泊入”。
+7.点击“确认泊车”，松开刹车,等待泊车完成</td><td align="left">正常完成泊入</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL,泊入失败</td></tr><tr><td align="center">27</td><td align="center">环视水平车位车头泊出功能测试</td><td align="center">TC_SmokeTest_049</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.单击进入泊车→点击"手动泊车"→点击"选择泊出"→选择左前方或右前方泊出方向→开始泊出（等待泊出完成结束）</td><td align="left">正常完成泊出</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL:搜车位失败</td></tr><tr><td align="center">28</td><td align="center">环视垂直车位车头泊出功能测试</td><td align="center">TC_SmokeTest_050</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.单击进入泊车→点击"手动泊车"→点击"选择泊出"→选择左前方或右前方泊出方向→开始泊出（等待泊出完成结束）</td><td align="left">正常完成泊出</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL:搜车位失败</td></tr><tr><td align="center">29</td><td align="center">环视斜列式车位车头泊出功能测试</td><td align="center">TC_SmokeTest_051</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.单击进入泊车→点击"手动泊车"→点击"选择泊出"→选择左前方或右前方泊出方向→开始泊出（等待泊出完成结束）</td><td align="left">正常完成泊出</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL:搜车位失败</td></tr><tr><td align="center">30</td><td align="center">环视弯道车位车头泊出功能测试</td><td align="center">TC_SmokeTest_052</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.单击进入泊车→点击"手动泊车"→点击"选择泊出"→选择左前方或右前方泊出方向→开始泊出（等待泊出完成结束）</td><td align="left">正常完成泊出</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL:搜车位失败</td></tr><tr><td align="center">31</td><td align="center">Undo功能测试（打开车门，>60S关门）</td><td align="center">TC_SmokeTest_060</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.打开PAS4_Bench_ARXML_11.cfg工程
+2.运行工程，打开HMI panel
+3.单击进入泊车→挂D档给车速（开始搜车位状态）→搜到可泊车位→踩刹车→确认泊车（车速为0显示绿色推荐车位状态）→握手成功（双绿线锁定）→松开刹车（开始泊车状态）→泊车过程打开车门/前方检测到障碍物（触发中断）→等待70s→关闭车门/移除障碍物（取消中断）→单击UNDO按钮（触发功能状态）</td><td align="left">退出泊车</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL:搜车位失败</td></tr><tr><td align="center">32</td><td align="center">系统启动时间测试</td><td align="center">TC_SmokeTest_068</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">系统启动后，"/tmp/timestamp.log"中查看启动时间</td><td align="left">当前阶段系统启动时间 <7s
+优化后系统启动时间  <3s
+</td><td align="center" style="background-color:red">Failed</td><td align="left">PASS;HMI显示时间:6.936929. 视频显示时间:6.537237</td></tr><tr><td align="center">33</td><td align="center">CPU占用率测试</td><td align="center">TC_SmokeTest_069</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">1.激活APA泊入/泊出
+2.串口输入top，分别查看刚进入搜车位时和进入搜车位十分钟后的CPU占用率</td><td align="left">CPU0+CPU1剩余率>40%(共200%)</td><td align="center" style="background-color:red">Failed</td><td align="left">\rtra</td></tr><tr><td align="center">34</td><td align="center">AVM帧率测试</td><td align="center">TC_SmokeTest_070</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">串口查看GP FPSG显示的帧率大小</td><td align="left">板子上电启动1分钟后AVM帧率不小于20帧/秒(已除去第一帧数据)
+1）平均≥20fps
+2）不存在连续10帧<20fps
+3）全部≥18fps</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL</td></tr><tr><td align="center">35</td><td align="center">Camera帧率测试</td><td align="center">TC_SmokeTest_071</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">串口查看CAP FPSG显示的帧率大小</td><td align="left">板子上电启动1分钟后摄像头帧率不小于24帧/秒(已除去第一帧数据)
+1） 平均≥24fps
+2） 不存在连续10帧<24fps
+3） 全部≥20fps</td><td align="center" style="background-color:red">Failed</td><td align="left">\rstd</td></tr><tr><td align="center">36</td><td align="center">AVM Slot帧率测试</td><td align="center">TC_SmokeTest_072</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">进入搜索车位，在串口查看APA << DetectionTask Check  Left  FPS显示的帧率大小</td><td align="left">1、在车位搜索阶段（没有搜索到车位）≥ 15FPS
+1） 平均≥14fps
+2） 不存在连续10帧<14fps
+3） 全部≥10fps
+2、APA/RPA/RPP，搜索到车位后：全部≥ 18FPS
+3、HPP，搜索到车位后：全部≥ 10FPS</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">37</td><td align="center">PD帧率测试</td><td align="center">TC_SmokeTest_073</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">激活PD功能(/svp/etc/appdbg.sh  pdswitch1)，在串口查看trace:Front_PD … FPSG显示的帧率大小</td><td align="left">PD帧率 
+全部≥10fps</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">38</td><td align="center">Freespace帧率测试</td><td align="center">TC_SmokeTest_074</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">激活Freespace功能(/svp/etc/appdbg.sh  fsswitch1)，在串口查看trace:FS … FPSG显示的帧率大小</td><td align="left">FS帧率：
+APA / RPA  
+1、车位搜索阶段  18FPS
+1） 平均≥18fps
+2） 不存在连续10帧<18fps
+3） 全部≥15fps
+2、泊车阶段 全部 10FPS
+RPP： 车位搜索阶段 + 泊车阶段： 全部≥ 10FPS
+RSPA：泊车阶段：全部≥ 10FPS</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL;NO Data.</td></tr><tr><td align="center">39</td><td align="center">LD for RPP帧率测试</td><td align="center">TC_SmokeTest_075</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">进入搜索车位，在串口查看APA << DetectionTask Check  Left  FPS显示的帧率大小</td><td align="left">LD for RPP帧率：
+1、在车位搜索阶段（没有搜索到车位）≥ 15FPS
+1） 平均≥14fps
+2） 不存在连续10帧<14fps
+3） 全部≥10fps
+2、APA/RPA/RPP，搜索到车位后：全部≥ 18FPS
+3、HPP，搜索到车位后：全部≥ 10FPS</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">40</td><td align="center">LD for TJP帧率测试</td><td align="center">TC_SmokeTest_076</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">打开LD for TJP功能（/svp/etc/appdbg.sh  tjpswitch1），在串口查看TJP << DetectionTask  FPS显示的帧率大小</td><td align="left">LD for TJP帧率：
+全部≥ 15fps</td><td align="center" style="background-color:green">Passed</td><td align="left">PASS</td></tr><tr><td align="center">41</td><td align="center">轮速/脉冲数据周期测试</td><td align="center">TC_SmokeTest_080</td><td align="left">ECU连接好外设上电正常启动</td><td align="left">系统激活泊车功能，读取轮速/脉冲值</td><td align="left">轮速/脉冲数据周期正常</td><td align="center" style="background-color:red">Failed</td><td align="left">FAIL</td></tr></table></body></html>

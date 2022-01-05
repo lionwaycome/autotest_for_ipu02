@@ -1,0 +1,20 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///  Encoding.cin
+///
+///  CAPL include file with constants for Windows codepages
+///
+///  Copyright (c) by Vector Informatik GmbH. All rights reserved.
+///
+///  This software is copyright protected and proprietary to Vector Informatik GmbH.
+///  Vector Informatik GmbH grants to you only those rights as set out in the license conditions.
+///  All other rights remain with Vector Informatik GmbH.
+///
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+variables
+{
+  const dword CP_SHIFT_JIS = 932;
+  const dword CP_UTF8 = 65001;
+  const dword CP_UTF16 = 1200;
+  const dword CP_LATIN1 = 1252;
+}

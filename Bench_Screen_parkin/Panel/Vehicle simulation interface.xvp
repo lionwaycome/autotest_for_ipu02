@@ -1,0 +1,1474 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="Veh_Simulation">
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl21" Children="Controls" ControlName="Group Box 7">
+      <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl48" Children="Controls" ControlName="Button">
+        <Property Name="Name">ButtonControl48</Property>
+        <Property Name="Size">61, 23</Property>
+        <Property Name="Location">8, 17</Property>
+        <Property Name="Text">手刹</Property>
+        <Property Name="SymbolConfiguration">5;1;CANdb1;;;EPB_Status;1;;;-1;;;</Property>
+        <Property Name="TabIndex">37</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl177" Children="Controls" ControlName="Button">
+        <Property Name="Name">ButtonControl177</Property>
+        <Property Name="Size">61, 23</Property>
+        <Property Name="Location">142, 17</Property>
+        <Property Name="Text">安全带</Property>
+        <Property Name="SymbolConfiguration">5;1;EnvVar;;;DrvSeatbelt_status;1;;;-1;;;</Property>
+        <Property Name="TabIndex">36</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl49" Children="Controls" ControlName="Button">
+        <Property Name="Name">ButtonControl49</Property>
+        <Property Name="Size">61, 23</Property>
+        <Property Name="Location">75, 17</Property>
+        <Property Name="Text">脚刹</Property>
+        <Property Name="SymbolConfiguration">5;1;CANdb1;;;Brake_Pedal_Status;1;;;-1;;;</Property>
+        <Property Name="TabIndex">35</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl21</Property>
+      <Property Name="Size">211, 48</Property>
+      <Property Name="Location">6, 203</Property>
+      <Property Name="Text">快捷键</Property>
+      <Property Name="TabIndex">120</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.VectorTabControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="VectorTabControl2" Children="Controls" ControlName="Tab Control">
+      <Object Type="Vector.CANalyzer.Panels.Design.VectorTabPage, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="VectorTabPage6" Children="Controls" ControlName="Tab Control">
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl4" Children="Controls" ControlName="Check Box 2">
+          <Property Name="Name">CheckBoxControl4</Property>
+          <Property Name="Size">144, 17</Property>
+          <Property Name="Location">342, 10</Property>
+          <Property Name="Text">VisnImgDispModReq_UB</Property>
+          <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq_UB;1;CAN1;;-1;;;</Property>
+          <Property Name="TabIndex">78</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl8" Children="Controls" ControlName="More view">
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl83" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl83</Property>
+            <Property Name="Size">55, 23</Property>
+            <Property Name="Location">7, 17</Property>
+            <Property Name="PressValue">7</Property>
+            <Property Name="Text">前三拼</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl90" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl90</Property>
+            <Property Name="Size">55, 23</Property>
+            <Property Name="Location">68, 17</Property>
+            <Property Name="PressValue">5</Property>
+            <Property Name="Text">前双拼</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl89" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl89</Property>
+            <Property Name="Size">55, 23</Property>
+            <Property Name="Location">7, 47</Property>
+            <Property Name="PressValue">8</Property>
+            <Property Name="Text">后三拼</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl91" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl91</Property>
+            <Property Name="Size">55, 23</Property>
+            <Property Name="Location">68, 47</Property>
+            <Property Name="PressValue">6</Property>
+            <Property Name="Text">后双拼</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Property Name="Name">GroupBoxControl8</Property>
+          <Property Name="Size">130, 108</Property>
+          <Property Name="Location">335, 36</Property>
+          <Property Name="Text">More view</Property>
+          <Property Name="TabIndex">77</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl6" Children="Controls" ControlName="3D view">
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl88" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl88</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">108, 76</Property>
+            <Property Name="PressValue">20</Property>
+            <Property Name="Text">右后</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl80" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl80</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">10, 17</Property>
+            <Property Name="PressValue">17</Property>
+            <Property Name="Text">左前</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl7" ControlName="LED Control 2">
+            <Property Name="Name">LEDControl7</Property>
+            <Property Name="Size">21, 23</Property>
+            <Property Name="Location">70, 47</Property>
+            <Property Name="UsedLEDColorOn">LimeGreen</Property>
+            <Property Name="UsedLEDColorOff">Red</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;VisnAgExtnResp;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">35</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl86" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl86</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">108, 17</Property>
+            <Property Name="PressValue">18</Property>
+            <Property Name="Text">右前</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl1" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl1</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">10, 47</Property>
+            <Property Name="PressValue">15</Property>
+            <Property Name="Text">左路</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl5" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl5</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">59, 76</Property>
+            <Property Name="PressValue">14</Property>
+            <Property Name="Text">后路</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl84" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl84</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">10, 76</Property>
+            <Property Name="PressValue">19</Property>
+            <Property Name="Text">左后</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl2" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl2</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">108, 47</Property>
+            <Property Name="PressValue">16</Property>
+            <Property Name="Text">右路</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl4" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl4</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">59, 17</Property>
+            <Property Name="PressValue">13</Property>
+            <Property Name="Text">前路</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Property Name="Name">GroupBoxControl6</Property>
+          <Property Name="Size">160, 108</Property>
+          <Property Name="Location">169, 36</Property>
+          <Property Name="Text">3D view</Property>
+          <Property Name="TabIndex">77</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl1" Children="Controls" ControlName="2D view">
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl8" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl8</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">59, 17</Property>
+            <Property Name="Text">前路</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl6" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl6</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">10, 47</Property>
+            <Property Name="PressValue">3</Property>
+            <Property Name="Text">左路</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl8" ControlName="LED Control 2">
+            <Property Name="Name">LEDControl8</Property>
+            <Property Name="Size">21, 23</Property>
+            <Property Name="Location">70, 47</Property>
+            <Property Name="UsedLEDColorOn">LimeGreen</Property>
+            <Property Name="UsedLEDColorOff">Red</Property>
+            <Property Name="SwitchValueOn">0</Property>
+            <Property Name="SwitchValueOff">1</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;VisnAgExtnResp;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">35</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl7" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl7</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">108, 47</Property>
+            <Property Name="PressValue">4</Property>
+            <Property Name="Text">右路</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl9" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl9</Property>
+            <Property Name="Size">43, 23</Property>
+            <Property Name="Location">59, 76</Property>
+            <Property Name="PressValue">2</Property>
+            <Property Name="Text">后路</Property>
+            <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Property Name="Name">GroupBoxControl1</Property>
+          <Property Name="Size">160, 108</Property>
+          <Property Name="Location">3, 36</Property>
+          <Property Name="Text">2D view</Property>
+          <Property Name="TabIndex">77</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl2" Children="Controls" ControlName="Combo Box 3">
+          <Property Name="Name">ComboBoxControl2</Property>
+          <Property Name="Size">233, 20</Property>
+          <Property Name="Location">96, 8</Property>
+          <Property Name="DropDownWidth">115</Property>
+          <Property Name="BackColor">Window</Property>
+          <Property Name="ForeColor">WindowText</Property>
+          <Property Name="TextBackColor">White</Property>
+          <Property Name="DisplayLabel">Left</Property>
+          <Property Name="DescriptionText">ModeCheck: </Property>
+          <Property Name="DescriptionSize">73, 22</Property>
+          <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;VisnImgDispModResp;1;CAN1;;-1;;;</Property>
+          <Property Name="TabIndex">2</Property>
+          <Property Name="ReadOnlyControl">True</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl76" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl76</Property>
+          <Property Name="Size">70, 23</Property>
+          <Property Name="Location">3, 6</Property>
+          <Property Name="Text">3D Switch</Property>
+          <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr09;VisnAgExtnReq;1;CAN1;;-1;;;</Property>
+          <Property Name="TabIndex">65</Property>
+        </Object>
+        <Property Name="Name">VectorTabPage6</Property>
+        <Property Name="Size">612, 147</Property>
+        <Property Name="Location">4, 24</Property>
+        <Property Name="Text">AVM触控</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.VectorTabPage, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="VectorTabPage4" Children="Controls" ControlName="Tab Control">
+        <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl17" Children="Controls" ControlName="Group Box">
+          <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl3" Children="Controls" ControlName="Static Text">
+            <Property Name="Name">StaticTextControl3</Property>
+            <Property Name="Size">17, 52</Property>
+            <Property Name="Location">5, 12</Property>
+            <Property Name="Text">一
+键
+泊
+入</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl107" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl107</Property>
+            <Property Name="Size">50, 23</Property>
+            <Property Name="Location">134, 13</Property>
+            <Property Name="Text">下转</Property>
+            <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_Rdown_Vertical;1;;;-1;;;</Property>
+            <Property Name="TabIndex">59</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl104" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl104</Property>
+            <Property Name="Size">50, 23</Property>
+            <Property Name="Location">80, 13</Property>
+            <Property Name="Text">上转</Property>
+            <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_Rup_Vertical;1;;;-1;;;</Property>
+            <Property Name="TabIndex">60</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl28" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl28</Property>
+            <Property Name="Size">50, 23</Property>
+            <Property Name="Location">26, 13</Property>
+            <Property Name="Text">垂直</Property>
+            <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_HK_Vertical;1;;;-1;;;</Property>
+            <Property Name="TabIndex">61</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl106" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl106</Property>
+            <Property Name="Size">50, 23</Property>
+            <Property Name="Location">134, 61</Property>
+            <Property Name="Text">逆时针</Property>
+            <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_Runclockwise_Oblique;1;;;-1;;;</Property>
+            <Property Name="TabIndex">62</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl105" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl105</Property>
+            <Property Name="Size">50, 23</Property>
+            <Property Name="Location">134, 37</Property>
+            <Property Name="Text">右转</Property>
+            <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_RRight_Parallel;1;;;-1;;;</Property>
+            <Property Name="TabIndex">65</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl103" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl103</Property>
+            <Property Name="Size">50, 23</Property>
+            <Property Name="Location">80, 61</Property>
+            <Property Name="Text">顺时针</Property>
+            <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_Rclockwise_Oblique;1;;;-1;;;</Property>
+            <Property Name="TabIndex">63</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl102" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl102</Property>
+            <Property Name="Size">50, 23</Property>
+            <Property Name="Location">80, 37</Property>
+            <Property Name="Text">左转</Property>
+            <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_Rleft_Parallel;1;;;-1;;;</Property>
+            <Property Name="TabIndex">66</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl29" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl29</Property>
+            <Property Name="Size">50, 23</Property>
+            <Property Name="Location">26, 61</Property>
+            <Property Name="Text">斜列式</Property>
+            <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_HK_Oblique;1;;;-1;;;</Property>
+            <Property Name="TabIndex">64</Property>
+          </Object>
+          <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl35" Children="Controls" ControlName="Button">
+            <Property Name="Name">ButtonControl35</Property>
+            <Property Name="Size">50, 23</Property>
+            <Property Name="Location">26, 37</Property>
+            <Property Name="Text">水平</Property>
+            <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_HK_Parallel;1;;;-1;;;</Property>
+            <Property Name="TabIndex">67</Property>
+          </Object>
+          <Property Name="Name">GroupBoxControl17</Property>
+          <Property Name="Size">190, 90</Property>
+          <Property Name="Location">411, 28</Property>
+          <Property Name="Font">SimSun, 9pt</Property>
+          <Property Name="Text">
+          </Property>
+          <Property Name="TabIndex">76</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl42" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl42</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">210, 36</Property>
+          <Property Name="Text">取消旋转</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;Cancel_Rotating;1;;;-1;;;</Property>
+          <Property Name="TabIndex">66</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl40" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl40</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">344, 94</Property>
+          <Property Name="PressValue">2</Property>
+          <Property Name="Text">逆时针旋</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;Oblique_Rotating;1;;;-1;;;</Property>
+          <Property Name="TabIndex">66</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl39" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl39</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">277, 94</Property>
+          <Property Name="Text">顺时针旋</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;Oblique_Rotating;1;;;-1;;;</Property>
+          <Property Name="TabIndex">66</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl38" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl38</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">344, 65</Property>
+          <Property Name="PressValue">2</Property>
+          <Property Name="Text">向右旋</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;Parallel_Rotating;1;;;-1;;;</Property>
+          <Property Name="TabIndex">66</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl37" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl37</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">277, 65</Property>
+          <Property Name="Text">向左旋</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;Parallel_Rotating;1;;;-1;;;</Property>
+          <Property Name="TabIndex">66</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl36" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl36</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">344, 36</Property>
+          <Property Name="PressValue">2</Property>
+          <Property Name="Text">向下旋</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;Vertical_Rotating;1;;;-1;;;</Property>
+          <Property Name="TabIndex">66</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl27" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl27</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">277, 36</Property>
+          <Property Name="Text">向上旋</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;Vertical_Rotating;1;;;-1;;;</Property>
+          <Property Name="TabIndex">66</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl13" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl13</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">9, 65</Property>
+          <Property Name="Text">自动泊出</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_Parking_Out;1;;;-1;;;</Property>
+          <Property Name="TabIndex">60</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl15" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl15</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">9, 6</Property>
+          <Property Name="Text">APA退出键</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_Return_Switch;1;;;-1;;;</Property>
+          <Property Name="TabIndex">63</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl19" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl19</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">9, 36</Property>
+          <Property Name="Text">自动泊车</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_Auto_Parking;1;;;-1;;;</Property>
+          <Property Name="TabIndex">62</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl23" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl23</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">210, 94</Property>
+          <Property Name="Text">中断取消</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_Stop_Cancel;1;;;-1;;;</Property>
+          <Property Name="TabIndex">50</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl25" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl25</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">9, 94</Property>
+          <Property Name="Text">自选车位</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_Optional_Parking;1;;;-1;;;</Property>
+          <Property Name="TabIndex">61</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl26" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl26</Property>
+          <Property Name="Size">128, 23</Property>
+          <Property Name="Location">76, 94</Property>
+          <Property Name="Text">确认车位类型</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_OP_Confirm_Switch;1;;;-1;;;</Property>
+          <Property Name="TabIndex">52</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl53" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl53</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">110, 36</Property>
+          <Property Name="Text">垂直车位</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_OP_Vertical;1;;;-1;;;</Property>
+          <Property Name="TabIndex">59</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl54" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl54</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">143, 65</Property>
+          <Property Name="Text">斜列车位</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_OP_Oblique;1;;;-1;;;</Property>
+          <Property Name="TabIndex">53</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl58" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl58</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">76, 65</Property>
+          <Property Name="Text">水平车位</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_OP_Parallel;1;;;-1;;;</Property>
+          <Property Name="TabIndex">55</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl59" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl59</Property>
+          <Property Name="Size">61, 23</Property>
+          <Property Name="Location">76, 6</Property>
+          <Property Name="Text">返回键</Property>
+          <Property Name="SymbolConfiguration">5;1;CANdb1;;;APA_OP_Return_Switch;1;;;-1;;;</Property>
+          <Property Name="TabIndex">54</Property>
+        </Object>
+        <Property Name="Name">VectorTabPage4</Property>
+        <Property Name="Size">612, 147</Property>
+        <Property Name="Location">4, 24</Property>
+        <Property Name="Text">APA触控</Property>
+      </Object>
+      <Property Name="Name">VectorTabControl2</Property>
+      <Property Name="Size">620, 176</Property>
+      <Property Name="Location">6, 505</Property>
+      <Property Name="SymbolConfiguration">
+      </Property>
+      <Property Name="TabIndex">107</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl14" Children="Controls" ControlName="Group Box">
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl1" ControlName="Switch/Indicator">
+        <Property Name="Name">SwitchControl1</Property>
+        <Property Name="Size">19, 27</Property>
+        <Property Name="Location">112, 17</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;BCM;BCM_LightChimeReq;BCM_RearFogLightSts;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">27</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl20" ControlName="Switch/Indicator">
+        <Property Name="Name">SwitchControl20</Property>
+        <Property Name="Size">19, 27</Property>
+        <Property Name="Location">78, 17</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;BCM;BCM_LightChimeReq;BCM_FrontFogLightSts;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">27</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl23" ControlName="Switch/Indicator">
+        <Property Name="Name">SwitchControl23</Property>
+        <Property Name="Size">19, 27</Property>
+        <Property Name="Location">10, 17</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgStsHiBeam;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">25</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl21" ControlName="Switch/Indicator">
+        <Property Name="Name">SwitchControl21</Property>
+        <Property Name="Size">19, 27</Property>
+        <Property Name="Location">44, 17</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgStsLoBeam;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">26</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl24" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl24</Property>
+        <Property Name="Size">29, 13</Property>
+        <Property Name="Location">6, 49</Property>
+        <Property Name="Text">远光</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl2" ControlName="Switch/Indicator">
+        <Property Name="Name">SwitchControl2</Property>
+        <Property Name="Size">19, 27</Property>
+        <Property Name="Location">180, 17</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgStsStopLi;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">23</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl19" ControlName="Switch/Indicator">
+        <Property Name="Name">SwitchControl19</Property>
+        <Property Name="Size">19, 27</Property>
+        <Property Name="Location">146, 17</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;BCM;BCM_LightChimeReq;BCM_PositionLightSts;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">23</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl13" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl13</Property>
+        <Property Name="Size">29, 13</Property>
+        <Property Name="Location">108, 49</Property>
+        <Property Name="Text">后雾</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl23" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl23</Property>
+        <Property Name="Size">29, 13</Property>
+        <Property Name="Location">40, 49</Property>
+        <Property Name="Text">近光</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl21" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl21</Property>
+        <Property Name="Size">29, 13</Property>
+        <Property Name="Location">74, 49</Property>
+        <Property Name="Text">前雾</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl6" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl6</Property>
+        <Property Name="Size">29, 13</Property>
+        <Property Name="Location">176, 49</Property>
+        <Property Name="Text">刹车</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl20" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl20</Property>
+        <Property Name="Size">29, 13</Property>
+        <Property Name="Location">142, 49</Property>
+        <Property Name="Text">示宽</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl14</Property>
+      <Property Name="Size">211, 68</Property>
+      <Property Name="Location">6, 257</Property>
+      <Property Name="Text">其他按键</Property>
+      <Property Name="TabIndex">105</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl5" Children="Controls" ControlName="Group Box">
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl15" ControlName="RL_0">
+        <Property Name="Name">SwitchControl15</Property>
+        <Property Name="Size">33, 47</Property>
+        <Property Name="Location">38, 191</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="ImageFile">..\贴图\5.jpg</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorLeReSts_UB;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">99</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl7" ControlName="RL">
+        <Property Name="Name">SwitchControl7</Property>
+        <Property Name="Size">33, 47</Property>
+        <Property Name="Location">38, 191</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="ImageFile">..\贴图\5.jpg</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;BCM;BCM_LDoorWindowState;BCM_RearLeftDoorAjarStatus;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">99</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl13" ControlName="Drv_0">
+        <Property Name="Name">SwitchControl13</Property>
+        <Property Name="Size">36, 51</Property>
+        <Property Name="Location">36, 147</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="ImageFile">..\贴图\4.jpg</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorDrvrSts_UB;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">95</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl10" ControlName="Drv">
+        <Property Name="Name">SwitchControl10</Property>
+        <Property Name="Size">36, 51</Property>
+        <Property Name="Location">36, 147</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="ImageFile">..\贴图\4.jpg</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;BCM;BCM_LDoorWindowState;BCM_FrontLeftDoorAjarStatus;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">95</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl3" ControlName="RR_0">
+        <Property Name="Name">SwitchControl3</Property>
+        <Property Name="Size">69, 43</Property>
+        <Property Name="Location">64, 237</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="ImageFile">..\贴图\2.jpg</Property>
+        <Property Name="IsProportional">False</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;TrSts_UB;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">98</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl24" ControlName="RR_0">
+        <Property Name="Name">SwitchControl24</Property>
+        <Property Name="Size">31, 43</Property>
+        <Property Name="Location">127, 192</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="ImageFile">..\贴图\3.jpg</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorRiReSts_UB;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">98</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl6" ControlName="RR">
+        <Property Name="Name">SwitchControl6</Property>
+        <Property Name="Size">31, 43</Property>
+        <Property Name="Location">127, 192</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="ImageFile">..\贴图\3.jpg</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;BCM;BCM_RDoorWindowState;BCM_RearRightDoorAjarStatus;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">98</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl11" ControlName="Switch/Indicator">
+        <Property Name="Name">SwitchControl11</Property>
+        <Property Name="Size">69, 51</Property>
+        <Property Name="Location">64, 103</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="ImageFile">..\贴图\引擎盖打开.jpg</Property>
+        <Property Name="IsProportional">False</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;BCM;BCM_StateUpdate;BCM_HoodAjarStatus;1;CAN1;CAN1;-1;;;</Property>
+        <Property Name="TabIndex">96</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl14" ControlName="Pass_0">
+        <Property Name="Name">SwitchControl14</Property>
+        <Property Name="Size">36, 51</Property>
+        <Property Name="Location">126, 147</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="ImageFile">..\贴图\6.jpg</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorPassSts_UB;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">100</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl9" ControlName="Pass">
+        <Property Name="Name">SwitchControl9</Property>
+        <Property Name="Size">36, 51</Property>
+        <Property Name="Location">126, 147</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="ImageFile">..\贴图\6.jpg</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;BCM;BCM_RDoorWindowState;BCM_FrontRightDoorAjarStatus;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">100</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="PictureBoxControl2" ControlName="Picture Box">
+        <Property Name="Name">PictureBoxControl2</Property>
+        <Property Name="Size">85, 160</Property>
+        <Property Name="Location">56, 105</Property>
+        <Property Name="ImageFile">..\贴图\1.jpg</Property>
+        <Property Name="IsProportional">False</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl5</Property>
+      <Property Name="Size">196, 411</Property>
+      <Property Name="Location">430, 90</Property>
+      <Property Name="Text">车模显示</Property>
+      <Property Name="TabIndex">102</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl20" ControlName="LED Control 2">
+      <Property Name="Name">LEDControl20</Property>
+      <Property Name="Size">20, 22</Property>
+      <Property Name="Location">197, 174</Property>
+      <Property Name="UsedLEDColorOn">LimeGreen</Property>
+      <Property Name="UsedLEDColorOff">Red</Property>
+      <Property Name="SwitchValueOn">0</Property>
+      <Property Name="SwitchValueOff">1</Property>
+      <Property Name="SymbolConfiguration">5;2;CANdb1;ESC;ESC_Status;ESC_EPBStatus;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">46</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl19" ControlName="LED Control 2">
+      <Property Name="Name">LEDControl19</Property>
+      <Property Name="Size">20, 22</Property>
+      <Property Name="Location">197, 146</Property>
+      <Property Name="UsedLEDColorOn">LimeGreen</Property>
+      <Property Name="UsedLEDColorOff">Red</Property>
+      <Property Name="SwitchValueOn">0</Property>
+      <Property Name="SwitchValueOff">1</Property>
+      <Property Name="SymbolConfiguration">5;2;CANdb1;ESC;ESC_Status;ESC_BrakePedalSwitchStatus;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">46</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl18" ControlName="LED Control 2">
+      <Property Name="Name">LEDControl18</Property>
+      <Property Name="Size">20, 22</Property>
+      <Property Name="Location">197, 118</Property>
+      <Property Name="UsedLEDColorOn">LimeGreen</Property>
+      <Property Name="UsedLEDColorOff">Red</Property>
+      <Property Name="SwitchValueOn">0</Property>
+      <Property Name="SwitchValueOff">1</Property>
+      <Property Name="SymbolConfiguration">5;2;CANdb1;ACU;ACU_ChimeTelltaleReq;ACU_DrvSeatbeltBucklestatus;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">46</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl21" ControlName="Engine_1">
+      <Property Name="Name">LEDControl21</Property>
+      <Property Name="Size">20, 22</Property>
+      <Property Name="Location">197, 90</Property>
+      <Property Name="UsedLEDColorOn">LimeGreen</Property>
+      <Property Name="UsedLEDColorOff">Red</Property>
+      <Property Name="SwitchValueOn">3</Property>
+      <Property Name="SymbolConfiguration">5;2;CANdb1;EMS;EMS_EngineRPM;EMS_EngStatus;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">46</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl13" ControlName="Engine_0">
+      <Property Name="Name">LEDControl13</Property>
+      <Property Name="Size">20, 22</Property>
+      <Property Name="Location">197, 90</Property>
+      <Property Name="UsedLEDColorOn">LimeGreen</Property>
+      <Property Name="UsedLEDColorOff">Red</Property>
+      <Property Name="SwitchValueOn">3</Property>
+      <Property Name="SymbolConfiguration">5;2;CANdb1;EMS;EMS_EngineRPM;EMS_EngStatus;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">46</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.VectorTabControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="VectorTabControl4" Children="Controls" ControlName="Tab Control">
+      <Object Type="Vector.CANalyzer.Panels.Design.VectorTabPage, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="VectorTabPage8" Children="Controls" ControlName="Tab Control">
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl154" Children="Controls" ControlName="Button 2">
+          <Property Name="Name">ButtonControl154</Property>
+          <Property Name="Size">55, 22</Property>
+          <Property Name="Location">59, 2</Property>
+          <Property Name="Text">AVM按键</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;AVM_HK_ShortPress;1;;;-1;;;</Property>
+          <Property Name="TabIndex">48</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl2" Children="Controls" ControlName="Check Box">
+          <Property Name="Name">CheckBoxControl2</Property>
+          <Property Name="Size">60, 17</Property>
+          <Property Name="Location">1, 6</Property>
+          <Property Name="Text">盒子B+</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Relay_Channel6;1;;;-1;;;</Property>
+          <Property Name="TabIndex">50</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl5" Children="Controls" ControlName="Relay2">
+          <Property Name="Name">CheckBoxControl5</Property>
+          <Property Name="Size">30, 17</Property>
+          <Property Name="Location">147, 31</Property>
+          <Property Name="Text">1</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Relay_Channel1;1;;;-1;;;</Property>
+          <Property Name="TabIndex">22</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl153" Children="Controls" ControlName="Button 3">
+          <Property Name="Name">ButtonControl153</Property>
+          <Property Name="Size">55, 22</Property>
+          <Property Name="Location">59, 28</Property>
+          <Property Name="Text">APA按键</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;APA_HK_ShortPress;1;;;-1;;;</Property>
+          <Property Name="TabIndex">49</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl14" Children="Controls" ControlName="Channel">
+          <Property Name="Name">StaticTextControl14</Property>
+          <Property Name="Size">29, 13</Property>
+          <Property Name="Location">119, 32</Property>
+          <Property Name="Text">CHN:</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl31" Children="Controls" ControlName="Relay8">
+          <Property Name="Name">CheckBoxControl31</Property>
+          <Property Name="Size">30, 17</Property>
+          <Property Name="Location">364, 31</Property>
+          <Property Name="Text">8</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Relay_Channel8;1;;;-1;;;</Property>
+          <Property Name="TabIndex">25</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl29" Children="Controls" ControlName="Relay6">
+          <Property Name="Name">CheckBoxControl29</Property>
+          <Property Name="Size">30, 17</Property>
+          <Property Name="Location">302, 31</Property>
+          <Property Name="Text">6</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Relay_Channel6;1;;;-1;;;</Property>
+          <Property Name="TabIndex">25</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl30" Children="Controls" ControlName="Relay7">
+          <Property Name="Name">CheckBoxControl30</Property>
+          <Property Name="Size">30, 17</Property>
+          <Property Name="Location">333, 31</Property>
+          <Property Name="Text">7</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Relay_Channel7;1;;;-1;;;</Property>
+          <Property Name="TabIndex">24</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl28" Children="Controls" ControlName="Relay5">
+          <Property Name="Name">CheckBoxControl28</Property>
+          <Property Name="Size">30, 17</Property>
+          <Property Name="Location">271, 31</Property>
+          <Property Name="Text">5</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Relay_Channel5;1;;;-1;;;</Property>
+          <Property Name="TabIndex">24</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl27" Children="Controls" ControlName="Check Box">
+          <Property Name="Name">CheckBoxControl27</Property>
+          <Property Name="Size">15, 15</Property>
+          <Property Name="Location">147, 6</Property>
+          <Property Name="Text">
+          </Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;RelayLinkSwitch;1;;;-1;;;</Property>
+          <Property Name="TabIndex">47</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl7" Children="Controls" ControlName="Relay4">
+          <Property Name="Name">CheckBoxControl7</Property>
+          <Property Name="Size">30, 17</Property>
+          <Property Name="Location">240, 31</Property>
+          <Property Name="Text">4</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Relay_Channel4;1;;;-1;;;</Property>
+          <Property Name="TabIndex">25</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl8" Children="Controls" ControlName="Relay3">
+          <Property Name="Name">CheckBoxControl8</Property>
+          <Property Name="Size">30, 17</Property>
+          <Property Name="Location">209, 31</Property>
+          <Property Name="Text">3</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Relay_Channel3;1;;;-1;;;</Property>
+          <Property Name="TabIndex">24</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl6" Children="Controls" ControlName="Relay2">
+          <Property Name="Name">CheckBoxControl6</Property>
+          <Property Name="Size">30, 17</Property>
+          <Property Name="Location">178, 31</Property>
+          <Property Name="Text">2</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Relay_Channel2;1;;;-1;;;</Property>
+          <Property Name="TabIndex">23</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl7" Children="Controls" ControlName="Combo Box">
+          <Property Name="Name">ComboBoxControl7</Property>
+          <Property Name="Size">132, 20</Property>
+          <Property Name="Location">164, 4</Property>
+          <Property Name="DropDownWidth">91</Property>
+          <Property Name="BackColor">Window</Property>
+          <Property Name="ForeColor">WindowText</Property>
+          <Property Name="DisplayedRows">UseMaxDropDownItems</Property>
+          <Property Name="TextBackColor">White</Property>
+          <Property Name="DisplayLabel">Left</Property>
+          <Property Name="DescriptionText">继电器端口</Property>
+          <Property Name="DescriptionSize">66, 22</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Relay_ComPort;1;;;-1;;;</Property>
+          <Property Name="TabIndex">20</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl3" Children="Controls" ControlName="Button">
+          <Property Name="Name">ButtonControl3</Property>
+          <Property Name="Size">72, 22</Property>
+          <Property Name="Location">317, 3</Property>
+          <Property Name="Text">保存配置</Property>
+          <Property Name="SymbolConfiguration">5;16;Relay;;;Save_Settings;1;;;-1;;;</Property>
+          <Property Name="TabIndex">19</Property>
+        </Object>
+        <Property Name="Name">VectorTabPage8</Property>
+        <Property Name="Size">395, 49</Property>
+        <Property Name="Location">4, 24</Property>
+        <Property Name="Text">继电器状态</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.VectorTabPage, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="VectorTabPage12" Children="Controls" ControlName="Tab Control">
+        <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl15" Children="Controls" ControlName="Static Text">
+          <Property Name="Name">StaticTextControl15</Property>
+          <Property Name="Size">11, 52</Property>
+          <Property Name="Location">297, 1</Property>
+          <Property Name="Text">|
+|
+|
+|</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl12" Children="Controls" ControlName="Static Text">
+          <Property Name="Name">StaticTextControl12</Property>
+          <Property Name="Size">11, 52</Property>
+          <Property Name="Location">108, 3</Property>
+          <Property Name="Text">|
+|
+|
+|</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl11" Children="Controls" ControlName="Input/Output Box 8">
+          <Property Name="Name">TextBoxControl11</Property>
+          <Property Name="Size">65, 21</Property>
+          <Property Name="Location">226, 3</Property>
+          <Property Name="AlarmUpperTextColor">WindowText</Property>
+          <Property Name="ValueDecimalPlaces">0</Property>
+          <Property Name="AlarmLowerBkgColor">Salmon</Property>
+          <Property Name="BoxTextAlign">Center</Property>
+          <Property Name="ValueDisplay">Decimal</Property>
+          <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+          <Property Name="AlarmLowerTextColor">WindowText</Property>
+          <Property Name="AlarmGeneralSettings">1;0;0;0</Property>
+          <Property Name="DisplayLabel">Left</Property>
+          <Property Name="DescriptionText">H:</Property>
+          <Property Name="DescriptionSize">17, 23</Property>
+          <Property Name="SymbolConfiguration">5;16;Tools;;;Target_hour;1;;;-1;;;</Property>
+          <Property Name="TabIndex">0</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl30" Children="Controls" ControlName="Input/Output Box 8">
+          <Property Name="Name">TextBoxControl30</Property>
+          <Property Name="Size">65, 21</Property>
+          <Property Name="Location">226, 27</Property>
+          <Property Name="AlarmUpperTextColor">WindowText</Property>
+          <Property Name="ValueDecimalPlaces">0</Property>
+          <Property Name="AlarmLowerBkgColor">Salmon</Property>
+          <Property Name="BoxTextAlign">Center</Property>
+          <Property Name="ValueDisplay">Decimal</Property>
+          <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+          <Property Name="AlarmLowerTextColor">WindowText</Property>
+          <Property Name="AlarmGeneralSettings">1;0;0;0</Property>
+          <Property Name="DisplayLabel">Left</Property>
+          <Property Name="DescriptionText">M:</Property>
+          <Property Name="DescriptionSize">17, 23</Property>
+          <Property Name="SymbolConfiguration">5;16;Tools;;;Target_minute;1;;;-1;;;</Property>
+          <Property Name="TabIndex">0</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl3" Children="Controls" ControlName="Check Box">
+          <Property Name="Name">CheckBoxControl3</Property>
+          <Property Name="Size">96, 17</Property>
+          <Property Name="Location">125, 6</Property>
+          <Property Name="Text">AutoMacroSts</Property>
+          <Property Name="SymbolConfiguration">5;16;Tools;;;AutoMacroSwitch;1;;;-1;;;</Property>
+          <Property Name="TabIndex">25</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl29" Children="Controls" ControlName="Input/Output Box 8">
+          <Property Name="Name">TextBoxControl29</Property>
+          <Property Name="Size">95, 21</Property>
+          <Property Name="Location">7, 27</Property>
+          <Property Name="AlarmUpperTextColor">WindowText</Property>
+          <Property Name="ValueDecimalPlaces">0</Property>
+          <Property Name="AlarmLowerBkgColor">Salmon</Property>
+          <Property Name="ValueDisplay">Decimal</Property>
+          <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+          <Property Name="AlarmLowerTextColor">WindowText</Property>
+          <Property Name="AlarmGeneralSettings">1;0;0;0</Property>
+          <Property Name="DisplayLabel">Left</Property>
+          <Property Name="DescriptionText">Log时长</Property>
+          <Property Name="DescriptionSize">48, 23</Property>
+          <Property Name="SymbolConfiguration">5;16;Logging;;;Logging_Timer;1;;;-1;;;</Property>
+          <Property Name="TabIndex">0</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ButtonControl111" Children="Controls" ControlName="Button 5">
+          <Property Name="Name">ButtonControl111</Property>
+          <Property Name="Size">96, 23</Property>
+          <Property Name="Location">124, 26</Property>
+          <Property Name="Text">停止运行</Property>
+          <Property Name="SymbolConfiguration">5;16;Tools;;;StopMacroFile;1;;;-1;;;</Property>
+          <Property Name="TabIndex">1</Property>
+        </Object>
+        <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl1" Children="Controls" ControlName="Check Box 3">
+          <Property Name="Name">CheckBoxControl1</Property>
+          <Property Name="Size">66, 17</Property>
+          <Property Name="Location">7, 6</Property>
+          <Property Name="Text">录制Log</Property>
+          <Property Name="SymbolConfiguration">5;16;Logging;;;Logging;1;;;-1;;;</Property>
+          <Property Name="TabIndex">2</Property>
+        </Object>
+        <Property Name="Name">VectorTabPage12</Property>
+        <Property Name="Size">395, 49</Property>
+        <Property Name="Location">4, 24</Property>
+        <Property Name="Text">其他功能</Property>
+      </Object>
+      <Property Name="Name">VectorTabControl4</Property>
+      <Property Name="Size">403, 77</Property>
+      <Property Name="Location">223, 8</Property>
+      <Property Name="SymbolConfiguration">
+      </Property>
+      <Property Name="TabIndex">96</Property>
+      <Property Name="ActiveBackColor">White</Property>
+      <Property Name="InactiveBackColor">Gainsboro</Property>
+      <Property Name="ActiveTextColor">Desktop</Property>
+      <Property Name="InactiveTextColor">Desktop</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl4" Children="Controls" ControlName="Engine_0">
+      <Property Name="Name">ComboBoxControl4</Property>
+      <Property Name="Size">188, 20</Property>
+      <Property Name="Location">6, 90</Property>
+      <Property Name="DropDownWidth">69</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText"> 发动机: </Property>
+      <Property Name="DescriptionSize">60, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;CANdb1;EMS;EMS_EngineRPM;EMS_EngStatus;1;CAN1;CAN1;-1;;;</Property>
+      <Property Name="TabIndex">93</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl2" Children="Controls" ControlName="Group Box">
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="PictureBoxControl29" ControlName="Gear">
+        <Property Name="Name">PictureBoxControl29</Property>
+        <Property Name="Size">68, 32</Property>
+        <Property Name="Location">68, 95</Property>
+        <Property Name="ImageFile">..\贴图\Gear.jpg</Property>
+        <Property Name="IsProportional">False</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="PictureBoxControl28" ControlName="EPB">
+        <Property Name="Name">PictureBoxControl28</Property>
+        <Property Name="Size">68, 32</Property>
+        <Property Name="Location">68, 95</Property>
+        <Property Name="ImageFile">..\贴图\EPB.jpg</Property>
+        <Property Name="IsProportional">False</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="PictureBoxControl1" ControlName="Brake">
+        <Property Name="Name">PictureBoxControl1</Property>
+        <Property Name="Size">68, 32</Property>
+        <Property Name="Location">68, 95</Property>
+        <Property Name="ImageFile">..\贴图\Brake.jpg</Property>
+        <Property Name="IsProportional">False</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="NumericUpDownControl1" Children="Controls" ControlName="Numeric Up/Down">
+        <Property Name="Name">NumericUpDownControl1</Property>
+        <Property Name="Size">57, 21</Property>
+        <Property Name="Location">138, 16</Property>
+        <Property Name="DecimalPlaces">2</Property>
+        <Property Name="Maximum">130</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;VehSpdLgtA;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">27</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl5" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl5</Property>
+        <Property Name="Size">23, 13</Property>
+        <Property Name="Location">173, 80</Property>
+        <Property Name="Text">ACC</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl2" Children="Controls" ControlName="ESC_VehicleSpeed">
+        <Property Name="Name">TrackBarControl2</Property>
+        <Property Name="Size">189, 47</Property>
+        <Property Name="Location">6, 146</Property>
+        <Property Name="Maximum">45</Property>
+        <Property Name="DisplayMinMax">True</Property>
+        <Property Name="TickStyle">TopLeft</Property>
+        <Property Name="MaximumDouble">45</Property>
+        <Property Name="DisplayValue">True</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;VehSpdLgtA;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">14</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.AnalogGaugeControl, Vector.CANalyzer.Panels.AnalogGauge, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="AnalogGaugeControl1" ControlName="Analog Gauge">
+        <Property Name="Name">AnalogGaugeControl1</Property>
+        <Property Name="Size">189, 150</Property>
+        <Property Name="Location">6, 14</Property>
+        <Property Name="BackgroundColor">White</Property>
+        <Property Name="IsMargin">False</Property>
+        <Property Name="CriticalProps" Member="AAEAAAD/////AQAAAAAAAAAEAQAAAC9TeXN0ZW0uUmVmbGVjdGlvbi5NZW1iZXJJbmZvU2VyaWFsaXphdGlvbkhvbGRlcgcAAAAETmFtZQxBc3NlbWJseU5hbWUJQ2xhc3NOYW1lCVNpZ25hdHVyZQpTaWduYXR1cmUyCk1lbWJlclR5cGUQR2VuZXJpY0FyZ3VtZW50cwEBAQEBAAMIDVN5c3RlbS5UeXBlW10GAgAAAAUuY3RvcgYDAAAAXFZlY3Rvci5DQU5hbHl6ZXIuUGFuZWxzLkFuYWxvZ0dhdWdlLCBWZXJzaW9uPTExLjAuNDIuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBgQAAAA2VmVjdG9yLkNBTmFseXplci5QYW5lbHMuRGVzaWduLkdhdWdlQ3JpdGljYWxQcm9wZXJ0aWVzBgUAAAAyVm9pZCAuY3RvcihEb3VibGUsIERvdWJsZSwgRG91YmxlLCBEb3VibGUsIERvdWJsZSkGBgAAAFAuY3RvcihTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlKQEAAAAKCw==">
+          <Argument>0</Argument>
+          <Argument>45</Argument>
+          <Argument>0</Argument>
+          <Argument>15</Argument>
+          <Argument>30</Argument>
+        </Property>
+        <Property Name="MidColor">Khaki</Property>
+        <Property Name="GaugeFont">SimSun, 9pt</Property>
+        <Property Name="LegendText">Speed</Property>
+        <Property Name="IsFrame">False</Property>
+        <Property Name="ScaleAngle">180</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;VehSpdLgtA;1;CAN1;;-1;;;</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl22" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl22</Property>
+        <Property Name="Size">41, 13</Property>
+        <Property Name="Location">111, 107</Property>
+        <Property Name="Text">ACCSts</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl2</Property>
+      <Property Name="Size">201, 203</Property>
+      <Property Name="Location">223, 90</Property>
+      <Property Name="Text">车辆行驶速度</Property>
+      <Property Name="TabIndex">21</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl16" Children="Controls" ControlName="Group Box">
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl16" ControlName="Switch/Indicator">
+        <Property Name="Name">SwitchControl16</Property>
+        <Property Name="Size">23, 32</Property>
+        <Property Name="Location">94, 16</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="SymbolConfiguration">5;16;Light;;;Double_Flash;1;;;-1;;;</Property>
+        <Property Name="TabIndex">28</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl17" ControlName="Switch/Indicator">
+        <Property Name="Name">SwitchControl17</Property>
+        <Property Name="Size">23, 32</Property>
+        <Property Name="Location">135, 16</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgStsTurnIndrRi;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">27</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="SwitchControl18" ControlName="Switch/Indicator">
+        <Property Name="Name">SwitchControl18</Property>
+        <Property Name="Size">23, 32</Property>
+        <Property Name="Location">53, 16</Property>
+        <Property Name="StateCnt">2</Property>
+        <Property Name="Activation">Left</Property>
+        <Property Name="SwitchValues">1;2;0;1</Property>
+        <Property Name="SwitchValuesRx">1;2;0;1</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgStsTurnIndrLe;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">26</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl1" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl1</Property>
+        <Property Name="Size">29, 13</Property>
+        <Property Name="Location">92, 54</Property>
+        <Property Name="Text">双闪</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl18" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl18</Property>
+        <Property Name="Size">29, 13</Property>
+        <Property Name="Location">133, 54</Property>
+        <Property Name="Text">右转</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl19" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl19</Property>
+        <Property Name="Size">29, 13</Property>
+        <Property Name="Location">51, 54</Property>
+        <Property Name="Text">左转</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl16</Property>
+      <Property Name="Size">211, 75</Property>
+      <Property Name="Location">6, 421</Property>
+      <Property Name="Text">转向灯</Property>
+      <Property Name="TabIndex">45</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl11" Children="Controls" ControlName="Group Box 3">
+      <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl5" ControlName="LED Control 2">
+        <Property Name="Name">LEDControl5</Property>
+        <Property Name="Size">21, 23</Property>
+        <Property Name="Location">66, 40</Property>
+        <Property Name="UsedLEDColorOn">LimeGreen</Property>
+        <Property Name="UsedLEDColorOff">Red</Property>
+        <Property Name="SwitchValueOn">2</Property>
+        <Property Name="SwitchValueOff">1</Property>
+        <Property Name="SymbolConfiguration">5;1;CANdb1;;;PowerModeValidity;1;;;-1;;;</Property>
+        <Property Name="TabIndex">35</Property>
+        <Property Name="SwitchValueVTOn">1;Lower;2</Property>
+        <Property Name="SwitchValueVTOff">1;Lower;1</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl13" Children="Controls" ControlName="Combo Box 7">
+        <Property Name="Name">ComboBoxControl13</Property>
+        <Property Name="Size">56, 39</Property>
+        <Property Name="Location">4, 21</Property>
+        <Property Name="DropDownWidth">84</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="ForeColor">WindowText</Property>
+        <Property Name="TextBackColor">White</Property>
+        <Property Name="DisplayLabel">Top</Property>
+        <Property Name="DescriptionText">钥匙位：</Property>
+        <Property Name="DescriptionSize">56, 21</Property>
+        <Property Name="SymbolConfiguration">5;1;CANdb1;;;PowerMode;1;;;-1;;;</Property>
+        <Property Name="TabIndex">76</Property>
+        <Property Name="UsedValueTable">PhysicalValue</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl11</Property>
+      <Property Name="Size">91, 77</Property>
+      <Property Name="Location">126, 8</Property>
+      <Property Name="Text">点火信号</Property>
+      <Property Name="TabIndex">35</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl7" Children="Controls" ControlName="Group Box">
+      <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl3" ControlName="LED Control">
+        <Property Name="Name">LEDControl3</Property>
+        <Property Name="Size">30, 32</Property>
+        <Property Name="Location">17, 39</Property>
+        <Property Name="UsedLEDColorOn">Lime</Property>
+        <Property Name="UsedLEDColorOff">Gray</Property>
+        <Property Name="SwitchValueOn">0</Property>
+        <Property Name="SwitchValueOff">15</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;GearLvrIndcn;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">27</Property>
+        <Property Name="SwitchValueVTOn">1;Lower;10</Property>
+        <Property Name="SwitchValueVTOff">1;Lower;15</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl1" ControlName="LED Control">
+        <Property Name="Name">LEDControl1</Property>
+        <Property Name="Size">30, 32</Property>
+        <Property Name="Location">91, 39</Property>
+        <Property Name="UsedLEDColorOn">Lime</Property>
+        <Property Name="UsedLEDColorOff">Gray</Property>
+        <Property Name="SwitchValueOn">2</Property>
+        <Property Name="SwitchValueOff">15</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;GearLvrIndcn;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">27</Property>
+        <Property Name="SwitchValueVTOn">1;Lower;0</Property>
+        <Property Name="SwitchValueVTOff">1;Lower;15</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl2" ControlName="LED Control">
+        <Property Name="Name">LEDControl2</Property>
+        <Property Name="Size">30, 32</Property>
+        <Property Name="Location">54, 39</Property>
+        <Property Name="UsedLEDColorOn">Lime</Property>
+        <Property Name="UsedLEDColorOff">Gray</Property>
+        <Property Name="SwitchValueOff">15</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;GearLvrIndcn;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">27</Property>
+        <Property Name="SwitchValueVTOn">1;Lower;12</Property>
+        <Property Name="SwitchValueVTOff">1;Lower;15</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl6" ControlName="LED Control">
+        <Property Name="Name">LEDControl6</Property>
+        <Property Name="Size">30, 32</Property>
+        <Property Name="Location">164, 39</Property>
+        <Property Name="UsedLEDColorOn">Lime</Property>
+        <Property Name="UsedLEDColorOff">Gray</Property>
+        <Property Name="SwitchValueOn">4</Property>
+        <Property Name="SwitchValueOff">15</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;GearLvrIndcn;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">27</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="LEDControl4" ControlName="LED Control">
+        <Property Name="Name">LEDControl4</Property>
+        <Property Name="Size">30, 32</Property>
+        <Property Name="Location">128, 39</Property>
+        <Property Name="UsedLEDColorOn">Lime</Property>
+        <Property Name="UsedLEDColorOff">Gray</Property>
+        <Property Name="SwitchValueOn">3</Property>
+        <Property Name="SwitchValueOff">15</Property>
+        <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;GearLvrIndcn;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">27</Property>
+        <Property Name="SwitchValueVTOn">1;Lower;11</Property>
+        <Property Name="SwitchValueVTOff">1;Lower;15</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl4" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl4</Property>
+        <Property Name="Size">16, 17</Property>
+        <Property Name="Location">171, 17</Property>
+        <Property Name="Font">SimSun, 12pt, style=Bold</Property>
+        <Property Name="Text">M</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl11" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl11</Property>
+        <Property Name="Size">16, 17</Property>
+        <Property Name="Location">136, 17</Property>
+        <Property Name="Font">SimSun, 12pt, style=Bold</Property>
+        <Property Name="Text">D</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl10" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl10</Property>
+        <Property Name="Size">16, 17</Property>
+        <Property Name="Location">98, 17</Property>
+        <Property Name="Font">SimSun, 12pt, style=Bold</Property>
+        <Property Name="Text">N</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl9" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl9</Property>
+        <Property Name="Size">16, 17</Property>
+        <Property Name="Location">61, 17</Property>
+        <Property Name="Font">SimSun, 12pt, style=Bold</Property>
+        <Property Name="Text">R</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StaticTextControl8" Children="Controls" ControlName="Static Text">
+        <Property Name="Name">StaticTextControl8</Property>
+        <Property Name="Size">16, 17</Property>
+        <Property Name="Location">24, 17</Property>
+        <Property Name="BackColor">Window</Property>
+        <Property Name="Font">SimSun, 12pt, style=Bold</Property>
+        <Property Name="Text">P</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl7</Property>
+      <Property Name="Size">211, 83</Property>
+      <Property Name="Location">6, 332</Property>
+      <Property Name="Text">档位</Property>
+      <Property Name="TabIndex">28</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StartStopControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StartStopControl1" Children="Controls" ControlName="Start Stop Control">
+      <Property Name="Name">StartStopControl1</Property>
+      <Property Name="Size">114, 58</Property>
+      <Property Name="Location">6, 16</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="TabIndex">21</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl4" Children="Controls" ControlName="Group Box">
+      <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="NumericUpDownControl2" Children="Controls" ControlName="Numeric Up/Down">
+        <Property Name="Name">NumericUpDownControl2</Property>
+        <Property Name="Size">50, 21</Property>
+        <Property Name="Location">147, 15</Property>
+        <Property Name="Maximum">780</Property>
+        <Property Name="Minimum">-780</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;TCM;SAS_Status;SAS_SteerWheelAngle;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">28</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl1" Children="Controls" ControlName="SAS_SteerWheelAngle">
+        <Property Name="Name">TrackBarControl1</Property>
+        <Property Name="Size">191, 47</Property>
+        <Property Name="Location">6, 41</Property>
+        <Property Name="Maximum">780</Property>
+        <Property Name="DisplayMinMax">True</Property>
+        <Property Name="Minimum">-780</Property>
+        <Property Name="TickStyle">TopLeft</Property>
+        <Property Name="LargeChange">1</Property>
+        <Property Name="SmallChangeDouble">0.1</Property>
+        <Property Name="LargeChangeDouble">0.5</Property>
+        <Property Name="TickFrequencyDouble">0.1</Property>
+        <Property Name="MaximumDouble">780</Property>
+        <Property Name="MinimumDouble">-780</Property>
+        <Property Name="DisplayValue">True</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;TCM;SAS_Status;SAS_SteerWheelAngle;1;CAN1;CAN1;-1;;;</Property>
+        <Property Name="TabIndex">14</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl4</Property>
+      <Property Name="Size">201, 98</Property>
+      <Property Name="Location">223, 403</Property>
+      <Property Name="Text">方向盘转角</Property>
+      <Property Name="TabIndex">23</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.GroupBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="GroupBoxControl3" Children="Controls" ControlName="Group Box">
+      <Object Type="Vector.CANalyzer.Panels.Design.NumericUpDownControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="NumericUpDownControl3" Children="Controls" ControlName="Numeric Up/Down">
+        <Property Name="Name">NumericUpDownControl3</Property>
+        <Property Name="Size">50, 21</Property>
+        <Property Name="Location">147, 15</Property>
+        <Property Name="Maximum">460</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;EMS;EMS_EngRelateTrqSts;EMS_Real_PedalPosition;1;CAN1;;-1;;;</Property>
+        <Property Name="TabIndex">29</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TrackBarControl3" Children="Controls" ControlName="EMS_Real_PedalPosition">
+        <Property Name="Name">TrackBarControl3</Property>
+        <Property Name="Size">191, 47</Property>
+        <Property Name="Location">6, 41</Property>
+        <Property Name="Maximum">100</Property>
+        <Property Name="DisplayMinMax">True</Property>
+        <Property Name="TickStyle">TopLeft</Property>
+        <Property Name="MaximumDouble">100</Property>
+        <Property Name="DisplayValue">True</Property>
+        <Property Name="SymbolConfiguration">5;2;CANdb1;EMS;EMS_EngRelateTrqSts;EMS_Real_PedalPosition;1;CAN;;-1;;;</Property>
+        <Property Name="TabIndex">18</Property>
+      </Object>
+      <Property Name="Name">GroupBoxControl3</Property>
+      <Property Name="Size">201, 98</Property>
+      <Property Name="Location">223, 299</Property>
+      <Property Name="Text">油门踏板深度</Property>
+      <Property Name="TabIndex">22</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl6" Children="Controls" ControlName="Combo Box 6">
+      <Property Name="Name">ComboBoxControl6</Property>
+      <Property Name="Size">188, 20</Property>
+      <Property Name="Location">6, 118</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="SortAlphabetical">True</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText"> 安全带: </Property>
+      <Property Name="DescriptionSize">60, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;CANdb1;ACU;ACU_ChimeTelltaleReq;ACU_DrvSeatbeltBucklestatus;1;CAN;;-1;;;</Property>
+      <Property Name="TabIndex">10</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl1" Children="Controls" ControlName="Combo Box">
+      <Property Name="Name">ComboBoxControl1</Property>
+      <Property Name="Size">188, 20</Property>
+      <Property Name="Location">6, 146</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">刹车踏板:</Property>
+      <Property Name="DescriptionSize">60, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;CANdb1;ESC;ESC_Status;ESC_BrakePedalSwitchStatus;1;CAN;;-1;;;</Property>
+      <Property Name="TabIndex">0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl3" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl3</Property>
+      <Property Name="Size">188, 20</Property>
+      <Property Name="Location">6, 174</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">电子手刹:</Property>
+      <Property Name="DescriptionSize">60, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;CANdb1;ESC;ESC_Status;ESC_EPBStatus;1;CAN;;-1;;;</Property>
+      <Property Name="TabIndex">2</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl8" Children="Controls" ControlName="Engine_1">
+      <Property Name="Name">ComboBoxControl8</Property>
+      <Property Name="Size">188, 20</Property>
+      <Property Name="Location">6, 90</Property>
+      <Property Name="DropDownWidth">69</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText"> 发动机: </Property>
+      <Property Name="DescriptionSize">60, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;CANdb1;EMS;EMS_EngineRPM;EMS_EngStatus;1;CAN1;CAN1;-1;;;</Property>
+      <Property Name="TabIndex">93</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">633, 686</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

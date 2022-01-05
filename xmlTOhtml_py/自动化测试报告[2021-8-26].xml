@@ -1,0 +1,2675 @@
+<?xml version="1.0" encoding="gb2312" ?><?xml-stylesheet type="text/xsl" href="C:\Program Files (x86)\National Instruments\TestStand 2020\Components\Models\TestStandModels\ATML\StyleSheets\tr5_horizontal.xsl"?>
+
+<trc:TestResultsCollection xmlns:trc="urn:IEEE-1636.1:2011:01:TestResultsCollection" xmlns:tr="urn:IEEE-1636.1:2011:01:TestResults" xmlns:c="urn:IEEE-1671:2010:Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ts="www.ni.com/TestStand/ATMLTestResults/2.0">
+<trc:TestResults uuid="0670d024-0625-11ec-b6cf-000ec6bbad77" xmlns:trc="urn:IEEE-1636.1:2011:01:TestResultsCollection" xmlns:tr="urn:IEEE-1636.1:2011:01:TestResults" xmlns:c="urn:IEEE-1671:2010:Common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ts="www.ni.com/TestStand/ATMLTestResults/2.0">
+	<tr:Personnel>
+		<tr:SystemOperator ID = "" name = ""/>
+	</tr:Personnel>
+	<tr:ResultSet ID="17" name = "D:\TestStand_IPU02\IPU02_v3.seq#MainSequence" startDateTime = "2021-08-26T10:38:39.237" endDateTime = "2021-08-26T12:21:03.950">
+		<tr:Extension>
+			<ts:TSStepProperties>
+				<ts:StepType>SequenceCall</ts:StepType>
+				<ts:StepGroup>Main</ts:StepGroup>
+				<ts:BlockLevel value='0'/>
+				<ts:StepCausedSequenceFailure value='true'/>
+				<ts:Index value='8'/>
+				<ts:TotalTime value='6144.71'/>
+				<ts:ModuleTime value='6144.71'/>
+			</ts:TSStepProperties>
+		</tr:Extension>
+		<tr:Outcome value="Failed" />
+		<tr:SessionAction ID = "18" name = "ETHDataInit" startDateTime = "2021-08-26T10:39:44.378"  endDateTime = "2021-08-26T10:39:52.361"  testReferenceID="ID#:OMXMnVHg6xG2vwAOxrutdD">
+			<tr:Data>
+				<c:Collection>
+					<c:Item name = "ExitCode">
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</c:Item>
+				</c:Collection>
+			</tr:Data>
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>CallExecutable</ts:StepType>
+					<ts:StepGroup>Setup</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='30'/>
+					<ts:TotalTime value='7.98316'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:ActionOutcome value = "Done" />
+		</tr:SessionAction>
+		<tr:SessionAction ID = "19" name = "Wait" startDateTime = "2021-08-26T10:39:52.390"  endDateTime = "2021-08-26T10:40:02.392"  testReferenceID="ID#:Szsa11Hg6xG2vwAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>NI_Wait</ts:StepType>
+					<ts:StepGroup>Setup</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='31'/>
+					<ts:TotalTime value='10.0018'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:ActionOutcome value = "Done" />
+		</tr:SessionAction>
+		<tr:SessionAction ID = "20" name = "restart" startDateTime = "2021-08-26T10:40:02.402"  endDateTime = "2021-08-26T10:40:08.070"  testReferenceID="ID#:KjGPjVHg6xG2vwAOxrutdD">
+			<tr:Data>
+				<c:Collection>
+					<c:Item name = "ExitCode">
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</c:Item>
+				</c:Collection>
+			</tr:Data>
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>CallExecutable</ts:StepType>
+					<ts:StepGroup>Setup</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='32'/>
+					<ts:TotalTime value='5.66784'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:ActionOutcome value = "Done" />
+		</tr:SessionAction>
+		<tr:SessionAction ID = "21" name = "Wait" startDateTime = "2021-08-26T10:40:08.090"  endDateTime = "2021-08-26T10:40:38.091"  testReferenceID="ID#:KRg8GFLg6xG2vwAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>NI_Wait</ts:StepType>
+					<ts:StepGroup>Setup</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='33'/>
+					<ts:TotalTime value='30.0009'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:ActionOutcome value = "Done" />
+		</tr:SessionAction>
+		<tr:Test ID = "22" name = "TC_SmokeTest_001" startDateTime = "2021-08-26T10:40:48.179"  endDateTime = "2021-08-26T10:40:48.179"  testReferenceID="ID#:wC7vq+n/6xG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='0'/>
+					<ts:TotalTime value='0.0001405'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670cff1-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "23" name = "TC_SmokeTest_009" startDateTime = "2021-08-26T10:42:14.752"  endDateTime = "2021-08-26T10:42:14.753"  testReferenceID="ID#:44p2pOz/6xG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='2'/>
+					<ts:TotalTime value='0.0001567'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670cff2-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "25" name = "TC_SmokeTest_006" startDateTime = "2021-08-26T10:43:35.567"  endDateTime = "2021-08-26T10:43:35.567"  testReferenceID="ID#:MZN68bzi6xG2wgAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:StepCausedSequenceFailure value='true'/>
+					<ts:Index value='4'/>
+					<ts:TotalTime value='0.00013'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670cff3-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL，CAN通讯测试失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "26" name = "TC_SmokeTest_007" startDateTime = "2021-08-26T10:43:41.847"  endDateTime = "2021-08-26T10:43:41.848"  testReferenceID="ID#:SLJ9pJUB7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>NumericLimitTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='6'/>
+					<ts:TotalTime value='0.0003277'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670cff4-0625-11ec-b6cf-000ec6bbad77" name = "Numeric">
+				<tr:TestData>
+					<c:Datum value = "321" xsi:type="ts:TS_double" flags = "0x2400"/>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "NE">
+							<c:Datum xsi:type="ts:TS_double" flags = "0x0000" value = "-1"/>
+						</c:Expected>
+						<c:Extension>
+							<ts:TSLimitProperties>
+								<ts:RawLimits>
+									<ts:Low value = "-1" xsi:type="c:double" />
+								</ts:RawLimits>
+							</ts:TSLimitProperties>
+						</c:Extension>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "27" name = "TC_SmokeTest_022" startDateTime = "2021-08-26T10:44:40.925"  endDateTime = "2021-08-26T10:44:40.925"  testReferenceID="ID#:lihPkLuR6xGb41CaTL4v5B">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='8'/>
+					<ts:TotalTime value='0.0001175'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670cff5-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "28" name = "TC_SmokeTest_008" startDateTime = "2021-08-26T10:44:47.399"  endDateTime = "2021-08-26T10:44:47.399"  testReferenceID="ID#:mChPkLuR6xGb41CaTL4v5B">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='10'/>
+					<ts:TotalTime value='0.0001237'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670cff6-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:SessionAction ID = "29" name = "IHU显示功能测试" startDateTime = "2021-08-26T10:44:47.410"  endDateTime = "2021-08-26T10:45:03.756"  testReferenceID="ID#:Xp1Tvo8B7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>Action</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='11'/>
+					<ts:TotalTime value='16.3454'/>
+					<ts:ModuleTime value='16.3453'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:ActionOutcome value = "Done" />
+		</tr:SessionAction>
+		<tr:Test ID = "30" name = "TC_SmokeTest_003" startDateTime = "2021-08-26T10:45:03.768"  endDateTime = "2021-08-26T10:45:18.504"  testReferenceID="ID#:smpMD43o6xG2xQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='12'/>
+					<ts:TotalTime value='14.7362'/>
+					<ts:ModuleTime value='14.736'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670cff7-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+			<tr:TestResult ID = "tr-0670cff8-0625-11ec-b6cf-000ec6bbad77" name = "Return Value">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2000">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "31" name = "TC_SmokeTest_023" startDateTime = "2021-08-26T10:46:16.750"  endDateTime = "2021-08-26T10:46:16.750"  testReferenceID="ID#:TNKsEByk6xG2rAAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='14'/>
+					<ts:TotalTime value='0.0001374'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670cff9-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:SessionAction ID = "32" name = "Call Version.exe" startDateTime = "2021-08-26T10:46:16.763"  endDateTime = "2021-08-26T10:46:39.471"  testReferenceID="ID#:YMVAXleT6xGb5lCaTL4v5B">
+			<tr:Data>
+				<c:Collection>
+					<c:Item name = "ExitCode">
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</c:Item>
+				</c:Collection>
+			</tr:Data>
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>CallExecutable</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='15'/>
+					<ts:TotalTime value='22.7073'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:ActionOutcome value = "Done" />
+		</tr:SessionAction>
+		<tr:Test ID = "33" name = "TC_SmokeTest_002" startDateTime = "2021-08-26T10:46:39.482"  endDateTime = "2021-08-26T10:46:39.482"  testReferenceID="ID#:KCxPUFeT6xGb5lCaTL4v5B">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='16'/>
+					<ts:TotalTime value='0.0001635'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670cffa-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "34" name = "TC_SmokeTest_021" startDateTime = "2021-08-26T10:46:43.075"  endDateTime = "2021-08-26T10:46:43.075"  testReferenceID="ID#:yKXWaVeT6xGb5lCaTL4v5B">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='19'/>
+					<ts:TotalTime value='0.0001076'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670cffb-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "35" name = "TC_SmokeTest_069" startDateTime = "2021-08-26T10:57:34.407"  endDateTime = "2021-08-26T10:57:34.407"  testReferenceID="ID#:WEMkkleT6xGb5lCaTL4v5B">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='21'/>
+					<ts:TotalTime value='0.0001736'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670cffc-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400" isEscaped = "true">
+						<c:Value>\rtra</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "36" name = "TC_SmokeTest_071" startDateTime = "2021-08-26T10:58:36.191"  endDateTime = "2021-08-26T10:58:36.191"  testReferenceID="ID#:7JtanleT6xGb5lCaTL4v5B">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='23'/>
+					<ts:TotalTime value='0.0001948'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670cffd-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400" isEscaped = "true">
+						<c:Value>\rstd</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "37" name = "TC_SmokeTest_070" startDateTime = "2021-08-26T10:59:55.483"  endDateTime = "2021-08-26T10:59:55.483"  testReferenceID="ID#:rXVt49OY6xGb61CaTL4v5B">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='25'/>
+					<ts:TotalTime value='0.0001433'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670cffe-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "38" name = "TC_SmokeTest_072" startDateTime = "2021-08-26T11:00:34.415"  endDateTime = "2021-08-26T11:00:34.415"  testReferenceID="ID#:zw9z/WaT6xGb5lCaTL4v5B">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='27'/>
+					<ts:TotalTime value='0.0002463'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670cfff-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "43" name = "TC_SmokeTest_024" startDateTime = "2021-08-26T11:01:09.897"  endDateTime = "2021-08-26T11:01:09.897"  testReferenceID="ID#:zJTOP+UA7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='29'/>
+					<ts:TotalTime value='0.0001154'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d000-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL,坡度测量值为0</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "44" name = "TC_SmokeTest_025" startDateTime = "2021-08-26T11:02:44.433"  endDateTime = "2021-08-26T11:02:44.433"  testReferenceID="ID#:7aJ/3Cen6xG2rAAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='32'/>
+					<ts:TotalTime value='0.0004131'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670d001-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:SessionAction ID = "45" name = "restart" startDateTime = "2021-08-26T11:02:44.458"  endDateTime = "2021-08-26T11:02:50.179"  testReferenceID="ID#:GvCnlNfi6xG2wgAOxrutdD">
+			<tr:Data>
+				<c:Collection>
+					<c:Item name = "ExitCode">
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</c:Item>
+				</c:Collection>
+			</tr:Data>
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>CallExecutable</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='33'/>
+					<ts:TotalTime value='5.72068'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:ActionOutcome value = "Done" />
+		</tr:SessionAction>
+		<tr:Test ID = "48" name = "TC_SmokeTest_029" startDateTime = "2021-08-26T11:04:30.861"  endDateTime = "2021-08-26T11:04:30.861"  testReferenceID="ID#:R1ggSegA7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='36'/>
+					<ts:TotalTime value='9.43e-05'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670d002-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:TestGroup name="D:\TestStand_IPU02\IPU02_v3.seq#MainSequence_SlotDection" ID="49" callerName='INC_SLOT' testReferenceID="ID#:FaTNr9Xa6xG2vAAOxrutdD" startDateTime = "2021-08-26T11:04:35.883"  endDateTime = "2021-08-26T11:06:56.509" >
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>SequenceCall</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='38'/>
+					<ts:TotalTime value='140.626'/>
+					<ts:ModuleTime value='140.626'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value="Passed" />
+			<tr:SessionAction ID = "50" name = "Set ParkState" startDateTime = "2021-08-26T11:05:05.237"  endDateTime = "2021-08-26T11:05:05.239"  testReferenceID="ID#:+OrhY9Ta6xG2vAAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='7'/>
+						<ts:TotalTime value='0.0025267'/>
+						<ts:ModuleTime value='0.0024352'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "51" name = "播放车位视频" startDateTime = "2021-08-26T11:05:25.254"  endDateTime = "2021-08-26T11:05:25.264"  testReferenceID="ID#:++rhY9Ta6xG2vAAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Operation Timed Out.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17402" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>CallExecutable</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='9'/>
+						<ts:TotalTime value='0.0101779'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+				<tr:TestResult ID = "tr-0670d003-0625-11ec-b6cf-000ec6bbad77" name = "ExitCode">
+					<tr:TestData>
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</tr:TestData>
+				</tr:TestResult>
+			</tr:Test>
+		</tr:TestGroup>
+		<tr:Test ID = "52" name = "TC_SmokeTest_031" startDateTime = "2021-08-26T11:06:56.554"  endDateTime = "2021-08-26T11:06:56.554"  testReferenceID="ID#:vukXfOgA7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='39'/>
+					<ts:TotalTime value='0.0001849'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d004-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:TestGroup name="D:\TestStand_IPU02\IPU02_v3.seq#MainSequence_SlotDection" ID="53" callerName='VER_SLOT' testReferenceID="ID#:G6TNr9Xa6xG2vAAOxrutdD" startDateTime = "2021-08-26T11:07:01.574"  endDateTime = "2021-08-26T11:09:22.470" >
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>SequenceCall</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='41'/>
+					<ts:TotalTime value='140.896'/>
+					<ts:ModuleTime value='140.895'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value="Passed" />
+			<tr:SessionAction ID = "54" name = "Set ParkState" startDateTime = "2021-08-26T11:07:30.641"  endDateTime = "2021-08-26T11:07:30.643"  testReferenceID="ID#:+OrhY9Ta6xG2vAAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='7'/>
+						<ts:TotalTime value='0.0025403'/>
+						<ts:ModuleTime value='0.002506'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "55" name = "播放车位视频" startDateTime = "2021-08-26T11:07:50.659"  endDateTime = "2021-08-26T11:07:50.671"  testReferenceID="ID#:++rhY9Ta6xG2vAAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Operation Timed Out.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17402" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>CallExecutable</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='9'/>
+						<ts:TotalTime value='0.0114398'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+				<tr:TestResult ID = "tr-0670d005-0625-11ec-b6cf-000ec6bbad77" name = "ExitCode">
+					<tr:TestData>
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</tr:TestData>
+				</tr:TestResult>
+			</tr:Test>
+		</tr:TestGroup>
+		<tr:Test ID = "56" name = "TC_SmokeTest_030" startDateTime = "2021-08-26T11:09:22.511"  endDateTime = "2021-08-26T11:09:22.511"  testReferenceID="ID#:wOkXfOgA7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='42'/>
+					<ts:TotalTime value='0.0001109'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d006-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:TestGroup name="D:\TestStand_IPU02\IPU02_v3.seq#MainSequence_SlotDection" ID="57" callerName='CUR_SLOT' testReferenceID="ID#:KS1ahw/b6xG2vgAOxrutdD" startDateTime = "2021-08-26T11:09:27.537"  endDateTime = "2021-08-26T11:11:48.066" >
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>SequenceCall</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='44'/>
+					<ts:TotalTime value='140.529'/>
+					<ts:ModuleTime value='140.529'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value="Passed" />
+			<tr:SessionAction ID = "58" name = "Set ParkState" startDateTime = "2021-08-26T11:09:56.624"  endDateTime = "2021-08-26T11:09:56.627"  testReferenceID="ID#:+OrhY9Ta6xG2vAAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='7'/>
+						<ts:TotalTime value='0.0025624'/>
+						<ts:ModuleTime value='0.0025292'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "59" name = "播放车位视频" startDateTime = "2021-08-26T11:10:16.642"  endDateTime = "2021-08-26T11:10:16.653"  testReferenceID="ID#:++rhY9Ta6xG2vAAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Operation Timed Out.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17402" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>CallExecutable</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='9'/>
+						<ts:TotalTime value='0.0114561'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+				<tr:TestResult ID = "tr-0670d007-0625-11ec-b6cf-000ec6bbad77" name = "ExitCode">
+					<tr:TestData>
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</tr:TestData>
+				</tr:TestResult>
+			</tr:Test>
+		</tr:TestGroup>
+		<tr:Test ID = "60" name = "TC_SmokeTest_032" startDateTime = "2021-08-26T11:11:48.111"  endDateTime = "2021-08-26T11:11:48.111"  testReferenceID="ID#:v+kXfOgA7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='45'/>
+					<ts:TotalTime value='9.05e-05'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d008-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "61" name = "TC_SmokeTest_068" startDateTime = "2021-08-26T11:12:01.562"  endDateTime = "2021-08-26T11:12:01.563"  testReferenceID="ID#:Yxfk41nd6xG2vgAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='47'/>
+					<ts:TotalTime value='0.0003878'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d009-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS;HMI显示时间:6.936929. 视频显示时间:6.537237</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "67" name = "TC_SmokeTest_028" startDateTime = "2021-08-26T11:14:19.567"  endDateTime = "2021-08-26T11:14:19.568"  testReferenceID="ID#:k0PyROsA7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='49'/>
+					<ts:TotalTime value='0.000193'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d00a-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL,搜车位失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:TestGroup name="D:\TestStand_IPU02\IPU02_v3.seq#MainSequence_Parking" ID="68" callerName='HOR_PARK' testReferenceID="ID#:LwpFIIHg6xG2wAAOxrutdD" startDateTime = "2021-08-26T11:14:24.603"  endDateTime = "2021-08-26T11:21:04.186" >
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>SequenceCall</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='51'/>
+					<ts:TotalTime value='399.583'/>
+					<ts:ModuleTime value='399.583'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value="Passed" />
+			<tr:SessionAction ID = "69" name = "Set ParkState" startDateTime = "2021-08-26T11:14:56.783"  endDateTime = "2021-08-26T11:14:56.789"  testReferenceID="ID#:M7xPX3rg6xG2vwAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='7'/>
+						<ts:TotalTime value='0.0059906'/>
+						<ts:ModuleTime value='0.0059055'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "70" name = "播放车位视频" startDateTime = "2021-08-26T11:15:16.808"  endDateTime = "2021-08-26T11:15:16.820"  testReferenceID="ID#:NbxPX3rg6xG2vwAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Operation Timed Out.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17402" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>CallExecutable</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='9'/>
+						<ts:TotalTime value='0.0116227'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+				<tr:TestResult ID = "tr-0670d00b-0625-11ec-b6cf-000ec6bbad77" name = "ExitCode">
+					<tr:TestData>
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</tr:TestData>
+				</tr:TestResult>
+			</tr:Test>
+			<tr:SessionAction ID = "71" name = "If" startDateTime = "2021-08-26T11:16:25.631"  endDateTime = "2021-08-26T11:16:25.632"  testReferenceID="ID#:+AvkMuwA7BG2zQAOxrutdD">
+				<tr:Data>
+					<c:Collection>
+						<c:Item name = "ReportText">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x400000">
+								<c:Value>{True}</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</tr:Data>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>NI_Flow_If</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='12'/>
+						<ts:TotalTime value='0.000654'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:SessionAction ID = "72" name = "测试结果赋值（FAIL)" startDateTime = "2021-08-26T11:16:25.647"  endDateTime = "2021-08-26T11:16:25.647"  testReferenceID="ID#:GYJS2uwA7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='13'/>
+						<ts:TotalTime value='0.0002112'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "73" name = "Goto" startDateTime = "2021-08-26T11:16:25.667"  endDateTime = "2021-08-26T11:16:25.704"  testReferenceID="ID#:+gvkMuwA7BG2zQAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Error executing step post action.
+Cannot find go to target. The step 'ID#:ETXYt/nd6xG2vwAOxrutdD' is not in the current sequence.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17300" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Goto</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='14'/>
+						<ts:TotalTime value='0.036937'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+			</tr:Test>
+			<tr:SessionAction ID = "74" name = "End" startDateTime = "2021-08-26T11:16:25.718"  endDateTime = "2021-08-26T11:16:25.718"  testReferenceID="ID#:+wvkMuwA7BG2zQAOxrutdD">
+				<tr:Data>
+					<c:Collection>
+						<c:Item name = "ReportText">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x400000">
+								<c:Value>(If)</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</tr:Data>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>NI_Flow_End</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='15'/>
+						<ts:TotalTime value='6.76e-05'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:SessionAction ID = "75" name = "测试结果赋值（FAIL)" startDateTime = "2021-08-26T11:20:43.703"  endDateTime = "2021-08-26T11:20:43.704"  testReferenceID="ID#:J/CYvewA7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='28'/>
+						<ts:TotalTime value='0.0013418'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+		</tr:TestGroup>
+		<tr:Test ID = "76" name = "TC_SmokeTest_040" startDateTime = "2021-08-26T11:21:04.235"  endDateTime = "2021-08-26T11:21:04.235"  testReferenceID="ID#:1NSi8uwA7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='52'/>
+					<ts:TotalTime value='0.000175'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d00c-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL,泊入失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:TestGroup name="D:\TestStand_IPU02\IPU02_v3.seq#MainSequence_Parking" ID="77" callerName='INC_PARK' testReferenceID="ID#:24Pndqng6xG2wAAOxrutdD" startDateTime = "2021-08-26T11:21:09.258"  endDateTime = "2021-08-26T11:27:47.144" >
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>SequenceCall</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='54'/>
+					<ts:TotalTime value='397.886'/>
+					<ts:ModuleTime value='397.886'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value="Passed" />
+			<tr:SessionAction ID = "78" name = "Set ParkState" startDateTime = "2021-08-26T11:21:38.385"  endDateTime = "2021-08-26T11:21:38.388"  testReferenceID="ID#:M7xPX3rg6xG2vwAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='7'/>
+						<ts:TotalTime value='0.0031045'/>
+						<ts:ModuleTime value='0.0030677'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "79" name = "播放车位视频" startDateTime = "2021-08-26T11:21:58.405"  endDateTime = "2021-08-26T11:21:58.415"  testReferenceID="ID#:NbxPX3rg6xG2vwAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Operation Timed Out.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17402" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>CallExecutable</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='9'/>
+						<ts:TotalTime value='0.0105715'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+				<tr:TestResult ID = "tr-0670d00d-0625-11ec-b6cf-000ec6bbad77" name = "ExitCode">
+					<tr:TestData>
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</tr:TestData>
+				</tr:TestResult>
+			</tr:Test>
+			<tr:SessionAction ID = "80" name = "If" startDateTime = "2021-08-26T11:23:08.854"  endDateTime = "2021-08-26T11:23:08.856"  testReferenceID="ID#:+AvkMuwA7BG2zQAOxrutdD">
+				<tr:Data>
+					<c:Collection>
+						<c:Item name = "ReportText">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x400000">
+								<c:Value>{True}</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</tr:Data>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>NI_Flow_If</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='12'/>
+						<ts:TotalTime value='0.001574'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:SessionAction ID = "81" name = "测试结果赋值（FAIL)" startDateTime = "2021-08-26T11:23:08.877"  endDateTime = "2021-08-26T11:23:08.877"  testReferenceID="ID#:GYJS2uwA7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='13'/>
+						<ts:TotalTime value='8e-05'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "82" name = "Goto" startDateTime = "2021-08-26T11:23:08.891"  endDateTime = "2021-08-26T11:23:08.893"  testReferenceID="ID#:+gvkMuwA7BG2zQAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Error executing step post action.
+Cannot find go to target. The step 'ID#:ETXYt/nd6xG2vwAOxrutdD' is not in the current sequence.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17300" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Goto</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='14'/>
+						<ts:TotalTime value='0.0023051'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+			</tr:Test>
+			<tr:SessionAction ID = "83" name = "End" startDateTime = "2021-08-26T11:23:08.905"  endDateTime = "2021-08-26T11:23:08.905"  testReferenceID="ID#:+wvkMuwA7BG2zQAOxrutdD">
+				<tr:Data>
+					<c:Collection>
+						<c:Item name = "ReportText">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x400000">
+								<c:Value>(If)</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</tr:Data>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>NI_Flow_End</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='15'/>
+						<ts:TotalTime value='7.17e-05'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:SessionAction ID = "84" name = "测试结果赋值（FAIL)" startDateTime = "2021-08-26T11:27:26.658"  endDateTime = "2021-08-26T11:27:26.659"  testReferenceID="ID#:J/CYvewA7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='28'/>
+						<ts:TotalTime value='7.96e-05'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+		</tr:TestGroup>
+		<tr:Test ID = "85" name = "TC_SmokeTest_042" startDateTime = "2021-08-26T11:27:47.182"  endDateTime = "2021-08-26T11:27:47.182"  testReferenceID="ID#:N2CSHO0A7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='55'/>
+					<ts:TotalTime value='8.91e-05'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d00e-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL,泊入失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:TestGroup name="D:\TestStand_IPU02\IPU02_v3.seq#MainSequence_Parking" ID="86" callerName='VER_PARK' testReferenceID="ID#:czC0gang6xG2wAAOxrutdD" startDateTime = "2021-08-26T11:27:52.211"  endDateTime = "2021-08-26T11:34:30.732" >
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>SequenceCall</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='57'/>
+					<ts:TotalTime value='398.521'/>
+					<ts:ModuleTime value='398.521'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value="Passed" />
+			<tr:SessionAction ID = "87" name = "Set ParkState" startDateTime = "2021-08-26T11:28:21.521"  endDateTime = "2021-08-26T11:28:21.525"  testReferenceID="ID#:M7xPX3rg6xG2vwAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='7'/>
+						<ts:TotalTime value='0.0038833'/>
+						<ts:ModuleTime value='0.003816'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "88" name = "播放车位视频" startDateTime = "2021-08-26T11:28:41.540"  endDateTime = "2021-08-26T11:28:41.550"  testReferenceID="ID#:NbxPX3rg6xG2vwAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Operation Timed Out.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17402" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>CallExecutable</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='9'/>
+						<ts:TotalTime value='0.0102239'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+				<tr:TestResult ID = "tr-0670d00f-0625-11ec-b6cf-000ec6bbad77" name = "ExitCode">
+					<tr:TestData>
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</tr:TestData>
+				</tr:TestResult>
+			</tr:Test>
+			<tr:SessionAction ID = "89" name = "If" startDateTime = "2021-08-26T11:29:53.271"  endDateTime = "2021-08-26T11:29:53.272"  testReferenceID="ID#:+AvkMuwA7BG2zQAOxrutdD">
+				<tr:Data>
+					<c:Collection>
+						<c:Item name = "ReportText">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x400000">
+								<c:Value>{True}</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</tr:Data>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>NI_Flow_If</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='12'/>
+						<ts:TotalTime value='8.46e-05'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:SessionAction ID = "90" name = "测试结果赋值（FAIL)" startDateTime = "2021-08-26T11:29:53.292"  endDateTime = "2021-08-26T11:29:53.295"  testReferenceID="ID#:GYJS2uwA7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='13'/>
+						<ts:TotalTime value='0.0029658'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "91" name = "Goto" startDateTime = "2021-08-26T11:29:53.310"  endDateTime = "2021-08-26T11:29:53.312"  testReferenceID="ID#:+gvkMuwA7BG2zQAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Error executing step post action.
+Cannot find go to target. The step 'ID#:ETXYt/nd6xG2vwAOxrutdD' is not in the current sequence.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17300" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Goto</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='14'/>
+						<ts:TotalTime value='0.0018836'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+			</tr:Test>
+			<tr:SessionAction ID = "92" name = "End" startDateTime = "2021-08-26T11:29:53.326"  endDateTime = "2021-08-26T11:29:53.326"  testReferenceID="ID#:+wvkMuwA7BG2zQAOxrutdD">
+				<tr:Data>
+					<c:Collection>
+						<c:Item name = "ReportText">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x400000">
+								<c:Value>(If)</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</tr:Data>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>NI_Flow_End</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='15'/>
+						<ts:TotalTime value='0.0001199'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:SessionAction ID = "93" name = "测试结果赋值（FAIL)" startDateTime = "2021-08-26T11:34:10.275"  endDateTime = "2021-08-26T11:34:10.275"  testReferenceID="ID#:J/CYvewA7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='28'/>
+						<ts:TotalTime value='4.29e-05'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+		</tr:TestGroup>
+		<tr:Test ID = "94" name = "TC_SmokeTest_041" startDateTime = "2021-08-26T11:34:30.783"  endDateTime = "2021-08-26T11:34:30.783"  testReferenceID="ID#:2m3ZKO0A7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='58'/>
+					<ts:TotalTime value='0.0001304'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d010-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL,泊入失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:TestGroup name="D:\TestStand_IPU02\IPU02_v3.seq#MainSequence_Parking" ID="95" callerName='CUR_PARK' testReferenceID="ID#:dDC0gang6xG2wAAOxrutdD" startDateTime = "2021-08-26T11:34:35.807"  endDateTime = "2021-08-26T11:41:17.130" >
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>SequenceCall</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='60'/>
+					<ts:TotalTime value='401.323'/>
+					<ts:ModuleTime value='401.323'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value="Passed" />
+			<tr:SessionAction ID = "96" name = "Set ParkState" startDateTime = "2021-08-26T11:35:07.275"  endDateTime = "2021-08-26T11:35:07.278"  testReferenceID="ID#:M7xPX3rg6xG2vwAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='7'/>
+						<ts:TotalTime value='0.0033055'/>
+						<ts:ModuleTime value='0.0032682'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "97" name = "播放车位视频" startDateTime = "2021-08-26T11:35:27.293"  endDateTime = "2021-08-26T11:35:27.306"  testReferenceID="ID#:NbxPX3rg6xG2vwAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Operation Timed Out.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17402" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>CallExecutable</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='9'/>
+						<ts:TotalTime value='0.0123175'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+				<tr:TestResult ID = "tr-0670d011-0625-11ec-b6cf-000ec6bbad77" name = "ExitCode">
+					<tr:TestData>
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</tr:TestData>
+				</tr:TestResult>
+			</tr:Test>
+			<tr:SessionAction ID = "98" name = "If" startDateTime = "2021-08-26T11:36:40.004"  endDateTime = "2021-08-26T11:36:40.004"  testReferenceID="ID#:+AvkMuwA7BG2zQAOxrutdD">
+				<tr:Data>
+					<c:Collection>
+						<c:Item name = "ReportText">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x400000">
+								<c:Value>{True}</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</tr:Data>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>NI_Flow_If</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='12'/>
+						<ts:TotalTime value='9.44e-05'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:SessionAction ID = "99" name = "测试结果赋值（FAIL)" startDateTime = "2021-08-26T11:36:40.021"  endDateTime = "2021-08-26T11:36:40.022"  testReferenceID="ID#:GYJS2uwA7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='13'/>
+						<ts:TotalTime value='0.0004096'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "100" name = "Goto" startDateTime = "2021-08-26T11:36:40.037"  endDateTime = "2021-08-26T11:36:40.039"  testReferenceID="ID#:+gvkMuwA7BG2zQAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Error executing step post action.
+Cannot find go to target. The step 'ID#:ETXYt/nd6xG2vwAOxrutdD' is not in the current sequence.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17300" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Goto</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='14'/>
+						<ts:TotalTime value='0.0029192'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+			</tr:Test>
+			<tr:SessionAction ID = "101" name = "End" startDateTime = "2021-08-26T11:36:40.051"  endDateTime = "2021-08-26T11:36:40.051"  testReferenceID="ID#:+wvkMuwA7BG2zQAOxrutdD">
+				<tr:Data>
+					<c:Collection>
+						<c:Item name = "ReportText">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x400000">
+								<c:Value>(If)</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</tr:Data>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>NI_Flow_End</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='15'/>
+						<ts:TotalTime value='0.0001109'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:SessionAction ID = "102" name = "测试结果赋值（FAIL)" startDateTime = "2021-08-26T11:40:56.663"  endDateTime = "2021-08-26T11:40:56.663"  testReferenceID="ID#:J/CYvewA7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='28'/>
+						<ts:TotalTime value='0.0001011'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+		</tr:TestGroup>
+		<tr:Test ID = "103" name = "TC_SmokeTest_043" startDateTime = "2021-08-26T11:41:17.180"  endDateTime = "2021-08-26T11:41:17.180"  testReferenceID="ID#:d3+FM+0A7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='61'/>
+					<ts:TotalTime value='0.0001159'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d012-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL,泊入失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "104" name = "TC_SmokeTest_026" startDateTime = "2021-08-26T11:41:25.662"  endDateTime = "2021-08-26T11:43:29.164"  testReferenceID="ID#:AqiO1F7o6xG2xQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='63'/>
+					<ts:TotalTime value='123.502'/>
+					<ts:ModuleTime value='123.502'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d013-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+			<tr:TestResult ID = "tr-0670d014-0625-11ec-b6cf-000ec6bbad77" name = "Return Value">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2000">
+						<c:Value>FAIL</c:Value>
+					</c:Datum>
+				</tr:TestData>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "106" name = "TC_SmokeTest_027" startDateTime = "2021-08-26T11:44:31.408"  endDateTime = "2021-08-26T11:44:31.408"  testReferenceID="ID#:+q/NOujq6xG2xgAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='65'/>
+					<ts:TotalTime value='0.0002909'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670d015-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "113" name = "TC_SmokeTest_050" startDateTime = "2021-08-26T11:47:33.413"  endDateTime = "2021-08-26T11:47:33.413"  testReferenceID="ID#:DGorpuDx6xG2yQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='67'/>
+					<ts:TotalTime value='0.0001285'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d016-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL:搜车位失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "120" name = "TC_SmokeTest_049" startDateTime = "2021-08-26T11:49:51.774"  endDateTime = "2021-08-26T11:49:51.774"  testReferenceID="ID#:Gj17+ODx6xG2yQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='69'/>
+					<ts:TotalTime value='0.0001198'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d017-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL:搜车位失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "127" name = "TC_SmokeTest_051" startDateTime = "2021-08-26T11:52:10.056"  endDateTime = "2021-08-26T11:52:10.056"  testReferenceID="ID#:C1VEFOHx6xG2yQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='71'/>
+					<ts:TotalTime value='0.0001169'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d018-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL:搜车位失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "134" name = "TC_SmokeTest_052" startDateTime = "2021-08-26T11:54:30.942"  endDateTime = "2021-08-26T11:54:30.942"  testReferenceID="ID#:TsT1W+Hx6xG2yQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='73'/>
+					<ts:TotalTime value='0.0001276'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d019-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL:搜车位失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "139" name = "TC_SmokeTest_080" startDateTime = "2021-08-26T11:59:50.657"  endDateTime = "2021-08-26T11:59:50.658"  testReferenceID="ID#:0nCA6ivx6xG2xwAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='75'/>
+					<ts:TotalTime value='9.99e-05'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d01a-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "144" name = "TC_SmokeTest_013" startDateTime = "2021-08-26T12:04:56.688"  endDateTime = "2021-08-26T12:04:56.688"  testReferenceID="ID#:zYmsfi3x6xG2xwAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='77'/>
+					<ts:TotalTime value='0.0006258'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d01b-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "150" name = "TC_SmokeTest_015" startDateTime = "2021-08-26T12:06:52.553"  endDateTime = "2021-08-26T12:06:52.553"  testReferenceID="ID#:kS6F2DLx6xG2xwAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='79'/>
+					<ts:TotalTime value='0.0001129'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670d01c-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "157" name = "TC_SmokeTest_060" startDateTime = "2021-08-26T12:09:12.113"  endDateTime = "2021-08-26T12:09:12.113"  testReferenceID="ID#:Pcgjf+Hx6xG2yQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='81'/>
+					<ts:TotalTime value='0.0001437'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d01d-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL:搜车位失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "158" name = "TC_SmokeTest_074" startDateTime = "2021-08-26T12:09:57.539"  endDateTime = "2021-08-26T12:09:57.539"  testReferenceID="ID#:RhcTHowB7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='84'/>
+					<ts:TotalTime value='0.0003839'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d01e-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL;NO Data.</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "159" name = "TC_SmokeTest_073" startDateTime = "2021-08-26T12:10:44.407"  endDateTime = "2021-08-26T12:10:44.407"  testReferenceID="ID#:TJgOJI0B7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='87'/>
+					<ts:TotalTime value='0.0002316'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670d01f-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "160" name = "TC_SmokeTest_076" startDateTime = "2021-08-26T12:11:30.113"  endDateTime = "2021-08-26T12:11:30.113"  testReferenceID="ID#:Vz3PwY0B7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='90'/>
+					<ts:TotalTime value='0.0001164'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670d020-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:Test ID = "161" name = "TC_SmokeTest_075" startDateTime = "2021-08-26T12:12:15.073"  endDateTime = "2021-08-26T12:12:15.073"  testReferenceID="ID#:xY2HEpMB7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='93'/>
+					<ts:TotalTime value='0.0001958'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Passed" />
+			<tr:TestResult ID = "tr-0670d021-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>PASS</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:TestGroup name="D:\TestStand_IPU02\IPU02_v3.seq#MainSequence_Parking_车头" ID="162" callerName='VER_PARK' testReferenceID="ID#:vdGi15QB7BG2zQAOxrutdD" startDateTime = "2021-08-26T12:12:15.090"  endDateTime = "2021-08-26T12:18:51.909" >
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>SequenceCall</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='94'/>
+					<ts:TotalTime value='396.819'/>
+					<ts:ModuleTime value='396.819'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value="Passed" />
+			<tr:SessionAction ID = "163" name = "Set ParkState" startDateTime = "2021-08-26T12:12:45.053"  endDateTime = "2021-08-26T12:12:45.056"  testReferenceID="ID#:B5acc5QB7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='7'/>
+						<ts:TotalTime value='0.0031678'/>
+						<ts:ModuleTime value='0.0031298'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "164" name = "播放车位视频" startDateTime = "2021-08-26T12:13:05.072"  endDateTime = "2021-08-26T12:13:05.083"  testReferenceID="ID#:CZacc5QB7BG2zQAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Operation Timed Out.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17402" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>CallExecutable</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='9'/>
+						<ts:TotalTime value='0.0117579'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+				<tr:TestResult ID = "tr-0670d022-0625-11ec-b6cf-000ec6bbad77" name = "ExitCode">
+					<tr:TestData>
+						<c:Datum value = "0" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</tr:TestData>
+				</tr:TestResult>
+			</tr:Test>
+			<tr:SessionAction ID = "165" name = "If" startDateTime = "2021-08-26T12:14:13.646"  endDateTime = "2021-08-26T12:14:13.647"  testReferenceID="ID#:DJacc5QB7BG2zQAOxrutdD">
+				<tr:Data>
+					<c:Collection>
+						<c:Item name = "ReportText">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x400000">
+								<c:Value>{True}</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</tr:Data>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>NI_Flow_If</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='12'/>
+						<ts:TotalTime value='0.0001678'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:SessionAction ID = "166" name = "测试结果赋值（FAIL)" startDateTime = "2021-08-26T12:14:13.669"  endDateTime = "2021-08-26T12:14:13.669"  testReferenceID="ID#:DZacc5QB7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='13'/>
+						<ts:TotalTime value='9.56e-05'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:Test ID = "167" name = "Goto" startDateTime = "2021-08-26T12:14:13.684"  endDateTime = "2021-08-26T12:14:13.687"  testReferenceID="ID#:Dpacc5QB7BG2zQAOxrutdD">
+				<tr:Events>
+						<tr:Event ID = "Error Message" severity="4" source="Error.Msg">
+							<tr:Data name="Error Message" >
+								<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+									<c:Value>Error executing step post action.
+Cannot find go to target. The step 'ID#:ETXYt/nd6xG2vwAOxrutdD' is not in the current sequence.</c:Value>
+								</c:Datum>
+							</tr:Data>
+						</tr:Event>
+						<tr:Event ID = "Error Code" severity="0" source="Error.Code">
+							<tr:Data name="Error Code" >
+								<c:Datum value = "-17300" xsi:type="c:double" />
+							</tr:Data>
+						</tr:Event>
+				</tr:Events>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Goto</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='14'/>
+						<ts:TotalTime value='0.0020931'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:Outcome value = "Aborted" qualifier= "Error" />
+			</tr:Test>
+			<tr:SessionAction ID = "168" name = "End" startDateTime = "2021-08-26T12:14:13.706"  endDateTime = "2021-08-26T12:14:13.708"  testReferenceID="ID#:D5acc5QB7BG2zQAOxrutdD">
+				<tr:Data>
+					<c:Collection>
+						<c:Item name = "ReportText">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x400000">
+								<c:Value>(If)</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</tr:Data>
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>NI_Flow_End</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='0'/>
+						<ts:Index value='15'/>
+						<ts:TotalTime value='0.0028832'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+			<tr:SessionAction ID = "169" name = "测试结果赋值（FAIL)" startDateTime = "2021-08-26T12:18:31.442"  endDateTime = "2021-08-26T12:18:31.442"  testReferenceID="ID#:HJacc5QB7BG2zQAOxrutdD">
+				<tr:Extension>
+					<ts:TSStepProperties>
+						<ts:StepType>Action</ts:StepType>
+						<ts:StepGroup>Main</ts:StepGroup>
+						<ts:BlockLevel value='1'/>
+						<ts:Index value='28'/>
+						<ts:TotalTime value='5.94e-05'/>
+					</ts:TSStepProperties>
+				</tr:Extension>
+				<tr:ActionOutcome value = "Done" />
+			</tr:SessionAction>
+		</tr:TestGroup>
+		<tr:Test ID = "170" name = "TC_SmokeTest_044" startDateTime = "2021-08-26T12:18:51.959"  endDateTime = "2021-08-26T12:18:51.959"  testReferenceID="ID#:vtGi15QB7BG2zQAOxrutdD">
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>StringValueTest</ts:StepType>
+					<ts:StepGroup>Main</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='95'/>
+					<ts:TotalTime value='0.0001486'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:Outcome value = "Failed" />
+			<tr:TestResult ID = "tr-0670d023-0625-11ec-b6cf-000ec6bbad77" name = "String">
+				<tr:TestData>
+					<c:Datum xsi:type="ts:TS_string" flags = "0x2400">
+						<c:Value>FAIL,泊入失败</c:Value>
+					</c:Datum>
+				</tr:TestData>
+				<tr:TestLimits>
+					<tr:Limits>
+						<c:Expected comparator = "CIEQ">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>PASS</c:Value>
+							</c:Datum>
+						</c:Expected>
+					</tr:Limits>
+				</tr:TestLimits>
+			</tr:TestResult>
+		</tr:Test>
+		<tr:SessionAction ID = "171" name = "Call xmlTOhtml_py.exe" startDateTime = "2021-08-26T12:20:52.168"  endDateTime = "2021-08-26T12:21:03.842"  testReferenceID="ID#:AVn2UhQG7BG2zwAOxrutdD">
+			<tr:Data>
+				<c:Collection>
+					<c:Item name = "ExitCode">
+						<c:Datum value = "1" xsi:type="ts:TS_double" flags = "0x2000"/>
+					</c:Item>
+				</c:Collection>
+			</tr:Data>
+			<tr:Extension>
+				<ts:TSStepProperties>
+					<ts:StepType>CallExecutable</ts:StepType>
+					<ts:StepGroup>Cleanup</ts:StepGroup>
+					<ts:BlockLevel value='0'/>
+					<ts:Index value='2'/>
+					<ts:TotalTime value='11.6748'/>
+				</ts:TSStepProperties>
+			</tr:Extension>
+			<tr:ActionOutcome value = "Done" />
+		</tr:SessionAction>
+	</tr:ResultSet>
+	<tr:TestProgram>
+		<c:SerialNumber>
+			HZH6228C
+		</c:SerialNumber>
+		<tr:Configuration>
+			<c:Collection xsi:type="ts:TS_Collection" flags = "0x0000">
+				<c:Item name = "IncludeTSExtensionElements">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "IncludeAttributes">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "IncludeLimits">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "IncludeMeasurements">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "IncludeArrayMeasurement">
+					<c:Datum value = "2" xsi:type="ts:TS_double" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "ArrayMeasurementFilter">
+					<c:Datum value = "3" xsi:type="ts:TS_double" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "ArrayMeasurementMax">
+					<c:Datum value = "100" xsi:type="ts:TS_double" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "IncludeTimes">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "Format">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>xml</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "NumericFormat">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>%$.13g</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "ResultFilterExpression">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>True</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "GeneratePath">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "UseTemporaryFile">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "UseSequenceFileNameAsPrefix">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "AddTimeAndDateToFileName">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "NewFileNameForEachUUT">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "ForceFileNameToBeUnique">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "AppendToFileIfItExists">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "DirectoryType">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>SpecificDirectory</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "Directory">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>D:\TestStand_IPU02\report</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "BaseName">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>自动化测试报告</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "UseFormatForExtension">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "Extension">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value></c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "ReportFilePath">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value></c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "DisableReportGeneration">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "IncludeStepResults">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "BodyGenerator">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>DLL</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "Colors">
+					<c:Collection xsi:type="ts:TS_Collection" flags = "0x0000">
+						<c:Item name = "LabelBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FFFFFF</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "ValueBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#32FFFF</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "UUTSeparator">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#0000E0</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "HeaderSeparator">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#8000CC</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "TableBorder">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#000000</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "MainBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#00C4C4</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "SetupBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FF8000</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "CleanupBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#ADD8E6</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "ReportTextBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FF32CC</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "Terminated">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#000080</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "Failed">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FF0000</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "Error">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FF0000</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "Passed">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#008000</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "Skipped">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#B98028</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "Done">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#008000</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "Running">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FFCC33</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "TerminatedBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#0000FF</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "FailedBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FF0000</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "ErrorBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FF0000</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "PassedBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#00FF00</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "SkippedBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FFFF00</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "DoneBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#00FFCC</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "RunningBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FFCC33</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "FailureStackLabelBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#FF2020</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "FailureStackValueBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#D0D0D0</c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "BatchHeadingBg">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value>#00C4C4</c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</c:Item>
+				<c:Item name = "DateAndTimeFormat">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>DateOnly</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "NewFileNameForEachBatch">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "NewBatchFileNameForEachBatch">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "NewFileNameForEachTestSocket">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "StoreUUTReportWithBatchReport">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "BatchBaseName">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>BatchReport</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "LabelSize">
+					<c:Datum value = "26" xsi:type="ts:TS_double" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "RelStylesheetPath">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>tr5_horizontal.xsl</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "StylesheetPath">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>C:\Program Files (x86)\National Instruments\TestStand 2020\Components\Models\TestStandModels\ATML\StyleSheets\tr5_horizontal.xsl</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "StylesheetMRU">
+					<c:IndexedArray dimensions="[5]" lowerBounds="[0]" upperBounds="[4]" xsi:type="ts:TS_stringArray" flags = "0x0000">
+						<ts:Element position ="[0]">
+							<c:Value>horizontal.xsl</c:Value>
+						</ts:Element>
+						<ts:Element position ="[1]">
+							<c:Value>report.xsl</c:Value>
+						</ts:Element>
+						<ts:Element position ="[2]">
+							<c:Value>expand.xsl</c:Value>
+						</ts:Element>
+						<ts:Element position ="[3]">
+							<c:Value></c:Value>
+						</ts:Element>
+						<ts:Element position ="[4]">
+							<c:Value></c:Value>
+						</ts:Element>
+					</c:IndexedArray>
+				</c:Item>
+				<c:Item name = "ATMLStylesheetMRU">
+					<c:IndexedArray dimensions="[3]" lowerBounds="[0]" upperBounds="[2]" xsi:type="ts:TS_stringArray" flags = "0x0000">
+						<ts:Element position ="[0]">
+							<c:Value>TR_horizontal.xsl</c:Value>
+						</ts:Element>
+						<ts:Element position ="[1]">
+							<c:Value>trml.xsl</c:Value>
+						</ts:Element>
+						<ts:Element position ="[2]">
+							<c:Value></c:Value>
+						</ts:Element>
+					</c:IndexedArray>
+				</c:Item>
+				<c:Item name = "StoreStylesheetAbsolutePath">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "UseOnTheFlyReporting">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "PurgeOnTheFlyResults">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "GeneratePDFReport">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "IncludeStepResultComments">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "UseLocalizedDecimalPoint">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "ReportStyle">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>ATML5</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "ReportFileSequentialModelExpression">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>"$(ClientFileDir)\\$(ClientFileName)_Report[$(FileTime)][$(FileDate)]$(Unique).$(FileExtension)"</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "ReportFileParallelModelExpression">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>"$(ClientFileDir)\\$(ClientFileName)_Report[$(FileTime)][$(FileDate)]$(Unique).$(FileExtension)"</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "ReportFileBatchModelExpression">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>"$(ClientFileDir)\\$(ClientFileName)_BatchReport[$(FileTime)][$(FileDate)]$(Unique).$(FileExtension)"</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "BatchFileBatchModelExpression">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value>"$(ClientFileDir)\\$(ClientFileName)_BatchReport[$(FileTime)][$(FileDate)]$(Unique).$(FileExtension)"</c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "NewFileNameForEachUUTStatus">
+					<c:Datum value = "false" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "ReportPathMacroListString">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value></c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "BatchReportPathMacroListString">
+					<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+						<c:Value></c:Value>
+					</c:Datum>
+				</c:Item>
+				<c:Item name = "CheckIfMacroListIsUnchanged">
+					<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+				</c:Item>
+				<c:Item name = "ATML5StylesheetMRU">
+					<c:IndexedArray dimensions="[3]" lowerBounds="[0]" upperBounds="[2]" xsi:type="ts:TS_stringArray" flags = "0x0000">
+						<ts:Element position ="[0]">
+							<c:Value>tr5_horizontal.xsl</c:Value>
+						</ts:Element>
+						<ts:Element position ="[1]">
+							<c:Value>tr5_report.xsl</c:Value>
+						</ts:Element>
+						<ts:Element position ="[2]">
+							<c:Value>tr5_expand.xsl</c:Value>
+						</ts:Element>
+					</c:IndexedArray>
+				</c:Item>
+				<c:Item name = "Atml_Rpt_Options">
+					<c:Collection xsi:type="ts:TS_Collection" flags = "0x0000">
+						<c:Item name = "AddReportText">
+							<c:Datum value = "true" xsi:type="ts:TS_boolean" flags = "0x0000"/>
+						</c:Item>
+						<c:Item name = "ExtensionDLLAbsolutePath">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value></c:Value>
+							</c:Datum>
+						</c:Item>
+						<c:Item name = "TestResultsSchemaPath">
+							<c:Datum xsi:type="ts:TS_string" flags = "0x0000">
+								<c:Value></c:Value>
+							</c:Datum>
+						</c:Item>
+					</c:Collection>
+				</c:Item>
+				<c:Item name = "ATML6StylesheetMRU">
+					<c:IndexedArray dimensions="[5]" lowerBounds="[0]" upperBounds="[4]" xsi:type="ts:TS_stringArray" flags = "0x0000">
+						<ts:Element position ="[0]">
+							<c:Value>tr6_horizontal.xsl</c:Value>
+						</ts:Element>
+						<ts:Element position ="[1]">
+							<c:Value>tr6_report.xsl</c:Value>
+						</ts:Element>
+						<ts:Element position ="[2]">
+							<c:Value>tr6_expand.xsl</c:Value>
+						</ts:Element>
+						<ts:Element position ="[3]">
+							<c:Value></c:Value>
+						</ts:Element>
+						<ts:Element position ="[4]">
+							<c:Value></c:Value>
+						</ts:Element>
+					</c:IndexedArray>
+				</c:Item>
+			</c:Collection>
+		</tr:Configuration>
+	</tr:TestProgram>
+	<tr:TestStation>
+		<c:SerialNumber>HZH6228C</c:SerialNumber>
+	</tr:TestStation>
+	<tr:UUT>
+		<c:SerialNumber>NONE</c:SerialNumber>
+	</tr:UUT>
+	<tr:Extension>
+		<ts:TSResultSetProperties>
+			<ts:NumOfResults value = '98'/>
+			<ts:CriticalFailureStack>
+				<ts:CriticalFailureStackEntry resultID="25" stepName="TC_SmokeTest_006" sequenceName="MainSequence" sequenceFileName="IPU02_v3.seq"/>
+			</ts:CriticalFailureStack>
+		</ts:TSResultSetProperties>
+	</tr:Extension>
+</trc:TestResults>
+</trc:TestResultsCollection>

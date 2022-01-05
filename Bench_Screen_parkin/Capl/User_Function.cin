@@ -1,0 +1,1294 @@
+/*@!Encoding:1252*/
+includes
+{
+  #include "COM_User_DelayTimer.cin"
+}
+variables
+{
+  const int IT6862_TimerDelay = 2000;
+  const dword ArraySize = 2049;
+  const long Size_Cmd = 1000;
+  int ControlTimes1 = 0 , ControlTimes2 = 0 , ControlTimes3 = 0  , ControlTimes4 = 0 , ControlTimes5 = 0 , ControlTimes6 = 0 , ControlTimes7 = 0 ,ControlTimes8 = 0;
+  int RelayOff = 0 , RelayOn = 1;
+  word Once = 1 , More = 2;
+  word Low = 0 , High = 1;
+  word Physical = 1 , Functional = 2;
+  long TimeCount_1 , SendMsgFID[long] , FID , SendMsgCID[ArraySize] , SendMsgFCT[ArraySize] , SendMsgCCT[ArraySize] , SendMsgCCount[ArraySize] , SendMsgFFlag[ArraySize] , SendMsgCFlag[ArraySize];
+  long TimeCount_2 , SignalRaw , SigChangeC;
+  long SpecialTime = 0;
+  long AllDelayTime = 0;
+  qword SendCount = 0 , NowCount = 1;
+  qword StructNum = 0 , NowNum = 1;
+  double OperationDelayTime1 = 0 ,  OperationDelayTime2 = 0 , OperationDelayTime3 = 0 , OperationDelayTime4 = 0 , OperationDelayTime5 = 0 , OperationDelayTime6 = 0 , OperationDelayTime7 = 0 , OperationDelayTime8 = 0;
+  struct SetInfo
+  {
+    double SetVoltage;
+    double SetCurrent;
+    qword DelayTime;
+  } SetInfo[ int64 ];
+  struct ScanInfo
+  {
+    double StartValue;
+    double StopValue;
+    double StepValue;
+    qword DelayTime;
+  } ScanInfo;
+  struct InitialInfo
+  {
+    word Range;
+    double InitialVoltage;
+    double InitialCurrent;
+  } InitialInfo;
+  struct CmdWillBeSend
+  {
+    long CmdNum;
+    char Cmd[ Size_Cmd ];
+    qword CmdTime;
+  } CmdWillBeSend[ char[] ];
+  struct TouchEvent
+  {
+    signal * Sig_x , Sig_y , Sig_TE;
+    int TouchNone , TouchDown , TouchUp , TouchMove;
+    double xAxis , yAxis;
+  } TouchEvent;
+  signal * ChangeSig;
+  message * SendMsgF[ArraySize] , SendMsgC[ArraySize];
+  msTimer MessageFrameCycle , MessageFrameCount;
+  msTimer SignalValueFrame;
+  msTimer SendCmdTimer;
+  msTimer R1T , R2T , R3T , R4T , R5T , R6T , R7T , R8T;
+  msTimer SetValueTimer , SetStepTimer , InitialIT6862Timer;
+  msTimer TouchEventTimer;
+}
+on start
+{
+  setTimerCyclic( MessageFrameCycle , 1 );
+  setTimerCyclic( MessageFrameCount , 1 );
+}
+on timer MessageFrameCycle
+{
+  int ForCount;
+  ++TimeCount_1;
+  for( ForCount = 0 ; ForCount < ArraySize ; ForCount++ )
+  {
+    if( SendMsgFID[ ForCount ] && ( TimeCount_1 - SendMsgFFlag[ ForCount ] ) % SendMsgFCT[ ForCount ] == 0 )
+    {
+      output( SendMsgF[ ForCount ] );
+    }
+    else if( SendMsgFID[ ForCount + 1 ] )
+      continue;
+    else
+      break;
+  }
+}
+on timer MessageFrameCount
+{
+  int ForCount;
+  ++TimeCount_2;
+  for( ForCount = 0 ; ForCount < ArraySize ; ForCount++ )
+  {
+    if( SendMsgCID[ ForCount ] && ( TimeCount_2 - SendMsgCFlag[ ForCount ] ) % SendMsgCCT[ ForCount ] == 0 )
+    {
+      if( SendMsgCCount[ ForCount ] )
+      {
+        output( SendMsgC[ ForCount ] );
+        SendMsgCCount[ ForCount ] -= 1;
+      }
+      else
+      {
+        SendMsgCID[ ForCount ] = 0;
+        break;
+      }
+    }
+    else
+      break;
+  }
+}
+on timer SignalValueFrame
+{
+  if( SigChangeC-- == 1 )
+  {
+    $ChangeSig = SignalRaw;
+    cancelTimer( SignalValueFrame );
+  }
+}
+on timer SendCmdTimer
+{
+  long TimeType , SendOrNot;
+  for( char[] m : CmdWillBeSend )
+  {
+    if( NowCount == CmdWillBeSend[ m ].CmdNum )
+    {
+      SendOrNot = 1; ++NowCount;
+      sysSetVariableString( sysvar::RS232::SendData , CmdWillBeSend[ m ].Cmd );
+      SendOperation();
+      if( CmdWillBeSend[ m ].CmdTime )
+      {
+        TimeType = 1;
+        setTimer( SendCmdTimer , CmdWillBeSend[ m ].CmdTime * 1000 );
+      }
+      break;
+    }
+  }
+  if( 1 == SendOrNot && 0 == TimeType )
+  {
+    setTimer( SendCmdTimer , COM_TimerDelay );
+  }
+  else if( 0 == SendOrNot )
+  {
+    SendCount = 0; NowCount = 1; SpecialTime = 0;
+    CmdWillBeSend.clear();
+    cancelTimer( SendCmdTimer );
+  }
+  TimeType = 0; SendOrNot = 0;
+}
+on timer R1T
+{
+  if( -1 != ControlTimes1 )
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_1::Relay1Disconnect == @sysvar::RelaySwitch::RelaySwitch_1 )
+    {
+      Relay1On();
+      --ControlTimes1;
+      if( 1 < ControlTimes1 )
+      {
+        setTimer( R1T , OperationDelayTime1 * 1000 );
+      }
+    }
+    else
+    {
+      Relay1Off();
+      --ControlTimes1;
+      if( 1 < ControlTimes1 )
+      {
+        setTimer( R1T , OperationDelayTime1 * 1000 );
+      }
+    }
+  }
+  else
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_1::Relay1Disconnect == @sysvar::RelaySwitch::RelaySwitch_1 )
+    {
+      Relay1On();
+    }
+    else
+    {
+      Relay1Off();
+    }
+    setTimerCyclic( R1T , OperationDelayTime1 * 1000 , OperationDelayTime1 * 1000 );
+  }
+}
+on timer R2T
+{
+  if( -1 != ControlTimes2 )
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_2::Relay2Disconnect == @sysvar::RelaySwitch::RelaySwitch_2 )
+    {
+      Relay2On();
+      --ControlTimes2;
+      if( 1 < ControlTimes2 )
+      {
+        setTimer( R2T , OperationDelayTime2 * 1000 );
+      }
+    }
+    else
+    {
+      Relay2Off();
+      --ControlTimes2;
+      if( 1 < ControlTimes2 )
+      {
+        setTimer( R2T , OperationDelayTime2 * 1000 );
+      }
+    }
+  }
+  else
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_2::Relay2Disconnect == @sysvar::RelaySwitch::RelaySwitch_2 )
+    {
+      Relay2On();
+    }
+    else
+    {
+      Relay2Off();
+    }
+    setTimerCyclic( R2T , OperationDelayTime2 * 1000 , OperationDelayTime2 * 1000 );
+  }
+}
+on timer R3T
+{
+  if( -1 != ControlTimes3 )
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_3::Relay3Disconnect == @sysvar::RelaySwitch::RelaySwitch_3 )
+    {
+      Relay3On();
+      --ControlTimes3;
+      if( 1 < ControlTimes3 )
+      {
+        setTimer( R3T , OperationDelayTime3 * 1000 );
+      }
+    }
+    else
+    {
+      Relay3Off();
+      --ControlTimes3;
+      if( 1 < ControlTimes3 )
+      {
+        setTimer( R3T , OperationDelayTime3 * 1000 );
+      }
+    }
+  }
+  else
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_3::Relay3Disconnect == @sysvar::RelaySwitch::RelaySwitch_3 )
+    {
+      Relay3On();
+    }
+    else
+    {
+      Relay3Off();
+    }
+    setTimerCyclic( R3T , OperationDelayTime3 * 1000 , OperationDelayTime3 * 1000 );
+  }
+}
+on timer R4T
+{
+  if( -1 != ControlTimes4 )
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_4::Relay4Disconnect == @sysvar::RelaySwitch::RelaySwitch_4 )
+    {
+      Relay4On();
+      --ControlTimes4;
+      if( 1 < ControlTimes4 )
+      {
+        setTimer( R4T , OperationDelayTime4 * 1000 );
+      }
+    }
+    else
+    {
+      Relay4Off();
+      --ControlTimes4;
+      if( 1 < ControlTimes4 )
+      {
+        setTimer( R4T , OperationDelayTime4 * 1000 );
+      }
+    }
+  }
+  else
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_4::Relay4Disconnect == @sysvar::RelaySwitch::RelaySwitch_4 )
+    {
+      Relay4On();
+    }
+    else
+    {
+      Relay4Off();
+    }
+    setTimerCyclic( R4T , OperationDelayTime4 * 1000 , OperationDelayTime4 * 1000 );
+  }
+}
+on timer R5T
+{
+  if( -1 != ControlTimes5 )
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_5::Relay5Disconnect == @sysvar::RelaySwitch::RelaySwitch_5 )
+    {
+      Relay5On();
+      --ControlTimes5;
+      if( 1 < ControlTimes5 )
+      {
+        setTimer( R5T , OperationDelayTime5 * 1000 );
+      }
+    }
+    else
+    {
+      Relay5Off();
+      --ControlTimes5;
+      if( 1 < ControlTimes5 )
+      {
+        setTimer( R5T , OperationDelayTime5 * 1000 );
+      }
+    }
+  }
+  else
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_5::Relay5Disconnect == @sysvar::RelaySwitch::RelaySwitch_5 )
+    {
+      Relay5On();
+    }
+    else
+    {
+      Relay5Off();
+    }
+    setTimerCyclic( R5T , OperationDelayTime5 * 1000 , OperationDelayTime5 * 1000 );
+  }
+}
+on timer R6T
+{
+  if( -1 != ControlTimes6 )
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_6::Relay6Disconnect == @sysvar::RelaySwitch::RelaySwitch_6 )
+    {
+      Relay6On();
+      --ControlTimes6;
+      if( 1 < ControlTimes6 )
+      {
+        setTimer( R6T , OperationDelayTime6 * 1000 );
+      }
+    }
+    else
+    {
+      Relay6Off();
+      --ControlTimes6;
+      if( 1 < ControlTimes6 )
+      {
+        setTimer( R6T , OperationDelayTime6 * 1000 );
+      }
+    }
+  }
+  else
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_6::Relay6Disconnect == @sysvar::RelaySwitch::RelaySwitch_6 )
+    {
+      Relay6On();
+    }
+    else
+    {
+      Relay6Off();
+    }
+    setTimerCyclic( R6T , OperationDelayTime6 * 1000 , OperationDelayTime6 * 1000 );
+  }
+}
+on timer R7T
+{
+  if( -1 != ControlTimes7 )
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_7::Relay7Disconnect == @sysvar::RelaySwitch::RelaySwitch_7 )
+    {
+      Relay7On();
+      --ControlTimes7;
+      if( 1 < ControlTimes7 )
+      {
+        setTimer( R7T , OperationDelayTime7 * 1000 );
+      }
+    }
+    else
+    {
+      Relay7Off();
+      --ControlTimes7;
+      if( 1 < ControlTimes7 )
+      {
+        setTimer( R7T , OperationDelayTime7 * 1000 );
+      }
+    }
+  }
+  else
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_7::Relay7Disconnect == @sysvar::RelaySwitch::RelaySwitch_7 )
+    {
+      Relay7On();
+    }
+    else
+    {
+      Relay7Off();
+    }
+    setTimerCyclic( R7T , OperationDelayTime7 * 1000 , OperationDelayTime7 * 1000 );
+  }
+}
+on timer R8T
+{
+  if( -1 != ControlTimes8 )
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_8::Relay8Disconnect == @sysvar::RelaySwitch::RelaySwitch_8 )
+    {
+      Relay8On();
+      --ControlTimes8;
+      if( 1 < ControlTimes8 )
+      {
+        setTimer( R8T , OperationDelayTime8 * 1000 );
+      }
+    }
+    else
+    {
+      Relay8Off();
+      --ControlTimes8;
+      if( 1 < ControlTimes8 )
+      {
+        setTimer( R8T , OperationDelayTime8 * 1000 );
+      }
+    }
+  }
+  else
+  {
+    if( sysvar::RelaySwitch::RelaySwitch_8::Relay8Disconnect == @sysvar::RelaySwitch::RelaySwitch_8 )
+    {
+      Relay8On();
+    }
+    else
+    {
+      Relay8Off();
+    }
+    setTimerCyclic( R8T , OperationDelayTime8 * 1000 , OperationDelayTime8 * 1000 );
+  }
+}
+on timer InitialIT6862Timer
+{
+  word Step;
+  switch( Step + 1 )
+  {
+    case 1 :
+      setTimer( InitialIT6862Timer , 500 );
+      ConnectIT6862();
+      ++Step;
+      break;
+    case 2 :
+      setTimer( InitialIT6862Timer , 500 );
+      if( Low == InitialInfo.Range )
+        Set_RangeLow();
+      else
+        Set_RangeHigh();
+      ++Step;
+      break;
+    case 3 :
+      setTimer( InitialIT6862Timer , 500 );
+      if( -1 == InitialInfo.InitialVoltage )
+        Set_VoltageValue( 12.5 );
+      else
+        Set_VoltageValue( InitialInfo.InitialVoltage );
+      ++Step;
+      break;
+    case 4 :
+      setTimer( InitialIT6862Timer , 500 );
+      if( -1 == InitialInfo.InitialCurrent )
+        Set_CurrentValue( 3.1 );
+      else
+        Set_CurrentValue( InitialInfo.InitialCurrent );
+      ++Step;
+      break;
+    default :
+      InitialInfo.Range = Low;
+      InitialInfo.InitialVoltage = -1;
+      InitialInfo.InitialCurrent = -1;
+      Step = 0;
+      break;
+  }
+}
+on timer SetValueTimer
+{
+  long SetOrNot;
+  for( int64 m : SetInfo )
+  {
+    if( NowNum == m )
+    {
+      SetOrNot = 1; ++NowNum;
+      Set_VoltageValue( SetInfo[ m ].SetVoltage );
+      Set_CurrentValue( SetInfo[ m ].SetCurrent );
+      setTimer( SetValueTimer , SetInfo[ m ].DelayTime * 1000 );
+      break;
+    }
+  }
+  if( 0 == SetOrNot )
+  {
+    NowNum = 1; StructNum = 0; AllDelayTime = 0;
+    SetInfo.clear();
+    cancelTimer( SetValueTimer );
+  }
+  SetOrNot = 0;
+}
+on timer SetStepTimer
+{
+  if( ScanInfo.StopValue > ScanInfo.StartValue )
+  {
+    ScanInfo.StartValue += ScanInfo.StepValue;
+    if( ScanInfo.StartValue > ScanInfo.StopValue )
+    {
+      ScanInfo.StartValue = ScanInfo.StopValue;
+    }
+    Set_VoltageValue( ScanInfo.StartValue );
+  }
+  else if( ScanInfo.StopValue < ScanInfo.StartValue )
+  {
+    ScanInfo.StartValue -= ScanInfo.StepValue;
+    if( ScanInfo.StartValue < ScanInfo.StopValue )
+    {
+      ScanInfo.StartValue = ScanInfo.StopValue;
+    }
+    Set_VoltageValue( ScanInfo.StartValue );
+  }
+  else
+  {
+    cancelTimer( SetStepTimer );
+  }
+}
+on timer TouchEventTimer
+{
+  int operationtimes;
+  if( 0 == operationtimes )
+  {
+    setSignal( TouchEvent.Sig_TE , TouchEvent.TouchDown );
+    ++operationtimes;
+  }
+  else if( 1 == operationtimes )
+  {
+    setSignal( TouchEvent.Sig_TE , TouchEvent.TouchUp );
+    ++operationtimes;
+  }
+  else if( 2 == operationtimes )
+  {
+    cancelTimer( TouchEventTimer );
+    setSignal( TouchEvent.Sig_TE , TouchEvent.TouchNone );
+    setSignal( TouchEvent.Sig_x , 0 );
+    setSignal( TouchEvent.Sig_y , 0 );
+    operationtimes = 0;
+  }
+}
+on sysvar_update sysvarMember::RelaySwitch::Relay1ControlVariable
+{
+  if( @sysvarMember::RelaySwitch::Relay1ControlVariable[0] && 0 < @sysvarMember::RelaySwitch::Relay1ControlVariable[1] )
+  {
+    cancelTimer( R1T );
+    Relay1Control( RelayOn , @sysvarMember::RelaySwitch::Relay1ControlVariable[1] , @sysvarMember::RelaySwitch::Relay1ControlVariable[0] );
+  }
+  else if( @sysvarMember::RelaySwitch::Relay1ControlVariable[0] && 0 > @sysvarMember::RelaySwitch::Relay1ControlVariable[1] )
+  {
+    cancelTimer( R1T );
+    Relay1Control( RelayOn , -1 , @sysvarMember::RelaySwitch::Relay1ControlVariable[0] );
+  }
+  else
+  {
+    cancelTimer( R1T );
+    Relay1Control( RelayOff , 0 , @sysvarMember::RelaySwitch::Relay1ControlVariable[0] );
+  }
+}
+on sysvar_update sysvarMember::RelaySwitch::Relay2ControlVariable
+{
+  if( @sysvarMember::RelaySwitch::Relay2ControlVariable[0] && 0 < @sysvarMember::RelaySwitch::Relay2ControlVariable[1] )
+  {
+    cancelTimer( R2T );
+    Relay2Control( RelayOn , @sysvarMember::RelaySwitch::Relay2ControlVariable[1] , @sysvarMember::RelaySwitch::Relay2ControlVariable[0] );
+  }
+  else if( @sysvarMember::RelaySwitch::Relay2ControlVariable[0] && 0 > @sysvarMember::RelaySwitch::Relay2ControlVariable[1] )
+  {
+    cancelTimer( R2T );
+    Relay2Control( RelayOn , -1 , @sysvarMember::RelaySwitch::Relay2ControlVariable[0] );
+  }
+  else
+  {
+    cancelTimer( R2T );
+    Relay2Control( RelayOff , 0 , @sysvarMember::RelaySwitch::Relay2ControlVariable[0] );
+  }
+}
+on sysvar_update sysvarMember::RelaySwitch::Relay3ControlVariable
+{
+  if( @sysvarMember::RelaySwitch::Relay3ControlVariable[0] && 0 < @sysvarMember::RelaySwitch::Relay3ControlVariable[1] )
+  {
+    cancelTimer( R3T );
+    Relay3Control( RelayOn , @sysvarMember::RelaySwitch::Relay3ControlVariable[1] , @sysvarMember::RelaySwitch::Relay3ControlVariable[0] );
+  }
+  else if( @sysvarMember::RelaySwitch::Relay3ControlVariable[0] && 0 > @sysvarMember::RelaySwitch::Relay3ControlVariable[1] )
+  {
+    cancelTimer( R3T );
+    Relay3Control( RelayOn , -1 , @sysvarMember::RelaySwitch::Relay3ControlVariable[0] );
+  }
+  else
+  {
+    cancelTimer( R3T );
+    Relay3Control( RelayOff , 0 , @sysvarMember::RelaySwitch::Relay3ControlVariable[0] );
+  }
+}
+on sysvar_update sysvarMember::RelaySwitch::Relay4ControlVariable
+{
+  if( @sysvarMember::RelaySwitch::Relay4ControlVariable[0] && 0 < @sysvarMember::RelaySwitch::Relay4ControlVariable[1] )
+  {
+    cancelTimer( R4T );
+    Relay4Control( RelayOn , @sysvarMember::RelaySwitch::Relay4ControlVariable[1] , @sysvarMember::RelaySwitch::Relay4ControlVariable[0] );
+  }
+  else if( @sysvarMember::RelaySwitch::Relay4ControlVariable[0] && 0 > @sysvarMember::RelaySwitch::Relay4ControlVariable[1] )
+  {
+    cancelTimer( R4T );
+    Relay4Control( RelayOn , -1 , @sysvarMember::RelaySwitch::Relay4ControlVariable[0] );
+  }
+  else
+  {
+    cancelTimer( R4T );
+    Relay4Control( RelayOff , 0 , @sysvarMember::RelaySwitch::Relay4ControlVariable[0] );
+  }
+}
+on sysvar_update sysvarMember::RelaySwitch::Relay5ControlVariable
+{
+  if( @sysvarMember::RelaySwitch::Relay5ControlVariable[0] && 0 < @sysvarMember::RelaySwitch::Relay5ControlVariable[1] )
+  {
+    cancelTimer( R5T );
+    Relay5Control( RelayOn , @sysvarMember::RelaySwitch::Relay5ControlVariable[1] , @sysvarMember::RelaySwitch::Relay5ControlVariable[0] );
+  }
+  else if( @sysvarMember::RelaySwitch::Relay5ControlVariable[0] && 0 > @sysvarMember::RelaySwitch::Relay5ControlVariable[1] )
+  {
+    cancelTimer( R5T );
+    Relay5Control( RelayOn , -1 , @sysvarMember::RelaySwitch::Relay5ControlVariable[0] );
+  }
+  else
+  {
+    cancelTimer( R5T );
+    Relay5Control( RelayOff , 0 , @sysvarMember::RelaySwitch::Relay5ControlVariable[0] );
+  }
+}
+on sysvar_update sysvarMember::RelaySwitch::Relay6ControlVariable
+{
+  if( @sysvarMember::RelaySwitch::Relay6ControlVariable[0] && 0 < @sysvarMember::RelaySwitch::Relay6ControlVariable[1] )
+  {
+    cancelTimer( R6T );
+    Relay6Control( RelayOn , @sysvarMember::RelaySwitch::Relay6ControlVariable[1] , @sysvarMember::RelaySwitch::Relay6ControlVariable[0] );
+  }
+  else if( @sysvarMember::RelaySwitch::Relay6ControlVariable[0] && 0 > @sysvarMember::RelaySwitch::Relay6ControlVariable[1] )
+  {
+    cancelTimer( R6T );
+    Relay6Control( RelayOn , -1 , @sysvarMember::RelaySwitch::Relay6ControlVariable[0] );
+  }
+  else
+  {
+    cancelTimer( R6T );
+    Relay6Control( RelayOff , 0 , @sysvarMember::RelaySwitch::Relay6ControlVariable[0] );
+  }
+}
+on sysvar_update sysvarMember::RelaySwitch::Relay7ControlVariable
+{
+  if( @sysvarMember::RelaySwitch::Relay7ControlVariable[0] && 0 < @sysvarMember::RelaySwitch::Relay7ControlVariable[1] )
+  {
+    cancelTimer( R7T );
+    Relay7Control( RelayOn , @sysvarMember::RelaySwitch::Relay7ControlVariable[1] , @sysvarMember::RelaySwitch::Relay7ControlVariable[0] );
+  }
+  else if( @sysvarMember::RelaySwitch::Relay7ControlVariable[0] && 0 > @sysvarMember::RelaySwitch::Relay7ControlVariable[1] )
+  {
+    cancelTimer( R7T );
+    Relay7Control( RelayOn , -1 , @sysvarMember::RelaySwitch::Relay7ControlVariable[0] );
+  }
+  else
+  {
+    cancelTimer( R7T );
+    Relay7Control( RelayOff , 0 , @sysvarMember::RelaySwitch::Relay7ControlVariable[0] );
+  }
+}
+on sysvar_update sysvarMember::RelaySwitch::Relay8ControlVariable
+{
+  if( @sysvarMember::RelaySwitch::Relay8ControlVariable[0] && 0 < @sysvarMember::RelaySwitch::Relay8ControlVariable[1] )
+  {
+    cancelTimer( R8T );
+    Relay8Control( RelayOn , @sysvarMember::RelaySwitch::Relay8ControlVariable[1] , @sysvarMember::RelaySwitch::Relay8ControlVariable[0] );
+  }
+  else if( @sysvarMember::RelaySwitch::Relay8ControlVariable[0] && 0 > @sysvarMember::RelaySwitch::Relay8ControlVariable[1] )
+  {
+    cancelTimer( R8T );
+    Relay8Control( RelayOn , -1 , @sysvarMember::RelaySwitch::Relay8ControlVariable[0] );
+  }
+  else
+  {
+    cancelTimer( R8T );
+    Relay8Control( RelayOff , 0 , @sysvarMember::RelaySwitch::Relay8ControlVariable[0] );
+  }
+}
+on sysvar_update sysvar::RelaySwitch::RelayControlStop
+{
+  if( 0 == @this )
+    return;
+  
+  switch( @this )
+  {
+    case 1 :
+      cancelTimer( R1T );
+      break;
+    case 2 :
+      cancelTimer( R2T );
+      break;
+    case 3 :
+      cancelTimer( R3T );
+      break;
+    case 4 :
+      cancelTimer( R4T );
+      break;
+    case 5 :
+      cancelTimer( R5T );
+      break;
+    case 6 :
+      cancelTimer( R6T );
+      break;
+    case 7 :
+      cancelTimer( R7T );
+      break;
+    case 8 :
+      cancelTimer( R8T );
+      break;
+    case 9 :
+      cancelTimer( R1T );
+      cancelTimer( R2T );
+      cancelTimer( R3T );
+      cancelTimer( R4T );
+      cancelTimer( R5T );
+      cancelTimer( R6T );
+      cancelTimer( R7T );
+      cancelTimer( R8T );
+      break;
+    default :
+      break;
+  }
+}
+void SendMessageFrame( message * _Msg , long _CycleTime )
+{
+  int ForCount;
+  for( ForCount = 0 ; ForCount < ArraySize ; ForCount++ )
+  {
+    if( SendMsgFID[ ForCount ] != _Msg.id && SendMsgFID[ ForCount ] )
+    {
+      continue;
+    }
+    else if( SendMsgFID[ ForCount ] == 0 )
+    {
+      SendMsgFID[ ForCount ] = _Msg.id;
+      SendMsgF[ ForCount ] = _Msg;
+      SendMsgFCT[ ForCount ] = _CycleTime;
+      SendMsgFFlag[ ForCount ] = TimeCount_1;
+      break;
+    }
+  }
+}
+void SendMessageFrame( dword MessageID , word MessageDLC , long _CycleTime )
+{
+  int ForCount;
+  message * msg;
+  msg.id = MessageID;
+  msg.dlc = MessageDLC;
+  for( ForCount = 0 ; ForCount < ArraySize ; ForCount++ )
+  {
+    if( SendMsgFID[ ForCount ] != MessageID && SendMsgFID[ ForCount ] )
+    {
+      continue;
+    }
+    else if( SendMsgFID[ ForCount ] == 0 )
+    {
+      SendMsgFID[ ForCount ] = MessageID;
+      SendMsgF[ ForCount ] = msg;
+      SendMsgFCT[ ForCount ] = _CycleTime;
+      SendMsgFFlag[ ForCount ] = TimeCount_1;
+      break;
+    }
+  }
+}
+void SetMessageByteValue( message * Msg , long ByteNumber , long ByteValue )
+{
+  int ForCount;
+  for( ForCount = 0 ; ForCount < ArraySize ; ForCount++ )
+  {
+    if( SendMsgFID[ ForCount ] == Msg.id )
+    {
+      FID = ForCount;
+      SendMsgF[ FID ].byte( ByteNumber ) = ByteValue;
+      break;
+    }
+  }
+}
+void SetMessageByteValue( dword MessageID , long ByteNumber , long ByteValue )
+{
+  int ForCount;
+  for( ForCount = 0 ; ForCount < ArraySize ; ForCount++ )
+  {
+    if( SendMsgFID[ ForCount ] == MessageID )
+    {
+      FID = ForCount;
+      SendMsgF[ FID ].byte( ByteNumber ) = ByteValue;
+      break;
+    }
+  }
+}
+void StopMessageFrame()
+{
+  for( long ForCount : SendMsgFID )
+  {
+    SendMsgFID[ ForCount ] = 0x0;
+  }
+}
+void StopMessageFrame( message * _Msg )
+{
+  int ForCount;
+  for( ForCount = 0 ; ForCount < ArraySize ; ForCount++ )
+  {
+    if( SendMsgFID[ ForCount ] == _Msg.id )
+    {
+      SendMsgFID[ ForCount ] = 0x0;
+      break;
+    }
+    else
+    {
+      continue;
+    }
+  }
+}
+void StopMessageFrame( dword MessageID )
+{
+  int ForCount;
+  for( ForCount = 0 ; ForCount < ArraySize ; ForCount++ )
+  {
+    if( SendMsgFID[ ForCount ] == MessageID )
+    {
+      SendMsgFID[ ForCount ] = 0x0;
+      break;
+    }
+    else
+    {
+      continue;
+    }
+  }
+}
+void ChangeSignalValue( signal * Sig , long SigValue , long MessageCycleTime , long FrameCount )
+{
+  SigChangeC = FrameCount;
+  setTimerCyclic( SignalValueFrame , MessageCycleTime );
+  SignalRaw = $Sig;
+  ChangeSig = Sig;
+  $Sig = SigValue;
+}
+void SendMessageFrame( message * _Msg , long _CycleTime , long _FrameCount )
+{
+  int ForCount;
+  for( ForCount = 0 ; ForCount < ArraySize ; ForCount++ )
+  {
+    if( SendMsgCID[ ForCount ] != _Msg.id && SendMsgCID[ ForCount ] )
+    {
+      continue;
+    }
+    else if( SendMsgCID[ ForCount ] == 0 )
+    {
+      SendMsgCID[ ForCount ] = _Msg.id;
+      SendMsgC[ ForCount ] = _Msg;
+      SendMsgCCT[ ForCount ] = _CycleTime;
+      SendMsgCCount[ ForCount ] = _FrameCount;
+      SendMsgCFlag[ ForCount ] = TimeCount_2;
+      break;
+    }
+  }
+}
+void SendCmdOnce( char Cmd[] )
+{
+  sysSetVariableString( sysvar::RS232::SendData , Cmd );
+  SendOperation();
+}
+void SendOperation()
+{
+  @sysvar::RS232::SendButton = 1;
+}
+//int RelayState => int & RelayState
+//You can input argument ( RelayOff or RelayOn )
+//You have to input DelayTime >= 0.06 s
+void Relay1Control( int & RelayState , int ControlCount , double DelayTime )
+{
+  if( 0.06 <= DelayTime )
+  {
+    if( RelayOff == RelayState )
+    {
+      ControlTimes1 = ControlCount;  OperationDelayTime1 = DelayTime;
+      Relay1Off();
+      if( 0 != ControlTimes1 )
+        setTimer( R1T , DelayTime * 1000 );
+    }
+    else if( RelayOn == RelayState )
+    {
+      ControlTimes1 = ControlCount;  OperationDelayTime1 = DelayTime;
+      Relay1On();
+      if( 0 != ControlTimes1 )
+        setTimer( R1T , DelayTime * 1000 );
+    }
+  }
+  else
+    writeLineEx( 0 , 3 , "You have to set DelayTime >= 0.06." );
+}
+//int RelayState => int & RelayState
+//You can input argument ( RelayOff or RelayOn )
+//You have to input DelayTime >= 0.06 s
+void Relay2Control( int & RelayState , int ControlCount , double DelayTime )
+{
+  if( 0.06 <= DelayTime )
+  {
+    if( RelayOff == RelayState )
+    {
+      ControlTimes2 = ControlCount;  OperationDelayTime2 = DelayTime;
+      Relay2Off();
+      if( 0 != ControlTimes2 )
+        setTimer( R2T , DelayTime * 1000 );
+    }
+    else if( RelayOn == RelayState )
+    {
+      ControlTimes2 = ControlCount;  OperationDelayTime2 = DelayTime;
+      Relay2On();
+      if( 0 != ControlTimes2 )
+        setTimer( R2T , DelayTime * 1000 );
+    }
+  }
+  else
+    writeLineEx( 0 , 3 , "You have to set DelayTime >= 0.06." );
+}
+//int RelayState => int & RelayState
+//You can input argument ( RelayOff or RelayOn )
+//You have to input DelayTime >= 0.06 s
+void Relay3Control( int & RelayState , int ControlCount , double DelayTime )
+{
+  if( 0.06 <= DelayTime )
+  {
+    if( RelayOff == RelayState )
+    {
+      ControlTimes3 = ControlCount;  OperationDelayTime3 = DelayTime;
+      Relay3Off();
+      if( 0 != ControlTimes3 )
+        setTimer( R3T , DelayTime * 1000 );
+    }
+    else if( RelayOn == RelayState )
+    {
+      ControlTimes3 = ControlCount;  OperationDelayTime3 = DelayTime;
+      Relay3On();
+      if( 0 != ControlTimes3 )
+        setTimer( R3T , DelayTime * 1000 );
+    }
+  }
+  else
+    writeLineEx( 0 , 3 , "You have to set DelayTime >= 0.06." );
+}
+//int RelayState => int & RelayState
+//You can input argument ( RelayOff or RelayOn )
+//You have to input DelayTime >= 0.06 s
+void Relay4Control( int & RelayState , int ControlCount , double DelayTime )
+{
+  if( 0.06 <= DelayTime )
+  {
+    if( RelayOff == RelayState )
+    {
+      ControlTimes4 = ControlCount;  OperationDelayTime4 = DelayTime;
+      Relay4Off();
+      if( 0 != ControlTimes4 )
+        setTimer( R4T , DelayTime * 1000 );
+    }
+    else if( RelayOn == RelayState )
+    {
+      ControlTimes4 = ControlCount;  OperationDelayTime4 = DelayTime;
+      Relay4On();
+      if( 0 != ControlTimes4 )
+        setTimer( R4T , DelayTime * 1000 );
+    }
+  }
+  else
+    writeLineEx( 0 , 3 , "You have to set DelayTime >= 0.06." );
+}
+//int RelayState => int & RelayState
+//You can input argument ( RelayOff or RelayOn )
+//You have to input DelayTime >= 0.06 s
+void Relay5Control( int & RelayState , int ControlCount , double DelayTime )
+{
+  if( 0.06 <= DelayTime )
+  {
+    if( RelayOff == RelayState )
+    {
+      ControlTimes5 = ControlCount;  OperationDelayTime5 = DelayTime;
+      Relay5Off();
+      if( 0 != ControlTimes5 )
+        setTimer( R5T , DelayTime * 1000 );
+    }
+    else if( RelayOn == RelayState )
+    {
+      ControlTimes5 = ControlCount;  OperationDelayTime5 = DelayTime;
+      Relay5On();
+      if( 0 != ControlTimes5 )
+        setTimer( R5T , DelayTime * 1000 );
+    }
+  }
+  else
+    writeLineEx( 0 , 3 , "You have to set DelayTime >= 0.06." );
+}
+//int RelayState => int & RelayState
+//You can input argument ( RelayOff or RelayOn )
+//You have to input DelayTime >= 0.06 s
+void Relay6Control( int & RelayState , int ControlCount , double DelayTime )
+{
+  if( 0.06 <= DelayTime )
+  {
+    if( RelayOff == RelayState )
+    {
+      ControlTimes6 = ControlCount;  OperationDelayTime6 = DelayTime;
+      Relay6Off();
+      if( 0 != ControlTimes6 )
+        setTimer( R6T , DelayTime * 1000 );
+    }
+    else if( RelayOn == RelayState )
+    {
+      ControlTimes6 = ControlCount;  OperationDelayTime6 = DelayTime;
+      Relay6On();
+      if( 0 != ControlTimes6 )
+        setTimer( R6T , DelayTime * 1000 );
+    }
+  }
+  else
+    writeLineEx( 0 , 3 , "You have to set DelayTime >= 0.06." );
+}
+//int RelayState => int & RelayState
+//You can input argument ( RelayOff or RelayOn )
+//You have to input DelayTime >= 0.06 s
+void Relay7Control( int & RelayState , int ControlCount , double DelayTime )
+{
+  if( 0.06 <= DelayTime )
+  {
+    if( RelayOff == RelayState )
+    {
+      ControlTimes7 = ControlCount;  OperationDelayTime7 = DelayTime;
+      Relay7Off();
+      if( 0 != ControlTimes7 )
+        setTimer( R7T , DelayTime * 1000 );
+    }
+    else if( RelayOn == RelayState )
+    {
+      ControlTimes7 = ControlCount;  OperationDelayTime7 = DelayTime;
+      Relay7On();
+      if( 0 != ControlTimes7 )
+        setTimer( R7T , DelayTime * 1000 );
+    }
+  }
+  else
+    writeLineEx( 0 , 3 , "You have to set DelayTime >= 0.06." );
+}
+//int RelayState => int & RelayState
+//You can input argument ( RelayOff or RelayOn )
+//You have to input DelayTime >= 0.06 s
+void Relay8Control( int & RelayState , int ControlCount , double DelayTime )
+{
+  if( 0.06 <= DelayTime )
+  {
+    if( RelayOff == RelayState )
+    {
+      ControlTimes8 = ControlCount;  OperationDelayTime8 = DelayTime;
+      Relay8Off();
+      if( 0 != ControlTimes8 )
+        setTimer( R8T , DelayTime * 1000 );
+    }
+    else if( RelayOn == RelayState )
+    {
+      ControlTimes8 = ControlCount;  OperationDelayTime8 = DelayTime;
+      Relay8On();
+      if( 0 != ControlTimes8 )
+        setTimer( R8T , DelayTime * 1000 );
+    }
+  }
+  else
+    writeLineEx( 0 , 3 , "You have to set DelayTime >= 0.06." );
+}
+//this function can send a diagnostics service by cdd
+//word RequestType -> word & RequestType
+//You can input argument ( Physical or Functional )
+void DiagReqSend( char ECU[] , word & RequestType , char DiagReq[] )
+{
+  diagRequest * DiagReqSend;
+  byte DiagReqRec[ 50 ];
+  long Size = 0;
+  Size = StringTransitionInt( DiagReq );
+  diagSetTarget( ECU );
+  DiagReqSend.Resize( Size );
+  sysGetVariableData( sysvar::Diagnostics::DiagReq , DiagReqRec , Size );
+  DiagReqSend.SetPrimitiveData( DiagReqRec , Size );
+  if( Physical == RequestType )
+    DiagReqSend.SendRequest();
+  else if( Functional == RequestType )
+    DiagReqSend.SendFunctional();
+}
+void Relay1On()
+{
+  @sysvar::RelaySwitch::RelaySwitch_1 = sysvar::RelaySwitch::RelaySwitch_1::Relay1Connect;
+}
+void Relay2On()
+{
+  @sysvar::RelaySwitch::RelaySwitch_2 = sysvar::RelaySwitch::RelaySwitch_2::Relay2Connect;
+}
+void Relay3On()
+{
+  @sysvar::RelaySwitch::RelaySwitch_3 = sysvar::RelaySwitch::RelaySwitch_3::Relay3Connect;
+}
+void Relay4On()
+{
+  @sysvar::RelaySwitch::RelaySwitch_4 = sysvar::RelaySwitch::RelaySwitch_4::Relay4Connect;
+}
+void Relay5On()
+{
+  @sysvar::RelaySwitch::RelaySwitch_5 = sysvar::RelaySwitch::RelaySwitch_5::Relay5Connect;
+}
+void Relay6On()
+{
+  @sysvar::RelaySwitch::RelaySwitch_6 = sysvar::RelaySwitch::RelaySwitch_6::Relay6Connect;
+}
+void Relay7On()
+{
+  @sysvar::RelaySwitch::RelaySwitch_7 = sysvar::RelaySwitch::RelaySwitch_7::Relay7Connect;
+}
+void Relay8On()
+{
+  @sysvar::RelaySwitch::RelaySwitch_8 = sysvar::RelaySwitch::RelaySwitch_8::Relay8Connect;
+}
+void Relay1Off()
+{
+  @sysvar::RelaySwitch::RelaySwitch_1 = sysvar::RelaySwitch::RelaySwitch_1::Relay1Disconnect;
+}
+void Relay2Off()
+{
+  @sysvar::RelaySwitch::RelaySwitch_2 = sysvar::RelaySwitch::RelaySwitch_2::Relay2Disconnect;
+}
+void Relay3Off()
+{
+  @sysvar::RelaySwitch::RelaySwitch_3 = sysvar::RelaySwitch::RelaySwitch_3::Relay3Disconnect;
+}
+void Relay4Off()
+{
+  @sysvar::RelaySwitch::RelaySwitch_4 = sysvar::RelaySwitch::RelaySwitch_4::Relay4Disconnect;
+}
+void Relay5Off()
+{
+  @sysvar::RelaySwitch::RelaySwitch_5 = sysvar::RelaySwitch::RelaySwitch_5::Relay5Disconnect;
+}
+void Relay6Off()
+{
+  @sysvar::RelaySwitch::RelaySwitch_6 = sysvar::RelaySwitch::RelaySwitch_6::Relay6Disconnect;
+}
+void Relay7Off()
+{
+  @sysvar::RelaySwitch::RelaySwitch_7 = sysvar::RelaySwitch::RelaySwitch_7::Relay7Disconnect;
+}
+void Relay8Off()
+{
+  @sysvar::RelaySwitch::RelaySwitch_8 = sysvar::RelaySwitch::RelaySwitch_8::Relay8Disconnect;
+}
+void InitialIT6862()
+{
+  InitialInfo.Range = Low;
+  InitialInfo.InitialVoltage = -1;
+  InitialInfo.InitialCurrent = -1;
+  setTimer( InitialIT6862Timer , 500 );
+}
+//word VoltageRange => word & VoltageRange
+//You can input argument ( Low or High )
+void InitialIT6862( word & VoltageRange , double InitailVoltage , double InitailCurrent )
+{
+  InitialInfo.Range = VoltageRange;
+  InitialInfo.InitialVoltage = InitailVoltage;
+  InitialInfo.InitialCurrent = InitailCurrent;
+  setTimer( InitialIT6862Timer , 500 );
+}
+void Set_VoltageAndCurrentOnce( double Voltage , double Current )
+{
+  Set_VoltageValue( Voltage );
+  Set_CurrentValue( Current );
+}
+void Set_VoltageStepChange( double StartValue , double StopValue , double StepValue , qword DelayTime )
+{
+  ScanInfo.StartValue = StartValue;
+  ScanInfo.StopValue = StopValue;
+  ScanInfo.StepValue = StepValue;
+  ScanInfo.DelayTime = DelayTime;
+  Set_VoltageValue( ScanInfo.StartValue );
+  setTimerCyclic( SetStepTimer , DelayTime );
+}
+void Set_Address( char Address[] )
+{
+  sysSetVariableString( sysvar::VISA::VISA_Address , Address );
+}
+void ConnectIT6862()
+{
+  @sysvar::IT6862A_PanelControl::IT6862A_PanelControl_Connect = 1;
+}
+void DisconnectIT6862()
+{
+  @sysvar::IT6862A_PanelControl::IT6862A_PanelControl_Disconnnect = 1;
+}
+void Set_RangeHigh()
+{
+  @sysvar::IT6862A_PanelControl::IT6862A_PanelControl_HighRange = 1;
+}
+void Set_RangeLow()
+{
+  @sysvar::IT6862A_PanelControl::IT6862A_PanelControl_LowRange = 1;
+}
+void Set_VoltageValue( double Voltage )
+{
+  @sysvar::IT6862A_PanelControl::IT6862A_PanelControl_VoltageValue = Voltage;
+}
+void Set_CurrentValue( double Current )
+{
+  @sysvar::IT6862A_PanelControl::IT6862A_PanelControl_CurrentValue = Current;
+}
+void Simulation_xyaxis( signal * xS , signal * yS , double x_axis , double y_axis , signal * teX , int TouchNone , int TouchDown , int TouchUp , qword DelayTime )
+{
+  TouchEvent.Sig_x = xS;
+  TouchEvent.Sig_y = yS;
+  $xS = TouchEvent.xAxis = x_axis;
+  $yS = TouchEvent.yAxis = y_axis;
+  TouchEvent.Sig_TE = teX;
+  TouchEvent.TouchNone = TouchNone;
+  TouchEvent.TouchDown = TouchDown;
+  TouchEvent.TouchUp = TouchUp;
+  setTimerCyclic( TouchEventTimer , 0 , DelayTime );
+}
+long StringTransitionInt( char Str[] )
+{
+  byte UInt[50] , Marge[50] , num , Tran = 0;
+  long ArraySize = 0;
+  for( num = 0 ; num < elCount(Str) ; num++ )
+  {
+    if( ' ' == Str[num] )
+      continue;
+    
+    if( (byte)Str[num] > 64 )
+      UInt[Tran] = (byte)Str[num] - 55 ;
+    else
+      UInt[Tran] = (byte)Str[num] - 48 ;
+    Tran++;
+  }
+  Tran = 0;
+  for( num = 0 ; num < elCount(Str) - elCount(Str) / 3 ; num++ )
+  {
+    if( 0 == num % 2 )
+    {
+      Marge[Tran] = UInt[num] * 16;
+    }
+    else
+    {
+      Marge[Tran] += UInt[num];
+      ArraySize = ++Tran;
+    }
+  }
+  Tran = 0;
+  sysSetVariableData( sysvar::Diagnostics::DiagReq , Marge , elCount(Marge) );
+  return ArraySize;
+}
+qword SendCmdCyclic( char Cmd[] )
+{
+  CmdWillBeSend[ Cmd ].CmdNum = ++SendCount;
+  SpecialTime += 1;
+  memcpy( CmdWillBeSend[ Cmd ].Cmd , Cmd , strlen( Cmd ) );
+  setTimer( SendCmdTimer , COM_TimerDelay );
+  return ( ( SpecialTime + 2 ) * 2 * 1000 );
+}
+qword SendCmdCyclic( char Cmd[] , qword DelayTime )
+{
+  CmdWillBeSend[ Cmd ].CmdNum = ++SendCount;
+  CmdWillBeSend[ Cmd ].CmdTime = DelayTime;
+  SpecialTime += DelayTime ;
+  memcpy( CmdWillBeSend[ Cmd ].Cmd , Cmd , strlen( Cmd ) );
+  setTimer( SendCmdTimer , COM_TimerDelay );
+  return ( ( SpecialTime + 2 ) * 2 * 1000 );
+}
+qword Set_VoltageAndCurrentCyclic( double Voltage , double Current , qword DelayTime )
+{
+  ++StructNum;
+  SetInfo[ StructNum ].SetVoltage = Voltage;
+  SetInfo[ StructNum ].SetCurrent = Current;
+  SetInfo[ StructNum ].DelayTime = DelayTime;
+  AllDelayTime += DelayTime;
+  setTimer( SetValueTimer , IT6862_TimerDelay );
+  return ( ( AllDelayTime + 2 ) * 1000 );
+}
+sysvarFloat * Get_Voltage_sysvar()
+{
+  return sysvar::IT6862A_PanelControl::IT6862A_PanelControl_VoltageView;
+}
+sysvarFloat * Get_Current_sysvar()
+{
+  return sysvar::IT6862A_PanelControl::IT6862A_PanelControl_CurrentView;
+}

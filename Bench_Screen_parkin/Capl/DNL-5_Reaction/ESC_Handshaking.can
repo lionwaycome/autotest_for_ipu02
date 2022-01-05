@@ -1,0 +1,261 @@
+/*@!Encoding:936*/
+includes
+{
+  
+}
+
+variables
+{
+  int t100=20;//range 20--300ms
+  int flag0=0,flag1=0,GearRequestflag=0,GearshiftFlag=0,CompleteFlag=0;
+  int a=0,RL=0,RR=0;
+  float WheelAngle;
+  msTimer timer_GearshiftComplete,WaitForGearshift,timer_WaitForGearshift;
+  msTimer WaitForComplete,timer_WaitForComplete;
+  msTimer failtimer,StopTimer,New,driveroff,timer1;
+  msTimer mt_Epb;
+}
+   
+on start
+{
+  $ESC_ABSActive=0;
+  $ESC_TCSActive=0;
+  $ESC_ESPActive=0;
+  $ESC_EPBStatus=0;
+  $ESC_APA_Available=1;
+  $ESC_APA_CDD_available=1;
+  $ESC_Vehiclestandstill=1;
+  $ESC_FLWheelSpeedRCSts=0;
+  $ESC_FRWheelSpeedRCSts=0;
+  $ESC_RLWheelSpeedRCSts=0;
+  $ESC_RRWheelSpeedRCSts=0;
+  $ESC_FLWheelSpeedRC=0;
+  $ESC_FRWheelSpeedRC=0;
+  $ESC_RLWheelSpeedRC=0;
+  $ESC_RRWheelSpeedRC=0;
+  write("ESC:esc init ok");
+}
+
+//*****************************AutoParking Control***************************//
+on signal AVM_APA_CurrentStepNum
+{
+    if($AVM_APA_CurrentStepNum==7&&($AVM_APA_CurrentPathNum==$AVM_APA_TotalPathNum) && $GW::MMI_Safety_Info::MMI_APA_PopWindowsButton!=2)
+    {
+      CompleteFlag=1;
+      @RCParking=2;
+      if($AVM_APS::AVM_APAStatus::AVM_APA_TerminatedType==0)
+      {
+         write("ESC:wait for parking complete...");
+         setTimer(WaitForComplete,600);
+      } 
+    }
+    else if($AVM_APA_CurrentStepNum==7&&($AVM_APA_CurrentPathNum!=$AVM_APA_TotalPathNum) && $GW::MMI_Safety_Info::MMI_APA_PopWindowsButton!=2 && $AVM_APS::AVM_APAStatus::AVM_APA_AbortReason==0 && $AVM_APS::AVM_APAStatus::AVM_APA_OverrideReason==0 && $AVM_APS::AVM_APAStatus::AVM_APA_SuspendedReason==0)
+    {
+      GearshiftFlag=1;
+      @RCParking=2;
+      if($AVM_APS::AVM_APAStatus::AVM_APA_TerminatedType==0)
+      {
+         write("ESC:stepnum 7,wait for gearshift....");
+         setTimer(WaitForGearshift,600);
+      }
+    }
+    else if(a==1&& $DrvrAsscSysSts==4 && $AVM_APS::AVM_APAStatus::AVM_APA_TerminatedType==0 && @RCParking==2)
+    {
+      a=0;
+      GearshiftFlag=0;
+      write("ESC:a=0");
+    }
+    else
+    { return; }
+}
+on signal AVM_APA_GearRequest
+{
+  GearRequestflag=1;
+  GearshiftFlag=0;
+  flag0=0;
+  write("ESC:apa request gearshift,gear change OK");
+  setTimer(timer_GearshiftComplete,700);//@**
+}
+on timer timer_GearshiftComplete
+{
+  GearRequestflag=0;
+}
+on timer WaitForGearshift
+{
+  if(GearRequestflag==1)
+  { 
+    a=1;
+    GearshiftFlag=0;
+    flag1=0;//add 0711,gearshift reset flag1
+  }
+  else if(GearRequestflag==0 && $AVM_APS::AVM_APAStatus::AVM_APA_TerminatedType==0 && ($AVM_APS::AVM_APA_LCControl2::AVM_APA_GearRequest==2 || $AVM_APS::AVM_APA_LCControl2::AVM_APA_GearRequest==4))//0727
+  {
+    GearshiftFlag=1;//wait for gearshift
+    a=0;
+    flag1++;
+    setTimer(timer_WaitForGearshift,100);
+    write("ESC:not in correct position,move a little !");
+  }
+  else
+  {
+    flag1=0;
+    cancelTimer(timer_WaitForGearshift);
+  }
+}
+on timer timer_WaitForGearshift
+{
+  write("ESC:wait for gearshift...");
+  if(flag1<10)
+  setTimer(WaitForGearshift,600);//此延时时间不能大于@**设置的时间
+  else
+  cancelTimer(WaitForGearshift);
+}
+on timer WaitForComplete
+{
+  if($DrvrAsscSysSts==4 && $AVM_APS::AVM_APAStatus::AVM_APA_TerminatedType==0 && ($AVM_APS::AVM_APA_LCControl2::AVM_APA_GearRequest==2 || $AVM_APS::AVM_APA_LCControl2::AVM_APA_GearRequest==4))
+  {
+    flag0++;
+    setTimer(timer_WaitForComplete,100);
+  }
+  else
+  {
+    flag0=0;
+    cancelTimer(timer_WaitForComplete);
+  }
+}
+on timer timer_WaitForComplete
+{
+  if(flag0<8)
+  setTimer(WaitForComplete,600);
+  else
+  cancelTimer(WaitForComplete);
+}
+//*******************************End*******************************//
+
+//*****************************driveroffReq control***********************//
+on signal AVM_APS::AVM_APA_LCControl1::AVM_APA_DriverOffReq
+{
+  if($AVM_APS::AVM_APA_LCControl1::AVM_APA_DriverOffReq==1 && $AVM_APS::AVM_APAStatus::AVM_APA_CurrentStepNum!=7)//request driveroff
+  {
+    setTimer(New,200);
+  }
+  else if($AVM_APS::AVM_APA_LCControl1::AVM_APA_DriverOffReq==1 && $AVM_APS::AVM_APAStatus::AVM_APA_CurrentStepNum==7)
+  {
+    setTimer(timer1,100);
+  }
+}
+On timer timer1
+{
+  if($ESC::ESC_DA_MESSAGE::ESC_Vehiclestandstill==1 && $AVM_APS::AVM_APAStatus::AVM_APA_TerminatedType==0 && $AVM_APS::AVM_APA_LCControl1::AVM_APA_VLCAxTarAim!=0)
+  {
+    setTimer(driveroff,800);
+  }
+}
+On timer New
+{
+  if(($AVM_APS::AVM_APA_LCControl2::AVM_APA_GearRequest==2 || $AVM_APS::AVM_APA_LCControl2::AVM_APA_GearRequest==4) && CompleteFlag==0 && GearshiftFlag==0 && $AVM_APS::AVM_APAStatus::AVM_APA_TerminatedType==0)
+  {
+    write("ESC:start driveroff");
+  }
+  else if(($AVM_APS::AVM_APA_LCControl2::AVM_APA_GearRequest==2 || $AVM_APS::AVM_APA_LCControl2::AVM_APA_GearRequest==4) && $AVM_APS::AVM_APAStatus::AVM_APA_TerminatedType==0 && $AVM_APS::AVM_APA_LCControl2::AVM_APA_StandstillReq!=1 )
+  {
+    write("ESC:continue driveroff");
+  }
+}
+
+on timer driveroff
+{
+  if($ESC::ESC_DA_MESSAGE::ESC_Vehiclestandstill==1 && $AVM_APS::AVM_APAStatus::AVM_APA_TerminatedType==0 && $AVM_APS::AVM_APAStatus::AVM_APA_CurrentStepNum==7 && $AVM_APS::AVM_APA_LCControl1::AVM_APA_VLCAxTarAim!=0 && ($AVM_APS::AVM_APA_LCControl2::AVM_APA_GearRequest==2 || $AVM_APS::AVM_APA_LCControl2::AVM_APA_GearRequest==4))
+  {
+    if($AVM_APS::AVM_APAStatus::AVM_APA_CurrentPathNum==$AVM_APS::AVM_APAStatus::AVM_APA_TotalPathNum)
+    {
+      setTimer(WaitForComplete,0);
+      write("ESC:step7,no terminal,continue for complete");
+    }
+    else
+    {
+      setTimer(WaitForGearshift,0);
+      write("ESC:step7,no terminal,continue for gearshift");
+    }
+  }
+}
+//***********************************End********************************//
+
+//**********************************************************************//
+on signal AVM_APS::AVM_APAStatus::AVM_APA_TotalPathNum
+{
+  if($AVM_APS::AVM_APAStatus::AVM_APA_TotalPathNum==0 && $AVM_APS::AVM_APAStatus::AVM_APA_AutoSearchSts!=0)
+  {
+    write("ESC:driveroff maybe fail !!");
+    setTimer(failtimer,400);
+  }
+}
+on timer failtimer
+{
+  if($AVM_APS::AVM_APAStatus::AVM_APA_TotalPathNum==0)
+   {
+     write("ESC: No path,start parking fail");
+   }
+  else
+   {
+     write("ESC: driveroff OK !"); 
+   }
+}
+
+on signal AVM_APS::AVM_APA_LCControl1::AVM_APA_StopDistance  //add 0628,only used partin
+{
+  if($AVM_APS::AVM_APA_LCControl1::AVM_APA_StopDistance==0 && $AVM_APS::AVM_APAStatus::AVM_APA_AutoSearchSts!=0)
+  {
+    setTimer(StopTimer,1000);
+  }
+}
+on timer StopTimer
+{
+  if($AVM_APS::AVM_APA_LCControl1::AVM_APA_StopDistance==0 && $AVM_APS::AVM_APAStatus::AVM_APA_CurrentStepNum!=7)
+  {
+    cancelTimer(WaitForGearshift);
+    cancelTimer(timer_WaitForGearshift);
+    cancelTimer(WaitForComplete);
+    cancelTimer(timer_WaitForComplete);
+    write("ESC:stopdistance=0 ,1000ms,maybe obstacle on path");
+  }
+  else if($AVM_APS::AVM_APA_LCControl1::AVM_APA_StopDistance==0 && $AVM_APS::AVM_APAStatus::AVM_APA_CurrentStepNum==7 && $AVM_APS::AVM_APAStatus::AVM_APA_TerminatedType!=0)
+  {
+     cancelTimer(WaitForGearshift);
+     cancelTimer(timer_WaitForGearshift);
+     cancelTimer(WaitForComplete);
+     cancelTimer(timer_WaitForComplete);
+     write("ESC:Terminal");
+  }
+}
+
+on signal ESC::ESC_DA_MESSAGE::ESC_Vehiclestandstill
+{
+  if($ESC::ESC_DA_MESSAGE::ESC_Vehiclestandstill==0) //move
+  {
+    setControlVisibility("ParkingTerminal","Picture_move",1);
+    setControlVisibility("ParkingTerminal","Picture_stop",0);
+    setControlVisibility("RadarParkingTest","Picture_move",1); 
+    setControlVisibility("RadarParkingTest","Picture_stop",0); 
+  }
+  else if($ESC::ESC_DA_MESSAGE::ESC_Vehiclestandstill==1)  //stop
+  {
+    setControlVisibility("ParkingTerminal","Picture_move",0);
+    setControlVisibility("ParkingTerminal","Picture_stop",1);
+    setControlVisibility("RadarParkingTest","Picture_move",0); 
+    setControlVisibility("RadarParkingTest","Picture_stop",1); 
+    $ESC::ESC_Status::ESC_VehicleSpeed=0; //add 2018/11/27
+  }
+}
+On signal AVM_APS::AVM_APA_LCControl2::AVM_APA_HandshakingReq
+{
+  if(this==4)
+  {
+    @Interrupt::EPB_locked_7=1;
+    setTimer(mt_Epb,500);
+  }
+}
+on timer mt_Epb
+{
+  @Interrupt::EPB_locked_7=0;
+}

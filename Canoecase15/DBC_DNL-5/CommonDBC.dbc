@@ -1,0 +1,186 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_:
+VAL_TABLE_ MMI_APA_ConfirmButton 2 "Terminated Button Press" 1 "Comfirm Button Press" 0 "No Press" ;
+VAL_TABLE_ MMI_APA_AutoDetect 1 "Off" 0 "On" ;
+VAL_TABLE_ MMI_APA_PopWindowsButton 2 "Cancel" 1 "OK" 0 "No request" ;
+VAL_TABLE_ MMI_APA_Function_Select 2 "ParkOUT" 1 "ParkIN" 0 "No Press" ;
+VAL_TABLE_ MMI_APA_MechanicalPark 1 "徭強" 0 "返強" ;
+VAL_TABLE_ MMI_OnroadCalibReq 1 "Start Calib" 0 "No request" ;
+VAL_TABLE_ MMI_AVM_TouchEventType_Reserved 3 "0x3 : pen move" 2 "0x2 : pen up" 1 "0x1 : pen down" 0 "0x0:not touch" ;
+VAL_TABLE_ DynamicPGS_PD_MOD 2 "on" 1 "off" 0 "No Request" ;
+
+
+
+
+EV_ Function_ConfigCode: 0 [0|0] "" 0 1 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ VehicleNetwork_ConfigCode: 0 [0|0] "" 0 2 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ Terminal_Countdown: 0 [0|30] "" 0 3 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ Parking_Confirm: 0 [0|1] "" 0 4 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ Manual_stereoscopic: 0 [0|1] "" 0 5 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ Manual_diagonal: 0 [0|1] "" 0 6 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ Manual_cPSC: 0 [0|1] "" 0 7 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ Manual_perpendicular: 0 [0|1] "" 0 8 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ OnRoadCalib_Cancel: 0 [0|1] "" 0 9 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ OnRoadCalib_Start: 0 [0|1] "" 0 10 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ SendCoordinate: 0 [0|1] "" 0 11 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_APA_PopWindowsButton: 0 [0|2] "" 0 12 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_APA_AutoDetect: 0 [0|1] "" 0 13 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_APA_ConfirmButton: 0 [0|2] "" 0 14 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_APA_MechanicalPark: 0 [0|1] "" 0 15 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_APA_Function_Select: 0 [0|2] "" 0 16 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_OnroadCalibReq: 0 [0|1] "" 0 17 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_CarIconTransparentReq: 0 [0|2] "" 0 18 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_AVM_TouchEventType_Reserved: 0 [0|3] "" 0 19 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_AVM_Ycoordinate_Reserved: 0 [0|1022] "" 0 20 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_AVM_Xcoordinate_Reserved: 0 [0|2046] "" 0 21 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_AVMPDEnableRequest: 0 [0|2] "" 0 22 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_AVMMODEnableRequest: 0 [0|2] "" 0 23 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_DynamicPGSRequest: 0 [0|2] "" 0 24 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ TransmissionRS232: 0 [0|0] "" 0 25 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ SoftVersionASCii: 0 [0|0] "" 0 26 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ SoftVersion: 0 [0|0] "" 0 27 DUMMY_NODE_VECTOR8000 Vector__XXX;
+
+EV_ RRRC_ChangeSpeed: 0 [0|512] "" 69 28 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ RLRC_ChangeSpeed: 0 [0|512] "" 69 29 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ ReceptionRS232: 0 [0|0] "" 0 30 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ HardVersionASCii: 0 [0|0] "" 0 31 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ HardVersion: 0 [0|0] "" 0 32 DUMMY_NODE_VECTOR8000 Vector__XXX;
+
+EV_ GetVersion: 0 [0|1] "" 0 33 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ FRRC_ChangeSpeed: 0 [0|512] "" 69 34 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ FLRC_ChangeSpeed: 0 [0|512] "" 69 35 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ EOL_XorSave: 0 [0|0] "" 0 36 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ EOL_Transmission: 0 [0|0] "" 0 37 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ EOL_Reception: 0 [0|0] "" 0 38 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ EOL_Putdata: 0 [0|0] "" 0 39 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ EnvKlemme30: 0 [0|1] "" 1 40 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ EnvKlemme15: 0 [0|1] "" 0 41 DUMMY_NODE_VECTOR0 Vector__XXX;
+ENVVAR_DATA_ Function_ConfigCode: 0;
+ENVVAR_DATA_ VehicleNetwork_ConfigCode: 0;
+ENVVAR_DATA_ TransmissionRS232: 0;
+ENVVAR_DATA_ SoftVersionASCii: 0;
+ENVVAR_DATA_ ReceptionRS232: 0;
+ENVVAR_DATA_ HardVersionASCii: 0;
+ENVVAR_DATA_ EOL_XorSave: 0;
+ENVVAR_DATA_ EOL_Transmission: 0;
+ENVVAR_DATA_ EOL_Reception: 0;
+ENVVAR_DATA_ EOL_Putdata: 50;
+
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65535;
+BA_DEF_ SG_  "NWM-WakeupAllowed" ENUM  "No","Yes";
+BA_DEF_ BO_  "NmMessage" ENUM  "no","yes";
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BU_  "NmNode" ENUM  "no","yes";
+BA_DEF_ BU_  "NmStationAddress" INT 0 63;
+BA_DEF_  "NmBaseAddress" HEX 1024 1087;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 50000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 50000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 1000;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 999999;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","IfActive","NoMsgSendType","NotUsed","vector_leerstring";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 100000;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed";
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 100000000000;
+BA_DEF_DEF_  "NodeLayerModules" "CANoeILNLVector.dll";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "NWM-WakeupAllowed" "";
+BA_DEF_DEF_  "NmMessage" "no";
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "NmNode" "no";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+VAL_ MMI_APA_PopWindowsButton 2 "Cancel" 1 "OK" 0 "No request" ;
+VAL_ MMI_APA_AutoDetect 1 "Off" 0 "On" ;
+VAL_ MMI_APA_ConfirmButton 2 "Terminated Button Press" 1 "Comfirm Button Press" 0 "No Press" ;
+VAL_ MMI_APA_MechanicalPark 1 "徭強" 0 "返強" ;
+VAL_ MMI_APA_Function_Select 2 "ParkOUT" 1 "ParkIN" 0 "No Press" ;
+VAL_ MMI_OnroadCalibReq 1 "Start Calib" 0 "No request" ;
+VAL_ MMI_CarIconTransparentReq 2 "on" 1 "off" 0 "No Request" ;
+VAL_ MMI_AVM_TouchEventType_Reserved 3 "0x3 : pen move" 2 "0x2 : pen up" 1 "0x1 : pen down" 0 "0x0:not touch" ;
+VAL_ MMI_AVMPDEnableRequest 2 "on" 1 "off" 0 "No Request" ;
+VAL_ MMI_AVMMODEnableRequest 2 "on" 1 "off" 0 "No Request" ;
+VAL_ MMI_DynamicPGSRequest 2 "on" 1 "off" 0 "No Request" ;
+

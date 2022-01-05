@@ -1,0 +1,911 @@
+/*@!Encoding:936*/
+includes
+{
+  #include "MYETE.cin"
+}
+
+variables
+{
+  //创建一个数组,用来存储如下信息,从[6]开始,元素的值会随数组而变化
+  //GrpArr[0] = SGCheckedNumber,创建一个变量用来记录报文检测（收到）的次数,同时用来表征该报文是否被收到过
+  //GrpArr[1] = SGCntrErrNumber,创建一个变量用来记录Cntr出错的次数
+  //GrpArr[2] = SGChksErrNumber,创建一个变量用来记录Chks出错的次数
+  //GrpArr[3] = SGCntrSequenceErrReportedFlag,创建一个变量用来记录Cntr顺序出错是否被报告过了
+  //GrpArr[4] = SGCntrInvalidErrReportedFlag,创建一个变量用来记录Cntr编码出错是否被报告过了
+  //GrpArr[5] = SGCntrLastValue,创建一个变量用来记录该报文上一次发送内容中的Cntr值
+  
+  //GrpArr[6] = SGUpdateBitPosition,用来记录SignalGroup的UB在报文中的位置
+  //GrpArr[7] = SGChksPosition，用来记录SignalGroup的Chks的起始位
+  //GrpArr[8] = SGCntrposition,用来记录SignalGroup的Cntr的起始位
+  //GrpArr[9] = SGDataID,用来存储SignalGroup的DataID的值
+  //GrpArr[10] = FrameID,用来存储SignalGroup所在报文的ID
+  //GrpArr[11] = SGUBSet,用来表征SignalGroup的UB是否置位过
+  dword signal_count = 0;
+  //Pdu01
+  byte isEngSt1WdStsUpdateBitValue;
+  dword isEngSt1WdStsSigGrpArr[12] = {0,0,0,0,0,0,71,87,98,137,101,0};
+  byte isEscStUpdateBitValue;
+  dword isEscStSigGrpArr[12] = {0,0,0,0,0,0,167,175,163,127,101,0};
+  byte isGuestrStsUpdateBitValue;
+  dword isGuestrStsSigGrpArr[12] = {0,0,0,0,0,0,354,351,359,8010,101,0};
+  byte isPrkLatLgtFailrUpdateBitValue;
+  dword isPrkLatLgtFailrSigGrpArr[12] = {0,0,0,0,0,0,223,231,219,1057,101,0};
+  byte isVehMtnStUpdateBitValue;
+  dword isVehMtnStSigGrpArr[12] = {0,0,0,0,0,0,255,263,254,54,101,0};
+  byte isVehSpdLgtUpdateBitValue;
+  dword isVehSpdLgtSigGrpArr[12] = {0,0,0,0,0,0,271,287,295,55,101,0};
+  //Pdu02
+  byte isAsyALgtCtrlModUpdateBitValue;
+  dword isAsyALgtCtrlModSigGrpArr[12] = {0,0,0,0,0,0,47,31,39,3350,105,0};
+  byte isAsyALgtCtrlModCfmdUpdateBitValue;
+  dword isAsyALgtCtrlModCfmdSigGrpArr[12] = {0,0,0,0,0,0,40,55,63,1046,105,0};
+  byte isAsyLatCtrlModReqGroupUpdateBitValue;
+  dword isAsyLatCtrlModReqGroupSigGrpArr[12] = {0,0,0,0,0,0,42,87,95,7890,105,0};
+  byte isAsyLatCtrlModReqGroupCfmdUpdateBitValue;
+  dword isAsyLatCtrlModReqGroupCfmdSigGrpArr[12] = {0,0,0,0,0,0,43,103,111,1060,105,0};
+  byte isEpbStsUpdateBitValue;
+  dword isEpbStsSigGrpArr[12] = {0,0,0,0,0,0,304,319,323,132,105,0};
+  byte isMobDevRPAAuthRespUpdateBitValue;
+  dword isMobDevRPAAuthRespSigGrpArr[12] = {0,0,0,0,0,0,421,455,420,8011,105,0};
+  byte isVehModMngtGlbSafe1UpdateBitValue;
+  dword isVehModMngtGlbSafe1SigGrpArr[12] = {0,0,0,0,0,0,280,255,263,116,105,0};  
+  //Pdu03
+  byte isADataRawSafeUpdateBitValue;
+  dword isADataRawSafeSigGrpArr[12] = {0,0,0,0,0,0,56,7,15,34,128,0};
+  byte isAgDataRawSafeUpdateBitValue;
+  dword isAgDataRawSafeSigGrpArr[12] = {0,0,0,0,0,0,183,103,111,35,128,0};
+  byte isAsyDataWithCmpSafeUpdateBitValue;
+  dword isAsyDataWithCmpSafeSigGrpArr[12] = {0,0,0,0,0,0,168,135,159,36,128,0};
+  byte isMobDevRPAReqUpdateBitValue;
+  dword isMobDevRPAReqSigGrpArr[12] = {0,0,0,0,0,0,360,351,339,8001,128,0};
+  byte isStandStillMgrStsForHldUpdateBitValue;
+  dword isStandStillMgrStsForHldSigGrpArr[12] = {0,0,0,0,0,0,223,231,219,1096,128,0};
+  byte isWhlDirRotlFrntUpdateBitValue;
+  dword isWhlDirRotlFrntSigGrpArr[12] = {0,0,0,0,0,0,328,263,271,552,128,0};
+  byte isWhlDirRotlReUpdateBitValue;
+  dword isWhlDirRotlReSigGrpArr[12] = {0,0,0,0,0,0,423,279,283,551,128,0};
+  byte isWhlRotToothCntrUpdateBitValue;
+  dword isWhlRotToothCntrSigGrpArr[12] = {0,0,0,0,0,0,444,455,443,6600,128,0};
+  byte isWhlSpdCircumlFrntUpdateBitValue;
+  dword isWhlSpdCircumlFrntSigGrpArr[12] = {0,0,0,0,0,0,375,391,399,111,128,0};
+  byte isWhlSpdCircumlReUpdateBitValue;
+  dword isWhlSpdCircumlReSigGrpArr[12] = {0,0,0,0,0,0,295,311,319,124,128,0};
+}
+
+on sysvar sysvar::operation::engst1wdsts
+{
+  isEngSt1WdStsUpdateBitValue = 1;
+}
+
+on sysvar sysvar::operation::escstescst
+{
+  isEscStUpdateBitValue = 1;
+}
+
+on sysvar sysvar::operation::guestrsts
+{
+  isGuestrStsUpdateBitValue = 1;
+}
+
+on sysvar (sysvar::`Signal::VehSpdLgtA | sysvar::qf_set::vehspdlgtqf)
+{
+  isVehSpdLgtUpdateBitValue = 1;
+}
+
+on sysvar (sysvar::operation::vehmodmngtglbsafe1carmodsts1 | sysvar::operation::vehmodmngtglbsafe1usgmodsts | sysvar::operation::egylvlelecmai | sysvar::operation::pwrlvlelecmai
+  | sysvar::operation::vehmodmngtglbsafe1carmodsubtypwdcarmodsubtyp | sysvar::operation::vehmodmngtglbsafe1egylvlelecsubtyp | sysvar::operation::vehmodmngtglbsafe1fltegycnswdsts | sysvar::operation::vehmodmngtglbsafe1pwrlvlelecsubtyp)
+{
+  isVehModMngtGlbSafe1UpdateBitValue = 1;
+}
+
+on sysvar sysvar::operation::epbsts
+{
+  isEpbStsUpdateBitValue = 1;
+}
+
+on sysvar sysvar::operation::prklatlgtfailr
+{
+  isPrkLatLgtFailrUpdateBitValue = 1;
+}
+
+on sysvar sysvar::operation::vehmtnstvehmtnst
+{
+  isVehMtnStUpdateBitValue = 1;
+}
+
+on sysvar sysvar::operation::asylatctrlmodreq
+{
+  isAsyLatCtrlModReqGroupUpdateBitValue = 1;
+}
+
+on sysvar sysvar::operation::asylatctrlmodreqcfmd
+{
+  isAsyLatCtrlModReqGroupCfmdUpdateBitValue = 1;
+}
+
+on sysvar sysvar::operation::asyalgtctrlmodcfmd
+{
+  isAsyALgtCtrlModCfmdUpdateBitValue =1;
+}
+
+on sysvar sysvar::operation::asyalgtctrlmod
+{
+  isAsyALgtCtrlModUpdateBitValue = 1;
+}
+
+dword applPDUILTxPending (dword busContext, dword longID, dword shortID, char name[], dword & aPayloadLength, byte data[])
+{
+  if(strstr_regex(name, "Pdu01") != -1)
+  {
+      if(isEngSt1WdStsUpdateBitValue)
+      {
+        byte counter = 0;
+        byte _isEngSt1WdStsChks;
+        byte isEngSt1WdStsDataToBeChecks[4];
+        word _isEngSt1WdStsEngSt1WdSts;
+        int _engst1wdsts = 0;
+        _engst1wdsts = @sysvar::operation::engst1wdsts;
+        _isEngSt1WdStsEngSt1WdSts = _engst1wdsts;
+        isEngSt1WdStsDataToBeChecks[0] = isEngSt1WdStsSigGrpArr[9]&0xFF;
+        isEngSt1WdStsDataToBeChecks[1] = isEngSt1WdStsSigGrpArr[9]>>8;
+        isEngSt1WdStsDataToBeChecks[2] = counter;
+        isEngSt1WdStsDataToBeChecks[3] = _isEngSt1WdStsEngSt1WdSts;
+        $isEngSt1WdStsCntr = counter++;
+        counter %= 0x0F;
+        _isEngSt1WdStsChks = Crc_CalculateCRC8(isEngSt1WdStsDataToBeChecks,elCount(isEngSt1WdStsDataToBeChecks),0x0);
+        $isEngSt1WdStsChks = _isEngSt1WdStsChks;
+        $isEngSt1WdStsEngSt1WdSts = _isEngSt1WdStsEngSt1WdSts;
+        isEngSt1WdStsUpdateBitValue = 0;
+      }
+      
+      if(isEscStUpdateBitValue)
+      {
+        byte counter = 0;
+        byte _isEscStChks;
+        byte isEscStDataToBeChecked[4];
+        word _isEscStEscSt;
+        int _escstescst = 0;
+        _escstescst = @sysvar::operation::escstescst;
+        _isEscStEscSt = _escstescst;
+        isEscStDataToBeChecked[0] = isEscStSigGrpArr[9]&0xFF;
+        isEscStDataToBeChecked[1] = isEscStSigGrpArr[9]>>8;
+        isEscStDataToBeChecked[2] = counter;
+        isEscStDataToBeChecked[3] = _isEscStEscSt;
+        $isEscStCntr = counter++;
+        counter %= 0x0F;
+        _isEscStChks = Crc_CalculateCRC8(isEscStDataToBeChecked,elCount(isEscStDataToBeChecked),0x0);
+        $isEscStChks = _isEscStChks;
+        $isEscStEscSt = _isEscStEscSt;
+        isEscStUpdateBitValue = 0;
+      }
+      
+      if(isGuestrStsUpdateBitValue)
+      {
+        byte counter = 0;
+        byte _isGuestrStsChks;
+        byte isGuestrStsDataToBeChecked[4];
+        word _isGuestrStsValidity;
+        int _guestrstsvalidity = 0;
+        _guestrstsvalidity = @sysvar::operation::guestrsts;
+        _isGuestrStsValidity = _guestrstsvalidity;
+        isGuestrStsDataToBeChecked[0] = isGuestrStsSigGrpArr[9]&0xFF;
+        isGuestrStsDataToBeChecked[1] = isGuestrStsSigGrpArr[9]>>8;
+        isGuestrStsDataToBeChecked[2] = counter;
+        isGuestrStsDataToBeChecked[3] = _isGuestrStsValidity;
+        $isGuestrStsValidity = counter;
+        counter %= 0x0F;
+        _isGuestrStsChks = Crc_CalculateCRC8(isGuestrStsDataToBeChecked,elCount(isGuestrStsDataToBeChecked),0x0);
+        $isGuestrStsChks = _isGuestrStsChks;
+        $isGuestrStsValidity = _isGuestrStsValidity;
+        isGuestrStsUpdateBitValue = 0;
+      }
+      
+      if(isVehSpdLgtUpdateBitValue)
+      {
+        byte counter = 0;
+        byte _isVehSpdLgtChks;
+        byte isVehSpdLgtDataToBeChecked[6];
+        qword _isVehSpdLgtA;
+        word _isVehSpdLgtQf;
+        double _vehspdlgta = 0;
+        int _vehspdlgtqf = 0;
+        _vehspdlgta = @sysvar::`Signal::VehSpdLgtA;
+        _vehspdlgtqf = @sysvar::qf_set::vehspdlgtqf;
+        _isVehSpdLgtA = _vehspdlgta * 72.0;
+        _isVehSpdLgtQf = _vehspdlgtqf;
+        isVehSpdLgtDataToBeChecked[0] = isVehSpdLgtSigGrpArr[9]&0xFF;
+        isVehSpdLgtDataToBeChecked[1] = isVehSpdLgtSigGrpArr[9]>>8;
+        isVehSpdLgtDataToBeChecked[2] = counter;
+        isVehSpdLgtDataToBeChecked[3] = _isVehSpdLgtA & 0xff;
+        isVehSpdLgtDataToBeChecked[4] = (_isVehSpdLgtA & 0xff00)>>8;
+        isVehSpdLgtDataToBeChecked[5] = _isVehSpdLgtQf;
+        $isVehSpdLgtCntr = counter++;
+        counter %= 0x0F;
+        _isVehSpdLgtChks = Crc_CalculateCRC8(isVehSpdLgtDataToBeChecked,elCount(isVehSpdLgtDataToBeChecked),0x0);
+        $isVehSpdLgtChks = _isVehSpdLgtChks;
+        $isVehSpdLgtA = _isVehSpdLgtA;
+        $isVehSpdLgtQf = _isVehSpdLgtQf;
+        isVehSpdLgtUpdateBitValue = 0;
+       }
+      
+       if(isVehMtnStUpdateBitValue)
+       {
+        byte counter = 0;
+        byte _isVehMtnStChks;
+        byte isVehMtnStDataToBeChecked[4];
+        word _isVehMntSt;
+        int _vehmntst = 0;
+        _vehmntst = @sysvar::operation::vehmtnstvehmtnst;
+        _isVehMntSt = _vehmntst;
+        isVehMtnStDataToBeChecked[0] = isVehMtnStSigGrpArr[9]&0xFF;
+        isVehMtnStDataToBeChecked[1] = isVehMtnStSigGrpArr[9]>>8;
+        isVehMtnStDataToBeChecked[2] = counter;
+        isVehMtnStDataToBeChecked[3] = _isVehMntSt;
+        $isVehMtnStCntr = counter++;
+        counter %= 0x0F;
+        _isVehMtnStChks = Crc_CalculateCRC8(isVehMtnStDataToBeChecked,elCount(isVehMtnStDataToBeChecked),0x0);
+        $isVehMtnStChks = _isVehMtnStChks;
+        $isVehMtnStVehMtnSt = _isVehMntSt;
+        isVehMtnStUpdateBitValue = 0;
+       }
+      
+      if(isPrkLatLgtFailrUpdateBitValue)
+      {
+        byte counter = 0;
+        byte _isPrkLatLgtFailrChks;
+        byte isPrkLatLgtFailrDataToBeChecked[4];
+        word _isPrkLatLgtFailr;
+        int _prklatlgtfailr = 0;
+        _prklatlgtfailr = @sysvar::operation::prklatlgtfailr;
+        _isPrkLatLgtFailr = _prklatlgtfailr;
+        isPrkLatLgtFailrDataToBeChecked[0] = isPrkLatLgtFailrSigGrpArr[9]&0xFF;
+        isPrkLatLgtFailrDataToBeChecked[1] = isPrkLatLgtFailrSigGrpArr[9]>>8;
+        isPrkLatLgtFailrDataToBeChecked[2] = counter;
+        isPrkLatLgtFailrDataToBeChecked[3] = _isPrkLatLgtFailr;
+        $isPrkLatLgtFailrCntr = counter++;
+        counter %= 0x0F;
+        _isPrkLatLgtFailrChks = Crc_CalculateCRC8(isPrkLatLgtFailrDataToBeChecked,elCount(isPrkLatLgtFailrDataToBeChecked),0x0);
+        $isPrkLatLgtFailrChks = _isPrkLatLgtFailrChks;
+        $isPrkLatLgtFailrPrkLatLgtFailr = _isPrkLatLgtFailr;
+        isPrkLatLgtFailrUpdateBitValue = 0;
+      }
+  }
+  else if(strstr_regex(name, "Pdu02") != -1)
+  {
+    if(isAsyALgtCtrlModUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isAsyALgtCtrlModChks;
+      byte isAsyALgtCtrlModDataToBeChecked[4];
+      word _isAsyALgtCtrlMod;
+      int _asyalgtctrlmod = 0;
+      _asyalgtctrlmod = @sysvar::operation::asyalgtctrlmod;
+      _isAsyALgtCtrlMod = _asyalgtctrlmod;
+      isAsyALgtCtrlModDataToBeChecked[0] = isAsyALgtCtrlModSigGrpArr[9]&0xFF;
+      isAsyALgtCtrlModDataToBeChecked[1] = isAsyALgtCtrlModSigGrpArr[9]>>8;
+      isAsyALgtCtrlModDataToBeChecked[2] = counter;
+      isAsyALgtCtrlModDataToBeChecked[3] = _isAsyALgtCtrlMod;
+      $isAsyALgtCtrlModCntr = counter++;
+      counter %= 0x0F;
+      _isAsyALgtCtrlModChks = Crc_CalculateCRC8(isAsyALgtCtrlModDataToBeChecked,elCount(isAsyALgtCtrlModDataToBeChecked),0x0);
+      $isAsyALgtCtrlModChks = _isAsyALgtCtrlModChks;
+      $isAsyALgtCtrlMod1 = _isAsyALgtCtrlMod;
+      isAsyALgtCtrlModUpdateBitValue = 0;
+    }
+    
+    if(isAsyALgtCtrlModCfmdUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isAsyALgtCtrlModCfmdChks;
+      byte isAsyALgtCtrlModCfmdDataToBeChecked[4];
+      word _isAsyALgtCtrlModCfmd;
+      int _asyalgtctrlmodcfmd = 0;
+      _asyalgtctrlmodcfmd = @sysvar::operation::asyalgtctrlmodcfmd;
+      _isAsyALgtCtrlModCfmd = _asyalgtctrlmodcfmd;
+      isAsyALgtCtrlModCfmdDataToBeChecked[0] = isAsyALgtCtrlModCfmdSigGrpArr[9]&0xFF;
+      isAsyALgtCtrlModCfmdDataToBeChecked[1] = isAsyALgtCtrlModCfmdSigGrpArr[9]>>8;
+      isAsyALgtCtrlModCfmdDataToBeChecked[2] = counter;
+      isAsyALgtCtrlModCfmdDataToBeChecked[3] = _isAsyALgtCtrlModCfmd;
+      $isAsyALgtCtrlModCfmdCntr = counter++;
+      counter %= 0x0F;
+      _isAsyALgtCtrlModCfmdChks = Crc_CalculateCRC8(isAsyALgtCtrlModCfmdDataToBeChecked,elCount(isAsyALgtCtrlModCfmdDataToBeChecked),0x0);
+      $isAsyALgtCtrlModCfmdChks = _isAsyALgtCtrlModCfmdChks;
+      $isAsyALgtCtrlModCfmdAsyALgtCtrlMod1 = _isAsyALgtCtrlModCfmd;
+      isAsyALgtCtrlModCfmdUpdateBitValue = 0;
+    }
+    
+    if(isAsyLatCtrlModReqGroupUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isAsyLatCtrlModReqGroupChks;
+      byte isAsyLatCtrlModReqGroupDataToBeChecked[4];
+      word _isAsyLatCtrlModReqGroup;
+      int _asylatctrlmodreqgroup = 0;
+      _asylatctrlmodreqgroup = @sysvar::operation::asylatctrlmodreq;
+      _isAsyLatCtrlModReqGroup = _asylatctrlmodreqgroup;
+      isAsyLatCtrlModReqGroupDataToBeChecked[0] = isAsyLatCtrlModReqGroupSigGrpArr[9]&0xFF;
+      isAsyLatCtrlModReqGroupDataToBeChecked[1] = isAsyLatCtrlModReqGroupSigGrpArr[9]>>8;
+      isAsyLatCtrlModReqGroupDataToBeChecked[2] = counter;
+      isAsyLatCtrlModReqGroupDataToBeChecked[3] = _isAsyLatCtrlModReqGroup;
+      $isAsyLatCtrlModReqGroupCntr = counter++;
+      counter %= 0x0F;
+      _isAsyLatCtrlModReqGroupChks = Crc_CalculateCRC8(isAsyLatCtrlModReqGroupDataToBeChecked,elCount(isAsyLatCtrlModReqGroupDataToBeChecked),0x0);
+      $isAsyLatCtrlModReqGroupChks = _isAsyLatCtrlModReqGroupChks;
+      $isAsyLatCtrlModReqGroupAsyLatCtrlModReq = _isAsyLatCtrlModReqGroup;
+      isAsyLatCtrlModReqGroupUpdateBitValue = 0;
+    }
+    
+    if(isAsyLatCtrlModReqGroupCfmdUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isAsyLatCtrlModReqGroupCfmdChks;
+      byte isAsyLatCtrlModReqGroupCfmdDataToBeChecked[4];
+      word _isAsyLatCtrlModReqGroupCfmdLatCtrlMod;
+      int _groupcfmd = 0;
+      _groupcfmd = @sysvar::operation::asylatctrlmodreqcfmd;
+      _isAsyLatCtrlModReqGroupCfmdLatCtrlMod = _groupcfmd;
+      isAsyLatCtrlModReqGroupCfmdDataToBeChecked[0] = isAsyLatCtrlModReqGroupCfmdSigGrpArr[9]&0xFF;
+      isAsyLatCtrlModReqGroupCfmdDataToBeChecked[1] = isAsyLatCtrlModReqGroupCfmdSigGrpArr[9]>>8;
+      isAsyLatCtrlModReqGroupCfmdDataToBeChecked[2] = counter;
+      isAsyLatCtrlModReqGroupCfmdDataToBeChecked[3] = _isAsyLatCtrlModReqGroupCfmdLatCtrlMod;
+      $isAsyLatCtrlModReqGroupCfmdCntr = counter++;
+      counter %= 0x0F;
+      _isAsyLatCtrlModReqGroupCfmdChks = Crc_CalculateCRC8(isAsyLatCtrlModReqGroupCfmdDataToBeChecked,elCount(isAsyLatCtrlModReqGroupCfmdDataToBeChecked),0x0);
+      $isAsyLatCtrlModReqGroupCfmdChks = _isAsyLatCtrlModReqGroupCfmdChks;
+      $isAsyLatCtrlModReqGroupCfmdLatCtrlMod = _isAsyLatCtrlModReqGroupCfmdLatCtrlMod;
+      isAsyLatCtrlModReqGroupCfmdUpdateBitValue = 0;
+    }
+    
+    if(isEpbStsUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isEpbStsChks;
+      byte isEpbStsDataToBeChecked[4];
+      word _isEpbSts;
+      int _epbsts = 0;
+      _epbsts = @sysvar::operation::epbsts;
+      _isEpbSts = _epbsts;
+      isEpbStsDataToBeChecked[0] = isEpbStsSigGrpArr[9]&0xFF;
+      isEpbStsDataToBeChecked[1] = isEpbStsSigGrpArr[9]>>8;
+      isEpbStsDataToBeChecked[2] = counter;
+      isEpbStsDataToBeChecked[3] = _isEpbSts;
+      $isEpbStsCntr = counter++;
+      counter %= 0x0F;
+      _isEpbStsChks = Crc_CalculateCRC8(isEpbStsDataToBeChecked,elCount(isEpbStsDataToBeChecked),0x0);
+      $isEpbStsChks = _isEpbStsChks;
+      $isEpbStsEpbSts = _isEpbSts;
+      isEpbStsUpdateBitValue = 0;
+    }
+    
+    if(isMobDevRPAAuthRespUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isMobDevRPAAuthRespChks;
+      byte isMobDevRPAAuthRespDataToBeChecked[7];
+      word _isMobDevRPAAuthRespAnswer 
+        ,_isMobDevRPAAuthRespX 
+        ,_isMobDevRPAAuthRespY;
+      int _rpaauth = 0;
+      _rpaauth = @sysvar::operation::mobdevrpaauthrespanswer;
+      _isMobDevRPAAuthRespAnswer = _rpaauth;
+      isMobDevRPAAuthRespDataToBeChecked[0] = isMobDevRPAAuthRespSigGrpArr[9]&0xFF;
+      isMobDevRPAAuthRespDataToBeChecked[1] = isMobDevRPAAuthRespSigGrpArr[9]>>8;
+      isMobDevRPAAuthRespDataToBeChecked[2] = counter;
+      isMobDevRPAAuthRespDataToBeChecked[3] = _isMobDevRPAAuthRespAnswer & 0xff;
+      isMobDevRPAAuthRespDataToBeChecked[4] = (_isMobDevRPAAuthRespAnswer & 0xff00)>>8;
+      isMobDevRPAAuthRespDataToBeChecked[5] = _isMobDevRPAAuthRespX;
+      isMobDevRPAAuthRespDataToBeChecked[6] = _isMobDevRPAAuthRespY;
+      $isMobDevRPAAuthRespCntr = counter++;
+      counter %= 0x0F;
+      _isMobDevRPAAuthRespChks = Crc_CalculateCRC8(isMobDevRPAAuthRespDataToBeChecked,elCount(isMobDevRPAAuthRespDataToBeChecked),0x0);
+      $isMobDevRPAAuthRespChks = _isMobDevRPAAuthRespChks;
+      $isMobDevRPAAuthRespAnswer = _isMobDevRPAAuthRespAnswer;
+      $isMobDevRPAAuthRespX = _isMobDevRPAAuthRespX;
+      $isMobDevRPAAuthRespY = _isMobDevRPAAuthRespY;
+      isMobDevRPAAuthRespUpdateBitValue = 0;
+    }
+    
+    if(isVehModMngtGlbSafe1UpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isVehModMngtGlbSafe1Chks;
+      byte isVehModMngtGlbSafe1DataToBeChecked[11];
+      word _isVehModMngtGlbSafe1CarModSts1 = 0
+         ,_isVehModMngtGlbSafe1CarModSubtypWdCarModSubtyp = 0
+         ,_isVehModMngtGlbSafe1EgyLvlElecMai = 0
+         ,_isVehModMngtGlbSafe1EgyLvlElecSubtyp = 0
+         ,_isVehModMngtGlbSafe1FltEgyCnsWdSts = 0
+         ,_isVehModMngtGlbSafe1PwrLvlElecMai = 0
+         ,_isVehModMngtGlbSafe1PwrLvlElecSubtyp = 0
+         ,_isVehModMngtGlbSafe1UsgModSts = 0;
+      int _carmod = 0
+        , _usgmod = 0
+        , _egylvlelecmai = 0
+        , _pwrlvlelecmai = 0
+        , _vehmodmngtglbsafe1carmodsubtypwdcarmosubtyp = 0
+        , _vehmodmngtglbsafe1egylvlelecsubtyp = 0
+        , _vehmodmngtglbsafe1fltegycnswdsts = 0
+        , _vehmodmngtglbsafe1pwrlvlelesubtyp = 0;
+      _carmod = @sysvar::operation::vehmodmngtglbsafe1carmodsts1;
+      _usgmod = @sysvar::operation::vehmodmngtglbsafe1usgmodsts;
+      _egylvlelecmai = @sysvar::operation::egylvlelecmai;
+      _pwrlvlelecmai = @sysvar::operation::pwrlvlelecmai;
+      _vehmodmngtglbsafe1carmodsubtypwdcarmosubtyp = @sysvar::operation::vehmodmngtglbsafe1carmodsubtypwdcarmodsubtyp;
+      _vehmodmngtglbsafe1egylvlelecsubtyp = @sysvar::operation::vehmodmngtglbsafe1egylvlelecsubtyp;
+      _vehmodmngtglbsafe1fltegycnswdsts = @sysvar::operation::vehmodmngtglbsafe1fltegycnswdsts;
+      _vehmodmngtglbsafe1pwrlvlelesubtyp = @sysvar::operation::vehmodmngtglbsafe1pwrlvlelecsubtyp;
+      _isVehModMngtGlbSafe1CarModSts1 = _carmod;
+      _isVehModMngtGlbSafe1UsgModSts = _usgmod;
+      _isVehModMngtGlbSafe1EgyLvlElecMai = _egylvlelecmai;
+      _isVehModMngtGlbSafe1PwrLvlElecMai = _pwrlvlelecmai;
+      _isVehModMngtGlbSafe1CarModSubtypWdCarModSubtyp = _vehmodmngtglbsafe1carmodsubtypwdcarmosubtyp;
+      _isVehModMngtGlbSafe1EgyLvlElecSubtyp = _vehmodmngtglbsafe1egylvlelecsubtyp;
+      _isVehModMngtGlbSafe1FltEgyCnsWdSts = _vehmodmngtglbsafe1fltegycnswdsts;
+      _isVehModMngtGlbSafe1PwrLvlElecSubtyp = _vehmodmngtglbsafe1pwrlvlelesubtyp;
+      isVehModMngtGlbSafe1DataToBeChecked[0] = isVehModMngtGlbSafe1SigGrpArr[9]&0xFF;
+      isVehModMngtGlbSafe1DataToBeChecked[1] = isVehModMngtGlbSafe1SigGrpArr[9]>>8;
+      isVehModMngtGlbSafe1DataToBeChecked[2] = counter;
+      isVehModMngtGlbSafe1DataToBeChecked[3] = _isVehModMngtGlbSafe1CarModSts1;
+      isVehModMngtGlbSafe1DataToBeChecked[4] = _isVehModMngtGlbSafe1CarModSubtypWdCarModSubtyp;
+      isVehModMngtGlbSafe1DataToBeChecked[5] = _isVehModMngtGlbSafe1EgyLvlElecMai;
+      isVehModMngtGlbSafe1DataToBeChecked[6] = _isVehModMngtGlbSafe1EgyLvlElecSubtyp;
+      isVehModMngtGlbSafe1DataToBeChecked[7] = _isVehModMngtGlbSafe1FltEgyCnsWdSts;
+      isVehModMngtGlbSafe1DataToBeChecked[8] = _isVehModMngtGlbSafe1PwrLvlElecMai;
+      isVehModMngtGlbSafe1DataToBeChecked[9] = _isVehModMngtGlbSafe1PwrLvlElecSubtyp;
+      isVehModMngtGlbSafe1DataToBeChecked[10] = _isVehModMngtGlbSafe1UsgModSts;
+      _isVehModMngtGlbSafe1Chks = Crc_CalculateCRC8(isVehModMngtGlbSafe1DataToBeChecked,elCount(isVehModMngtGlbSafe1DataToBeChecked),0x0);
+      $isVehModMngtGlbSafe1CarModSts1 = _isVehModMngtGlbSafe1CarModSts1;
+      $isVehModMngtGlbSafe1CarModSubtypWdCarModSubtyp = _isVehModMngtGlbSafe1CarModSubtypWdCarModSubtyp;
+      $isVehModMngtGlbSafe1Chks = _isVehModMngtGlbSafe1Chks;
+      $isVehModMngtGlbSafe1Cntr = counter++;
+      $isVehModMngtGlbSafe1EgyLvlElecMai = _isVehModMngtGlbSafe1EgyLvlElecMai;
+      $isVehModMngtGlbSafe1EgyLvlElecSubtyp = _isVehModMngtGlbSafe1EgyLvlElecSubtyp;
+      $isVehModMngtGlbSafe1FltEgyCnsWdSts = _isVehModMngtGlbSafe1FltEgyCnsWdSts;
+      $isVehModMngtGlbSafe1PwrLvlElecMai = _isVehModMngtGlbSafe1PwrLvlElecMai;
+      $isVehModMngtGlbSafe1PwrLvlElecSubtyp = _isVehModMngtGlbSafe1PwrLvlElecSubtyp;
+      $isVehModMngtGlbSafe1UsgModSts = _isVehModMngtGlbSafe1UsgModSts;
+      counter %= 0x0F;
+      isVehModMngtGlbSafe1UpdateBitValue = 0;
+    }
+  }
+  else if(strstr_regex(name, "Pdu03") != -1)
+  {
+    if(isADataRawSafeUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isADataRawSafeChks;
+      byte isADataRawSafeDataToBeChecked[12];
+      word _isADataRawSafeALat
+        ,_isADataRawSafeALat1Qf
+        ,_isADataRawSafeALgt
+        ,_isADataRawSafeALgt1Qf
+        ,_isADataRawSafeAVert
+        ,_isADataRawSafeAVertQf;
+      int _adatarawsafealat = 0, _adatarawsafealat1qf = 0, _adatarawsafealgt = 0, _adatarawsafealgt1qf = 0, _adatarawsafeavert = 0, _adatarawsafeavertqf = 0;
+      _adatarawsafealat = @sysvar::operation::adatarawsafealat;
+      _adatarawsafealat1qf = @sysvar::qf_set::adatarawsafealat1qf;
+      _adatarawsafealgt = @sysvar::operation::adatarawsafealgt;
+      _adatarawsafealgt1qf = @sysvar::qf_set::adatarawsafealgt1qf;
+      _adatarawsafeavert = @sysvar::operation::adatarawsafeavert;
+      _adatarawsafeavertqf = @sysvar::qf_set::adatarawsafeavertqf;
+      _isADataRawSafeALat = _adatarawsafealat;
+      _isADataRawSafeALat1Qf = _adatarawsafealat1qf;
+      _isADataRawSafeALgt = _adatarawsafealgt;
+      _isADataRawSafeALgt1Qf = _adatarawsafealgt1qf;
+      _isADataRawSafeAVert = _adatarawsafeavert;
+      _isADataRawSafeAVertQf = _adatarawsafeavertqf;
+      isADataRawSafeDataToBeChecked[0] = isADataRawSafeSigGrpArr[9]&0xFF;
+      isADataRawSafeDataToBeChecked[1] = isADataRawSafeSigGrpArr[9]>>8;
+      isADataRawSafeDataToBeChecked[2] = counter;
+      isADataRawSafeDataToBeChecked[3] = _isADataRawSafeALat & 0xff;
+      isADataRawSafeDataToBeChecked[4] = (_isADataRawSafeALat & 0xff00) >> 8;
+      isADataRawSafeDataToBeChecked[5] = _isADataRawSafeALat1Qf;
+      isADataRawSafeDataToBeChecked[6] = _isADataRawSafeALgt & 0xff;
+      isADataRawSafeDataToBeChecked[7] = (_isADataRawSafeALgt & 0xff00) >> 8;
+      isADataRawSafeDataToBeChecked[8] = _isADataRawSafeALgt1Qf;
+      isADataRawSafeDataToBeChecked[9] = _isADataRawSafeAVert & 0xff;
+      isADataRawSafeDataToBeChecked[10] = (_isADataRawSafeAVert & 0xff00) >> 8;
+      isADataRawSafeDataToBeChecked[11] = _isADataRawSafeAVertQf;
+      $isADataRawSafeCntr = counter++;
+      counter %= 0x0F;
+      _isADataRawSafeChks = Crc_CalculateCRC8(isADataRawSafeDataToBeChecked,elCount(isADataRawSafeDataToBeChecked),0x0);
+      $isADataRawSafeChks = _isADataRawSafeChks;
+      $isADataRawSafeALat = _isADataRawSafeALat;
+      $isADataRawSafeALat1Qf = _isADataRawSafeALat1Qf;
+      $isADataRawSafeALgt = _isADataRawSafeALgt;
+      $isADataRawSafeALgt1Qf = _isADataRawSafeALgt1Qf;
+      $isADataRawSafeAVert = _isADataRawSafeAVert;
+      $isADataRawSafeAVertQf = _isADataRawSafeAVertQf;
+      isADataRawSafeUpdateBitValue = 0;
+    }
+    if(isAgDataRawSafeUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isAgDataRawSafeChks;
+      byte isAgDataRawSafeDataToBeChecked[9];
+      word _isAgDataRawSafeRollRate
+        ,_isAgDataRawSafeRollRateQf
+        ,_isAgDataRawSafeYawRate
+        ,_isAgDataRawSafeYawRateQf;
+      int _AgDataRawSafeRollRate = 0, _AgDataRawSafeRollRateQf = 0, _AgDataRawSafeYawRate = 0, _AgDataRawSafeYawRateQf = 0;
+      _AgDataRawSafeRollRate = @sysvar::operation::AgDataRawSafeRollRate;
+      _AgDataRawSafeRollRateQf = @sysvar::qf_set::AgDataRawSafeRollRateQf;
+      _AgDataRawSafeYawRate = @sysvar::operation::AgDataRawSafeYawRate;
+      _AgDataRawSafeYawRateQf = @sysvar::qf_set::AgDataRawSafeYawRateQf;
+      _isAgDataRawSafeRollRate = _AgDataRawSafeRollRate;
+      _isAgDataRawSafeRollRateQf = _AgDataRawSafeRollRateQf;
+      _isAgDataRawSafeYawRate = _AgDataRawSafeYawRate;
+      _isAgDataRawSafeYawRateQf = _AgDataRawSafeYawRateQf;
+      isAgDataRawSafeDataToBeChecked[0] = isAgDataRawSafeSigGrpArr[9]&0xFF;
+      isAgDataRawSafeDataToBeChecked[1] = isAgDataRawSafeSigGrpArr[9]>>8;
+      isAgDataRawSafeDataToBeChecked[2] = counter;
+      isAgDataRawSafeDataToBeChecked[3] = _isAgDataRawSafeRollRate & 0xff;
+      isAgDataRawSafeDataToBeChecked[4] = (_isAgDataRawSafeRollRate & 0xff00) >> 8;
+      isAgDataRawSafeDataToBeChecked[5] = _isAgDataRawSafeRollRateQf;
+      isAgDataRawSafeDataToBeChecked[6] = _isAgDataRawSafeYawRate & 0xff;
+      isAgDataRawSafeDataToBeChecked[7] = (_isAgDataRawSafeYawRate & 0xff00) >> 8;
+      isAgDataRawSafeDataToBeChecked[8] = _isAgDataRawSafeYawRateQf;
+      $isAgDataRawSafeCntr = counter++;
+      counter %= 0x0F;
+      _isAgDataRawSafeChks = Crc_CalculateCRC8(isAgDataRawSafeDataToBeChecked,elCount(isAgDataRawSafeDataToBeChecked),0x0);
+      $isAgDataRawSafeChks = _isAgDataRawSafeChks;
+      $isAgDataRawSafeRollRate = _isAgDataRawSafeRollRate;
+      $isAgDataRawSafeRollRateQf = _isAgDataRawSafeRollRateQf;
+      $isAgDataRawSafeYawRate = _isAgDataRawSafeYawRate;
+      $isAgDataRawSafeYawRateQf = _isAgDataRawSafeYawRateQf;
+      isAgDataRawSafeUpdateBitValue = 0;
+    }
+    if(isAsyDataWithCmpSafeUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isAsyDataWithCmpSafeChks;
+      byte isAsyDataWithCmpSafeDataToBeChecked[12];
+      word _isAsyDataWithCmpSafeALat1Qf
+        ,_isAsyDataWithCmpSafeALatWithCmp
+        ,_isAsyDataWithCmpSafeALgt1Qf
+        ,_isAsyDataWithCmpSafeGrdtOfALgt
+        ,_isAsyDataWithCmpSafeYawRateQf
+        ,_isAsyDataWithCmpSafeYawRateWithCmp;
+      int _AsyDataWithCmpSafeALat1Qf = 0, _AsyDataWithCmpSafeALatWithCmp = 0, _AsyDataWithCmpSafeALgt1Qf = 0, _AsyDataWithCmpSafeGrdtOfALgt = 0, _AsyDataWithCmpSafeYawRateQf = 0, _AsyDataWithCmpSafeYawRateWithCmp = 0;
+      _AsyDataWithCmpSafeALat1Qf = @sysvar::qf_set::AsyDataWithCmpSafeALat1Qf;
+      _AsyDataWithCmpSafeALatWithCmp = @sysvar::operation::AsyDataWithCmpSafeALatWithCmp;
+      _AsyDataWithCmpSafeALgt1Qf = @sysvar::qf_set::AsyDataWithCmpSafeALgt1Qf;
+      _AsyDataWithCmpSafeGrdtOfALgt = @sysvar::operation::AsyDataWithCmpSafeGrdtOfALgt;
+      _AsyDataWithCmpSafeYawRateQf = @sysvar::qf_set::AsyDataWithCmpSafeYawRateQf;
+      _AsyDataWithCmpSafeYawRateWithCmp = @sysvar::operation::AsyDataWithCmpSafeYawRateWithCmp;
+      _isAsyDataWithCmpSafeALat1Qf = _AsyDataWithCmpSafeALat1Qf;
+      _isAsyDataWithCmpSafeALatWithCmp = _AsyDataWithCmpSafeALatWithCmp;
+      _isAsyDataWithCmpSafeALgt1Qf = _AsyDataWithCmpSafeALgt1Qf;
+      _isAsyDataWithCmpSafeGrdtOfALgt = _AsyDataWithCmpSafeGrdtOfALgt;
+      _isAsyDataWithCmpSafeYawRateQf = _AsyDataWithCmpSafeYawRateQf;
+      _isAsyDataWithCmpSafeYawRateWithCmp = _AsyDataWithCmpSafeYawRateWithCmp;
+      isAsyDataWithCmpSafeDataToBeChecked[0] = isAsyDataWithCmpSafeSigGrpArr[9]&0xFF;
+      isAsyDataWithCmpSafeDataToBeChecked[1] = isAsyDataWithCmpSafeSigGrpArr[9]>>8;
+      isAsyDataWithCmpSafeDataToBeChecked[2] = counter;
+      isAsyDataWithCmpSafeDataToBeChecked[3] = _isAsyDataWithCmpSafeALat1Qf;
+      isAsyDataWithCmpSafeDataToBeChecked[4] = _isAsyDataWithCmpSafeALatWithCmp & 0xff;
+      isAsyDataWithCmpSafeDataToBeChecked[5] = (_isAsyDataWithCmpSafeALatWithCmp & 0xff00) >> 8;
+      isAsyDataWithCmpSafeDataToBeChecked[6] = _isAsyDataWithCmpSafeALgt1Qf;
+      isAsyDataWithCmpSafeDataToBeChecked[7] = _isAsyDataWithCmpSafeGrdtOfALgt & 0xff;
+      isAsyDataWithCmpSafeDataToBeChecked[8] = (_isAsyDataWithCmpSafeGrdtOfALgt & 0xff00) >> 8;
+      isAsyDataWithCmpSafeDataToBeChecked[9] = _isAsyDataWithCmpSafeYawRateQf;
+      isAsyDataWithCmpSafeDataToBeChecked[10] = _isAsyDataWithCmpSafeYawRateWithCmp & 0xff;
+      isAsyDataWithCmpSafeDataToBeChecked[11] = (_isAsyDataWithCmpSafeYawRateWithCmp & 0xff00) >> 8;
+      $isAsyDataWithCmpSafeCntr = counter++;
+      counter %= 0x0F;
+      _isAsyDataWithCmpSafeChks = Crc_CalculateCRC8(isAsyDataWithCmpSafeDataToBeChecked,elCount(isAsyDataWithCmpSafeDataToBeChecked),0x0);
+      $isAsyDataWithCmpSafeChks = _isAsyDataWithCmpSafeChks;
+      $isAsyDataWithCmpSafeALat1Qf = _isAsyDataWithCmpSafeALat1Qf;
+      $isAsyDataWithCmpSafeALatWithCmp = _isAsyDataWithCmpSafeALatWithCmp;
+      $isAsyDataWithCmpSafeALgt1Qf = _isAsyDataWithCmpSafeALgt1Qf;
+      $isAsyDataWithCmpSafeGrdtOfALgt = _isAsyDataWithCmpSafeGrdtOfALgt;
+      $isAsyDataWithCmpSafeYawRateQf = _isAsyDataWithCmpSafeYawRateQf;
+      $isAsyDataWithCmpSafeYawRateWithCmp = _isAsyDataWithCmpSafeYawRateWithCmp;
+      isAsyDataWithCmpSafeUpdateBitValue = 0;
+    }
+    if(isMobDevRPAReqUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isMobDevRPAReqChks;
+      byte isMobDevRPAReqDataToBeChecked[7];
+      word _isMobDevRPAReqMobDevSts
+        ,_isMobDevRPAReqRPAOutModeSubT
+        ,_isMobDevRPAReqRPAReq
+        ,_isMobDevRPAReqRSPACtrl;
+      int _MobDevRPAReqMobDevSts = 0, _MobDevRPAReqRPAOutModeSubT = 0, _MobDevRPAReqRPAReq = 0, _MobDevRPAReqRSPACtrl = 0;
+      _MobDevRPAReqMobDevSts = @sysvar::operation::MobDevRPAReqMobDevSts;
+      _MobDevRPAReqRPAOutModeSubT = @sysvar::operation::MobDevRPAReqRPAOutModeSubT;
+      _MobDevRPAReqRPAReq = @sysvar::operation::MobDevRPAReqRPAReq;
+      _MobDevRPAReqRSPACtrl = @sysvar::operation::MobDevRPAReqRSPACtrl;
+      _isMobDevRPAReqMobDevSts = _MobDevRPAReqMobDevSts;
+      _isMobDevRPAReqRPAOutModeSubT = _MobDevRPAReqRPAOutModeSubT;
+      _isMobDevRPAReqRPAReq = _MobDevRPAReqRPAReq;
+      _isMobDevRPAReqRSPACtrl = _MobDevRPAReqRSPACtrl;
+      isMobDevRPAReqDataToBeChecked[0] = isMobDevRPAReqSigGrpArr[9]&0xFF;
+      isMobDevRPAReqDataToBeChecked[1] = isMobDevRPAReqSigGrpArr[9]>>8;
+      isMobDevRPAReqDataToBeChecked[2] = counter;
+      isMobDevRPAReqDataToBeChecked[3] = _isMobDevRPAReqMobDevSts;
+      isMobDevRPAReqDataToBeChecked[4] = _isMobDevRPAReqRPAOutModeSubT;
+      isMobDevRPAReqDataToBeChecked[5] = _isMobDevRPAReqRPAReq;
+      isMobDevRPAReqDataToBeChecked[6] = _isMobDevRPAReqRSPACtrl;
+      $isMobDevRPAReqCntr = counter++;
+      counter %= 0x0F;
+      _isMobDevRPAReqChks = Crc_CalculateCRC8(isMobDevRPAReqDataToBeChecked,elCount(isMobDevRPAReqDataToBeChecked),0x0);
+      $isMobDevRPAReqChks = _isMobDevRPAReqChks;
+      $isMobDevRPAReqMobDevSts = _isMobDevRPAReqMobDevSts;
+      $isMobDevRPAReqRPAOutModeSubT = _isMobDevRPAReqRPAOutModeSubT;
+      $isMobDevRPAReqRPAReq = _isMobDevRPAReqRPAReq;
+      $isMobDevRPAReqRSPACtrl = _isMobDevRPAReqRSPACtrl;
+      isMobDevRPAReqUpdateBitValue = 0;
+    }
+    if(isStandStillMgrStsForHldUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isStandStillMgrStsForHldChks;
+      byte isStandStillMgrStsForHldDataToBeChecked[4];
+      word _isStandStillMgrStsForHld1;
+      int _StandStillMgrStsForHld1 = 0;
+      _StandStillMgrStsForHld1 = @sysvar::operation::StandStillMgrStsForHld1;
+      _isStandStillMgrStsForHld1 = _StandStillMgrStsForHld1;
+      isStandStillMgrStsForHldDataToBeChecked[0] = isStandStillMgrStsForHldSigGrpArr[9]&0xFF;
+      isStandStillMgrStsForHldDataToBeChecked[1] = isStandStillMgrStsForHldSigGrpArr[9]>>8;
+      isStandStillMgrStsForHldDataToBeChecked[2] = counter;
+      isStandStillMgrStsForHldDataToBeChecked[3] = _isStandStillMgrStsForHld1;
+      $isStandStillMgrStsForHldCntr = counter++;
+      counter %= 0x0F;
+      _isStandStillMgrStsForHldChks = Crc_CalculateCRC8(isStandStillMgrStsForHldDataToBeChecked,elCount(isStandStillMgrStsForHldDataToBeChecked),0x0);
+      $isStandStillMgrStsForHldChks = _isStandStillMgrStsForHldChks;
+      $isStandStillMgrStsForHld1 = _isStandStillMgrStsForHld1;
+      isStandStillMgrStsForHldUpdateBitValue = 0;
+    }
+    if(isWhlDirRotlFrntUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isWhlDirRotlFrntChks;
+      byte isWhlDirRotlFrntDataToBeChecked[5];
+      word _isWhlDirRotlFrntLe
+        ,_isWhlDirRotlFrntRi;
+      int _WhlDirRotlFrntLe = 0, _WhlDirRotlFrntRi = 0;
+      _WhlDirRotlFrntLe = @sysvar::operation::WhlDirRotlFrntLe;
+      _WhlDirRotlFrntRi = @sysvar::operation::WhlDirRotlFrntRi;
+      _isWhlDirRotlFrntLe = _WhlDirRotlFrntLe;
+      _isWhlDirRotlFrntRi = _WhlDirRotlFrntRi;
+      isWhlDirRotlFrntDataToBeChecked[0] = isMobDevRPAReqSigGrpArr[9]&0xFF;
+      isWhlDirRotlFrntDataToBeChecked[1] = isMobDevRPAReqSigGrpArr[9]>>8;
+      isWhlDirRotlFrntDataToBeChecked[2] = counter;
+      isWhlDirRotlFrntDataToBeChecked[3] = _isWhlDirRotlFrntLe;
+      isWhlDirRotlFrntDataToBeChecked[4] = _isWhlDirRotlFrntRi;
+      $isWhlDirRotlFrntCntr = counter++;
+      counter %= 0x0F;
+      _isWhlDirRotlFrntChks = Crc_CalculateCRC8(isWhlDirRotlFrntDataToBeChecked,elCount(isWhlDirRotlFrntDataToBeChecked),0x0);
+      $isWhlDirRotlFrntChks = _isWhlDirRotlFrntChks;
+      $isWhlDirRotlFrntLe = _isWhlDirRotlFrntLe;
+      $isWhlDirRotlFrntRi = _isWhlDirRotlFrntRi;
+      isWhlDirRotlFrntUpdateBitValue = 0;
+    }
+    if(isWhlDirRotlReUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isWhlDirRotlReChks;
+      byte isWhlDirRotlReDataToBeChecked[5];
+      word _isWhlDirRotlReLe
+        ,_isWhlDirRotlReRi;
+      int _WhlDirRotlReLe = 0, _WhlDirRotlReRi = 0;
+      _WhlDirRotlReLe = @sysvar::operation::WhlDirRotlReLe;
+      _WhlDirRotlReRi = @sysvar::operation::WhlDirRotlReRi;
+      _isWhlDirRotlReLe = _WhlDirRotlReLe;
+      _isWhlDirRotlReRi = _WhlDirRotlReRi;
+      isWhlDirRotlReDataToBeChecked[0] = isMobDevRPAReqSigGrpArr[9]&0xFF;
+      isWhlDirRotlReDataToBeChecked[1] = isMobDevRPAReqSigGrpArr[9]>>8;
+      isWhlDirRotlReDataToBeChecked[2] = counter;
+      isWhlDirRotlReDataToBeChecked[3] = _isWhlDirRotlReLe;
+      isWhlDirRotlReDataToBeChecked[4] = _isWhlDirRotlReRi;
+      $isWhlDirRotlReCntr = counter++;
+      counter %= 0x0F;
+      _isWhlDirRotlReChks = Crc_CalculateCRC8(isWhlDirRotlReDataToBeChecked,elCount(isWhlDirRotlReDataToBeChecked),0x0);
+      $isWhlDirRotlReChks = _isWhlDirRotlReChks;
+      $isWhlDirRotlReLe = _isWhlDirRotlReLe;
+      $isWhlDirRotlReRi = _isWhlDirRotlReRi;
+      isWhlDirRotlReUpdateBitValue = 0;
+    }
+    if(isWhlRotToothCntrUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isWhlRotToothCntrChks;
+      byte isWhlRotToothCntrDataToBeChecked[7];
+      word _isWhlRotToothCntrFrntLe
+        ,_isWhlRotToothCntrFrntRi
+        ,_isWhlRotToothCntrReLe
+        ,_isWhlRotToothCntrReRi;
+      int _WhlRotToothCntrFrntLe = 0, _WhlRotToothCntrFrntRi = 0, _WhlRotToothCntrReLe = 0, _WhlRotToothCntrReRi = 0;
+      _WhlRotToothCntrFrntLe = @sysvar::operation::WhlRotToothCntrFrntLe;
+      _WhlRotToothCntrFrntRi = @sysvar::operation::WhlRotToothCntrFrntRi;
+      _WhlRotToothCntrReLe = @sysvar::operation::WhlRotToothCntrReLe;
+      _WhlRotToothCntrReRi = @sysvar::operation::WhlRotToothCntrReRi;
+      _isWhlRotToothCntrFrntLe = _WhlRotToothCntrFrntLe;
+      _isWhlRotToothCntrFrntRi = _WhlRotToothCntrFrntRi;
+      _isWhlRotToothCntrReLe = _WhlRotToothCntrReLe;
+      _isWhlRotToothCntrReRi = _WhlRotToothCntrReRi;
+      isWhlRotToothCntrDataToBeChecked[0] = isWhlRotToothCntrSigGrpArr[9]&0xFF;
+      isWhlRotToothCntrDataToBeChecked[1] = isWhlRotToothCntrSigGrpArr[9]>>8;
+      isWhlRotToothCntrDataToBeChecked[2] = counter;
+      isWhlRotToothCntrDataToBeChecked[3] = _isWhlRotToothCntrFrntLe;
+      isWhlRotToothCntrDataToBeChecked[4] = _isWhlRotToothCntrFrntRi;
+      isWhlRotToothCntrDataToBeChecked[5] = _isWhlRotToothCntrReLe;
+      isWhlRotToothCntrDataToBeChecked[6] = _isWhlRotToothCntrReRi;
+      $isWhlRotToothCntrCntr = counter++;
+      counter %= 0x0F;
+      _isWhlRotToothCntrChks = Crc_CalculateCRC8(isWhlRotToothCntrDataToBeChecked,elCount(isWhlRotToothCntrDataToBeChecked),0x0);
+      $isWhlRotToothCntrChks = _isWhlRotToothCntrChks;
+      $isWhlRotToothCntrFrntLe = _isWhlRotToothCntrFrntLe;
+      $isWhlRotToothCntrFrntRi = _isWhlRotToothCntrFrntRi;
+      $isWhlRotToothCntrReLe = _isWhlRotToothCntrReLe;
+      $isWhlRotToothCntrReRi = _isWhlRotToothCntrReRi;
+      isWhlRotToothCntrUpdateBitValue = 0;
+    }
+    if(isWhlSpdCircumlFrntUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isWhlSpdCircumlFrntChks;
+      byte isWhlSpdCircumlFrntDataToBeChecked[9];
+      word _isWhlSpdCircumlFrntLe
+        ,_isWhlSpdCircumlFrntLeQf
+        ,_isWhlSpdCircumlFrntRiQf
+        ,_isWhlSpdCircumlFrntWhlSpdCircumlFrntRi;
+      int _WhlSpdCircumlFrntLe = 0, _WhlSpdCircumlFrntLeQf = 0, _WhlSpdCircumlFrntRiQf = 0, _WhlSpdCircumlFrntWhlSpdCircumlFrntRi = 0;
+      _WhlSpdCircumlFrntLe = @sysvar::operation::WhlSpdCircumlFrntLe;
+      _WhlSpdCircumlFrntLeQf = @sysvar::qf_set::WhlSpdCircumlFrntLeQf;
+      _WhlSpdCircumlFrntRiQf = @sysvar::qf_set::WhlSpdCircumlFrntRiQf;
+      _WhlSpdCircumlFrntWhlSpdCircumlFrntRi = @sysvar::operation::WhlSpdCircumlFrntWhlSpdCircumlFrntRi;
+      _isWhlSpdCircumlFrntLe = _WhlSpdCircumlFrntLe;
+      _isWhlSpdCircumlFrntLeQf = _WhlSpdCircumlFrntLeQf;
+      _isWhlSpdCircumlFrntRiQf = _WhlSpdCircumlFrntRiQf;
+      _isWhlSpdCircumlFrntWhlSpdCircumlFrntRi = _WhlSpdCircumlFrntWhlSpdCircumlFrntRi;
+      isWhlSpdCircumlFrntDataToBeChecked[0] = isWhlSpdCircumlFrntSigGrpArr[9]&0xFF;
+      isWhlSpdCircumlFrntDataToBeChecked[1] = isWhlSpdCircumlFrntSigGrpArr[9]>>8;
+      isWhlSpdCircumlFrntDataToBeChecked[2] = counter;
+      isWhlSpdCircumlFrntDataToBeChecked[3] = _isWhlSpdCircumlFrntLe;
+      isWhlSpdCircumlFrntDataToBeChecked[4] = _isWhlSpdCircumlFrntLeQf;
+      isWhlSpdCircumlFrntDataToBeChecked[5] = _isWhlSpdCircumlFrntRiQf;
+      isWhlSpdCircumlFrntDataToBeChecked[6] = _isWhlSpdCircumlFrntWhlSpdCircumlFrntRi;
+      $isWhlSpdCircumlFrntCntr = counter++;
+      counter %= 0x0F;
+      _isWhlSpdCircumlFrntChks = Crc_CalculateCRC8(isWhlSpdCircumlFrntDataToBeChecked,elCount(isWhlSpdCircumlFrntDataToBeChecked),0x0);
+      $isWhlSpdCircumlFrntChks = _isWhlSpdCircumlFrntChks;
+      $isWhlSpdCircumlFrntLe = _isWhlSpdCircumlFrntLe;
+      $isWhlSpdCircumlFrntLeQf = _isWhlSpdCircumlFrntLeQf;
+      $isWhlSpdCircumlFrntRiQf = _isWhlSpdCircumlFrntRiQf;
+      $isWhlSpdCircumlFrntWhlSpdCircumlFrntRi = _isWhlSpdCircumlFrntWhlSpdCircumlFrntRi;
+      isWhlSpdCircumlFrntUpdateBitValue = 0;
+    }
+    if(isWhlSpdCircumlReUpdateBitValue)
+    {
+      byte counter = 0;
+      byte _isWhlSpdCircumlReChks;
+      byte isWhlSpdCircumlReDataToBeChecked[9];
+      word _isWhlSpdCircumlReLe
+        ,_isWhlSpdCircumlReLeQf
+        ,_isWhlSpdCircumlReRi
+        ,_isWhlSpdCircumlReRiQf;
+      int _WhlSpdCircumlReLe = 0, _WhlSpdCircumlReLeQf = 0, _WhlSpdCircumlReRi = 0, _WhlSpdCircumlReRiQf = 0;
+      _WhlSpdCircumlReLe = @sysvar::operation::WhlSpdCircumlReLe;
+      _WhlSpdCircumlReLeQf = @sysvar::qf_set::WhlSpdCircumlReLeQf;
+      _WhlSpdCircumlReRi = @sysvar::operation::WhlSpdCircumlReRi;
+      _WhlSpdCircumlReRiQf = @sysvar::qf_set::WhlSpdCircumlReRiQf;
+      _isWhlSpdCircumlReLe = _WhlSpdCircumlReLe;
+      _isWhlSpdCircumlReLeQf = _WhlSpdCircumlReLeQf;
+      _isWhlSpdCircumlReRi = _WhlSpdCircumlReRi;
+      _isWhlSpdCircumlReRiQf = _WhlSpdCircumlReRiQf;
+      isWhlSpdCircumlReDataToBeChecked[0] = isWhlSpdCircumlFrntSigGrpArr[9]&0xFF;
+      isWhlSpdCircumlReDataToBeChecked[1] = isWhlSpdCircumlFrntSigGrpArr[9]>>8;
+      isWhlSpdCircumlReDataToBeChecked[2] = counter;
+      isWhlSpdCircumlReDataToBeChecked[3] = _isWhlSpdCircumlReLe;
+      isWhlSpdCircumlReDataToBeChecked[4] = _isWhlSpdCircumlReLeQf;
+      isWhlSpdCircumlReDataToBeChecked[5] = _isWhlSpdCircumlReRi;
+      isWhlSpdCircumlReDataToBeChecked[6] = _isWhlSpdCircumlReRiQf;
+      $isWhlSpdCircumlReCntr = counter++;
+      counter %= 0x0F;
+      _isWhlSpdCircumlReChks = Crc_CalculateCRC8(isWhlSpdCircumlReDataToBeChecked,elCount(isWhlSpdCircumlReDataToBeChecked),0x0);
+      $isWhlSpdCircumlReChks = _isWhlSpdCircumlReChks;
+      $isWhlSpdCircumlReLe = _isWhlSpdCircumlReLe;
+      $isWhlSpdCircumlReLeQf = _isWhlSpdCircumlReLeQf;
+      $isWhlSpdCircumlReRi = _isWhlSpdCircumlReRi;
+      $isWhlSpdCircumlReRiQf = _isWhlSpdCircumlReRiQf;
+      isWhlSpdCircumlReUpdateBitValue = 0;
+    }
+    
+    if(isAsyALgtCtrlModUpdateBitValue)
+    {
+      isAsyALgtCtrlModUpdateBitValue = 0;
+    }
+    if(isAsyALgtCtrlModCfmdUpdateBitValue)
+    {
+      isAsyALgtCtrlModCfmdUpdateBitValue = 0;
+    }
+    if(isAsyLatCtrlModReqGroupUpdateBitValue)
+    {
+      isAsyLatCtrlModReqGroupUpdateBitValue = 0;
+    }
+    if(isAsyLatCtrlModReqGroupCfmdUpdateBitValue)
+    {
+      isAsyLatCtrlModReqGroupCfmdUpdateBitValue = 0;
+    }
+    if(isEngSt1WdStsUpdateBitValue)
+    {
+      isEngSt1WdStsUpdateBitValue = 0;
+    }
+    if(isEpbStsUpdateBitValue)
+    {
+      isEpbStsUpdateBitValue = 0;
+    }
+    if(isEscStUpdateBitValue)
+    {
+      isEscStUpdateBitValue = 0;
+    }
+    if(isGuestrStsUpdateBitValue)
+    {
+      isGuestrStsUpdateBitValue = 0;
+    }
+    if(isVehSpdLgtUpdateBitValue)
+    {
+      isVehSpdLgtUpdateBitValue = 0;
+    }
+    if(isMobDevRPAAuthRespUpdateBitValue)
+    {
+      isMobDevRPAAuthRespUpdateBitValue = 0;
+    }
+    if(isPrkLatLgtFailrUpdateBitValue)
+    {
+      isPrkLatLgtFailrUpdateBitValue = 0;
+    }
+    if(isVehModMngtGlbSafe1UpdateBitValue)
+    {
+      isVehModMngtGlbSafe1UpdateBitValue = 0;
+    }
+    if(isVehMtnStUpdateBitValue)
+    {
+      isVehMtnStUpdateBitValue = 0;
+    }
+    if(isADataRawSafeUpdateBitValue)
+    {
+      isADataRawSafeUpdateBitValue = 0;
+    }
+    if(isAgDataRawSafeUpdateBitValue)
+    {
+      isAgDataRawSafeUpdateBitValue = 0;
+    }
+    if(isAsyDataWithCmpSafeUpdateBitValue)
+    {
+      isAsyDataWithCmpSafeUpdateBitValue = 0;
+    }
+    if(isMobDevRPAReqUpdateBitValue)
+    {
+      isMobDevRPAReqUpdateBitValue = 0;
+    }
+    if(isStandStillMgrStsForHldUpdateBitValue)
+    {
+      isStandStillMgrStsForHldUpdateBitValue = 0;
+    }
+    if(isWhlDirRotlFrntUpdateBitValue)
+    {
+      isWhlDirRotlFrntUpdateBitValue = 0;
+    }
+    if(isWhlDirRotlReUpdateBitValue)
+    {
+      isWhlDirRotlReUpdateBitValue = 0;
+    }
+    if(isWhlRotToothCntrUpdateBitValue)
+    {
+      isWhlRotToothCntrUpdateBitValue = 0;
+    }
+    if(isWhlSpdCircumlFrntUpdateBitValue)
+    {
+      isWhlSpdCircumlFrntUpdateBitValue = 0;
+    }
+    if(isWhlSpdCircumlReUpdateBitValue)
+    {
+      isWhlSpdCircumlReUpdateBitValue = 0;
+    }
+  }
+  return 1;
+}

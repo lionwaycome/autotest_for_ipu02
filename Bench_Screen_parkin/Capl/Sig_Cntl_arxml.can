@@ -1,0 +1,912 @@
+/*@!Encoding:936*/
+includes
+{
+
+}
+
+variables
+{
+  long resettimer=300,gearN,Vehmove,Vehstop,NodeOL,SteerAgLe,SteerAgRi,SteerStraight,Transmission_Ratio=17;
+  double test_target,PrkgAssiAReq,v,s,W,tan,SteerAg; 
+  
+  msTimer t_VisnAgExtnReq,t_ThrDTouringViewReqOnOff1,t_TopVisnDispExtnReqOnOff1,t_SurrndgsObjDetnReqOnOff1,t_VisnImgDispModReq,
+    t_VehMdlClrReqOnOff1,t_TurnEntryAgWideVisReqOnOff1,t_PrkgIndcrLineReqOnOff1,mt_TouchType,mt_TouchType1,t_SwtDispOnAndOffReq,
+    mt_gearN,mt_ECUreaction,mt_vehmove,mt_RCacc_FL,mt_RCacc_FR,mt_RCacc_RL,mt_RCacc_RR,mt_Waiting,t_DrvrAsscSysBtnPush,t_PrkgInOrOutAndCncl,
+    t_AutValtPrkgSwt,ms_PASmonitor,mt_user_msg,mt_Exit,Reset_Touch_Send,mt_HPPEnter,mt_AVPEnter,mt_Way1,mt_Way2,mt_Comfirm,mt_Cancel,mt_End;
+  message * user_msg;
+  enum { Norm, Trnsp, Fcy, Crash, Dyno =5 } CarMod;
+  enum { Abdnd, InActv, Cnvinc, Actv =0xB, Drvg =0xD } UsgMod;
+//  enum { offline, online } PAS_status;
+}
+
+on preStart
+{
+  @sysvar::tool::debug_msg_level =1;
+}
+on start
+{
+  $isPrkgTypAutBtn =0;
+  @sysvar::test::keysts =0;
+  @sysvar::test::RCAcc_OnOff =0;
+  @sysvar::`Signal::ExtrLtgStsStopLi =1;
+  @sysvar::`Signal::DrvrAsscSysBtnPush =0;
+  @sysvar::`Signal::PrkgInOrOutAndCncl =0;
+  @sysvar::tool::debug_msg_level =0;
+}
+
+on sysvar tool::debug_msg_level//调试信息打印等级
+{
+  switch(@this)
+  {
+    case(0):
+      setWriteDbgLevel(0);
+      writeDbgLevel(0,"Output debugging information for a priority of 0!!!");
+      break;
+    case(1):
+      setWriteDbgLevel(6);
+      writeDbgLevel(0,"Output debugging information for priority ranging from 0 to 5!!!");
+      break;
+    case(2):
+      setWriteDbgLevel(15);
+      writeDbgLevel(0,"Output debugging information for all!!!");
+      break;
+  }
+}
+
+on message PASSafetyCANFD4Fr02
+{
+  if(this.dir ==rx)
+  {
+    @tool::PAS_status =1;
+    setTimer(ms_PASmonitor,200);
+  }
+}
+on timer ms_PASmonitor
+{
+  @tool::PAS_status =0;
+}
+on sysvar sysvar::tool::PAS_status
+{
+  switch(@this)
+  {
+    case(0):
+      writeDbgLevel(1,"PAS node offline!!!");
+      break;
+    case(1):
+      writeDbgLevel(1,"PAS node online!!!");
+      break;
+  }
+}
+
+on sysvar sysvar::user_defined_msg::user_msg_Send
+{
+  switch(@this)
+  {
+    case(0):
+      cancelTimer(mt_user_msg);
+      writeDbgLevel(1,"cancel send the user message!");
+      break;
+    case(1):
+    {
+      if (@sysvar::user_defined_msg::user_msg_Cycle == 0 || @sysvar::user_defined_msg::user_msg_ID == 0 || @user_defined_msg::user_msg_CANChn == 0)
+      {
+        writeDbgLevel(1,"ERROR_INFO: CAN ID/CycleTime/CAN Channel CAN'T Be ZERO!!");
+      }
+      else
+      {
+        user_msg.CAN =@user_defined_msg::user_msg_CANChn;
+        user_msg.ID =@user_defined_msg::user_msg_ID;
+        user_msg.DLC =@user_defined_msg::user_msg_DLC;
+        user_msg.Byte(0) =@user_defined_msg::user_msg_Byte0;
+        user_msg.Byte(1) =@user_defined_msg::user_msg_Byte1;
+        user_msg.Byte(2) =@user_defined_msg::user_msg_Byte2;
+        user_msg.Byte(3) =@user_defined_msg::user_msg_Byte3;
+        user_msg.Byte(4) =@user_defined_msg::user_msg_Byte4;
+        user_msg.Byte(5) =@user_defined_msg::user_msg_Byte5;
+        user_msg.Byte(6) =@user_defined_msg::user_msg_Byte6;
+        user_msg.Byte(7) =@user_defined_msg::user_msg_Byte7;
+        user_msg.Byte(8) =@user_defined_msg::user_msg_Byte8;
+        user_msg.Byte(9) =@user_defined_msg::user_msg_Byte9;
+        user_msg.Byte(10) =@user_defined_msg::user_msg_Byte10;
+        user_msg.Byte(11) =@user_defined_msg::user_msg_Byte11;
+        user_msg.Byte(12) =@user_defined_msg::user_msg_Byte12;
+        user_msg.Byte(13) =@user_defined_msg::user_msg_Byte13;
+        user_msg.Byte(14) =@user_defined_msg::user_msg_Byte14;
+        user_msg.Byte(15) =@user_defined_msg::user_msg_Byte15;
+        output(user_msg);
+        writeDbgLevel(1,"Start send the user message!");
+        setTimer(mt_user_msg,@user_defined_msg::user_msg_Cycle);
+      }
+      break;
+      }
+  }
+}
+on timer mt_user_msg
+{
+  output(user_msg);
+  setTimer(mt_user_msg,@user_defined_msg::user_msg_Cycle);
+}
+
+on sysvar sysvar::test::keysts//钥匙位信号快捷键
+{
+  switch(@this)
+    {
+    case(0):
+      @sysvar::operation::vehmodmngtglbsafe1carmodsts1 =Dyno;
+      @sysvar::operation::vehmodmngtglbsafe1usgmodsts =Abdnd;
+      break;
+    case(1):
+      @sysvar::operation::vehmodmngtglbsafe1carmodsts1 =Norm;
+      @sysvar::operation::vehmodmngtglbsafe1usgmodsts =Drvg;
+      break;
+    default:
+      writeDbgLevel(1,"Key status value is out of range!!!");
+      break;
+    }
+}
+
+on sysvar sysvar::`Signal::GearLvrIndcn//挡位相关处理
+{
+  switch(@this)
+  {
+    case(0)://挂P档无车速
+      if(@sysvar::`Signal::VehSpdLgtA >0)
+        @sysvar::`Signal::VehSpdLgtA =0;
+      else if(@sysvar::`Signal::VehSpdLgtA ==0)
+      writeDbgLevel(1,"Please engage a gear D or R before improve the speed!!!");
+      break;
+    case(1)://挂R档进入AVM后视图
+      if($isVisnAgExtnResp == 1)
+      {
+        setControlVisibility("Veh_Simulation","2d_fr",1);setControlVisibility("Veh_Simulation","2d_re",1);
+        setControlVisibility("Veh_Simulation","2d_le",1);setControlVisibility("Veh_Simulation","2d_ri",1);
+        setControlVisibility("Veh_Simulation","2d_on",1);setControlVisibility("Veh_Simulation","2d_off",0);
+        setControlVisibility("Veh_Simulation","3d_fr",0);setControlVisibility("Veh_Simulation","3d_re",0);
+        setControlVisibility("Veh_Simulation","3d_le",0);setControlVisibility("Veh_Simulation","3d_ri",0);
+        setControlVisibility("Veh_Simulation","3d_f&l",0);setControlVisibility("Veh_Simulation","3d_f&r",0);
+        setControlVisibility("Veh_Simulation","3d_r&l",0);setControlVisibility("Veh_Simulation","3d_r&r",0);
+        setControlVisibility("Veh_Simulation","3d_on",0);setControlVisibility("Veh_Simulation","3d_off",1);
+        writeDbgLevel(1,"Enter AVM by gear R!!!");
+      }
+      break;
+    case(2)://挂N档车辆滑行
+      if(@sysvar::`Signal::VehSpdLgtA >0)
+        setTimer(mt_gearN,0);
+      else if(@sysvar::`Signal::VehSpdLgtA ==0)
+        writeDbgLevel(1,"Please engage a gear D or R before improve the speed!!!");
+      break;
+  }
+}
+on timer mt_gearN
+{
+  gearN =1;
+  if(@sysvar::`Signal::VehSpdLgtA >0)
+  {
+    @sysvar::`Signal::VehSpdLgtA -=1;
+    setTimer(mt_gearN,50);
+    writeDbgLevel(1,"Slow down by gear N!!!");
+  }
+  else if(@sysvar::`Signal::VehSpdLgtA<=0 || @sysvar::`Signal::VehSpdLgtA>450)
+  {
+    gearN =0;
+    @sysvar::`Signal::VehSpdLgtA =0;
+    writeDbgLevel(1,"Please check the Gear N!!!");
+  }
+}
+
+on sysvar sysvar::`Signal::BrkPedlPsdBrkPedlPsd
+{
+  switch(@this)
+  {
+    case(1):
+      @sysvar::`Signal::ExtrLtgStsStopLi =0;
+      writeDbgLevel(1,"The brake light is extinguish!!!");
+      break;
+    default:
+      @sysvar::`Signal::ExtrLtgStsStopLi =1;
+      writeDbgLevel(1,"The brake light is lighting!!!");
+      break;
+  }
+}
+
+on sysvar (sysvar::`Signal::PinionSteerAg | sysvar::`Signal::VehSpdLgtA)
+{
+  v = @`Signal::VehSpdLgtA/3.6;
+  s = ABS((@`Signal::PinionSteerAg)*(PI/180));
+  tan = (sin(s))/(cos(s));
+  W = ((float)((int)((((v*tan)/2.7)*(180/PI))*100)))/100;
+  if((@`Signal::GearLvrIndcn == 3 && @`Signal::PinionSteerAg >0) || (@`Signal::GearLvrIndcn == 1 && @`Signal::PinionSteerAg <0))
+  {
+    $isAgDataRawSafeYawRate = (((float)((int)(W*100)))/100)*4096;
+  }
+  if((@`Signal::GearLvrIndcn == 1 && @`Signal::PinionSteerAg >0) || (@`Signal::GearLvrIndcn == 3 && @`Signal::PinionSteerAg <0))
+  {
+    $isAgDataRawSafeYawRate = -(((float)((int)(W*100)))/100)*4096;
+  }
+  writeDbgLevel(11,"Vehspd: %f,VehWheelAg: %f,VehYawRate: %f,WheelAg: %f",v,s,W,@`Signal::PinionSteerAg);
+  switch(@sysvar::`Signal::GearLvrIndcn)
+  {
+    case(0):
+    	@sysvar::`Signal::VehSpdLgtA = 0;
+      writeDbgLevel(1,"Please check the brake and Gear P!!!");
+      break;
+    case(2):
+    	if(gearN ==0)
+      {
+        setTimer(mt_gearN,0);
+        writeDbgLevel(1,"Please check the brake and Gear N!!!");
+      }
+      break;
+  }
+  switch(@sysvar::`Signal::VehSpdLgtA)
+  {
+    case(0):
+    	@test::RCAcc_OnOff = 0;
+      break;
+  }
+}
+
+on sysvar sysvar::`Signal::SwtDispOnAndOffReq
+{
+  if(@this)
+    setTimer(t_SwtDispOnAndOffReq,resettimer);
+}
+on timer t_SwtDispOnAndOffReq
+{
+  @sysvar::`Signal::SwtDispOnAndOffReq =0;
+}
+
+on sysvar sysvar::`Signal::VisnAgExtnReq
+{
+  if(@this)
+    setTimer(t_VisnAgExtnReq,resettimer);
+}
+on timer t_VisnAgExtnReq
+{
+  @sysvar::`Signal::VisnAgExtnReq =0;
+}
+
+on sysvar sysvar::`Signal::ThrDTouringViewReqOnOff1
+{
+  if(@this)
+    setTimer(t_ThrDTouringViewReqOnOff1,resettimer);
+}
+on timer t_ThrDTouringViewReqOnOff1
+{
+  @sysvar::`Signal::ThrDTouringViewReqOnOff1 =0;
+}
+
+on sysvar sysvar::`Signal::TopVisnDispExtnReqOnOff1
+{
+  if(@this)
+    setTimer(t_TopVisnDispExtnReqOnOff1,resettimer);
+}
+on timer t_TopVisnDispExtnReqOnOff1
+{
+  @sysvar::`Signal::TopVisnDispExtnReqOnOff1 =0;
+}
+
+on sysvar sysvar::`Signal::SurrndgsObjDetnReqOnOff1
+{
+  if(@this)
+    setTimer(t_SurrndgsObjDetnReqOnOff1,resettimer);
+}
+on timer t_SurrndgsObjDetnReqOnOff1
+{
+  @sysvar::`Signal::SurrndgsObjDetnReqOnOff1 =0;
+}
+
+on sysvar sysvar::`Signal::VisnImgDispModReq
+{
+  if(@this)
+    setTimer(t_VisnImgDispModReq,resettimer);
+}
+on timer t_VisnImgDispModReq
+{
+  @sysvar::`Signal::VisnImgDispModReq =0;
+}
+
+on sysvar sysvar::`Signal::VehMdlClrReqOnOff1
+{
+  if(@this)
+    setTimer(t_VehMdlClrReqOnOff1,resettimer);
+}
+on timer t_VehMdlClrReqOnOff1
+{
+  @sysvar::`Signal::VehMdlClrReqOnOff1 =0;
+}
+
+on sysvar sysvar::`Signal::TurnEntryAgWideVisReqOnOff1
+{
+  if(@this)
+    setTimer(t_TurnEntryAgWideVisReqOnOff1,resettimer);
+}
+on timer t_TurnEntryAgWideVisReqOnOff1
+{
+  @sysvar::`Signal::TurnEntryAgWideVisReqOnOff1 =0;
+}
+
+on sysvar sysvar::`Signal::PrkgIndcrLineReqOnOff1
+{
+  if(@this)
+    setTimer(t_PrkgIndcrLineReqOnOff1,resettimer);
+}
+on timer t_PrkgIndcrLineReqOnOff1
+{
+  @sysvar::`Signal::PrkgIndcrLineReqOnOff1 =0;
+}
+
+on sysvar sysvar::`Signal::DrvrAsscSysBtnPush
+{
+  if(@this)
+    setTimer(t_DrvrAsscSysBtnPush,resettimer);
+}
+on timer t_DrvrAsscSysBtnPush
+{
+  @sysvar::`Signal::DrvrAsscSysBtnPush =0;
+}
+
+on sysvar sysvar::`Signal::PrkgInOrOutAndCncl
+{
+  if(@this)
+    setTimer(t_PrkgInOrOutAndCncl,resettimer);
+}
+on timer t_PrkgInOrOutAndCncl
+{
+  @sysvar::`Signal::PrkgInOrOutAndCncl =0;
+}
+
+on signal isAutValtPrkgSwt
+{
+  if(this !=0)
+    setTimer(t_AutValtPrkgSwt,resettimer);
+}
+on timer t_AutValtPrkgSwt
+{
+  $isAutValtPrkgSwt =0;
+}
+
+on signal isVisnAgExtnResp
+{
+  switch($isVisnAgExtnResp)
+  {
+    case(0):
+      setControlVisibility("Veh_Simulation","2d_fr",1);setControlVisibility("Veh_Simulation","2d_re",1);
+      setControlVisibility("Veh_Simulation","2d_le",1);setControlVisibility("Veh_Simulation","2d_ri",1);
+      setControlVisibility("Veh_Simulation","2d_on",1);setControlVisibility("Veh_Simulation","2d_off",0);
+      setControlVisibility("Veh_Simulation","3d_fr",0);setControlVisibility("Veh_Simulation","3d_re",0);
+      setControlVisibility("Veh_Simulation","3d_le",0);setControlVisibility("Veh_Simulation","3d_ri",0);
+      setControlVisibility("Veh_Simulation","3d_f&l",0);setControlVisibility("Veh_Simulation","3d_f&r",0);
+      setControlVisibility("Veh_Simulation","3d_r&l",0);setControlVisibility("Veh_Simulation","3d_r&r",0);
+      setControlVisibility("Veh_Simulation","3d_on",0);setControlVisibility("Veh_Simulation","3d_off",1);
+      writeDbgLevel(1,"VisnAg is 2D!");
+      break;
+     case(1):
+      setControlVisibility("Veh_Simulation","2d_fr",0);setControlVisibility("Veh_Simulation","2d_re",0);
+      setControlVisibility("Veh_Simulation","2d_le",0);setControlVisibility("Veh_Simulation","2d_ri",0);
+      setControlVisibility("Veh_Simulation","2d_on",0);setControlVisibility("Veh_Simulation","2d_off",1);
+      setControlVisibility("Veh_Simulation","3d_fr",1);setControlVisibility("Veh_Simulation","3d_re",1);
+      setControlVisibility("Veh_Simulation","3d_le",1);setControlVisibility("Veh_Simulation","3d_ri",1);
+      setControlVisibility("Veh_Simulation","3d_f&l",1);setControlVisibility("Veh_Simulation","3d_f&r",1);
+      setControlVisibility("Veh_Simulation","3d_r&l",1);setControlVisibility("Veh_Simulation","3d_r&r",1);
+      setControlVisibility("Veh_Simulation","3d_on",1);setControlVisibility("Veh_Simulation","3d_off",0);
+      writeDbgLevel(1,"VisnAg is 3D!");
+      break;
+  }
+}
+
+on sysVar sysvar::`Signal::Touch_Send
+{
+  switch(@this)
+  {
+    case(0):
+      $isPrkgTouchCoornReqCoordinateX = @sysvar::`Signal::PrkgTouchCoornReqCoordinateX;
+      $isPrkgTouchCoornReqCoordinateY = @sysvar::`Signal::PrkgTouchCoornReqCoordinateY;
+      $isPrkgTouchCoornReqTouchEveTyp = 2;
+      break;
+    case(1):
+      $isPrkgTouchCoornReqCoordinateX = @sysvar::`Signal::PrkgTouchCoornReqCoordinateX;
+      $isPrkgTouchCoornReqCoordinateY = @sysvar::`Signal::PrkgTouchCoornReqCoordinateY;
+      $isPrkgTouchCoornReqFingerIndex = @sysvar::`Signal::PrkgTouchCoornReqFingerIndex;
+      $isPrkgTouchCoornReqTouchEveTyp = 1;
+      settimer(mt_TouchType,200);
+  }
+}
+on timer mt_TouchType
+{
+  $isPrkgTouchCoornReqTouchEveTyp = 2;
+  settimer(mt_TouchType1,200);
+}
+on timer mt_TouchType1
+{
+  $isPrkgTouchCoornReqCoordinateX = 0;
+  $isPrkgTouchCoornReqCoordinateY = 0;
+  $isPrkgTouchCoornReqTouchEveTyp = 0;
+  $isPrkgTouchCoornReqFingerIndex = 0;
+}
+
+on sysvar sysvar::`Signal::VisnImgDispModResp
+{
+  switch(@this)
+  {
+    case(1):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",1);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(2):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",1);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(3):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",1);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(4):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",1);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(13):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",1);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(14):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",1);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(15):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",1);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(16):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",1);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(17):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",1);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(18):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",1);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(19):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",1);setControlVisibility("Veh_Simulation","3d_r&r_Disp",0);
+      break;
+    case(20):
+    setControlVisibility("Veh_Simulation","2d_fr_Disp",0);setControlVisibility("Veh_Simulation","2d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","2d_le_Disp",0);setControlVisibility("Veh_Simulation","2d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_fr_Disp",0);setControlVisibility("Veh_Simulation","3d_re_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_le_Disp",0);setControlVisibility("Veh_Simulation","3d_ri_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_f&l_Disp",0);setControlVisibility("Veh_Simulation","3d_f&r_Disp",0);
+    setControlVisibility("Veh_Simulation","3d_r&l_Disp",0);setControlVisibility("Veh_Simulation","3d_r&r_Disp",1);
+      break;
+    default:
+      writeDbgLevel(1,"DispMod value is out of range!!!");
+      break;
+  }
+}
+
+on signal (isVehSpdLgtA | isGearLvrIndcn | isBrkPedlPsdBrkPedlPsd)
+{
+  $isWhlSpdCircumlFrntLe = $isVehSpdLgtA;
+  $isWhlSpdCircumlFrntWhlSpdCircumlFrntRi = $isVehSpdLgtA;
+  $isWhlSpdCircumlReLe = $isVehSpdLgtA;
+  $isWhlSpdCircumlReRi = $isVehSpdLgtA;
+  if(@sysvar::`Signal::VehSpdLgtA !=0 && $isVehSpdLgtA !=0)
+  {
+    if(@sysvar::test::RCRL_ChangeSpeed >0 || @sysvar::test::RCRR_ChangeSpeed >0)
+    {
+      @test::RC_intlRL = (1000 / ((@sysvar::`Signal::VehSpdLgtA/3.6)/(1.95936/48))) + @sysvar::test::RCRL_ChangeSpeed;//48齿轮，17寸轮胎轮速脉冲时间间隔计算
+      @test::RC_intlRR = (1000 / ((@sysvar::`Signal::VehSpdLgtA/3.6)/(1.95936/48))) + @sysvar::test::RCRR_ChangeSpeed;
+      @test::RC_intlFL = (1000 / ((@sysvar::`Signal::VehSpdLgtA/3.6)/(1.95936/48))) + @sysvar::test::RCRL_ChangeSpeed;
+      @test::RC_intlFR = (1000 / ((@sysvar::`Signal::VehSpdLgtA/3.6)/(1.95936/48))) + @sysvar::test::RCRR_ChangeSpeed;
+      @test::RCAcc_OnOff = 1;
+    }
+    else
+    {
+      setTimer(mt_Waiting,1000);
+      writeDbgLevel(1,"RC_intl Error!!!Waiting...");
+    }
+  }
+  if($isGearLvrIndcn ==3 && $isVehSpdLgtA >0)
+  {
+    $isWhlDirRotlFrntLe = 2;
+    $isWhlDirRotlFrntRi = 2;
+    $isWhlDirRotlReLe = 2;
+    $isWhlDirRotlReRi = 2;
+    $isVehMtnStVehMtnSt = 4;
+    if($isVehMtnStVehMtnSt != 4)
+      writeDbgLevel(1,"Forward");
+  }
+  if($isGearLvrIndcn ==1 && $isVehSpdLgtA >0)
+  {
+    $isWhlDirRotlFrntLe = 3;
+    $isWhlDirRotlFrntRi = 3;
+    $isWhlDirRotlReLe = 3;
+    $isWhlDirRotlReRi = 3;
+    $isVehMtnStVehMtnSt = 6;
+    if($isVehMtnStVehMtnSt != 6)
+      writeDbgLevel(1,"Backward");
+  }
+  if($isVehSpdLgtA ==0)
+  {
+    $isWhlDirRotlFrntLe = 1;
+    $isWhlDirRotlFrntRi = 1;
+    $isWhlDirRotlReLe = 1;
+    $isWhlDirRotlReRi = 1;
+    $isVehMtnStVehMtnSt = 1;
+    if($isVehMtnStVehMtnSt != 1)
+      writeDbgLevel(1,"Standstill");
+  }
+  if(@sysvar::`Signal::BrkPedlPsdBrkPedlPsd ==1)
+  {
+    @sysvar::`Signal::ExtrLtgStsStopLi =0;
+    @sysvar::`Signal::VehSpdLgtA =0;
+  }
+}
+on timer mt_Waiting
+{
+  if(@sysvar::test::RCRL_ChangeSpeed <0 || @sysvar::test::RCRR_ChangeSpeed <0)
+  {
+    setTimer(mt_Waiting,1000);
+    writeDbgLevel(1,"RC_intl Error!!!Waiting...");
+  }
+}
+
+on sysvar sysvar::test::RCAcc_OnOff
+{
+  switch(@this)
+  {
+    case(0):
+      cancelTimer(mt_RCacc_FL);cancelTimer(mt_RCacc_FR);cancelTimer(mt_RCacc_RL);cancelTimer(mt_RCacc_RR);
+      break;
+    case(1):
+      settimer(mt_RCacc_FL,0);settimer(mt_RCacc_FR,0);settimer(mt_RCacc_RL,0);settimer(mt_RCacc_RR,0);
+      break;
+  }
+}
+on timer mt_RCacc_FL
+{
+  $isWhlRotToothCntrFrntLe ++;
+  settimer(mt_RCacc_FL,@sysvar::test::RC_intlFL);
+}
+on timer mt_RCacc_FR
+{
+  $isWhlRotToothCntrFrntRi ++;
+  settimer(mt_RCacc_FR,@sysvar::test::RC_intlFR);
+}
+on timer mt_RCacc_RL
+{
+  $isWhlRotToothCntrReLe ++;
+  settimer(mt_RCacc_RL,@test::RC_intlRL);
+}
+on timer mt_RCacc_RR
+{
+  $isWhlRotToothCntrReRi ++;
+  settimer(mt_RCacc_RR,@test::RC_intlRR);
+}
+
+on signal isPrkgAssiElectcStabyProgCtrlModReqGroupPASElectcStabyProgCtrlModReq
+{
+  writeDbgLevel(1,"Handshake reaction! ");
+  if(this ==1)
+  {
+    setTimer(mt_ECUreaction,@sysvar::test::ECUreaction_interval);
+  }
+}
+on timer mt_ECUreaction
+{
+  writeDbgLevel(1,"Handshake start! ");
+  $isAsyLatCtrlModReqGroupAsyLatCtrlModReq =13;
+  $isAsyLatCtrlModReqGroupCfmdLatCtrlMod =13;
+  $isAsyALgtCtrlModCfmdAsyALgtCtrlMod1 =11;
+}
+
+on signal isDrvrAsscSysSts
+{
+  if(this ==1)
+  {
+    writeDbgLevel(1,"Handshake over! ");
+    $isAsyLatCtrlModReqGroupCfmdLatCtrlMod =0;
+    $isAsyALgtCtrlModCfmdAsyALgtCtrlMod1 =0;
+  }
+  else if(this ==4 || this ==7)
+  {
+    settimer(mt_vehmove,1000);
+  }
+  else
+  {
+    Vehmove =0;
+  }
+}
+on timer mt_vehmove
+{
+  if(Vehmove ==0)
+  {
+    Vehmove =1;
+    writeDbgLevel(1,"Vehmove");
+  }
+  PrkgAssiAReq = ($isPrkgSpdCtrlSafeGroupPrkgAssiAReq1*0.01) -1.28;
+  writeDbgLevel(11,"PrkgAssiAReq: %f",PrkgAssiAReq);
+  if(@`Signal::VehSpdLgtA + PrkgAssiAReq >0)
+  {
+    @`Signal::VehSpdLgtA += PrkgAssiAReq;
+  }
+  else if(@`Signal::VehSpdLgtA + PrkgAssiAReq <0)
+  {
+    @`Signal::VehSpdLgtA =0;
+  }
+  settimer(mt_vehmove,200);
+}
+
+on signal isPrkgStandstillReqReqSts1
+{
+  switch(this)
+  {
+    case(0):
+      Vehstop =0;
+      break;
+    case(1):
+      canceltimer(mt_vehmove);
+      @`Signal::VehSpdLgtA =0;
+      if(Vehstop ==0)
+        writeDbgLevel(1,"Vehstop");
+        Vehstop =1;
+      break;
+  }
+}
+
+on signal isPrkgPinionAgReqGroupParkAssiPinionAgReq
+{
+  if($isDrvrAsscSysSts ==4 || $isDrvrAsscSysSts ==7)
+  {
+    @`Signal::PinionSteerAg = (($isPrkgPinionAgReqGroupParkAssiPinionAgReq/1024)-14.5);
+  }
+}
+
+on signal isGearPrkgAssiReqGroupGearPrkgAssiReq1
+{
+  if($isDrvrAsscSysSts ==4 || $isDrvrAsscSysSts ==7)
+  {
+    switch(this)
+    {
+      case(1):
+        @`Signal::GearLvrIndcn = 0;
+        writeDbgLevel(1,"Reaction gear P!");
+        break;
+      case(2):
+        @`Signal::GearLvrIndcn = 1;
+        writeDbgLevel(1,"Reaction gear R!");
+        break;
+      case(3):
+        @`Signal::GearLvrIndcn = 3;
+        writeDbgLevel(1,"Reaction gear D!");
+        break;
+    }
+  }
+}
+
+on sysvar_update sysvar::`Signal::PinionSteerAg//方向盘转角和轮速变化关系处理
+{
+  SteerAg = @sysvar::`Signal::PinionSteerAg * Transmission_Ratio;
+  if(SteerAg <= Transmission_Ratio *-1)//1.右转
+  {
+    @sysvar::test::RCRL_ChangeSpeed=((SteerAg/@sysvar::test::RC_factor1*@sysvar::test::RC_factor2)/2)+@sysvar::test::RC_factor3;
+    @sysvar::test::RCRR_ChangeSpeed=(-(SteerAg/@sysvar::test::RC_factor4*@sysvar::test::RC_factor5)/2)+@sysvar::test::RC_factor6;
+    if(SteerAgRi ==0)
+    {
+      SteerAgRi =1;
+      SteerStraight =0;
+      writeDbgLevel(1,"Change RC of turn right!");
+    }
+  }
+  else if(SteerAg >= Transmission_Ratio)//左转
+  {
+    @sysvar::test::RCRL_ChangeSpeed=((SteerAg/@sysvar::test::RC_factor7*@sysvar::test::RC_factor8)/2)+@sysvar::test::RC_factor9;
+    @sysvar::test::RCRR_ChangeSpeed=(-(SteerAg/@sysvar::test::RC_factor10*@sysvar::test::RC_factor11)/2)+@sysvar::test::RC_factor12;
+    if(SteerAgLe ==0)
+    {
+      SteerAgLe =1;
+      SteerStraight =0;
+      writeDbgLevel(1,"Change RC of turn left!");
+    }
+  }
+  else
+  {
+    SteerAgLe =0;
+    SteerAgRi =0;
+    @sysvar::test::RCRL_ChangeSpeed = @sysvar::test::RC_factor0;
+    @sysvar::test::RCRR_ChangeSpeed = @sysvar::test::RC_factor0;
+    if(SteerStraight ==0)
+    {
+      SteerStraight =1;
+      writeDbgLevel(1,"Change RC of go straight!");
+    }
+  }
+  if(@sysvar::`Signal::VehSpdLgtA !=0 && $isVehSpdLgtA !=0)
+  {
+    if(@sysvar::test::RCRL_ChangeSpeed >0 || @sysvar::test::RCRR_ChangeSpeed >0)
+    {
+      @test::RC_intlRL = (1000 / ((@sysvar::`Signal::VehSpdLgtA/3.6)/(1.95936/48))) + @sysvar::test::RCRL_ChangeSpeed;//48齿轮，17寸轮胎轮速脉冲时间间隔计算
+      @test::RC_intlRR = (1000 / ((@sysvar::`Signal::VehSpdLgtA/3.6)/(1.95936/48))) + @sysvar::test::RCRR_ChangeSpeed;
+      @test::RC_intlFL = (1000 / ((@sysvar::`Signal::VehSpdLgtA/3.6)/(1.95936/48))) + @sysvar::test::RCRL_ChangeSpeed;
+      @test::RC_intlFR = (1000 / ((@sysvar::`Signal::VehSpdLgtA/3.6)/(1.95936/48))) + @sysvar::test::RCRR_ChangeSpeed;
+      @test::RCAcc_OnOff = 1;
+    }
+    else
+    {
+      setTimer(mt_Waiting,1000);
+      writeDbgLevel(1,"RC_intl Error!!!Waiting...");
+    }
+  }
+}
+
+on sysvar sysvar::touch::Exit
+{
+  if(@this)
+  {
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateX =20;
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateY =20;
+    setTimer(mt_Exit,300);
+  }
+}
+on timer mt_Exit
+{
+  @sysvar::`Signal::Touch_Send =1;
+  setTimer(Reset_Touch_Send,200);
+}
+
+on sysvar sysvar::touch::HPPEnter
+{
+  if(@this)
+  {
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateX =300;
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateY =300;
+    setTimer(mt_HPPEnter,300);
+  }
+}
+on timer mt_HPPEnter
+{
+  @sysvar::`Signal::Touch_Send =1;
+  setTimer(Reset_Touch_Send,200);
+}
+
+on sysvar sysvar::touch::AVPEnter
+{
+  if(@this)
+  {
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateX =300;
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateY =480;
+    setTimer(mt_AVPEnter,300);
+  }
+}
+on timer mt_AVPEnter
+{
+  @sysvar::`Signal::Touch_Send =1;
+  setTimer(Reset_Touch_Send,200);
+}
+
+on sysvar sysvar::touch::Way1
+{
+  if(@this)
+  {
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateX =380;
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateY =400;
+    setTimer(mt_Way1,300);
+  }
+}
+on timer mt_Way1
+{
+  @sysvar::`Signal::Touch_Send =1;
+  setTimer(Reset_Touch_Send,200);
+}
+
+on sysvar sysvar::touch::Way2
+{
+  if(@this)
+  {
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateX =380;
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateY =1320;
+    setTimer(mt_Way2,300);
+  }
+}
+on timer mt_Way2
+{
+  @sysvar::`Signal::Touch_Send =1;
+  setTimer(Reset_Touch_Send,200);
+}
+
+on sysvar sysvar::touch::Comfirm
+{
+  if(@this)
+  {
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateX =750;
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateY =380;
+    setTimer(mt_Comfirm,300);
+  }
+}
+on timer mt_Comfirm
+{
+  @sysvar::`Signal::Touch_Send =1;
+  setTimer(Reset_Touch_Send,200);
+}
+
+on sysvar sysvar::touch::Cancel
+{
+  if(@this)
+  {
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateX =950;
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateY =380;
+    setTimer(mt_Cancel,300);
+  }
+}
+on timer mt_Cancel
+{
+  @sysvar::`Signal::Touch_Send =1;
+  setTimer(Reset_Touch_Send,200);
+}
+
+on sysvar sysvar::touch::`End
+{
+  if(@this)
+  {
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateX =950;
+    @sysvar::`Signal::PrkgTouchCoornReqCoordinateY =380;
+    setTimer(mt_End,300);
+  }
+}
+on timer mt_End
+{
+  @sysvar::`Signal::Touch_Send =1;
+  setTimer(Reset_Touch_Send,200);
+}
+
+on timer Reset_Touch_Send
+{
+  @sysvar::`Signal::Touch_Send =0;
+}

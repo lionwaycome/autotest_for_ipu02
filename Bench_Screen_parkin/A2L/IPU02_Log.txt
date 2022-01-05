@@ -1,0 +1,6 @@
+<INFORMATION> Loaded MAP file 'PAS4_MCU3_0.elf' with format 'ELF/DWARF 32/64 Bit'.
+<WARNING> measurement 'map_trace_pos_y._39_': address not updated
+<WARNING> measurement 'map_trace_pos_y._49_': address not updated
+<WARNING> measurement 'map_trace_pos_y._59_': address not updated
+<WARNING> measurement 'map_trace_pos_y._69_': address not updated
+<WARNING> measurement 'map_trace_pos_y._79_': address not updated

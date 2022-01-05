@@ -1,0 +1,93 @@
+/*@!Encoding:936*/
+includes
+{
+  #include "MYETE.cin"
+}
+
+variables
+{
+  //创建一个数组,用来存储如下信息,从[6]开始,元素的值会随数组而变化
+  //SGArr[0] = SGCheckedNumber,创建一个变量用来记录报文检测（收到）的次数,同时用来表征该报文是否被收到过
+  //SGArr[1] = SGCntrErrNumber,创建一个变量用来记录Cntr出错的次数
+  //SGArr[2] = SGChksErrNumber,创建一个变量用来记录Chks出错的次数
+  //SGArr[3] = SGCntrSequenceErrReportedFlag,创建一个变量用来记录Cntr顺序出错是否被报告过了
+  //SGArr[4] = SGCntrInvalidErrReportedFlag,创建一个变量用来记录Cntr编码出错是否被报告过了
+  //SGArr[5] = SGCntrLastValue,创建一个变量用来记录该报文上一次发送内容中的Cntr值
+  
+  //SGArr[6] = SGUpdateBitPosition,用来记录SignalGroup的UB在报文中的位置
+  //SGArr[7] = SGChksPosition，用来记录SignalGroup的Chks的起始位
+  //SGArr[8] = SGCntrposition,用来记录SignalGroup的Cntr的起始位
+  //SGArr[9] = SGDataID,用来存储SignalGroup的DataID的值
+  //SGArr[10] = FrameID,用来存储SignalGroup所在报文的ID
+  //SGArr[11] = SGUBSet,用来表征SignalGroup的UB是否置位过
+  
+  //Pdu07
+  byte isPinionSteerAgGroupUpdateBitValue;
+  dword isPinionSteerAgGroupSigGrpArr[12]={0,0,0,0,0,0,57,7,63,1037,78,0};
+}
+
+on sysvar sysvar::`Signal::PinionSteerAg
+{
+  isPinionSteerAgGroupUpdateBitValue = 1;
+}
+
+dword applPDUILTxPending (dword busContext, dword longID, dword shortID, char name[], dword & aPayloadLength, byte data[])
+{
+  byte counter = 0;
+  if(strstr_regex(name, "Pdu07") != -1)
+  {
+      byte isPinionSteerAgGroupReceivedCntr;      
+      byte isPinionSteerAgGroupCalculatedChks;    
+      byte isPinionSteerAgGroupDataToBeChecked[12];
+      
+      //字母顺序
+      word isPinionSteerAgGroupPinionSteerAg1Value;
+      byte isPinionSteerAgGroupPinionSteerAg1QfValue;
+      word isPinionSteerAgGroupPinionSteerAgSpd1Value;
+      byte isPinionSteerAgGroupPinionSteerAgSpd1QfValue;
+      word isPinionSteerAgGroupSteerWhlTqValue;
+      byte isPinionSteerAgGroupSteerWhlTqQfValue;
+      double _angle = 0;
+      int _angleqf = 0;
+      
+      _angle = @sysvar::`Signal::PinionSteerAg;
+      _angleqf = @sysvar::qf_set::PinionSteerAgqf;
+      if(_angle <= 0)
+      {
+        isPinionSteerAgGroupPinionSteerAg1Value = abs( _angle * 1024);
+      }
+      else
+      {
+        isPinionSteerAgGroupPinionSteerAg1Value = 0x7FFF - abs( _angle * 1024);
+      }
+      isPinionSteerAgGroupPinionSteerAg1QfValue = _angleqf;
+      
+      if(isPinionSteerAgGroupUpdateBitValue!=0)
+      {
+        isPinionSteerAgGroupDataToBeChecked[0] = isPinionSteerAgGroupSigGrpArr[9]&0xFF;//取DataID的低字节
+        isPinionSteerAgGroupDataToBeChecked[1] = isPinionSteerAgGroupSigGrpArr[9]>>8;  //取DataID的高字节
+        isPinionSteerAgGroupDataToBeChecked[2] = counter;  //Cntr的值
+        isPinionSteerAgGroupDataToBeChecked[3] = isPinionSteerAgGroupPinionSteerAg1Value & 0xff;
+        isPinionSteerAgGroupDataToBeChecked[4] = (isPinionSteerAgGroupPinionSteerAg1Value & 0xff00)>>8;
+        isPinionSteerAgGroupDataToBeChecked[5] = isPinionSteerAgGroupPinionSteerAg1QfValue;
+        isPinionSteerAgGroupDataToBeChecked[6] = isPinionSteerAgGroupPinionSteerAgSpd1Value & 0xff;
+        isPinionSteerAgGroupDataToBeChecked[7] = (isPinionSteerAgGroupPinionSteerAgSpd1Value & 0xff00)>>8;
+        isPinionSteerAgGroupDataToBeChecked[8] = isPinionSteerAgGroupPinionSteerAgSpd1QfValue;
+        isPinionSteerAgGroupDataToBeChecked[9] = isPinionSteerAgGroupSteerWhlTqValue & 0xff;
+        isPinionSteerAgGroupDataToBeChecked[10] = (isPinionSteerAgGroupSteerWhlTqValue & 0xff00)>>8;
+        isPinionSteerAgGroupDataToBeChecked[11] = isPinionSteerAgGroupSteerWhlTqQfValue;
+        $isPinionSteerAgGroupCntr = counter++;
+        counter %= 0x0F;
+        isPinionSteerAgGroupCalculatedChks = Crc_CalculateCRC8(isPinionSteerAgGroupDataToBeChecked,elCount(isPinionSteerAgGroupDataToBeChecked),0x00);
+        $isPinionSteerAgGroupChks = isPinionSteerAgGroupCalculatedChks;
+        $isPinionSteerAgGroupPinionSteerAg1 = isPinionSteerAgGroupPinionSteerAg1Value;
+        $isPinionSteerAgGroupPinionSteerAg1Qf = isPinionSteerAgGroupPinionSteerAg1QfValue;
+        isPinionSteerAgGroupUpdateBitValue = 0;
+      }
+    if(isPinionSteerAgGroupUpdateBitValue)
+    {
+      isPinionSteerAgGroupUpdateBitValue = 0;
+    }
+  }
+  return 1;
+}

@@ -1,0 +1,29 @@
+/*@!Encoding:936*/
+includes
+{
+  
+}
+
+variables
+{
+  
+}
+on start
+{
+  $SAS_FailureSts=0x1;
+  $SAS_CalibrationSts=0x1;
+}
+//*********************APS mode,control steer*********************//
+on signal AVM_APA_SetSteeringWheelAng
+{
+  if($DrvrAsscSysSts==4 || $DrvrAsscSysSts==7 || $DrvrAsscSysSts==5)
+  {
+    $SAS_SteerWheelAngle=$AVM_APA_SetSteeringWheelAng;
+  }
+  else
+  {
+    //$SAS_SteerWheelAngle=0;
+    write("TCM:SteerWheelAngle AVM MODE");
+  }
+}
+//***********************************End*********************************//

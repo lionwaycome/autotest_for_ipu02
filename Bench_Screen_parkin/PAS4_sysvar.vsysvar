@@ -1,0 +1,836 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<systemvariables version="4">
+  <namespace name="" comment="" interface="">
+    <namespace name="DNL_5" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="BrakePedal" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Control" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="EmergencyFlasher" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="TurnIndication_L_R" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+    <namespace name="IHU" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Touch_Simu" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+    <namespace name="Interrupt" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="EPB_locked_7" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+    <namespace name="IT6862A_PanelControl" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_Address" comment="" bitcount="88" isSigned="true" encoding="65001" type="string" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_App" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_Connect" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ConnectLED" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentControlSelect" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="5" minValue="0" minValuePhys="0" maxValue="5" maxValuePhys="5" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentDown00001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentDown0001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentDown001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentDown01" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentDown1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentTrack00001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="-10" minValuePhys="-10" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentTrack0001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="-10" minValuePhys="-10" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentTrack001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="-10" minValuePhys="-10" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentTrack01" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="-10" minValuePhys="-10" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentTrack1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="-10" minValuePhys="-10" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentUp00001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentUp0001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentUp001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentUp01" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentUp1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentValue" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_CurrentView" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_Disconnect" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_DisconnectLED" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HighRange" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HighRangeLED" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYA1" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="3" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYA10" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYA2" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="3" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYA3" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="3" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYA4" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="3" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYA5" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="3" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYA6" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="3" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYA7" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYA8" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYA9" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYLED" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYOutput1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYOutput10" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYOutput2" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYOutput3" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYOutput4" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYOutput5" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYOutput6" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYOutput7" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYOutput8" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYOutput9" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYV1" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="6.5" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYV10" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYV2" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="9" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYV3" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="12" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYV4" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="13.5" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYV5" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="16.5" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYV6" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="18.5" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYV7" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYV8" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_HOTKEYV9" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_LowRange" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_LowRangeLED" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_OutputClose" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_OutputCloseLED" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_OutputOpen" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_OutputOpenLED" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent1" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent10" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent11" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent12" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent13" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent14" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent15" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent2" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent3" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent4" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent5" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent6" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent7" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent8" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureCurrent9" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="6.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel10" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel11" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel12" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel13" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel14" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel15" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel2" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel3" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel4" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel5" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel6" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel7" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel8" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureDel9" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureLED" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="15" maxValuePhys="15" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureRepeat" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="3" maxValuePhys="3" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureRun" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect10" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect11" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect12" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect13" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect14" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect15" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect2" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect3" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect4" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect5" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect6" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect7" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect8" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureSelect9" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureStop" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime10" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime11" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime12" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime13" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime14" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime15" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime2" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime3" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime4" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime5" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime6" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime7" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime8" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureTime9" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureUserDefinedNum" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage1" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage10" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage11" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage12" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage13" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage14" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage15" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage2" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage3" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage4" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage5" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage6" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage7" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage8" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ProcedureVoltage9" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanDelayTime1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanDelayTime2" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanDelayTime3" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" minValue="1" minValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanLED" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="3" maxValuePhys="3" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanRun1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanRun2" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanRun3" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStartVoltage1" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStartVoltage2" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStartVoltage3" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStepVoltage1" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStepVoltage2" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStepVoltage3" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStop1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStop2" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStop3" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStopVoltage1" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStopVoltage2" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_ScanStopVoltage3" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VlotageControlSelect" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="5" minValue="0" minValuePhys="0" maxValue="5" maxValuePhys="5" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageDown0001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageDown001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageDown01" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageDown1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageDown10" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageTrack0001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="-10" minValuePhys="-10" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageTrack001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="-10" minValuePhys="-10" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageTrack01" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="-10" minValuePhys="-10" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageTrack1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="-10" minValuePhys="-10" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageTrack10" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="-10" minValuePhys="-10" maxValue="10" maxValuePhys="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageUp0001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageUp001" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageUp01" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageUp1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageUp10" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageValue" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="13.5" minValue="0" maxValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="IT6862A_PanelControl_VoltageView" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="0" maxValue="32" />
+    </namespace>
+    <namespace name="operation" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="adatarawsafealat" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="adatarawsafealgt" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="adatarawsafeavert" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AgDataRawSafeRollRate" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AgDataRawSafeYawRate" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="asyalgtctrlmod" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="asyalgtctrlmodcfmd" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AsyDataWithCmpSafeALatWithCmp" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AsyDataWithCmpSafeGrdtOfALgt" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AsyDataWithCmpSafeYawRateWithCmp" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="asylatctrlmodreq" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="asylatctrlmodreqcfmd" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="carmod" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="egylvlelecmai" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="engst1wdsts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="epbsts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="escstescst" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="guestrsts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="mobdevrpaauthrespanswer" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="MobDevRPAReqMobDevSts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="MobDevRPAReqRPAOutModeSubT" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="MobDevRPAReqRPAReq" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="MobDevRPAReqRSPACtrl" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="prklatlgtfailr" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="pwrlvlelecmai" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="StandStillMgrStsForHld1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="usgmod" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="vehmodmngtglbsafe1carmodsts1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int">
+        <valuetable name="CarModSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="CarModNorm" displayString="CarModNorm" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="CarModTrnsp" displayString="CarModTrnsp" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="CarModFcy" displayString="CarModFcy" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="CarModCrash" displayString="CarModCrash" />
+          <valuetableentry value="5" lowerBound="5" upperBound="5" description="CarModDyno" displayString="CarModDyno" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="vehmodmngtglbsafe1carmodsubtypwdcarmodsubtyp" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="vehmodmngtglbsafe1egylvlelecsubtyp" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="vehmodmngtglbsafe1fltegycnswdsts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="vehmodmngtglbsafe1pwrlvlelecsubtyp" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="vehmodmngtglbsafe1usgmodsts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int">
+        <valuetable name="UsgMod" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="UsgModAbdnd" displayString="UsgModAbdnd" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="UsgModInActv" displayString="UsgModInActv" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="UsgModCnvinc" displayString="UsgModCnvinc" />
+          <valuetableentry value="11" lowerBound="11" upperBound="11" description="UsgModActv" displayString="UsgModActv" />
+          <valuetableentry value="13" lowerBound="13" upperBound="13" description="UsgModDrvg" displayString="UsgModDrvg" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="vehmtnstvehmtnst" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlDirRotlFrntLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlDirRotlFrntRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlDirRotlReLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlDirRotlReRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlRotToothCntrFrntLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlRotToothCntrFrntRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlRotToothCntrReLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlRotToothCntrReRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlFrntLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlFrntWhlSpdCircumlFrntRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlReLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlReRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+    <namespace name="qf_set" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="adatarawsafealat1qf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="adatarawsafealgt1qf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="adatarawsafeavertqf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AgDataRawSafeRollRateQf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AgDataRawSafeYawRateQf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AsyDataWithCmpSafeALat1Qf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AsyDataWithCmpSafeALgt1Qf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AsyDataWithCmpSafeYawRateQf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ParkAssiPinionAgReqqf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PinionSteerAgqf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="vehspdlgtqf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlFrntLeQf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlFrntRiQf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlReLeQf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlReRiQf" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+    <namespace name="Relay" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Bits" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="8" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Buad" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="9600" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Parity" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Port" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Relay_Channel1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Relay_Channel2" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Relay_Channel3" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Relay_Channel4" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Relay_Channel5" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Relay_Channel6" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Relay_Channel7" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Relay_Channel8" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Relay_ComPort" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="11" minValue="0" minValuePhys="0" maxValue="18" maxValuePhys="18" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RelayLinkSwitch" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Save_Settings" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Stop" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+    <namespace name="Signal" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="AccrPedlPsdAccrPedlPsd" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="No_Yes" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="No" displayString="No" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Yes" displayString="Yes" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="BltLockStSafeAtDrvrBltLockSt1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="Locksts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Unlock" displayString="Unlock" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Lock" displayString="Lock" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="BrkPedlPsdBrkPedlPsd" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="No_Yes" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="No" displayString="No" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Yes" displayString="Yes" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="DoorDrvrSts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="DoorSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Ukwn" displayString="Ukwn" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Opend" displayString="Opend" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Clsd" displayString="Clsd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="DoorLeReSts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="DoorSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Ukwn" displayString="Ukwn" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Opend" displayString="Opend" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Clsd" displayString="Clsd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="DoorPassSts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="DoorSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Ukwn" displayString="Ukwn" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Opend" displayString="Opend" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Clsd" displayString="Clsd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="DoorRiReSts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="DoorSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Ukwn" displayString="Ukwn" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Opend" displayString="Opend" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Clsd" displayString="Clsd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="DrvrAsscSysBtnPush" comment="" bitcount="32" isSigned="true" encoding="65001" type="int">
+        <valuetable name="DrvrAsscSysBtnPush" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="APAFunctionOnButtonNoPress" displayString="APAFunctionOnButtonNoPress" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="APAFunctionOnButtionPressed" displayString="APAFunctionOnButtionPressed" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Undobuttonnopress" displayString="Undobuttonnopress" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Undobuttonpressed" displayString="Undobuttonpressed" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="Cancelparkingbuttonnopress" displayString="Cancelparkingbuttonnopress" />
+          <valuetableentry value="5" lowerBound="5" upperBound="5" description="Cancelparkingbuttonpressed" displayString="Cancelparkingbuttonpressed" />
+          <valuetableentry value="6" lowerBound="6" upperBound="6" description="Confirmparkingbuttonnopressed" displayString="Confirmparkingbuttonnopressed" />
+          <valuetableentry value="7" lowerBound="7" upperBound="7" description="ManualButtonPressed" displayString="ManualButtonPressed" />
+          <valuetableentry value="8" lowerBound="8" upperBound="8" description="ComfirmEnterAutoParkingButtonPressed" displayString="ComfirmEnterAutoParkingButtonPressed" />
+          <valuetableentry value="9" lowerBound="9" upperBound="9" description="PASbuttonPressed" displayString="PASbuttonPressed" />
+          <valuetableentry value="10" lowerBound="10" upperBound="10" description="RPAbuttonpresse" displayString="RPAbuttonpresse" />
+          <valuetableentry value="11" lowerBound="11" upperBound="11" description="RPAbuttonPressed" displayString="RPAbuttonPressed" />
+          <valuetableentry value="12" lowerBound="12" upperBound="12" description="Reserved" displayString="Reserved" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="DrvrAsscSysParkMod" comment="" bitcount="32" isSigned="true" encoding="65001" type="int">
+        <valuetable name="DrvrAsscSysParkMod" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Default" displayString="Default" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Cancel" displayString="Cancel" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="HorizontalParkingIn" displayString="HorizontalParkingIn" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="PerpendicularParkingIn" displayString="PerpendicularParkingIn" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="PerpendicularParkingInForward" displayString="PerpendicularParkingInForward" />
+          <valuetableentry value="5" lowerBound="5" upperBound="5" description="PerpendicularParkingInBackward" displayString="PerpendicularParkingInBackward" />
+          <valuetableentry value="6" lowerBound="6" upperBound="6" description="Reserved1" displayString="Reserved1" />
+          <valuetableentry value="7" lowerBound="7" upperBound="7" description="Reserved2" displayString="Reserved2" />
+          <valuetableentry value="8" lowerBound="8" upperBound="8" description="Reserved3" displayString="Reserved3" />
+          <valuetableentry value="9" lowerBound="9" upperBound="9" description="HorizontalLeftParkingOut" displayString="HorizontalLeftParkingOut" />
+          <valuetableentry value="10" lowerBound="10" upperBound="10" description="HorizontalRightParkingOut" displayString="HorizontalRightParkingOut" />
+          <valuetableentry value="11" lowerBound="11" upperBound="11" description="PerpendicularLeftParkingOutForward" displayString="PerpendicularLeftParkingOutForward" />
+          <valuetableentry value="12" lowerBound="12" upperBound="12" description="PerpendicularRightParkingOutForward" displayString="PerpendicularRightParkingOutForward" />
+          <valuetableentry value="13" lowerBound="13" upperBound="13" description="PerpendicularLeftParkingOutBackward" displayString="PerpendicularLeftParkingOutBackward" />
+          <valuetableentry value="14" lowerBound="14" upperBound="14" description="PerpendicularRightParkingOutBackward" displayString="PerpendicularRightParkingOutBackward" />
+          <valuetableentry value="15" lowerBound="15" upperBound="15" description="Reserved6" displayString="Reserved6" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="DrvrAsscSysSts" comment="" bitcount="32" isSigned="false" encoding="65001" type="int">
+        <valuetable name="DrvrAsscSysSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Standby" displayString="Standby" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Failure" displayString="Failure" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Searching" displayString="Searching" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="ParkingProcessActive" displayString="ParkingProcessActive" />
+          <valuetableentry value="5" lowerBound="5" upperBound="5" description="ParkingProcessCompleted" displayString="ParkingProcessCompleted" />
+          <valuetableentry value="6" lowerBound="6" upperBound="6" description="Quit" displayString="Quit" />
+          <valuetableentry value="7" lowerBound="7" upperBound="7" description="Suspend" displayString="Suspend" />
+          <valuetableentry value="8" lowerBound="8" upperBound="8" description="Abort" displayString="Abort" />
+          <valuetableentry value="9" lowerBound="9" upperBound="9" description="PreParkingprocessactive" displayString="PreParkingprocessactive" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="EpbStsEpbSts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="EpbSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Resd0" displayString="Resd0" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Resd1" displayString="Resd1" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Resd2" displayString="Resd2" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="AllAppld" displayString="AllAppld" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="Resd4" displayString="Resd4" />
+          <valuetableentry value="5" lowerBound="5" upperBound="5" description="AllInTran" displayString="AllInTran" />
+          <valuetableentry value="6" lowerBound="6" upperBound="6" description="BrkgDynByActr" displayString="BrkgDynByActr" />
+          <valuetableentry value="7" lowerBound="7" upperBound="7" description="Resd7" displayString="Resd7" />
+          <valuetableentry value="8" lowerBound="8" upperBound="8" description="Resd8" displayString="Resd8" />
+          <valuetableentry value="9" lowerBound="9" upperBound="9" description="ActrAllReld" displayString="ActrAllReld" />
+          <valuetableentry value="10" lowerBound="10" upperBound="10" description="BrkgDynDegraded" displayString="BrkgDynDegraded" />
+          <valuetableentry value="11" lowerBound="11" upperBound="11" description="Resd11" displayString="Resd11" />
+          <valuetableentry value="12" lowerBound="12" upperBound="12" description="BrkgDyn" displayString="BrkgDyn" />
+          <valuetableentry value="13" lowerBound="13" upperBound="13" description="Resd13" displayString="Resd13" />
+          <valuetableentry value="14" lowerBound="14" upperBound="14" description="Resd14" displayString="Resd14" />
+          <valuetableentry value="15" lowerBound="15" upperBound="15" description="Err" displayString="Err" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ExtrLtgStsFlash" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ExtrLtgStsHiBeam" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="LtgSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Err" displayString="Err" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Resd" displayString="Resd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ExtrLtgStsLoBeam" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="LtgSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Err" displayString="Err" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Resd" displayString="Resd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ExtrLtgStsStopLi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="LtgSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Err" displayString="Err" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Resd" displayString="Resd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ExtrLtgStsTurnIndrLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="LtgSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Err" displayString="Err" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Resd" displayString="Resd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ExtrLtgStsTurnIndrRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="LtgSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Err" displayString="Err" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Resd" displayString="Resd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="GearLvrIndcn" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="4" maxValuePhys="4">
+        <valuetable name="Gear" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="ParkIndcn" displayString="ParkIndcn" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="RvsIndcn" displayString="RvsIndcn" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="NeutIndcn" displayString="NeutIndcn" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="DrvIndcn" displayString="DrvIndcn" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="ManModeIndcn" displayString="ManModeIndcn" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="HoodSts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="DoorSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Ukwn" displayString="Ukwn" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Opend" displayString="Opend" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Clsd" displayString="Clsd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="MirrFoldStsAtDrvr" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="MirrFoldSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Undefd" displayString="Undefd" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="NotFold" displayString="NotFold" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Fold" displayString="Fold" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="MovgToNotFold" displayString="MovgToNotFold" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="MovgToFold" displayString="MovgToFold" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="MirrFoldStsAtPass" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="MirrFoldSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Undefd" displayString="Undefd" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="NotFold" displayString="NotFold" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Fold" displayString="Fold" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="MovgToNotFold" displayString="MovgToNotFold" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="MovgToFold" displayString="MovgToFold" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ParkAssiPinionAgReq" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PinionSteerAg" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="0" minValue="-15" maxValue="15" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PlaModReq" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="PlaModReq" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Normal" displayString="Normal" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Factory" displayString="Factory" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PrkgIndcrLineReqOnOff1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1">
+        <valuetable name="Off_On" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PrkgInOrOutAndCncl" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="3" maxValuePhys="3">
+        <valuetable name="PrkgInOrOutAndCncl" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Default" displayString="Default" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="ParkingIn" displayString="ParkingIn" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="ParkingOut" displayString="ParkingOut" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Cancel" displayString="Cancel" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PrkgIntrptReldBtn" comment="" bitcount="32" isSigned="true" encoding="65001" type="int">
+        <valuetable name="PrkgIntrptReldBtn" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Idle" displayString="Idle" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Actvn" displayString="Actvn" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Deactvn" displayString="Deactvn" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PrkgTouchCoornReqCoordinateX" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1730" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PrkgTouchCoornReqCoordinateY" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="680" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PrkgTouchCoornReqFingerIndex" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1">
+        <valuetable name="TouchFingerIndex" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Index_NoReq" displayString="Index_NoReq" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Index_1" displayString="Index_1" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Index_2" displayString="Index_2" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Index_Reserved" displayString="Index_Reserved" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PrkgTouchCoornReqTouchEveTyp" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="TouchEveTyp" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="NotTouch" displayString="NotTouch" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="PenDown" displayString="PenDown" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="PenUp" displayString="PenUp" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="PenMove" displayString="PenMove" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PrkgTypAutBtn" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1">
+        <valuetable name="Off_On" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="SunRoofPosnSts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="SunRoofSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="PosnUkwn" displayString="PosnUkwn" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="ClsFull" displayString="ClsFull" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="PercOpen4" displayString="PercOpen4" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="PercOpen8" displayString="PercOpen8" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="PercOpen12" displayString="PercOpen12" />
+          <valuetableentry value="5" lowerBound="5" upperBound="5" description="PercOpen16" displayString="PercOpen16" />
+          <valuetableentry value="6" lowerBound="6" upperBound="6" description="PercOpen20" displayString="PercOpen20" />
+          <valuetableentry value="7" lowerBound="7" upperBound="7" description="PercOpen24" displayString="PercOpen24" />
+          <valuetableentry value="8" lowerBound="8" upperBound="8" description="PercOpen28" displayString="PercOpen28" />
+          <valuetableentry value="9" lowerBound="9" upperBound="9" description="PercOpen32" displayString="PercOpen32" />
+          <valuetableentry value="10" lowerBound="10" upperBound="10" description="PercOpen36" displayString="PercOpen36" />
+          <valuetableentry value="11" lowerBound="11" upperBound="11" description="PercOpen40" displayString="PercOpen40" />
+          <valuetableentry value="12" lowerBound="12" upperBound="12" description="PercOpen44" displayString="PercOpen44" />
+          <valuetableentry value="13" lowerBound="13" upperBound="13" description="PercOpen48" displayString="PercOpen48" />
+          <valuetableentry value="14" lowerBound="14" upperBound="14" description="PercOpen52" displayString="PercOpen52" />
+          <valuetableentry value="15" lowerBound="15" upperBound="15" description="PercOpen56" displayString="PercOpen56" />
+          <valuetableentry value="16" lowerBound="16" upperBound="16" description="PercOpen60" displayString="PercOpen60" />
+          <valuetableentry value="17" lowerBound="17" upperBound="17" description="PercOpen64" displayString="PercOpen64" />
+          <valuetableentry value="18" lowerBound="18" upperBound="18" description="PercOpen68" displayString="PercOpen68" />
+          <valuetableentry value="19" lowerBound="19" upperBound="19" description="PercOpen72" displayString="PercOpen72" />
+          <valuetableentry value="20" lowerBound="20" upperBound="20" description="PercOpen76" displayString="PercOpen76" />
+          <valuetableentry value="21" lowerBound="21" upperBound="21" description="PercOpen80" displayString="PercOpen80" />
+          <valuetableentry value="22" lowerBound="22" upperBound="22" description="PercOpen84" displayString="PercOpen84" />
+          <valuetableentry value="23" lowerBound="23" upperBound="23" description="PercOpen88" displayString="PercOpen88" />
+          <valuetableentry value="24" lowerBound="24" upperBound="24" description="PercOpen92" displayString="PercOpen92" />
+          <valuetableentry value="25" lowerBound="25" upperBound="25" description="PercOpen96" displayString="PercOpen96" />
+          <valuetableentry value="26" lowerBound="26" upperBound="26" description="OpenFull" displayString="OpenFull" />
+          <valuetableentry value="31" lowerBound="31" upperBound="31" description="Movg" displayString="Movg" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="SurrndgsObjDetnReqOnOff1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1">
+        <valuetable name="Off_On" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="SwtDispOnAndOffReq" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1">
+        <valuetable name="On_Off" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="SwtDispOnAndOffStsResp" comment="" bitcount="32" isSigned="false" encoding="65001" type="int">
+        <valuetable name="VisnImgDispModResp" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="InValid" displayString="InValid" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="EnterBySoftSwitch" displayString="EnterBySoftSwitch" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="EnterByHardSwitch" displayString="EnterByHardSwitch" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="EnterByRGear" displayString="EnterByRGear" />
+          <valuetableentry value="8" lowerBound="8" upperBound="8" description="ExitBySoftSwitch" displayString="ExitBySoftSwitch" />
+          <valuetableentry value="9" lowerBound="9" upperBound="9" description="ExitByHardSwitch" displayString="ExitByHardSwitch" />
+          <valuetableentry value="10" lowerBound="10" upperBound="10" description="ExitByOverSpeed" displayString="ExitByOverSpeed" />
+          <valuetableentry value="11" lowerBound="11" upperBound="11" description="ExitByPGearAfter5s" displayString="ExitByPGearAfter5s" />
+          <valuetableentry value="12" lowerBound="12" upperBound="12" description="ExitBySystemFault" displayString="ExitBySystemFault" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ThrDTouringViewReqOnOff1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1">
+        <valuetable name="Off_On" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="TopVisnDispExtnReqOnOff1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1">
+        <valuetable name="Off_On" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Touch_Send" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="TrSts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="DoorSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Ukwn" displayString="Ukwn" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Opend" displayString="Opend" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Clsd" displayString="Clsd" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="TurnEntryAgWideVisReqOnOff1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1">
+        <valuetable name="Off_On" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="VehMdlClrReqOnOff1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1">
+        <valuetable name="Off_On" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="VehModMngtGlbSafe1CarModSts1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="CarModSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="CarModNorm" displayString="CarModNorm" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="CarModTrnsp" displayString="CarModTrnsp" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="CarModFcy" displayString="CarModFcy" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="CarModCrash" displayString="CarModCrash" />
+          <valuetableentry value="5" lowerBound="5" upperBound="5" description="CarModDyno" displayString="CarModDyno" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="VehModMngtGlbSafe1UsgModSts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0">
+        <valuetable name="UsgModSts" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="UsgModAbdnd" displayString="UsgModAbdnd" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="UsgModInActv" displayString="UsgModInActv" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="UsgModCnvinc" displayString="UsgModCnvinc" />
+          <valuetableentry value="11" lowerBound="11" upperBound="11" description="UsgModActv" displayString="UsgModActv" />
+          <valuetableentry value="13" lowerBound="13" upperBound="13" description="UsgModDrvg" displayString="UsgModDrvg" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="VehMtnStVehMtnSt" comment="" bitcount="32" isSigned="false" encoding="65001" type="int">
+        <valuetable name="VehMtnSt" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Ukwn" displayString="Ukwn" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="StandStillVal1" displayString="StandStillVal1" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="StandStillVal2" displayString="StandStillVal2" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="StandStillVal3" displayString="StandStillVal3" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="RollgFwdVal1" displayString="RollgFwdVal1" />
+          <valuetableentry value="5" lowerBound="5" upperBound="5" description="RollgFwdVal2" displayString="RollgFwdVal2" />
+          <valuetableentry value="6" lowerBound="6" upperBound="6" description="RollgBackwVal1" displayString="RollgBackwVal1" />
+          <valuetableentry value="7" lowerBound="7" upperBound="7" description="RollgBackwVal2" displayString="RollgBackwVal2" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="VehSpdLgtA" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="VisnAgExtnReq" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1">
+        <valuetable name="Off_On" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Off" displayString="Off" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="On" displayString="On" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="VisnImgDispModReq" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="1" maxValuePhys="1">
+        <valuetable name="VisnImgDispModReq" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="NotActive" displayString="NotActive" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Front_2D" displayString="Front_2D" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Rear_2D" displayString="Rear_2D" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Left_2D" displayString="Left_2D" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="Right_2D" displayString="Right_2D" />
+          <valuetableentry value="5" lowerBound="5" upperBound="5" description="L_RFront_2D" displayString="L_RFront_2D" />
+          <valuetableentry value="6" lowerBound="6" upperBound="6" description="L_RRear_2D" displayString="L_RRear_2D" />
+          <valuetableentry value="7" lowerBound="7" upperBound="7" description="FrontWide_2D" displayString="FrontWide_2D" />
+          <valuetableentry value="8" lowerBound="8" upperBound="8" description="RearWide_2D" displayString="RearWide_2D" />
+          <valuetableentry value="13" lowerBound="13" upperBound="13" description="Front_3D" displayString="Front_3D" />
+          <valuetableentry value="14" lowerBound="14" upperBound="14" description="Rear_3D" displayString="Rear_3D" />
+          <valuetableentry value="15" lowerBound="15" upperBound="15" description="Left_3D" displayString="Left_3D" />
+          <valuetableentry value="16" lowerBound="16" upperBound="16" description="Right_3D" displayString="Right_3D" />
+          <valuetableentry value="17" lowerBound="17" upperBound="17" description="LeftFront_3D" displayString="LeftFront_3D" />
+          <valuetableentry value="18" lowerBound="18" upperBound="18" description="RightFront_3D" displayString="RightFront_3D" />
+          <valuetableentry value="19" lowerBound="19" upperBound="19" description="LeftRear_3D" displayString="LeftRear_3D" />
+          <valuetableentry value="20" lowerBound="20" upperBound="20" description="RightRear_3D" displayString="RightRear_3D" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="VisnImgDispModResp" comment="" bitcount="32" isSigned="false" encoding="65001" type="int">
+        <valuetable name="VisnImgDispModResp" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="NotActive" displayString="NotActive" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="_2D_FrontView" displayString="_2D_FrontView" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="_2D_RearView" displayString="_2D_RearView" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="_2D_LeftView" displayString="_2D_LeftView" />
+          <valuetableentry value="4" lowerBound="4" upperBound="4" description="_2D_RightView" displayString="_2D_RightView" />
+          <valuetableentry value="5" lowerBound="5" upperBound="5" description="_2D_LFandRFView" displayString="_2D_LFandRFView" />
+          <valuetableentry value="6" lowerBound="6" upperBound="6" description="_2D_LRandRRView" displayString="_2D_LRandRRView" />
+          <valuetableentry value="7" lowerBound="7" upperBound="7" description="_2D_FrontWideView" displayString="_2D_FrontWideView" />
+          <valuetableentry value="8" lowerBound="8" upperBound="8" description="_2D_RearWideView" displayString="_2D_RearWideView" />
+          <valuetableentry value="13" lowerBound="13" upperBound="13" description="_3D_FrontView" displayString="_3D_FrontView" />
+          <valuetableentry value="14" lowerBound="14" upperBound="14" description="_3D_RearView" displayString="_3D_RearView" />
+          <valuetableentry value="15" lowerBound="15" upperBound="15" description="_3D_LeftView" displayString="_3D_LeftView" />
+          <valuetableentry value="16" lowerBound="16" upperBound="16" description="_3D_RightView" displayString="_3D_RightView" />
+          <valuetableentry value="17" lowerBound="17" upperBound="17" description="_3D_LeftFrontView" displayString="_3D_LeftFrontView" />
+          <valuetableentry value="18" lowerBound="18" upperBound="18" description="_3D_RightFrontView" displayString="_3D_RightFrontView" />
+          <valuetableentry value="19" lowerBound="19" upperBound="19" description="_3D_LeftRearView" displayString="_3D_LeftRearView" />
+          <valuetableentry value="20" lowerBound="20" upperBound="20" description="_3D_RightRearView" displayString="_3D_RightRearView" />
+          <valuetableentry value="21" lowerBound="21" upperBound="21" description="_3D_TourView" displayString="_3D_TourView" />
+          <valuetableentry value="22" lowerBound="22" upperBound="22" description="_3D_FreeSlideView" displayString="_3D_FreeSlideView" />
+          <valuetableentry value="23" lowerBound="23" upperBound="23" description="_3D_FrontZoomView" displayString="_3D_FrontZoomView" />
+          <valuetableentry value="24" lowerBound="24" upperBound="24" description="_3D_RearZoomView" displayString="_3D_RearZoomView" />
+          <valuetableentry value="25" lowerBound="25" upperBound="25" description="_3D_LeftZoomView" displayString="_3D_LeftZoomView" />
+          <valuetableentry value="26" lowerBound="26" upperBound="26" description="_3D_RightZoomView" displayString="_3D_RightZoomView" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlDirRotlFrntLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="3" maxValuePhys="3">
+        <valuetable name="WhlDirRotl" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Undefd" displayString="Undefd" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="StandStill" displayString="StandStill" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Fwd" displayString="Fwd" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Backw" displayString="Backw" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlDirRotlFrntRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="3" maxValuePhys="3">
+        <valuetable name="WhlDirRotl" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Undefd" displayString="Undefd" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="StandStill" displayString="StandStill" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Fwd" displayString="Fwd" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Backw" displayString="Backw" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlDirRotlReLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="3" maxValuePhys="3">
+        <valuetable name="WhlDirRotl" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Undefd" displayString="Undefd" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="StandStill" displayString="StandStill" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Fwd" displayString="Fwd" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Backw" displayString="Backw" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlDirRotlReRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" minValue="0" minValuePhys="0" maxValue="3" maxValuePhys="3">
+        <valuetable name="WhlDirRotl" definesMinMax="true">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="Undefd" displayString="Undefd" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="StandStill" displayString="StandStill" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Fwd" displayString="Fwd" />
+          <valuetableentry value="3" lowerBound="3" upperBound="3" description="Backw" displayString="Backw" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlRotToothCntrReLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlRotToothCntrReRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlFrntLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlFrntRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlReLe" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="WhlSpdCircumlReRi" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+    <namespace name="test" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="acc_interval" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="20" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="acc_target" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="accumulation" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="data" comment="" bitcount="80" isSigned="false" encoding="65001" type="data" arrayLength="0" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ECUreaction_interval" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="300" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="ILControl" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="keysts" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor0" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="69" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor1" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="78" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor10" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="78" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor11" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="3.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor12" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="69" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor2" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="3.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor3" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="69" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor4" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="78" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor5" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="9.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor6" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="69" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor7" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="78" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor8" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="9.1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_factor9" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" startValue="69" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_intlFL" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_intlFR" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_intlRL" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RC_intlRR" comment="" bitcount="64" isSigned="true" encoding="65001" type="float" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RCAcc_OnOff" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RCParking" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RCRL_ChangeSpeed" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="69" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="RCRR_ChangeSpeed" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="69" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="start" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="status" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+    <namespace name="tool" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="debug_msg_level" comment="" bitcount="32" isSigned="true" encoding="65001" type="int">
+        <valuetable name="debug_msg_level" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="None" displayString="None" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="Message" displayString="Message" />
+          <valuetableentry value="2" lowerBound="2" upperBound="2" description="Msg_Date" displayString="Msg_Date" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="PAS_status" comment="" bitcount="32" isSigned="true" encoding="65001" type="int">
+        <valuetable name="PAS_status" definesMinMax="false">
+          <valuetableentry value="0" lowerBound="0" upperBound="0" description="offline" displayString="offline" />
+          <valuetableentry value="1" lowerBound="1" upperBound="1" description="online" displayString="online" />
+        </valuetable>
+      </variable>
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="VehCfg" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+    <namespace name="touch" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Cancel" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Comfirm" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Exit" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="HPPEnter" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Way1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="Way2" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+    <namespace name="user_defined_msg" comment="" interface="">
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte0" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte1" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="80" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte10" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte11" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte12" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte13" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte14" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte15" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte2" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="215" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte3" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="56" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte4" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="32" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte5" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte6" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte7" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte8" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Byte9" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_CANChn" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Cycle" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="10" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_DLC" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="8" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_ID" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" startValue="1281" />
+      <variable anlyzLocal="2" readOnly="false" valueSequence="false" unit="" name="user_msg_Send" comment="" bitcount="32" isSigned="true" encoding="65001" type="int" />
+    </namespace>
+  </namespace>
+</systemvariables>

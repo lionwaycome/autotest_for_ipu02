@@ -1,0 +1,49 @@
+from ctypes import *
+
+class MavpUltrasonicData(Structure):
+    _fields_ = [("timestamp",c_ulonglong),\
+                ("USS_Distance_RRS",c_ushort),\
+                ("USS_Distance_RR1",c_ushort),\
+                 ("USS_Distance_RR2",c_ushort),\
+                ("USS_Distance_RRM1",c_ushort),\
+                ("USS_Distance_RRM2",c_ushort),\
+                ("USS_Distance_RLM1",c_ushort),\
+                ("USS_Distance_RLM2",c_ushort),\
+                ("USS_Distance_RL1",c_ushort),\
+                ("USS_Distance_RL2",c_ushort),\
+                ("USS_Distance_RLS",c_ushort),\
+                ("USS_Distance_FRS",c_ushort),\
+                ("USS_Distance_FR1",c_ushort),\
+                 ("USS_Distance_FR2",c_ushort),\
+                ("USS_Distance_FRM1",c_ushort),\
+                ("USS_Distance_FRM2",c_ushort),\
+                ("USS_Distance_FLM1",c_ushort),\
+                ("USS_Distance_FLM2",c_ushort),\
+                ("USS_Distance_FL1",c_ushort),\
+                ("USS_Distance_FL2",c_ushort),\
+                ("USS_Distance_FLS",c_ushort),\
+                ("USS_Distance_Level_RRS",c_ubyte),\
+                ("USS_Distance_Level_RR",c_ubyte),\
+                ("USS_Distance_Level_RRM",c_ubyte),\
+                ("USS_Distance_Level_RLM",c_ubyte),\
+                ("USS_Distance_Level_RL",c_ubyte),\
+                ("USS_Distance_Level_RLS",c_ubyte),\
+                ("USS_Distance_Level_FRS",c_ubyte),\
+                ("USS_Distance_Level_FR",c_ubyte),\
+                ("USS_Distance_Level_FRM",c_ubyte),\
+                ("USS_Distance_Level_FLM",c_ubyte),\
+                ("USS_Distance_Level_FL",c_ubyte),\
+                ("USS_Distance_Level_FLS",c_ubyte),\
+                ("USS_RRStx_RRSrx",c_ushort),\
+                ("USS_RRtx_RRrx",c_ushort),\
+                ("USS_RRMtx_RRMrx",c_ushort),\
+                ("USS_RLMtx_RLMrx",c_ushort),\
+                ("USS_RLtx_RLrx",c_ushort),\
+                ("USS_RLStx_RLSrx",c_ushort),\
+                ("USS_FRStx_FRSrx",c_ushort),\
+                ("USS_FRtx_FRrx",c_ushort),\
+                ("USS_FRMtx_FRMrx",c_ushort),\
+                ("USS_FLMtx_FLMrx",c_ushort),\
+                ("USS_FLtx_FLrx",c_ushort),\
+                ("USS_FLStx_FLSrx",c_ushort)]
+#print(sizeof(MavpUltrasonicData))

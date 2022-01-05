@@ -1,0 +1,88 @@
+/*@!Encoding:936*/
+includes
+{
+  
+}
+
+variables
+{
+  timer souchetimer;
+  timer sochedotimer;
+  dword times;
+  //timer delay1timer;
+}
+
+on start
+{
+  init_function();//初始化车辆状态
+  inpark_function();//进入搜车功能
+  parking_function();//搜到车位进行握手功能
+}
+
+void init_function()//初始化车辆状态
+{
+  $CAN2::ASDM::ASDMSafetyCANFD4Fr02::DrvrAsscSysBtnPush = 5;//中断退出
+  times = 0;
+  $TCU_ModeGearDisplaySts = 1;
+  @test::VehSpdLgtA = 0;
+}
+
+void inpark_function()//进入搜车功能
+{
+  $CAN2::ASDM::ASDMSafetyCANFD4Fr02::DrvrAsscSysBtnPush = 9;//点击进入泊车
+  setTimer(sochedotimer,2);
+}
+
+On timer sochedotimer
+{
+  times++;
+  if(times == 1)
+  {
+    $TCU_ModeGearDisplaySts = 4;//挂D档
+    setTimer(sochedotimer,2);
+  }
+  if(times == 2)
+  {
+    @test::VehSpdLgtA = 0.5;//给车速
+    @DNL_5::ParkState=1;//开启搜车状态
+    setTimer(sochedotimer,2);
+  }
+  if(times == 3)
+  {
+    @test::VehSpdLgtA = 1;//给车速
+    cancelTimer(sochedotimer);
+  }
+}
+
+void parking_function()//搜到车位进行握手功能
+{
+  setTimer(souchetimer,1);
+}
+
+on timer souchetimer//定时检测是否搜到车位
+{
+  if(@DNL_5::ParkState==2)//如果检测到搜到车位
+  {
+    woshou_function();//执行握手
+    cancelTimer(souchetimer);//取消定时判断是否搜到车位
+  }
+  else
+  {
+    setTimer(souchetimer,1);
+  }
+}
+
+void woshou_function()//执行握手
+{
+  $ESC_BrakePedalSwitchStatus = 1;//踩刹车
+  $CAN2::ASDM::ASDMSafetyCANFD4Fr02::DrvrAsscSysBtnPush = 8;//点击确认泊车
+  $ESC_BrakePedalSwitchStatus = 0;//松开刹车
+  @DNL_5::ParkState=3;//更改为正在泊车状态
+}
+
+
+on key '2'//手动改状态为2
+{
+  @DNL_5::ParkState=2;
+}
+

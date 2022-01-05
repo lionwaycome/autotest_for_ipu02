@@ -1,0 +1,41 @@
+/*@!Encoding:936*/
+includes
+{
+  
+}
+
+variables
+{
+  int startvalue , endvalue, currentvalue, cycletime, changevalue;
+  mstimer angletimer;
+}
+On start
+{
+  startvalue = -180;//最小值
+  endvalue = 180;//最大值
+  cycletime = 200;//变换速度，单位ms
+  changevalue = 5;//每次变化角度值，单位度
+}
+on timer angletimer
+{
+  if(currentvalue>endvalue || currentvalue<startvalue)
+  {
+    changevalue = -changevalue;
+    currentvalue = currentvalue + changevalue;
+  }
+  else
+  {
+    currentvalue = currentvalue + changevalue;
+  }
+  $SAS_SteerWheelAngle = currentvalue;
+  settimer(angletimer,cycletime);
+}
+On sysvar DNL_5::autoangle
+{
+  currentvalue = startvalue;
+  setTimer(angletimer,cycletime);
+}
+On sysvar DNL_5::autoanglestop
+{
+  cancelTimer(angletimer);
+}

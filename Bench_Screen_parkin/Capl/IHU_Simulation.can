@@ -1,0 +1,465 @@
+/*@!Encoding:936*/
+includes
+{
+  
+}
+
+variables
+{
+  msTimer mt_resetXYT,mt_TouchType,mt_Touch_Send,Reset_Touch_Send,mt_TouchType1,RPAtimer,mt_voidcycle;
+  int RPAcount;
+}
+
+on start
+{
+//  setControlVisibility("HMI","退出按键",0);
+//  setControlVisibility("HMI","取消按键",0);
+//  setControlVisibility("HMI","确认按键",0);
+//  setControlVisibility("HMI","车头泊入",0);
+//  setControlVisibility("HMI","车尾泊入",0);
+//  setControlVisibility("HMI","手动泊车",0);
+//  setControlVisibility("HMI","取消选择",0);
+//  setControlVisibility("HMI","Undo",0);
+//  setControlVisibility("HMI","中断取消",0);
+//  setControlVisibility("HMI","中断不取消",0);
+//  setControlVisibility("HMI","车模显示",0);
+//  setControlVisibility("HMI_Vehicle","退出按键",0);
+//  setControlVisibility("HMI_Vehicle","取消按键",0);
+//  setControlVisibility("HMI_Vehicle","确认按键",0);
+//  setControlVisibility("HMI_Vehicle","车头泊入",0);
+//  setControlVisibility("HMI_Vehicle","车尾泊入",0);
+//  setControlVisibility("HMI_Vehicle","手动泊车",0);
+//  setControlVisibility("HMI_Vehicle","取消选择",0);
+//  setControlVisibility("HMI_Vehicle","Undo",0);
+//  setControlVisibility("HMI_Vehicle","中断取消",0);
+//  setControlVisibility("HMI_Vehicle","中断不取消",0);
+//  setControlVisibility("HMI_Vehicle","车模显示",0);
+  setTimerCyclic(mt_voidcycle,0,1);
+}
+//HPP导航功能按键无can接口，如下为模拟触摸屏点击
+on sysvar sysvar::IHU::Touch_Simu
+{
+  switch(@this)
+  {
+    case(0):
+      write("No request!!!");
+      break;
+    case(1):
+      Touch_simulation(50,62);
+      write("IHU exit button simulation!!!");
+      break;
+    case(2):
+      Touch_simulation(711,462);
+      write("IHU cancel button simulation!!!");
+      break;
+    case(3):
+      Touch_simulation(1008,497);
+      write("IHU confirm button simulation!!!");
+      break;
+  }
+}
+
+void Touch_simulation(int XCoordinate, int YCoordinate)
+{
+  $PrkgTouchCoornReqFingerIndex =1;
+  $PrkgTouchCoornReqCoordinateX =XCoordinate;
+  $PrkgTouchCoornReqCoordinateY =YCoordinate;
+  $PrkgTouchCoornReqTouchEveTyp =1;
+  settimer(mt_resetXYT,200);
+}
+on timer mt_resetXYT
+{
+  $PrkgTouchCoornReqTouchEveTyp =2;
+}
+on sysvar sysvar::touch::Exit
+{
+  if(@sysvar::touch::Exit)
+    Touch_simulation(20,20);
+  if(@sysvar::touch::HPPEnter)
+    Touch_simulation(300,300);
+  if(@sysvar::touch::AVPEnter)
+    Touch_simulation(300,480);
+  if(@sysvar::touch::Way1)
+    Touch_simulation(380,400);
+  if(@sysvar::touch::Way2)
+    Touch_simulation(380,1320);
+  if(@sysvar::touch::Comfirm)
+    Touch_simulation(750,380);
+  if(@sysvar::touch::Cancel)
+    Touch_simulation(950,380);
+}
+on timer mt_Touch_Send
+{
+  @sysvar::`Signal::Touch_Send =1;
+  setTimer(Reset_Touch_Send,200);
+}
+on timer Reset_Touch_Send
+{
+  @sysvar::`Signal::Touch_Send =0;
+}
+
+on sysVar sysvar::`Signal::Touch_Send
+{
+  switch(@this)
+  {
+    case(0):
+      $PrkgTouchCoornReqCoordinateX = @sysvar::`Signal::PrkgTouchCoornReqCoordinateX;
+      $PrkgTouchCoornReqCoordinateY = @sysvar::`Signal::PrkgTouchCoornReqCoordinateY;
+      break;
+    case(1):
+      $PrkgTouchCoornReqCoordinateX = @sysvar::`Signal::PrkgTouchCoornReqCoordinateX;
+      $PrkgTouchCoornReqCoordinateY = @sysvar::`Signal::PrkgTouchCoornReqCoordinateY;
+      $PrkgTouchCoornReqFingerIndex = @sysvar::`Signal::PrkgTouchCoornReqFingerIndex;
+      $PrkgTouchCoornReqTouchEveTyp = 1;
+      settimer(mt_TouchType,200);
+      break;
+  }
+}
+on timer mt_TouchType
+{
+  $PrkgTouchCoornReqTouchEveTyp = 2;
+  settimer(mt_TouchType1,200);
+}
+on timer mt_TouchType1
+{
+  $PrkgTouchCoornReqCoordinateX = 0;
+  $PrkgTouchCoornReqCoordinateY = 0;
+  $PrkgTouchCoornReqTouchEveTyp = 0;
+  $PrkgTouchCoornReqFingerIndex = 0;
+}
+//RPA响应三次触发0
+on sysvar touch::RPA
+{
+  $RemPrkgEnaReq = 1;
+  setTimer(RPAtimer,80);
+}
+On timer RPAtimer
+{
+  $RemPrkgEnaReq = 0;
+}
+//处理三帧清零的信号
+on timer mt_voidcycle
+{
+  if($SwtDispOnAndOffReq !=0)
+    ThreeTimerReset(SwtDispOnAndOffReq,300);
+  if($VisnAgExtnReq !=0)
+    ThreeTimerReset(VisnAgExtnReq,300);
+  if($ThrDTouringViewReqOnOff1 !=0)
+    ThreeTimerReset(ThrDTouringViewReqOnOff1,300);
+  if($TopVisnDispExtnReqOnOff1 !=0)
+    ThreeTimerReset(TopVisnDispExtnReqOnOff1,300);
+  if($SurrndgsObjDetnReqOnOff1 !=0)
+    ThreeTimerReset(SurrndgsObjDetnReqOnOff1,300);
+  if($VisnImgDispModReq !=0)
+    ThreeTimerReset(VisnImgDispModReq,300);
+  if($VehMdlClrReqOnOff1 !=0)
+    ThreeTimerReset(VehMdlClrReqOnOff1,300);
+  if($TurnEntryAgWideVisReqOnOff1 !=0)
+    ThreeTimerReset(TurnEntryAgWideVisReqOnOff1,300);
+  if($PrkgIndcrLineReqOnOff1 !=0)
+    ThreeTimerReset(PrkgIndcrLineReqOnOff1,300);
+  if($DrvrAsscSysBtnPush !=0)
+    ThreeTimerReset(DrvrAsscSysBtnPush,300);
+  if($PrkgInOrOutAndCncl !=0)
+    ThreeTimerReset(PrkgInOrOutAndCncl,300);
+  if($AutValtPrkgSwt !=0)
+    ThreeTimerReset(AutValtPrkgSwt,300);
+}
+void ThreeTimerReset (signal * SysvarName, int Cycletime)
+{
+  int cycletimer;
+  if(cycletimer++ >=Cycletime)
+  {
+    cycletimer =0;
+    $SysvarName =0;
+  }
+}
+//车模显示
+on sysvar sysvar::`Signal::VisnImgDispModResp
+{
+  switch(@this)
+  {
+    case(0):
+    setControlVisibility("HMI","2d_None",0);setControlVisibility("HMI","3d_None",0);
+    case(1):
+    setControlVisibility("HMI","2d_fr_Disp",1);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(2):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",1);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(3):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",1);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(4):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",1);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(5):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",1);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",0);
+      break;
+    case(6):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",1);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",0);
+      break;
+    case(7):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",1);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",0);
+      break;
+    case(8):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",1);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",0);
+      break;
+    case(13):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",1);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(14):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",1);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(15):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",1);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(16):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",1);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(17):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",1);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(18):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",1);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(19):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",1);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(20):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",1);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",0);setControlVisibility("HMI","more_None",1);
+      break;
+    case(21):
+    setControlVisibility("HMI","2d_fr_Disp",0);setControlVisibility("HMI","2d_re_Disp",0);
+    setControlVisibility("HMI","2d_le_Disp",0);setControlVisibility("HMI","2d_ri_Disp",0);
+    setControlVisibility("HMI","3d_fr_Disp",0);setControlVisibility("HMI","3d_re_Disp",0);
+    setControlVisibility("HMI","3d_le_Disp",0);setControlVisibility("HMI","3d_ri_Disp",0);
+    setControlVisibility("HMI","3d_f&l_Disp",0);setControlVisibility("HMI","3d_f&r_Disp",0);
+    setControlVisibility("HMI","3d_r&l_Disp",0);setControlVisibility("HMI","3d_r&r_Disp",0);
+    setControlVisibility("HMI","FTC",0);setControlVisibility("HMI","RTC",0);
+    setControlVisibility("HMI","FthC",0);setControlVisibility("HMI","RthC",0);
+    setControlVisibility("HMI","3DTouring",1);setControlVisibility("HMI","more_None",0);
+    setControlVisibility("HMI","2d_None",0);setControlVisibility("HMI","3d_None",0);
+    setControlVisibility("HMI","2D_on",0);setControlVisibility("HMI","2D_off",1);
+    setControlVisibility("HMI","3D_on",1);setControlVisibility("HMI","3D_off",0);
+      break;
+    default:
+      write("DispMod value is out of range!!!");
+      break;
+  }
+}
+//2d还是3d模式下的是否显示
+on signal VisnAgExtnResp
+{
+  if(this ==0 && $VisnImgDispModResp !=21)
+  {
+    setControlVisibility("HMI","2D_on",1);setControlVisibility("HMI","2D_off",0);
+    setControlVisibility("HMI","3D_on",0);setControlVisibility("HMI","3D_off",1);
+    setControlVisibility("HMI","2d_None",1);setControlVisibility("HMI","3d_None",0);
+  }
+  else if(this ==1 && $VisnImgDispModResp !=21)
+  {
+    setControlVisibility("HMI","2D_on",0);setControlVisibility("HMI","2D_off",1);
+    setControlVisibility("HMI","3D_on",1);setControlVisibility("HMI","3D_off",0);
+    setControlVisibility("HMI","2d_None",1);setControlVisibility("HMI","3d_None",1);
+  }
+}
+on sysvar_update `Signal::SurrndgsObjDetnReqOnOff1//物体检测
+{
+  if(@this == 1)
+  {
+    $ASDMSafetyCANFD4Fr09::SurrndgsObjDetnReqOnOff1 = 1;
+  }
+  if(@this == 0)
+  {
+    $ASDMSafetyCANFD4Fr09::SurrndgsObjDetnReqOnOff1 = 0;
+  }
+}
+on sysvar `Signal::TopVisnDispExtnReqOnOff1//俯视放大
+{
+  if(@this == 1)
+  {
+    $ASDMSafetyCANFD4Fr09::TopVisnDispExtnReqOnOff1 = 1;
+  }
+  if(@this == 0)
+  {
+    $ASDMSafetyCANFD4Fr09::TopVisnDispExtnReqOnOff1 = 0;
+  }
+}
+on sysvar `Signal::ThrDTouringViewReqOnOff1//3D环绕
+{
+  if(@this == 1)
+  {
+    $ASDMSafetyCANFD4Fr09::ThrDTouringViewReqOnOff1 = 1;
+  }
+  if(@this == 0)
+  {
+    $ASDMSafetyCANFD4Fr09::ThrDTouringViewReqOnOff1 = 0;
+  }
+}
+on sysvar `Signal::VehMdlClrReqOnOff1//盲区填充
+{
+  if(@this == 1)
+  {
+    $ASDMSafetyCANFD4Fr09::VehMdlClrReqOnOff1 = 1;
+  }
+  if(@this == 0)
+  {
+    $ASDMSafetyCANFD4Fr09::VehMdlClrReqOnOff1 = 0;
+  }
+}
+on sysvar `Signal::TurnEntryAgWideVisReqOnOff1//转向随动
+{
+  if(@this == 1)
+  {
+    $ASDMSafetyCANFD4Fr09::TurnEntryAgWideVisReqOnOff1 = 1;
+  }
+  if(@this == 0)
+  {
+    $ASDMSafetyCANFD4Fr09::TurnEntryAgWideVisReqOnOff1 = 0;
+  }
+}
+on sysvar `Signal::PrkgIndcrLineReqOnOff1//轨迹线
+{
+  if(@this == 1)
+  {
+    $ASDMSafetyCANFD4Fr09::PrkgIndcrLineReqOnOff1 = 1;
+  }
+  if(@this == 0)
+  {
+    $ASDMSafetyCANFD4Fr09::PrkgIndcrLineReqOnOff1 = 0;
+  }
+}
+
+
+
+
+

@@ -1,0 +1,1020 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: PEPS_1E2 Tester GW RSRS VCU EPS ESC FRS PAS TCM ACU AVM_APS
+VAL_TABLE_ VCU_ePTReady 1 "0x1: PTReady Active" 0 "0x0: PTReady Not Active
+" ;
+VAL_TABLE_ Init_off_on 2 "0x2: on" 1 "0x1: off" 0 "0x0: no request" ;
+VAL_TABLE_ AVM_APA_GearRequest 4 "0x4: Target gear D" 3 "0x3: Target gear N
+" 2 "0x2: Target gear R
+" 1 "0x1: Target gear P
+" 0 "0x0: No Request" ;
+VAL_TABLE_ AVM_APA_OverrideReason 4 "0x4:  Overrode by EPB" 3 "0x3: overrode by gear shift
+" 2 "0x2: overrode by vehicle speed
+" 1 "0x1: overrode by steer
+" 0 "0x0: not overrode" ;
+VAL_TABLE_ BCM_DM_TargetModeReq 7 "0x7: Reserved" 6 "0x6: ROCK Mode(Reserved)
+" 5 "0x5: Sport+ Mode
+" 4 "0x4: Snow Mode
+" 3 "0x3: Offroad Mode
+" 2 "0x2: Sport Mode
+" 1 "0x1: Eco Mode
+" 0 "0x0: Comfort Mode
+" ;
+VAL_TABLE_ FRS_ALOD_Status 9 "0x9: Permanent Failure" 8 "0x8: Temporary Failure
+" 7 "0x7: Stand Wait
+" 6 "0x6: Stand Active
+" 5 "0x5: Override
+" 4 "0x4: Brake-Only mode
+" 3 "0x3: Active-Control mode
+" 2 "0x2: Stand-By mode
+" 1 "0x1: Passive mode
+" 0 "0x0: OFF mode
+" ;
+VAL_TABLE_ ESC_ESPActive 1 "0x1: ESP Active" 0 "0x0: ESP Inactive
+" ;
+VAL_TABLE_ ESC_TCSActive 1 "0x1: TCS Active" 0 "0x0: TCS Inactive
+" ;
+VAL_TABLE_ ESC_ABSActive 1 "0x1: Active " 0 "0x0: Inactive 
+" ;
+VAL_TABLE_ ESC_BrakePedalSwitchInvalid 1 "0x1: Invalid " 0 "0x0: Valid 
+" ;
+VAL_TABLE_ ESC_FLWheelSpeedRCSts 1 "0x1: Invalid" 0 "0x0: Valid
+" ;
+VAL_TABLE_ EMS_Real_PedalPosition 255 "0xFF: Invalid" 254 "0xFE: Abnormal
+" 251 "0xFB~0xFD: Invalid
+" ;
+VAL_TABLE_ EMS_Real_PedalPositionInvalid 1 "0x1: Invalid" 0 "0x0: Valid
+" ;
+VAL_TABLE_ EMS_EngStatus 7 "0x7: Invalid" 6 "0x6: Abnormal
+" 5 "0x5: Reserved
+" 4 "0x4: Reserved
+" 3 "0x3: Running
+" 2 "0x2: Stopping
+" 1 "0x1: Cranking
+" 0 "0x0: Engine Stop
+" ;
+VAL_TABLE_ PAS_SensorErrorFlag 1 "0x1: Sensor Error" 0 "0x0: No Error
+" ;
+VAL_TABLE_ PAS_PDC_MODE 6 "0x6: Inhibited" 5 "0x5: System Failure
+" 4 "0x4: Rear Active
+" 3 "0x3: Front Active
+" 2 "0x2: Front Rear Active
+" 1 "0x1: Standby
+" 0 "0x0: Off
+" ;
+VAL_TABLE_ YRS_LongitSensorState 3 "0x3: Initializing" 2 "0x2: Reserved
+" 1 "0x1: Invalid
+" 0 "0x0: Valid" ;
+VAL_TABLE_ YRS_LateralSensorState 3 "0x3: Initializing" 2 "0x2: Reserved" 1 "0x1: Invalid" 0 "0x0: Valid" ;
+VAL_TABLE_ YRS_YawRateSensorState 3 "0x3: Initializing" 2 "0x2: Reserved" 1 "0x1: Invalid" 0 "0x0: Valid" ;
+VAL_TABLE_ VCU_ModeGearDisplaySts 31 "0x1F: Invalid" 4 "0x4: Display D" 3 "0x3: Display N" 2 "0x2: Display R" 1 "0x1: Display P" 0 "0x0: NO Display" ;
+VAL_TABLE_ PAS_SVA_WarningInd_Right 2 "0x2: Level 2" 1 "0x1: Level 1" 0 "0x0: No Warning" ;
+VAL_TABLE_ PAS_SVA_WarningInd_Left 2 "0x2:  Level 2" 1 "0x1:  Level 1
+" 0 "0x0: No Warning" ;
+VAL_TABLE_ AVM_APA_ParkOutChkResult 1 "0x1: OK" 0 "0x0: NOK" ;
+VAL_TABLE_ AVM_APA_ParkOutSystemStatus 1 "0x1: Normal" 0 "0x0: Judging" ;
+VAL_TABLE_ MMI_APA_AutoDetect 1 "0x1: OFF" 0 "0x0: ON" ;
+VAL_TABLE_ MMI_PSC_Function_Select 3 "0x3: diagonal Button Press  " 2 "0x2: cPSC Button Press   " 1 "0x1: pPSC Button Press" 0 "0x0: No Button Press " ;
+VAL_TABLE_ MMI_APA_ConfirmButton 2 "0x2: Terminated Button Press" 1 "0x1: Comfirm Button Press" 0 "0x0: No Button Press" ;
+VAL_TABLE_ MMI_APA_MechanicalPark 1 "0x1: OFF" 0 "0x0: ON  jixieku" ;
+VAL_TABLE_ MMI_APA_Function_Select 2 "0x2: POC Button Press " 1 "0x1: PSC Button Press  " 0 "0x0: No Button Press " ;
+VAL_TABLE_ Configuration_Code 3 "APS_AVM_BSD" 2 "AVM_BSD" 1 "APS_RSRS" 0 "No Request" ;
+VAL_TABLE_ MMI_APA_PopWindowsButton 2 "0x2: Cancel pressed " 1 "0x1: OK pressed" 0 "0x0: no pressed" ;
+VAL_TABLE_ Enter_Exit_3D 2 "Exit 3D" 1 "Enter 3D" 0 "no request" ;
+VAL_TABLE_ MMI_AVMViewModeSwitch_1 12 "3D Right Rear" 11 "3D Left Rear" 10 "3D Right Front" 9 "3D Left Front" 6 "3D Rear" 5 "3D Front" 4 "left rear_right rear" 3 "left front_right front " 2 "rear zoom" 1 "front zoom" 0 "0x0: No press" ;
+VAL_TABLE_ MMI_AVMViewAngleSwitch 4 "right" 3 "left" 2 "Rear" 1 "Front" 0 "0x0: No press" ;
+VAL_TABLE_ MMI_AVM_TrunningEnterAVMFuncSet 2 "0x2 : On" 1 "0x1 : Off" 0 "0x0:No Request" ;
+VAL_TABLE_ MMI_AVM_CarIconColorSet 5 "银色" 4 "黑色" 3 "白色" 2 "红色" 1 "蓝色" 0 "0x0:No Request" ;
+VAL_TABLE_ MMI_AVM_SoftKeyRequest 2 "0x2 : AVM Exit " 1 "0x1: AVM Enter" 0 "0x0:No Request" ;
+VAL_TABLE_ MMI_AVMPDEnableRequest 2 "0x2: On" 1 "0x1: Off" 0 "0x0:No Request" ;
+VAL_TABLE_ MMI_AVMMODEnableRequest 2 "0x2: On" 1 "0x1: Off" 0 "0x0:No Request" ;
+VAL_TABLE_ MMI_DynamicPGSRequest 2 "0x2: On" 1 "0x1: Off" 0 "0x0:No Request" ;
+VAL_TABLE_ BCM_RearFogLightSts 1 "0x1: ON" 0 "0x0: OFF" ;
+VAL_TABLE_ BCM_FrontFogLightSts 1 "0x1: ON" 0 "0x0: OFF" ;
+VAL_TABLE_ BCM_PositionLightSts 1 "0x1: ON" 0 "0x0: OFF" ;
+VAL_TABLE_ BCM_HighBeamSts 1 "0x1: ON" 0 "0x0: OFF" ;
+VAL_TABLE_ BCM_LowBeamSts 1 "0x1: ON" 0 "0x0: OFF" ;
+VAL_TABLE_ RCParking 3 "continue" 2 "parking pause" 1 "start parking" 0 "init to 0" ;
+VAL_TABLE_ ControlRadarParkingType 7 "diagonal_right" 6 "diagonal_left" 5 "parallel_right" 4 "parallel_left" 3 "perpendicular_right" 2 "perpendicular_left" 1 "Init" 0 "no request" ;
+VAL_TABLE_ AVM_APA_SuspendedReason 7 "0x7: EPB locked" 6 "0x6: seat belt released" 5 "0x5: mirror fold" 4 "0x4: trunk open" 3 "0x3: any door open" 2 "0x2: obstacle on path" 1 "0x1: APS switch release" 0 "0x0: not suspended" ;
+VAL_TABLE_ AVM_APA_AbortReason 26 "0x1A:Interrupt num over thresh" 25 "0x19:Currentstepnum over thresh" 24 "0x18:APS time out" 23 "0x17:Vehicle speed over thresh" 22 "0x16:  vehicle driver mode" 21 "0X15: ACC or ICC active" 20 "0x14: ESC active (ABS, TCS, ESP)" 19 "0x13: SAS not calibrated" 18 "0x12: invalid lateral accel sig" 17 "0x11: invalid longi accel signal" 16 "0x10: invalid yaw rate signal" 15 "0x0F: invalid brake pedal SwiSta" 14 "0x0E: invalid vehicle speed" 13 "0x0D: invalid wheel pulse CouSig" 12 "0x0C: invalid wheel speed signal" 11 "0x0B: invalid accel pedal posi" 10 "0x0A: engine off" 9 "0x09: APS internal failure" 8 "0x08: IHU failure" 7 "0x07: SAS failure" 6 "0x06: EMS failure" 5 "0x05: PAS failure" 4 "0x04: ACU failure" 3 "0x03: TCU failure" 2 "0x02: ESC failure" 1 "0x01: EPS failure" 0 "0x00: No fault " ;
+VAL_TABLE_ ControlOverSpeed 1 "on" 0 "off" ;
+VAL_TABLE_ Parkout_RadarInitSwitch 15 "no request" 14 "avm mode" 13 "160CM" 12 "150CM" 11 "140CM" 10 "130CM" 9 "120CM" 8 "110CM" 7 "100CM" 6 "90CM" 5 "80CM" 4 "70CM" 3 "60CM" 2 "50CM" 1 "40CM" 0 "30CM" ;
+VAL_TABLE_ Radar_InitStatus 3 "NOK_big" 2 "NOK_small" 1 "OK" 0 "No request" ;
+VAL_TABLE_ ACC_Status 1 "ACC OFF" 0 "ACC ON" ;
+VAL_TABLE_ ControlSpeedChangeSwitch 1 "on" 0 "off" ;
+VAL_TABLE_ AVM_BSDRightWaring 2 "0x2:  Level2" 1 "0x1:  Level1" 0 "0x0: No Warning" ;
+VAL_TABLE_ AVM_BSDLeftWaring 2 "0x2:  Level2" 1 "0x1:  Level1" 0 "0x0: No Warning" ;
+VAL_TABLE_ RSRS_DOW_WarningRight 2 "Warning level 2" 1 "Warning level 1" 0 "0x0: No Warning" ;
+VAL_TABLE_ RSRS_DOW_WarningLeft 2 "Warning level 2" 1 "Warning level 1" 0 "0x0: No Warning" ;
+VAL_TABLE_ RSRS_RCTA_WarningRight 1 "0x1: Warning ON" 0 "0x0: Warning OFF" ;
+VAL_TABLE_ RSRS_RCTA_WarningLeft 1 "0x1: Warning ON" 0 "0x0: Warning OFF" ;
+VAL_TABLE_ RSRS_LCA_WarningRight 2 "Warning level 2" 1 "Warning level 1" 0 "0x0: No Warning" ;
+VAL_TABLE_ RSRS_LCA_WarningLeft 2 "Warning level 2" 1 "Warning level 1" 0 "0x0: No Warning" ;
+VAL_TABLE_ AVM_APA_AutoSearchSts 6 "forbidden by vehicle driver mode" 5 "search forbidden by ACC/ICC" 4 "search completed" 3 "waiting for driver confirm" 2 "waiting for vehicle stop" 1 "slot searching" 0 "not in search mode " ;
+VAL_TABLE_ AVM_APA_SystemSts 7 "0x7: Invalid" 6 "0x6: Terminated" 5 "0x5: Failure" 4 "0x4: Completed" 3 "0x3: Guidance active" 2 "0x2: Searching" 1 "0x1: Standby" 0 "0x0: Off" ;
+VAL_TABLE_ ControlYawrate 1 "on" 0 "off" ;
+VAL_TABLE_ ControlBlindFill 1 "on" 0 "off" ;
+VAL_TABLE_ ESC_EPBStatus 2 "0x2: In progress" 1 "0x1: Closed" 0 "Released" ;
+VAL_TABLE_ ESC_BrakePedalSwitchStatus 1 "Brake Pedal is active " 0 "Brake Pedal is not active " ;
+VAL_TABLE_ ACU_DrvSeatbeltBucklestatus 1 "0x1: Safety belt not tied" 0 "0x0: Safety belt tied" ;
+VAL_TABLE_ ESC_Vehiclestandstill 2 "0x2: Invalid" 1 "0x1: Standstill " 0 "0x0: Not Standstill " ;
+VAL_TABLE_ IPK_LCA_EnableStatus 2 "0x2: ON Request " 1 "0x1: OFF Request" 0 "0x0: No Action " ;
+VAL_TABLE_ AVM_BSD_StateResp 1 "0x1: Passive(OFF)" 0 "0x0: Active(ON)" ;
+VAL_TABLE_ SAS_CalibrationSts 1 "0x1: Sensor calibrated" 0 "0x0: Sensor not calibrated" ;
+VAL_TABLE_ SAS_FailureSts 1 "0x1: Valid (No Failure)" 0 "0x0: Invalid (Failure)" ;
+VAL_TABLE_ TCU_WarningMsgYellow 1 "0x1: Active" 0 "0x0: Inactive" ;
+VAL_TABLE_ TCU_WarningMsgRed 1 "0x1: Active" 0 "0x0: Inactive" ;
+VAL_TABLE_ ESC_ESPFailed 1 "0x1: ESP Failed" 0 "0x0: ESP Normal" ;
+VAL_TABLE_ EPS_APA_SystemStatus 4 "0x4: Fault" 3 "0x3: Active" 2 "0x2: Open" 1 "0x1: Closed" 0 "0x0: Initialize" ;
+VAL_TABLE_ EPS_APA_FaultStatus 6 "0x6: irreversible error" 5 "0x5: reversible error" 4 "0x4: APS low priority" 3 "0x3: delta request not in range" 2 "0x2: driver torque not in range" 1 "0x1: vehicle speed not in range" 0 "0x0: no error" ;
+VAL_TABLE_ PEPS_PowerMode 4 "0x4:START" 2 "0x2:ON" 1 "0x1:ACC" 0 "0x0:OFF" ;
+VAL_TABLE_ PEPS_PowerModeValidity 2 "0x2: Valid" 1 "0x1: Invalid" ;
+VAL_TABLE_ AVM_ViewModeRespExtend 11 "0xB : 3D Right Rear" 10 "0xA : 3D Left Rear" 9 "0x9 : 3D Right Front" 8 "0x8 : 3D Left Front" 7 "0x7 : 3D Right+2D Front" 6 "0x6 : 3D Left+2D Front" 5 "0x5 : 3D Rear+2D Front" 4 "0x4 : 3D Rear + AVM" 3 "0x3 : 3D Left + AVM" 2 "0x2 : 3D Right + AVM" 1 "0x1 : 3D Front+AVM" 0 "0x0: not active" ;
+VAL_TABLE_ AVM_SoftKeyResponse 1 "0x1 : AVM Exit Response" 0 "0x0: AVM Enter Response" ;
+VAL_TABLE_ AVM_ControlRequest 5 "0x5:  R gear 保持" 4 "0x4:  overspeed  exit" 3 "0x3:hard switch/turn exit" 2 "0x2: AVM Enter Request by R gear" 1 "0x1: hard switch /turn enter" 0 "0x0:No Request" ;
+VAL_TABLE_ AVM_ViewModeResp 14 "0xE: Left rear and right rear" 13 "0xD: Left front and right front" 12 "0xC: Rear zoom in" 11 "0xB: Front zoom in" 10 "0xA：high speed view Reserved" 9 "0x9 : 3D View" 6 "0x6:  2D right Rear" 5 "0x5 : 2D Left Rear" 4 "0x4 : Rear + AVM" 3 "0x3 : Left + AVM" 2 "0x2 : Right + AVM" 1 "0x1 : Front + AVM" 0 "0x0: not active" ;
+VAL_TABLE_ SAS_FailureSts 1 "0x1: Valid " 0 "0x0: Invalid" ;
+VAL_TABLE_ ESC_VehicleSpeedInvalid 1 "0x1: Invalid " 0 "0x0: Valid " ;
+VAL_TABLE_ BCM_TrunkAjarStatus 1 "0x1: TrunkAjar　" 0 "0x0: TrunkClosed　" ;
+VAL_TABLE_ PDM_RearRightDoorAjarStatus 1 "0x1: DoorAjar" 0 "0x0: DoorClosed" ;
+VAL_TABLE_ PDM_FrontRightDoorAjarStatus 1 "0x1: DoorAjar" 0 "0x0: DoorClosed" ;
+VAL_TABLE_ DDM_RearLeftDoorAjarStatus 1 "0x1: DoorAjar" 0 "0x0: DoorClosed" ;
+VAL_TABLE_ DDM_FrontLeftDoorAjarStatus 1 "0x1: DoorAjar" 0 "0x0: DoorClosed" ;
+VAL_TABLE_ TCM_Req_TurnIndicationAct 3 "0x3: Invalid" 2 "0x2: Turn Right" 1 "0x1: Turn Left" 0 "0x0: Default" ;
+VAL_TABLE_ TCU_ModeGearDisplaySts 31 "0x1F: Invalid" 5 "0x5:  Display M1" 4 "0x4: Display D" 3 "0x3: Display N" 2 "0x2: Display R" 1 "0x1: Display P" 0 "0x0: NO Display" ;
+VAL_TABLE_ PAS_APA_RoadblockTypeF 4 "good_sized(大型)" 3 "Polygonous(多边)" 2 "Squarish(方)" 1 "Circular(圆)" 0 "NO Object" ;
+
+
+BO_ 281 Infor4: 4 Vector__XXX
+ SG_ Info4_Rear_Y : 23|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Info4_Rear_X : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 280 Infor3: 7 Vector__XXX
+ SG_ Info_USS_Effect : 47|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Info_SlotType : 3|4@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Info_Front_Y : 31|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Info_Front_X : 15|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Info_Flag : 7|4@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 279 Infor2: 8 Vector__XXX
+ SG_ infor2_Width : 55|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ infor2_theta2 : 39|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ infor2_theta1 : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ infor2_Length : 23|16@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 278 Infor1: 8 Vector__XXX
+ SG_ infor1_Y2 : 55|16@0- (1,0) [0|0] "" Vector__XXX
+ SG_ infor1_Y1 : 39|16@0- (1,0) [0|0] "" Vector__XXX
+ SG_ infor1_X2 : 23|16@0- (1,0) [0|0] "" Vector__XXX
+ SG_ infor1_X1 : 7|16@0- (1,0) [0|0] "" Vector__XXX
+
+BO_ 919 APA_Velocity_Info: 8 AVM_APS
+ SG_ APA_Expect_Velocity : 23|16@0+ (1,0) [0|0] "" Vector__XXX
+ SG_ Longtudinal_Velocity : 7|16@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 482 PEPS_Message_Sts_1E2: 8 PEPS_1E2
+ SG_ PEPS_PowerModeValidity_1E2 : 1|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ PEPS_PowerMode_1E2 : 4|3@0+ (1,0) [0|7] "bit"  AVM_APS
+
+BO_ 1961 AVM_DiagResp: 8 AVM_APS
+ SG_ AVM_PhysDiagRx_Byte7 : 63|8@0+ (1,0) [0|0] ""  GW
+ SG_ AVM_PhysDiagRx_Byte6 : 55|8@0+ (1,0) [0|0] ""  GW
+ SG_ AVM_PhysDiagRx_Byte5 : 47|8@0+ (1,0) [0|0] ""  GW
+ SG_ AVM_PhysDiagRx_Byte4 : 39|8@0+ (1,0) [0|0] ""  GW
+ SG_ AVM_PhysDiagRx_Byte3 : 31|8@0+ (1,0) [0|0] ""  GW
+ SG_ AVM_PhysDiagRx_Byte2 : 23|8@0+ (1,0) [0|0] ""  GW
+ SG_ AVM_PhysDiagRx_Byte1 : 15|8@0+ (1,0) [0|0] ""  GW
+ SG_ AVM_PhysDiagRx_Byte0 : 7|8@0+ (1,0) [0|0] ""  GW
+
+BO_ 1953 AVM_DiagPhyReq: 8 GW
+ SG_ GW_PhysDiagTx_Byte7 : 63|8@0+ (1,0) [0|0] ""  AVM_APS
+ SG_ GW_PhysDiagTx_Byte6 : 55|8@0+ (1,0) [0|0] ""  AVM_APS
+ SG_ GW_PhysDiagTx_Byte5 : 47|8@0+ (1,0) [0|0] ""  AVM_APS
+ SG_ GW_PhysDiagTx_Byte4 : 39|8@0+ (1,0) [0|0] ""  AVM_APS
+ SG_ GW_PhysDiagTx_Byte3 : 31|8@0+ (1,0) [0|0] ""  AVM_APS
+ SG_ GW_PhysDiagTx_Byte2 : 23|8@0+ (1,0) [0|0] ""  AVM_APS
+ SG_ GW_PhysDiagTx_Byte1 : 15|8@0+ (1,0) [0|0] ""  AVM_APS
+ SG_ GW_PhysDiagTx_Byte0 : 7|8@0+ (1,0) [0|0] ""  AVM_APS
+
+BO_ 2015 Func_DiagReq: 8 GW
+
+BO_ 1602 AVM_DevelopMessage_RX1: 8 Tester
+
+BO_ 1603 AVM_DevelopMessage_TX1: 8 AVM_APS
+
+BO_ 679 MMI_Configuration_Info: 8 GW
+ SG_ MMI_OnroadCalibReq : 37|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ MMI_CarIconTransparentReq : 49|2@0+ (1,0) [0|3] "bit"  AVM_APS
+
+BO_ 686 MMI_HUD_Msg: 8 GW
+ SG_ MMI_AVM_TrunningEnterAVMFuncSet : 54|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ MMI_AVM_CarIconColorSet : 52|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ MMI_AVM_TouchEventType_Reserved : 49|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ MMI_AVM_Ycoordinate_Reserved : 35|11@0+ (1,0) [0|1022] "pixel"  AVM_APS
+ SG_ MMI_AVM_Xcoordinate_Reserved : 31|12@0+ (1,0) [0|2046] "pixel"  AVM_APS
+ SG_ MMI_AVM_SoftKeyRequest : 23|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ MMI_AVMPDEnableRequest : 21|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ MMI_AVMMODEnableRequest : 19|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ MMI_DynamicPGSRequest : 17|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ MMI_AVMViewModeSwitch_1 : 15|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ MMI_AVMViewModeSwitch : 10|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ MMI_AVM_BSD : 7|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ MMI_AVMViewAngleSwitch : 5|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ MMI_AVM_TurnONSetResponse : 0|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 680 MMI_Safety_Info: 8 GW
+ SG_ MMI_APA_PopWindowsButton : 47|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ MMI_APA_AutoDetect : 45|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ MMI_PSC_Function_Select : 31|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ MMI_APA_ConfirmButton : 29|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ MMI_APA_MechanicalPark : 48|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ MMI_APA_Function_Select : 25|2@0+ (1,0) [0|3] "bit"  AVM_APS
+
+BO_ 764 PEPS_Message_Sts: 8 GW
+ SG_ PEPS_PowerMode : 4|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PEPS_PowerModeValidity : 1|2@0+ (1,0) [0|3] "bit"  AVM_APS
+
+BO_ 1008 IPK_DateTime_Info: 8 GW
+ SG_ IPK_Year : 45|6@0+ (1,0) [0|63] "y"  AVM_APS
+ SG_ IPK_Month : 35|4@0+ (1,0) [0|12] "m"  AVM_APS
+ SG_ IPK_Day : 28|5@0+ (1,0) [0|31] "d"  AVM_APS
+ SG_ IPK_Hour : 20|5@0+ (1,0) [0|23] "h"  AVM_APS
+ SG_ IPK_Minute : 13|6@0+ (1,0) [0|59] "m"  AVM_APS
+ SG_ IPK_Second : 5|6@0+ (1,0) [0|59] "s"  AVM_APS
+
+BO_ 621 IPK_STS: 8 GW
+ SG_ IPK_Backlightadjust : 39|5@0+ (1,0) [0|31] "bit"  AVM_APS
+ SG_ IPK_LanguageMode : 29|4@0+ (1,0) [0|15] "bit"  AVM_APS
+
+BO_ 608 IPK_SettingRequest: 8 GW
+ SG_ IPK_RCW_EnableStatus : 13|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ IPK_RCTA_EnableStatus : 11|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ IPK_LCA_EnableStatus : 9|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ IPK_DOW_EnableStatus : 5|2@0+ (1,0) [0|3] "bit"  AVM_APS
+
+BO_ 646 PDM_RDoorWindowState: 8 GW
+ SG_ PDM_RearRightDoorAjarStatus : 33|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ PDM_FrontRightDoorAjarStatus : 32|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 645 DDM_LDoorWindowState: 8 GW
+ SG_ DDM_RearLeftDoorAjarStatus : 33|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ DDM_FrontLeftDoorAjarStatus : 32|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 644 BCM_StateUpdate: 8 GW
+ SG_ BCM_ReverseGearInfo : 47|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ BCM_TrunkAjarStatus : 10|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 643 BCM_ACCinfor: 8 GW
+ SG_ BCM_DM_TargetModeReq : 18|3@0+ (1,0) [0|7] "bit"  AVM_APS
+
+BO_ 497 TPMS_TyreWarn: 8 GW
+ SG_ TPMS_SystemSt : 33|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ TPMS_RRTyre_Sensor_Failure : 29|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ TPMS_RRTyreWarn : 25|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ TPMS_RLTyre_Sensor_Failure : 21|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ TPMS_RLTyreWarn : 17|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ TPMS_FRTyre_Sensor_Failure : 13|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ TPMS_FRTyreWarn : 9|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ TPMS_FLTyre_Sensor_Failure : 5|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ TPMS_FLTyreWarn : 1|2@0+ (1,0) [0|3] "bit"  AVM_APS
+
+BO_ 496 BCM_LightChimeReq: 8 GW
+ SG_ BCM_RearFogLightSts : 15|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ BCM_FrontFogLightSts : 14|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ BCM_PositionLightSts : 11|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ BCM_HighBeamSts : 10|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ BCM_LowBeamSts : 8|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ BCM_TurnIndicatorRight : 3|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ BCM_TurnIndicatorLeft : 0|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 536 TCU_Info: 8 GW
+ SG_ TCU_WarningMsgYellow : 10|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ TCU_WarningMsgRed : 9|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 275 TCU_Status: 8 GW
+ SG_ TCU_ModeGearDisplaySts : 47|5@0+ (1,0) [0|31] "bit"  AVM_APS
+ SG_ TCU_ESC_DriverGearAbort : 31|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 133 EMS_EngineRPM: 8 GW
+ SG_ EMS_EngStatus : 47|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ EMS_SSMStatus : 42|3@0+ (1,0) [0|7] "bit"  AVM_APS
+
+BO_ 132 EMS_EngRelateTrqSts: 8 GW
+ SG_ EMS_Real_PedalPosition : 23|8@0+ (0.4,0) [0|100] "%"  AVM_APS
+ SG_ EMS_Real_PedalPositionInvalid : 14|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 740 RSRS_InformStatus: 8 RSRS
+ SG_ RSRS_DOW_WarningRight : 21|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ RSRS_DOW_WarningLeft : 19|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ RSRS_RCTA_WarningRight : 13|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ RSRS_RCTA_WarningLeft : 12|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ RSRS_LCA_WarningRight : 11|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ RSRS_LCA_WarningLeft : 9|2@0+ (1,0) [0|3] "bit"  AVM_APS
+
+BO_ 406 PAS_APA_ParkingMarkSts: 8 PAS
+ SG_ PAS_APA_ParkingMarkSts_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ PAS_APA_ParkingMarkSts_AliveCoun : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ PAS_SensorErrorFlag : 38|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ PAS_APA_RoadblockTypeR : 37|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_APA_RoadblockTypeF : 34|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_APA_CoordinateInitReq : 31|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ PAS_APA_StoppedAngle : 30|7@0- (0.1,-5) [-5|5] "°"  AVM_APS
+ SG_ PAS_APA_StoppedCy : 11|12@0+ (2,-4000) [-4000|4000] "cm"  AVM_APS
+ SG_ PAS_APA_StoppedCx : 7|12@0+ (2,-4000) [-4000|4000] "cm"  AVM_APS
+
+BO_ 405 PAS_APA_DistValueRear: 8 PAS
+ SG_ PAS_APA_DistValueRear_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ PAS_APA_DistValueRear_AliveCount : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ PAS_APA_DistanceValueSR_RR : 46|7@0+ (2,0) [0|250] "cm"  AVM_APS
+ SG_ PAS_APA_DistanceValueSR_RMR : 38|7@0+ (2,0) [0|250] "cm"  AVM_APS
+ SG_ PAS_APA_DistanceValueSR_RML : 30|7@0+ (2,0) [0|250] "cm"  AVM_APS
+ SG_ PAS_APA_DistanceValueSR_RL : 22|7@0+ (2,0) [0|250] "cm"  AVM_APS
+ SG_ PAS_APA_DistanceValueLR_RR : 15|8@0+ (2,0) [0|500] "cm"  AVM_APS
+ SG_ PAS_APA_DistanceValueLR_RL : 7|8@0+ (2,0) [0|500] "cm"  AVM_APS
+
+BO_ 404 PAS_APA_DistValueFront: 8 PAS
+ SG_ PAS_APA_DistValueFront_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ PAS_APA_DistValueFront_AliveCoun : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ PAS_APA_DistanceValueSR_FR : 46|7@0+ (2,0) [0|250] "cm"  AVM_APS
+ SG_ PAS_APA_DistanceValueSR_FMR : 38|7@0+ (2,0) [0|250] "cm"  AVM_APS
+ SG_ PAS_APA_DistanceValueSR_FML : 30|7@0+ (2,0) [0|250] "cm"  AVM_APS
+ SG_ PAS_APA_DistanceValueSR_FL : 22|7@0+ (2,0) [0|250] "cm"  AVM_APS
+ SG_ PAS_APA_DistanceValueLR_FR : 15|8@0+ (2,0) [0|500] "cm"  AVM_APS
+ SG_ PAS_APA_DistanceValueLR_FL : 7|8@0+ (2,0) [0|500] "cm"  AVM_APS
+
+BO_ 403 PAS_APA_ParkingMarkCD: 8 PAS
+ SG_ PAS_APA_ParkingMarkCD_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ PAS_APA_ParkingMarkCD_AliveCount : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ PAS_APA_DCoordinateX : 28|11@0+ (2,0) [0|4000] "cm"  AVM_APS
+ SG_ PAS_APA_CCoordinateX : 23|11@0+ (2,0) [0|4000] "cm"  AVM_APS
+ SG_ PAS_APA_DCoordinateY : 15|8@0+ (2,0) [0|500] "cm"  AVM_APS
+ SG_ PAS_APA_CCoordinateY : 7|8@0+ (2,0) [0|500] "cm"  AVM_APS
+
+BO_ 402 PAS_APA_ParkingMarkAB: 8 PAS
+ SG_ PAS_APA_ParkingMarkAB_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ PAS_APA_ParkingMarkAB_AliveCount : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ PAS_APA_BCoordinateX : 36|11@0+ (2,0) [0|4000] "cm"  AVM_APS
+ SG_ PAS_APA_ACoordinateX : 31|11@0+ (2,0) [0|4000] "cm"  AVM_APS
+ SG_ PAS_APA_BCoordinateY : 23|8@0+ (2,0) [0|500] "cm"  AVM_APS
+ SG_ PAS_APA_ACoordinateY : 15|8@0+ (2,0) [0|500] "cm"  AVM_APS
+ SG_ PAS_APA_ParkingDepth : 7|8@0+ (2,0) [0|500] "cm"  AVM_APS
+
+BO_ 401 PAS_SVA_APA_Status: 8 PAS
+ SG_ PAS_SVA_APA_Status_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ PAS_SVA_APA_Status_AliveCounter : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ PAS_APA_SelectedSide : 25|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ PAS_SVA_Status : 23|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ PAS_SVA_WarningInd_Right : 22|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ PAS_SVA_WarningInd_Left : 20|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ PAS_SVA_Mode : 18|3@0+ (1,0) [0|7] "bit"  AVM_APS
+
+BO_ 421 VCU_CSControl1: 8 VCU
+ SG_ VCU_StartActive : 32|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 357 VCU_ModeControl: 8 VCU
+ SG_ VCU_ePTReady : 16|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ VCU_ModeGearDisplaySts : 12|5@0+ (1,0) [0|31] "bit"  AVM_APS
+
+BO_ 359 EPS_SystemSts: 8 EPS
+ SG_ EPS_SystemSts_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ EPS_SystemSts_AliveCounter : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ EPS_APA_FaultStatus : 29|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ EPS_APA_SystemStatus : 26|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ EPS_PinionAngleValueInvalid : 23|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ EPS_PinionAngleValue : 7|16@0- (0.1,0) [-780|779.9] "°/bit"  AVM_APS
+
+BO_ 336 EPS_InformSts: 8 EPS
+ SG_ EPS_TorsionBarTorqueDir : 32|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ EPS_TorsionBarTorque : 31|10@0+ (0.01,0) [0|8] "Nm"  AVM_APS
+
+BO_ 305 YRS2: 8 ACU
+ SG_ YRS2_AliveCounter : 59|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ YRS_LongitAcce : 23|16@0- (0.001,-2) [-2|2] "g"  AVM_APS
+ SG_ YRS_LongitSensorState : 15|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ YRS2_Checksum : 7|8@0+ (1,0) [0|255] "bit"  AVM_APS
+
+BO_ 304 YRS1: 8 ACU
+ SG_ YRS1_AliveCounter : 59|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ YRS_YawRate : 39|16@0+ (0.01,-180) [-180|180] "°/s"  AVM_APS
+ SG_ YRS_LateralAcce : 23|16@0+ (0.001,-2) [-2|2] "g"  AVM_APS
+ SG_ YRS_LateralSensorState : 12|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ YRS_YawRateSensorState : 10|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ YRS1_Checksum : 7|8@0+ (1,0) [0|255] "bit"  AVM_APS
+
+BO_ 295 ESC_InformSts: 8 ESC
+ SG_ ESC_APA_CDD_active : 31|1@0+ (1,0) [0|0] "bit" Vector__XXX
+ SG_ ESC_InformSts_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ ESC_InformSts_AliveCounter : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ ESC_APA_LC_Availability : 39|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ ESC_APA_LC_FailureSts : 30|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ ESC_APA_LC_Status : 27|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ ESC_APA_CDD_available : 20|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_APA_Active : 3|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_APA_Available : 2|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 292 ESC_WheelSpeedsRC: 8 ESC
+ SG_ ESC_WheelSpeedsRC_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ ESC_WheelSpeedsRC_AliveCounter : 55|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ ESC_RRWheelSpeedRCSts : 51|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_RLWheelSpeedRCSts : 50|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_FRWheelSpeedRCSts : 49|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_FLWheelSpeedRCSts : 48|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_RRWheelSpeedRC : 35|12@0+ (1,0) [0|4095] "bit"  AVM_APS
+ SG_ ESC_RLWheelSpeedRC : 31|12@0+ (1,0) [0|4095] "bit"  AVM_APS
+ SG_ ESC_FRWheelSpeedRC : 11|12@0+ (1,0) [0|4095] "bit"  AVM_APS
+ SG_ ESC_FLWheelSpeedRC : 7|12@0+ (1,0) [0|4095] "bit"  AVM_APS
+
+BO_ 294 ESC_DA_MESSAGE: 8 ESC
+ SG_ ESC_Vehiclestandstill : 15|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ ESC_DiagExtModSts : 3|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 293 ESC_Status: 8 ESC
+ SG_ ESC_Status_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ ESC_HBB_Interv : 53|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_Status_AliveCounter : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ ESC_HHCActive : 40|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_GearShiftInhibit : 31|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_BrakePedalSwitchInvalid : 30|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_EPBErrorStatus : 29|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_EPBStatus : 28|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ ESC_VehicleSpeedInvalid : 18|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_VehicleSpeed : 15|13@0+ (0.05625,0) [0|460.63125] "KPH"  AVM_APS
+ SG_ ESC_ESPFailed : 7|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_TCSFailed : 6|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_ESPActive : 5|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_TCSActive : 4|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_ABSFailed : 3|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_EBDFailed : 2|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_BrakePedalSwitchStatus : 1|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_ABSActive : 0|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+BO_ 291 ESC_RearWheelSpeedsKPH: 8 ESC
+ SG_ ESC_RearWheelSpeedsKPH_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ ESC_RearWheelSpeedsKPH_AliveCoun : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ ESC_RRWheelDirection : 26|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ ESC_RRWheelSpeedInvalid : 24|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_RRWheelSpeedKPH : 23|13@0+ (0.05625,0) [0|460.6875] "KPH"  AVM_APS
+ SG_ ESC_RLWheelDirection : 10|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ ESC_RLWheelSpeedInvalid : 8|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_RLWheelSpeedKPH : 7|13@0+ (0.05625,0) [0|460.6875] "KPH"  AVM_APS
+
+BO_ 290 ESC_FrontWheelSpeedsKPH: 8 ESC
+ SG_ ESC_FrontWheelSpeedsKPH_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ ESC_FrontWheelSpeedsKPH_AliveCou : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ ESC_FRWheelDirection : 26|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ ESC_FRWheelSpeedInvalid : 24|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_FRWheelSpeedKPH : 23|13@0+ (0.05625,0) [0|460.6875] "KPH"  AVM_APS
+ SG_ ESC_FLWheelDirection : 10|2@0+ (1,0) [0|3] "bit"  AVM_APS
+ SG_ ESC_FLWheelSpeedInvalid : 8|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ESC_FLWheelSpeedKPH : 7|13@0+ (0.05625,0) [0|460.6875] "KPH"  AVM_APS
+
+BO_ 289 ESC_VLC_TorqueRequest: 8 ESC
+ SG_ ESC_VLC_TorqueRequest_Checksum : 63|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ ESC_VLC_InternalTargetACCelerati : 31|8@0+ (0.05,-7) [-7|5.75] "m/s2"  AVM_APS
+ SG_ ESC_VLC_TorqueRequest_AliveCount : 51|4@0+ (1,0) [0|15] "bit"  AVM_APS
+
+BO_ 419 FRS_Display: 8 FRS
+ SG_ FRS_ALOD_Status : 19|4@0+ (1,0) [0|15] "bit"  AVM_APS
+
+BO_ 912 PAS_PDC_Status: 8 PAS
+ SG_ PAS_PDC_DISTANCE_RSR : 53|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_LSR : 50|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_RSF : 45|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_LSF : 42|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_RR : 39|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_RMR : 34|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_RML : 31|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_RL : 26|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_FR : 23|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_FMR : 18|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_FML : 15|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_DISTANCE_FL : 10|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_PDC_ButtonPress : 6|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ PAS_PDC_MODE : 5|3@0+ (1,0) [0|7] "bit"  AVM_APS
+ SG_ PAS_Buzzer_Alarm_Pattern : 2|3@0+ (1,0) [0|7] "bit"  AVM_APS
+
+BO_ 683 AVM_ResponseCode: 8 AVM_APS
+ SG_ AVM_BSD_StateResp : 43|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_ViewModeRespExtend : 59|4@0+ (1,0) [0|15] "bit"  GW
+ SG_ AVM_PDEnableResp : 45|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_MODEnableResp : 44|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_FactoryMode : 42|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_SoftKeyResponse : 41|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_DynamicPGS_Resp : 40|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_BSD_FaultState : 21|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_OnroadCalibResp : 20|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_CarIconTransparentResp : 19|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_ControlRequest : 18|3@0+ (1,0) [0|7] "bit"  GW
+ SG_ AVM_TrunningEnterAVMFuncResp : 15|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_CarIconColorResp : 14|3@0+ (1,0) [0|7] "bit"  GW
+ SG_ AVM_BSDRightWaring : 11|2@0+ (1,0) [0|3] "bit"  GW
+ SG_ AVM_BSDLeftWaring : 9|2@0+ (1,0) [0|3] "bit"  GW
+ SG_ AVM_ViewModeResp : 7|4@0+ (1,0) [0|15] "bit"  GW
+ SG_ AVM_MMI_Failure : 1|1@0+ (1,0) [0|1] "bit"  GW
+
+BO_ 660 AVM_APAStatus: 8 AVM_APS
+ SG_ AVM_APA_ParkOutSystemStatus : 38|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_APA_TerminatedType : 37|2@0+ (1,0) [0|3] "bit"  GW
+ SG_ AVM_APA_CurrentStepNum : 35|4@0+ (1,0) [0|15] "bit"  GW
+ SG_ AVM_APA_VehicleDirection : 31|2@0+ (1,0) [0|3] "bit"  GW
+ SG_ AVM_APA_OverrideReason : 29|3@0+ (1,0) [0|7] "bit"  GW
+ SG_ AVM_APA_CurrentParkType : 26|3@0+ (1,0) [0|7] "bit"  GW
+ SG_ AVM_APA_AbortReason : 23|5@0+ (1,0) [0|31] "bit"  GW
+ SG_ AVM_APA_SuspendedReason : 18|3@0+ (1,0) [0|7] "bit"  GW
+ SG_ AVM_APA_TotalPathNum : 15|4@0+ (1,0) [0|15] "bit"  GW
+ SG_ AVM_APA_CurrentPathNum : 11|4@0+ (1,0) [0|15] "bit"  GW
+ SG_ AVM_APA_ParkOutChkResult : 7|1@0+ (1,0) [0|1] "bit"  GW
+ SG_ AVM_APA_AutoSearchSts : 6|3@0+ (1,0) [0|7] "bit"  GW
+ SG_ AVM_APA_SystemSts : 2|3@0+ (1,0) [0|7] "bit"  VCU,GW
+
+BO_ 310 AVM_APA_LCControl2: 8 AVM_APS
+ SG_ AVM_APA_LCControl2_Checksum : 63|8@0+ (1,0) [0|255] "bit"  GW,VCU,ESC
+ SG_ AVM_APA_LCControl2_AliveCounter : 51|4@0+ (1,0) [0|15] "bit"  GW,VCU,ESC
+ SG_ AVM_APA_GearBoxEnable : 20|2@0+ (1,0) [0|3] "bit"  GW,VCU
+ SG_ AVM_APA_GearRequest : 18|3@0+ (1,0) [0|7] "bit"  GW,VCU
+ SG_ AVM_APA_VLCShutdownReq : 9|2@0+ (1,0) [0|3] "bit"  ESC
+ SG_ AVM_APA_EmergencyBrakeReq : 7|1@0+ (1,0) [0|1] "bit"  ESC
+ SG_ AVM_APA_HandshakingReq : 6|3@0+ (1,0) [0|7] "bit"  ESC
+ SG_ AVM_APA_StandstillReq : 3|1@0+ (1,0) [0|1] "bit"  ESC
+ SG_ AVM_APA_VLCModeReq : 2|3@0+ (1,0) [0|7] "bit"  ESC
+
+BO_ 309 AVM_APA_LCControl1: 8 AVM_APS
+ SG_ AVM_APA_LCControl1_Checksum : 63|8@0+ (1,0) [0|255] "bit"  ESC
+ SG_ AVM_APA_LCControl1_AliveCounter : 51|4@0+ (1,0) [0|15] "bit"  ESC
+ SG_ AVM_APA_DriverOffReq : 47|1@0+ (1,0) [0|1] "bit"  ESC
+ SG_ AVM_APA_VLCdAxTarLowerLimit : 46|7@0- (0.2,-25.4) [-25.4|0] "m/s3"  ESC
+ SG_ AVM_APA_BrakePreferred : 39|1@0+ (1,0) [0|1] "bit"  ESC
+ SG_ AVM_APA_VLCdAxTarUpperLimit : 38|7@0+ (0.2,0) [0|25.4] "m/s3"  ESC
+ SG_ AVM_APA_StopDistance : 31|8@0+ (1,0) [0|254] "cm"  ESC
+ SG_ AVM_APA_VLCAxTarLowerComfBand : 23|8@0- (0.05,-7) [-7|5.75] "m/s2"  ESC
+ SG_ AVM_APA_VLCAxTarUpperComfBand : 15|8@0- (0.05,-7) [-7|5.75] "m/s2"  ESC
+ SG_ AVM_APA_VLCAxTarAim : 7|8@0- (0.05,-5) [-5|1.5] "m/s2"  ESC
+
+BO_ 400 AVM_APA_ControlSts: 8 AVM_APS
+ SG_ AVM_APA_ControlSts_Checksum : 63|8@0+ (1,0) [0|255] "bit"  EPS
+ SG_ AVM_APA_ControlSts_Alivecounter : 51|4@0+ (1,0) [0|15] "bit"  EPS
+ SG_ AVM_APA_SetSteeringWheelAng : 39|16@0- (0.1,0) [-780|779.9] "°/bit"  EPS
+ SG_ AVM_APA_EPS_Control_Request : 28|2@0+ (1,0) [0|3] "bit"  EPS
+
+BO_ 224 SAS_Status: 8 TCM
+ SG_ SAS_Status_Checksum : 47|8@0+ (1,0) [0|255] "bit"  AVM_APS
+ SG_ SAS_Status_AliveCounter : 39|4@0+ (1,0) [0|15] "bit"  AVM_APS
+ SG_ SAS_FailureSts : 31|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ SAS_CalibrationSts : 30|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ SAS_SteerWheelAngle : 7|16@0- (0.1,0) [-780|779.9] "°/bit"  AVM_APS
+
+BO_ 641 TCM_IntegrationSwtCtrl: 8 TCM
+ SG_ TCM_Req_TurnIndicationAct : 17|2@0+ (1,0) [0|3] "bit"  AVM_APS
+
+BO_ 896 ACU_ChimeTelltaleReq: 8 ACU
+ SG_ ACU_DrvSeatbeltBuckleInvalid : 8|1@0+ (1,0) [0|1] "bit"  AVM_APS
+ SG_ ACU_DrvSeatbeltBucklestatus : 0|1@0+ (1,0) [0|1] "bit"  AVM_APS
+
+
+
+EV_ MMI_TurnningEnterAVMSwitch: 0 [0|2] "" 0 1 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ Config_TCU_VCU: 0 [0|0] "" 0 2 DUMMY_NODE_VECTOR8000 Vector__XXX;
+
+EV_ Configuration_Diag: 0 [0|14] "" 0 3 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_AVMViewModeSwitch_1: 0 [0|12] "" 0 4 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_AVMViewAngleSwitch: 0 [0|4] "" 0 5 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_AVM_SoftKeyRequest: 0 [0|2] "" 0 6 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_AVM_CarIconColorSet: 0 [0|5] "" 0 7 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ Enter_Exit_3D: 0 [0|2] "" 0 8 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ MMI_Switch: 0 [0|1] "" 0 9 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ GearShift_D_R: 0 [0|1] "" 0 10 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ BlindFillSwitch: 0 [0|1] "" 0 11 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ RCParking: 0 [0|3] "" 0 12 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ ControlRadarParkingType: 0 [0|7] "" 0 13 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ WheelAngleChangeSpeedSwitch: 0 [0|1] "" 0 14 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ ControlWheelAngelChangeSpeed: 0 [5|512] "" 16 15 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ ControlWheelSteerChange: 0 [0|1] "" 0 16 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ ControlOverSpeed: 0 [0|1] "" 0 17 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ Parkout_RadarInitSwitch: 0 [0|15] "" 14 18 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ Radar_InitStatus: 0 [0|3] "" 0 19 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ ACC_Status: 0 [0|3] "" 0 20 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ ControlSpeedChangeSwitch: 0 [0|1] "" 0 21 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ ControlYawrate: 0 [0|1] "" 0 22 DUMMY_NODE_VECTOR0 Vector__XXX;
+
+EV_ ControlBlindFill: 0 [0|1] "" 0 23 DUMMY_NODE_VECTOR3 Vector__XXX;
+
+EV_ ACU_DrvSeatbeltBucklestatus: 0 [0|0] "" 0 24 DUMMY_NODE_VECTOR3  ACU;
+
+EV_ ACU_DrvSeatbeltBuckleInvalid: 0 [0|0] "" 0 25 DUMMY_NODE_VECTOR3  ACU;
+
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65535;
+BA_DEF_ SG_  "NWM-WakeupAllowed" ENUM  "No","Yes";
+BA_DEF_ BO_  "NmMessage" ENUM  "no","yes";
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BU_  "NmNode" ENUM  "no","yes";
+BA_DEF_ BU_  "NmStationAddress" INT 0 63;
+BA_DEF_  "NmBaseAddress" HEX 1024 1087;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 50000;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 50000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 1000;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 999999;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "Cyclic","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed","IfActive","NoMsgSendType","NotUsed","vector_leerstring";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 100000;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "Cyclic","OnWrite","OnWriteWithRepetition","OnChange","OnChangeWithRepetition","IfActive","IfActiveWithRepetition","NoSigSendType","NotUsed","NotUsed","NotUsed","NotUsed","NotUsed";
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 100000000000;
+BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
+BA_DEF_DEF_  "NodeLayerModules" "CANoeILNLVector.dll";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "NWM-WakeupAllowed" "";
+BA_DEF_DEF_  "NmMessage" "no";
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "NmNode" "no";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "BusType" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "GenMsgSendType" "NoMsgSendType";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "Cyclic";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "SystemSignalLongSymbol" "";
+BA_ "BusType" "CAN";
+BA_ "NmStationAddress" BU_ PEPS_1E2 11;
+BA_ "NmStationAddress" BU_ Tester 10;
+BA_ "NmStationAddress" BU_ GW 5;
+BA_ "NmStationAddress" BU_ RSRS 7;
+BA_ "NmStationAddress" BU_ VCU 9;
+BA_ "NmStationAddress" BU_ EPS 2;
+BA_ "NmStationAddress" BU_ ESC 3;
+BA_ "NmStationAddress" BU_ FRS 4;
+BA_ "NmStationAddress" BU_ PAS 6;
+BA_ "NmStationAddress" BU_ TCM 8;
+BA_ "NmStationAddress" BU_ ACU 1;
+BA_ "NodeLayerModules" BU_ AVM_APS "CANoeILNLVector.dll";
+BA_ "GenMsgCycleTime" BO_ 281 20;
+BA_ "GenMsgSendType" BO_ 281 0;
+BA_ "GenMsgCycleTime" BO_ 280 20;
+BA_ "GenMsgSendType" BO_ 280 0;
+BA_ "GenMsgCycleTime" BO_ 279 20;
+BA_ "GenMsgSendType" BO_ 279 0;
+BA_ "GenMsgCycleTime" BO_ 278 20;
+BA_ "GenMsgSendType" BO_ 278 0;
+BA_ "GenMsgCycleTime" BO_ 919 20;
+BA_ "GenMsgSendType" BO_ 919 0;
+BA_ "GenMsgCycleTime" BO_ 482 20;
+BA_ "GenMsgSendType" BO_ 482 0;
+BA_ "GenMsgILSupport" BO_ 1961 0;
+BA_ "GenMsgILSupport" BO_ 1953 0;
+BA_ "GenMsgILSupport" BO_ 2015 0;
+BA_ "GenMsgSendType" BO_ 679 0;
+BA_ "GenMsgCycleTime" BO_ 679 100;
+BA_ "GenMsgSendType" BO_ 686 0;
+BA_ "GenMsgCycleTime" BO_ 686 100;
+BA_ "GenMsgSendType" BO_ 680 0;
+BA_ "GenMsgCycleTime" BO_ 680 100;
+BA_ "GenMsgSendType" BO_ 764 0;
+BA_ "GenMsgCycleTime" BO_ 764 20;
+BA_ "GenMsgSendType" BO_ 1008 0;
+BA_ "GenMsgCycleTime" BO_ 1008 500;
+BA_ "GenMsgSendType" BO_ 621 0;
+BA_ "GenMsgCycleTime" BO_ 621 100;
+BA_ "GenMsgSendType" BO_ 608 0;
+BA_ "GenMsgCycleTime" BO_ 608 100;
+BA_ "GenMsgSendType" BO_ 646 0;
+BA_ "GenMsgCycleTime" BO_ 646 100;
+BA_ "GenMsgCycleTime" BO_ 645 100;
+BA_ "GenMsgSendType" BO_ 645 0;
+BA_ "GenMsgCycleTime" BO_ 644 100;
+BA_ "GenMsgSendType" BO_ 644 0;
+BA_ "GenMsgCycleTime" BO_ 643 100;
+BA_ "GenMsgSendType" BO_ 643 0;
+BA_ "GenMsgCycleTime" BO_ 497 50;
+BA_ "GenMsgSendType" BO_ 497 0;
+BA_ "GenMsgCycleTime" BO_ 496 50;
+BA_ "GenMsgSendType" BO_ 496 0;
+BA_ "GenMsgCycleTime" BO_ 536 100;
+BA_ "GenMsgSendType" BO_ 536 0;
+BA_ "GenMsgCycleTime" BO_ 275 20;
+BA_ "GenMsgSendType" BO_ 275 0;
+BA_ "GenMsgCycleTime" BO_ 133 10;
+BA_ "GenMsgSendType" BO_ 133 0;
+BA_ "GenMsgCycleTime" BO_ 132 10;
+BA_ "GenMsgSendType" BO_ 132 0;
+BA_ "GenMsgCycleTime" BO_ 740 100;
+BA_ "GenMsgSendType" BO_ 740 0;
+BA_ "GenMsgCycleTime" BO_ 406 50;
+BA_ "GenMsgSendType" BO_ 406 0;
+BA_ "GenMsgCycleTime" BO_ 405 50;
+BA_ "GenMsgSendType" BO_ 405 0;
+BA_ "GenMsgCycleTime" BO_ 404 50;
+BA_ "GenMsgSendType" BO_ 404 0;
+BA_ "GenMsgCycleTime" BO_ 403 50;
+BA_ "GenMsgSendType" BO_ 403 0;
+BA_ "GenMsgCycleTime" BO_ 402 50;
+BA_ "GenMsgSendType" BO_ 402 0;
+BA_ "GenMsgCycleTime" BO_ 401 20;
+BA_ "GenMsgSendType" BO_ 401 0;
+BA_ "GenMsgCycleTimeFast" BO_ 421 0;
+BA_ "GenMsgCycleTime" BO_ 421 20;
+BA_ "GenMsgSendType" BO_ 421 0;
+BA_ "GenMsgCycleTime" BO_ 357 20;
+BA_ "GenMsgSendType" BO_ 357 0;
+BA_ "GenMsgCycleTime" BO_ 359 40;
+BA_ "GenMsgSendType" BO_ 359 0;
+BA_ "GenMsgCycleTime" BO_ 336 20;
+BA_ "GenMsgSendType" BO_ 336 0;
+BA_ "GenMsgCycleTime" BO_ 305 20;
+BA_ "GenMsgSendType" BO_ 305 0;
+BA_ "GenMsgCycleTime" BO_ 304 20;
+BA_ "GenMsgSendType" BO_ 304 0;
+BA_ "GenMsgCycleTime" BO_ 295 20;
+BA_ "GenMsgSendType" BO_ 295 0;
+BA_ "GenMsgCycleTime" BO_ 292 20;
+BA_ "GenMsgSendType" BO_ 292 0;
+BA_ "GenMsgCycleTime" BO_ 294 20;
+BA_ "GenMsgSendType" BO_ 294 0;
+BA_ "GenMsgCycleTime" BO_ 293 20;
+BA_ "GenMsgSendType" BO_ 293 0;
+BA_ "GenMsgCycleTime" BO_ 291 20;
+BA_ "GenMsgSendType" BO_ 291 0;
+BA_ "GenMsgCycleTime" BO_ 290 20;
+BA_ "GenMsgSendType" BO_ 290 0;
+BA_ "GenMsgCycleTime" BO_ 289 20;
+BA_ "GenMsgSendType" BO_ 289 0;
+BA_ "GenMsgCycleTime" BO_ 419 50;
+BA_ "GenMsgSendType" BO_ 419 0;
+BA_ "GenMsgCycleTime" BO_ 912 500;
+BA_ "GenMsgSendType" BO_ 912 0;
+BA_ "GenMsgSendType" BO_ 683 0;
+BA_ "GenMsgCycleTime" BO_ 683 200;
+BA_ "GenMsgSendType" BO_ 660 0;
+BA_ "GenMsgCycleTime" BO_ 660 100;
+BA_ "GenMsgSendType" BO_ 310 0;
+BA_ "GenMsgCycleTime" BO_ 310 20;
+BA_ "GenMsgSendType" BO_ 309 0;
+BA_ "GenMsgCycleTime" BO_ 309 20;
+BA_ "GenMsgSendType" BO_ 400 0;
+BA_ "GenMsgCycleTime" BO_ 400 20;
+BA_ "GenMsgCycleTime" BO_ 224 10;
+BA_ "GenMsgSendType" BO_ 224 0;
+BA_ "GenMsgCycleTime" BO_ 641 100;
+BA_ "GenMsgSendType" BO_ 641 0;
+BA_ "GenMsgCycleTime" BO_ 896 200;
+BA_ "GenMsgSendType" BO_ 896 0;
+BA_ "GenSigSendType" SG_ 281 Info4_Rear_Y 1;
+BA_ "GenSigSendType" SG_ 281 Info4_Rear_X 1;
+BA_ "GenSigSendType" SG_ 280 Info_USS_Effect 1;
+BA_ "GenSigSendType" SG_ 280 Info_SlotType 1;
+BA_ "GenSigSendType" SG_ 280 Info_Front_Y 1;
+BA_ "GenSigSendType" SG_ 280 Info_Front_X 1;
+BA_ "GenSigSendType" SG_ 280 Info_Flag 1;
+BA_ "GenSigSendType" SG_ 279 infor2_Width 1;
+BA_ "GenSigSendType" SG_ 279 infor2_theta2 1;
+BA_ "GenSigSendType" SG_ 279 infor2_theta1 1;
+BA_ "GenSigSendType" SG_ 279 infor2_Length 1;
+BA_ "GenSigSendType" SG_ 278 infor1_Y2 1;
+BA_ "GenSigSendType" SG_ 278 infor1_Y1 1;
+BA_ "GenSigSendType" SG_ 278 infor1_X2 1;
+BA_ "GenSigSendType" SG_ 278 infor1_X1 1;
+BA_ "GenSigSendType" SG_ 1961 AVM_PhysDiagRx_Byte7 8;
+BA_ "GenSigSendType" SG_ 1961 AVM_PhysDiagRx_Byte6 8;
+BA_ "GenSigSendType" SG_ 1961 AVM_PhysDiagRx_Byte5 8;
+BA_ "GenSigSendType" SG_ 1961 AVM_PhysDiagRx_Byte4 8;
+BA_ "GenSigSendType" SG_ 1961 AVM_PhysDiagRx_Byte3 8;
+BA_ "GenSigSendType" SG_ 1961 AVM_PhysDiagRx_Byte2 8;
+BA_ "GenSigSendType" SG_ 1961 AVM_PhysDiagRx_Byte1 8;
+BA_ "GenSigSendType" SG_ 1961 AVM_PhysDiagRx_Byte0 8;
+BA_ "GenSigSendType" SG_ 1953 GW_PhysDiagTx_Byte7 8;
+BA_ "GenSigSendType" SG_ 1953 GW_PhysDiagTx_Byte6 8;
+BA_ "GenSigSendType" SG_ 1953 GW_PhysDiagTx_Byte5 8;
+BA_ "GenSigSendType" SG_ 1953 GW_PhysDiagTx_Byte4 8;
+BA_ "GenSigSendType" SG_ 1953 GW_PhysDiagTx_Byte3 8;
+BA_ "GenSigSendType" SG_ 1953 GW_PhysDiagTx_Byte2 8;
+BA_ "GenSigSendType" SG_ 1953 GW_PhysDiagTx_Byte1 8;
+BA_ "GenSigSendType" SG_ 1953 GW_PhysDiagTx_Byte0 8;
+BA_ "SystemSignalLongSymbol" SG_ 406 PAS_APA_ParkingMarkSts_AliveCoun "PAS_APA_ParkingMarkSts_AliveCounter";
+BA_ "GenSigStartValue" SG_ 406 PAS_APA_StoppedAngle 50;
+BA_ "GenSigStartValue" SG_ 406 PAS_APA_StoppedCy 2000;
+BA_ "GenSigStartValue" SG_ 406 PAS_APA_StoppedCx 2000;
+BA_ "SystemSignalLongSymbol" SG_ 405 PAS_APA_DistValueRear_AliveCount "PAS_APA_DistValueRear_AliveCounter";
+BA_ "SystemSignalLongSymbol" SG_ 404 PAS_APA_DistValueFront_AliveCoun "PAS_APA_DistValueFront_AliveCounter";
+BA_ "SystemSignalLongSymbol" SG_ 403 PAS_APA_ParkingMarkCD_AliveCount "PAS_APA_ParkingMarkCD_AliveCounter";
+BA_ "SystemSignalLongSymbol" SG_ 402 PAS_APA_ParkingMarkAB_AliveCount "PAS_APA_ParkingMarkAB_AliveCounter";
+BA_ "GenSigStartValue" SG_ 305 YRS_LongitAcce 2000;
+BA_ "GenSigStartValue" SG_ 304 YRS_YawRate 18000;
+BA_ "GenSigStartValue" SG_ 304 YRS_LateralAcce 2000;
+BA_ "SystemSignalLongSymbol" SG_ 291 ESC_RearWheelSpeedsKPH_AliveCoun "ESC_RearWheelSpeedsKPH_AliveCounter";
+BA_ "SystemSignalLongSymbol" SG_ 290 ESC_FrontWheelSpeedsKPH_AliveCou "ESC_FrontWheelSpeedsKPH_AliveCounter";
+BA_ "GenSigStartValue" SG_ 289 ESC_VLC_InternalTargetACCelerati 140;
+BA_ "SystemSignalLongSymbol" SG_ 289 ESC_VLC_InternalTargetACCelerati "ESC_VLC_InternalTargetACCeleration";
+BA_ "SystemSignalLongSymbol" SG_ 289 ESC_VLC_TorqueRequest_AliveCount "ESC_VLC_TorqueRequest_AliveCounter";
+VAL_ 482 PEPS_PowerModeValidity_1E2 2 "0x2: Valid" 1 "0x1: Invalid" ;
+VAL_ 482 PEPS_PowerMode_1E2 4 "0x4:START" 2 "0x2:ON" 1 "0x1:ACC" 0 "0x0:OFF" ;
+VAL_ 686 MMI_AVM_TrunningEnterAVMFuncSet 2 "0x2 : On" 1 "0x1 : Off" 0 "0x0:No Request" ;
+VAL_ 686 MMI_AVM_CarIconColorSet 5 "银色" 4 "黑色" 3 "白色" 2 "红色" 1 "蓝色" 0 "0x0:No Request" ;
+VAL_ 686 MMI_AVM_SoftKeyRequest 2 "0x2 : AVM Exit " 1 "0x1: AVM Enter" 0 "0x0:No Request" ;
+VAL_ 686 MMI_AVMPDEnableRequest 2 "0x2: On" 1 "0x1: Off" 0 "0x0:No Request" ;
+VAL_ 686 MMI_AVMMODEnableRequest 2 "0x2: On" 1 "0x1: Off" 0 "0x0:No Request" ;
+VAL_ 686 MMI_DynamicPGSRequest 2 "0x2: On" 1 "0x1: Off" 0 "0x0:No Request" ;
+VAL_ 680 MMI_APA_PopWindowsButton 2 "0x2: Cancel pressed " 1 "0x1: OK pressed" 0 "0x0: no pressed" ;
+VAL_ 680 MMI_APA_AutoDetect 1 "0x1: OFF" 0 "0x0: ON" ;
+VAL_ 680 MMI_PSC_Function_Select 3 "0x3: diagonal Button Press  " 2 "0x2: cPSC Button Press   " 1 "0x1: pPSC Button Press" 0 "0x0: No Button Press " ;
+VAL_ 680 MMI_APA_ConfirmButton 2 "0x2: Terminated Button Press" 1 "0x1: Comfirm Button Press" 0 "0x0: No Button Press" ;
+VAL_ 680 MMI_APA_MechanicalPark 1 "0x1: OFF" 0 "0x0: ON  jixieku" ;
+VAL_ 680 MMI_APA_Function_Select 2 "0x2: POC Button Press " 1 "0x1: PSC Button Press  " 0 "0x0: No Button Press " ;
+VAL_ 764 PEPS_PowerMode 4 "0x4:START" 2 "0x2:ON" 1 "0x1:ACC" 0 "0x0:OFF" ;
+VAL_ 764 PEPS_PowerModeValidity 2 "0x2: Valid" 1 "0x1: Invalid" ;
+VAL_ 608 IPK_LCA_EnableStatus 2 "0x2: ON Request " 1 "0x1: OFF Request" 0 "0x0: No Action " ;
+VAL_ 646 PDM_RearRightDoorAjarStatus 1 "0x1: DoorAjar" 0 "0x0: DoorClosed" ;
+VAL_ 646 PDM_FrontRightDoorAjarStatus 1 "0x1: DoorAjar" 0 "0x0: DoorClosed" ;
+VAL_ 645 DDM_RearLeftDoorAjarStatus 1 "0x1: DoorAjar" 0 "0x0: DoorClosed" ;
+VAL_ 645 DDM_FrontLeftDoorAjarStatus 1 "0x1: DoorAjar" 0 "0x0: DoorClosed" ;
+VAL_ 644 BCM_TrunkAjarStatus 1 "0x1: TrunkAjar　" 0 "0x0: TrunkClosed　" ;
+VAL_ 643 BCM_DM_TargetModeReq 7 "0x7: Reserved" 6 "0x6: ROCK Mode(Reserved)
+" 5 "0x5: Sport+ Mode
+" 4 "0x4: Snow Mode
+" 3 "0x3: Offroad Mode
+" 2 "0x2: Sport Mode
+" 1 "0x1: Eco Mode
+" 0 "0x0: Comfort Mode
+" ;
+VAL_ 496 BCM_RearFogLightSts 1 "0x1: ON" 0 "0x0: OFF" ;
+VAL_ 496 BCM_FrontFogLightSts 1 "0x1: ON" 0 "0x0: OFF" ;
+VAL_ 496 BCM_PositionLightSts 1 "0x1: ON" 0 "0x0: OFF" ;
+VAL_ 496 BCM_HighBeamSts 1 "0x1: ON" 0 "0x0: OFF" ;
+VAL_ 496 BCM_LowBeamSts 1 "0x1: ON" 0 "0x0: OFF" ;
+VAL_ 536 TCU_WarningMsgYellow 1 "0x1: Active" 0 "0x0: Inactive" ;
+VAL_ 536 TCU_WarningMsgRed 1 "0x1: Active" 0 "0x0: Inactive" ;
+VAL_ 275 TCU_ModeGearDisplaySts 31 "0x1F: Invalid" 5 "0x5:  Display M1" 4 "0x4: Display D" 3 "0x3: Display N" 2 "0x2: Display R" 1 "0x1: Display P" 0 "0x0: NO Display" ;
+VAL_ 133 EMS_EngStatus 7 "0x7: Invalid" 6 "0x6: Abnormal
+" 5 "0x5: Reserved
+" 4 "0x4: Reserved
+" 3 "0x3: Running
+" 2 "0x2: Stopping
+" 1 "0x1: Cranking
+" 0 "0x0: Engine Stop
+" ;
+VAL_ 132 EMS_Real_PedalPosition 255 "0xFF: Invalid" 254 "0xFE: Abnormal
+" 251 "0xFB~0xFD: Invalid
+" ;
+VAL_ 132 EMS_Real_PedalPositionInvalid 1 "0x1: Invalid" 0 "0x0: Valid
+" ;
+VAL_ 740 RSRS_DOW_WarningRight 2 "Warning level 2" 1 "Warning level 1" 0 "0x0: No Warning" ;
+VAL_ 740 RSRS_DOW_WarningLeft 2 "Warning level 2" 1 "Warning level 1" 0 "0x0: No Warning" ;
+VAL_ 740 RSRS_RCTA_WarningRight 1 "0x1: Warning ON" 0 "0x0: Warning OFF" ;
+VAL_ 740 RSRS_RCTA_WarningLeft 1 "0x1: Warning ON" 0 "0x0: Warning OFF" ;
+VAL_ 740 RSRS_LCA_WarningRight 2 "Warning level 2" 1 "Warning level 1" 0 "0x0: No Warning" ;
+VAL_ 740 RSRS_LCA_WarningLeft 2 "Warning level 2" 1 "Warning level 1" 0 "0x0: No Warning" ;
+VAL_ 406 PAS_SensorErrorFlag 1 "0x1: Sensor Error" 0 "0x0: No Error
+" ;
+VAL_ 406 PAS_APA_RoadblockTypeF 4 "good_sized(大型)" 3 "Polygonous(多边)" 2 "Squarish(方)" 1 "Circular(圆)" 0 "NO Object" ;
+VAL_ 401 PAS_SVA_WarningInd_Right 2 "0x2: Level 2" 1 "0x1: Level 1" 0 "0x0: No Warning" ;
+VAL_ 401 PAS_SVA_WarningInd_Left 2 "0x2:  Level 2" 1 "0x1:  Level 1
+" 0 "0x0: No Warning" ;
+VAL_ 357 VCU_ePTReady 1 "0x1: PTReady Active" 0 "0x0: PTReady Not Active
+" ;
+VAL_ 357 VCU_ModeGearDisplaySts 31 "0x1F: Invalid" 4 "0x4: Display D" 3 "0x3: Display N" 2 "0x2: Display R" 1 "0x1: Display P" 0 "0x0: NO Display" ;
+VAL_ 359 EPS_APA_SystemStatus 4 "0x4: Fault" 3 "0x3: Active" 2 "0x2: Open" 1 "0x1: Closed" 0 "0x0: Initialize" ;
+VAL_ 305 YRS_LongitSensorState 3 "0x3: Initializing" 2 "0x2: Reserved
+" 1 "0x1: Invalid
+" 0 "0x0: Valid" ;
+VAL_ 304 YRS_LateralSensorState 3 "0x3: Initializing" 2 "0x2: Reserved" 1 "0x1: Invalid" 0 "0x0: Valid" ;
+VAL_ 304 YRS_YawRateSensorState 3 "0x3: Initializing" 2 "0x2: Reserved" 1 "0x1: Invalid" 0 "0x0: Valid" ;
+VAL_ 292 ESC_RRWheelSpeedRCSts 1 "0x1: Invalid" 0 "0x0: Valid
+" ;
+VAL_ 292 ESC_RLWheelSpeedRCSts 1 "0x1: Invalid" 0 "0x0: Valid
+" ;
+VAL_ 292 ESC_FRWheelSpeedRCSts 1 "0x1: Invalid" 0 "0x0: Valid
+" ;
+VAL_ 292 ESC_FLWheelSpeedRCSts 1 "0x1: Invalid" 0 "0x0: Valid
+" ;
+VAL_ 294 ESC_Vehiclestandstill 2 "0x2: Invalid" 1 "0x1: Standstill " 0 "0x0: Not Standstill " ;
+VAL_ 293 ESC_BrakePedalSwitchInvalid 1 "0x1: Invalid " 0 "0x0: Valid 
+" ;
+VAL_ 293 ESC_EPBStatus 2 "0x2: In progress" 1 "0x1: Closed" 0 "Released" ;
+VAL_ 293 ESC_VehicleSpeedInvalid 1 "0x1: Invalid " 0 "0x0: Valid " ;
+VAL_ 293 ESC_ESPFailed 1 "0x1: ESP Failed" 0 "0x0: ESP Normal" ;
+VAL_ 293 ESC_ESPActive 1 "0x1: ESP Active" 0 "0x0: ESP Inactive
+" ;
+VAL_ 293 ESC_TCSActive 1 "0x1: TCS Active" 0 "0x0: TCS Inactive
+" ;
+VAL_ 293 ESC_BrakePedalSwitchStatus 1 "Brake Pedal is active " 0 "Brake Pedal is not active " ;
+VAL_ 293 ESC_ABSActive 1 "0x1: Active " 0 "0x0: Inactive 
+" ;
+VAL_ 419 FRS_ALOD_Status 9 "0x9: Permanent Failure" 8 "0x8: Temporary Failure
+" 7 "0x7: Stand Wait
+" 6 "0x6: Stand Active
+" 5 "0x5: Override
+" 4 "0x4: Brake-Only mode
+" 3 "0x3: Active-Control mode
+" 2 "0x2: Stand-By mode
+" 1 "0x1: Passive mode
+" 0 "0x0: OFF mode
+" ;
+VAL_ 912 PAS_PDC_MODE 6 "0x6: Inhibited" 5 "0x5: System Failure
+" 4 "0x4: Rear Active
+" 3 "0x3: Front Active
+" 2 "0x2: Front Rear Active
+" 1 "0x1: Standby
+" 0 "0x0: Off
+" ;
+VAL_ 683 AVM_BSD_StateResp 1 "0x1: Passive(OFF)" 0 "0x0: Active(ON)" ;
+VAL_ 683 AVM_ViewModeRespExtend 11 "0xB : 3D Right Rear" 10 "0xA : 3D Left Rear" 9 "0x9 : 3D Right Front" 8 "0x8 : 3D Left Front" 7 "0x7 : 3D Right+2D Front" 6 "0x6 : 3D Left+2D Front" 5 "0x5 : 3D Rear+2D Front" 4 "0x4 : 3D Rear + AVM" 3 "0x3 : 3D Left + AVM" 2 "0x2 : 3D Right + AVM" 1 "0x1 : 3D Front+AVM" 0 "0x0: not active" ;
+VAL_ 683 AVM_SoftKeyResponse 1 "0x1 : AVM Exit Response" 0 "0x0: AVM Enter Response" ;
+VAL_ 683 AVM_ControlRequest 5 "0x5:  R gear 保持" 4 "0x4:  overspeed  exit" 3 "0x3:hard switch/turn exit" 2 "0x2: AVM Enter Request by R gear" 1 "0x1: hard switch /turn enter" 0 "0x0:No Request" ;
+VAL_ 683 AVM_BSDRightWaring 2 "0x2: Warning Level2" 1 "0x1: Warning Level1" 0 "0x0: No Warning" ;
+VAL_ 683 AVM_BSDLeftWaring 2 "0x2: Warning Level2" 1 "0x1: Warning Level1" 0 "0x0: No Warning" ;
+VAL_ 683 AVM_ViewModeResp 14 "0xE: Left rear and right rear" 13 "0xD: Left front and right front" 12 "0xC: Rear zoom in" 11 "0xB: Front zoom in" 10 "0xA：high speed view Reserved" 9 "0x9 : 3D View" 6 "0x6:  2D right Rear" 5 "0x5 : 2D Left Rear" 4 "0x4 : Rear + AVM" 3 "0x3 : Left + AVM" 2 "0x2 : Right + AVM" 1 "0x1 : Front + AVM" 0 "0x0: not active" ;
+VAL_ 660 AVM_APA_ParkOutSystemStatus 1 "0x1: Normal" 0 "0x0: Judging" ;
+VAL_ 660 AVM_APA_OverrideReason 4 "0x4:  Overrode by EPB" 3 "0x3: overrode by gear shift
+" 2 "0x2: overrode by vehicle speed
+" 1 "0x1: overrode by steer
+" 0 "0x0: not overrode" ;
+VAL_ 660 AVM_APA_AbortReason 26 "0x1A:Interrupt num over thresh" 25 "0x19:Currentstepnum over thresh" 24 "0x18:APS time out" 23 "0x17:Vehicle speed over thresh" 22 "0x16:  vehicle driver mode" 21 "0X15: ACC or ICC active" 20 "0x14: ESC active (ABS, TCS, ESP)" 19 "0x13: SAS not calibrated" 18 "0x12: invalid lateral accel sig" 17 "0x11: invalid longi accel signal" 16 "0x10: invalid yaw rate signal" 15 "0x0F: invalid brake pedal SwiSta" 14 "0x0E: invalid vehicle speed" 13 "0x0D: invalid wheel pulse CouSig" 12 "0x0C: invalid wheel speed signal" 11 "0x0B: invalid accel pedal posi" 10 "0x0A: engine off" 9 "0x09: APS internal failure" 8 "0x08: IHU failure" 7 "0x07: SAS failure" 6 "0x06: EMS failure" 5 "0x05: PAS failure" 4 "0x04: ACU failure" 3 "0x03: TCU failure" 2 "0x02: ESC failure" 1 "0x01: EPS failure" 0 "0x00: No fault " ;
+VAL_ 660 AVM_APA_SuspendedReason 7 "0x7: EPB locked" 6 "0x6: seat belt released" 5 "0x5: mirror fold" 4 "0x4: trunk open" 3 "0x3: any door open" 2 "0x2: obstacle on path" 1 "0x1: APS switch release" 0 "0x0: not suspended" ;
+VAL_ 660 AVM_APA_ParkOutChkResult 1 "0x1: OK" 0 "0x0: NOK" ;
+VAL_ 660 AVM_APA_AutoSearchSts 6 "0x6:forbidden by veh driver mode" 5 "0x5:search forbidden by ACC/ICC" 4 "0x4:search completed" 3 "0x3:waiting for driver confirm" 2 "0x2:waiting for vehicle stop" 1 "0x1:slot searching" 0 "0x0:not in search mode " ;
+VAL_ 660 AVM_APA_SystemSts 7 "0x7: Invalid" 6 "0x6: Terminated" 5 "0x5: Failure" 4 "0x4: Completed" 3 "0x3: Guidance active" 2 "0x2: Searching" 1 "0x1: Standby" 0 "0x0: Off" ;
+VAL_ 310 AVM_APA_GearRequest 4 "0x4: Target gear D" 3 "0x3: Target gear N
+" 2 "0x2: Target gear R
+" 1 "0x1: Target gear P
+" 0 "0x0: No Request" ;
+VAL_ 224 SAS_FailureSts 1 "0x1: Valid " 0 "0x0: Invalid" ;
+VAL_ 224 SAS_CalibrationSts 1 "0x1: Sensor calibrated" 0 "0x0: Sensor not calibrated" ;
+VAL_ 641 TCM_Req_TurnIndicationAct 3 "0x3: Invalid" 2 "0x2: Turn Right" 1 "0x1: Turn Left" 0 "0x0: Default" ;
+VAL_ 896 ACU_DrvSeatbeltBucklestatus 1 "0x1: Safety belt not tied" 0 "0x0: Safety belt tied" ;
+VAL_ MMI_TurnningEnterAVMSwitch 2 "0x2: on" 1 "0x1: off" 0 "0x0: no request" ;
+VAL_ Configuration_Diag 14 "VCU" 13 "TCU" 12 "APS_AVM_BSD_8AT" 10 "APS_AVM_BSD_6AT" 9 "APS_AVM_BSD_MT" 11 "APS_AVM_BSD_7DCT" 8 "AVM_BSD_8AT" 7 "AVM_BSD_7DCT" 6 "AVM_BSD_6AT" 5 "AVM_BSD_MT" 4 "APS_RSRS_8AT" 3 "APS_RSRS_7DCT" 2 "APS_RSRS_6AT" 1 "APS_RSRS_MT" 0 "No Request" ;
+VAL_ MMI_AVMViewModeSwitch_1 12 "3D Right Rear" 11 "3D Left Rear" 10 "3D Right Front" 9 "3D Left Front" 6 "3D Rear" 5 "3D Front" 4 "left rear_right rear" 3 "left front_right front " 2 "rear zoom" 1 "front zoom" 0 "0x0: No press" ;
+VAL_ MMI_AVMViewAngleSwitch 4 "right" 3 "left" 2 "Rear" 1 "Front" 0 "0x0: No press" ;
+VAL_ MMI_AVM_SoftKeyRequest 2 "0x2 : AVM Exit " 1 "0x1: AVM Enter" 0 "0x0:No Request" ;
+VAL_ MMI_AVM_CarIconColorSet 5 "银色" 4 "黑色" 3 "白色" 2 "红色" 1 "蓝色" 0 "0x0:No Request" ;
+VAL_ Enter_Exit_3D 2 "Exit 3D" 1 "Enter 3D" 0 "no request" ;
+VAL_ GearShift_D_R 1 "on" 0 "off" ;
+VAL_ BlindFillSwitch 1 "on" 0 "off" ;
+VAL_ RCParking 3 "continue" 2 "parking pause" 1 "start parking" 0 "init to 0" ;
+VAL_ ControlRadarParkingType 7 "only_C_D_right" 6 "only_C_D_left" 5 "parallel_right" 4 "parallel_left" 3 "perpendicular_right" 2 "perpendicular_left" 1 "Init" 0 "no request" ;
+VAL_ WheelAngleChangeSpeedSwitch 1 "on" 0 "off" ;
+VAL_ ControlWheelSteerChange 1 "on" 0 "off" ;
+VAL_ ControlOverSpeed 1 "on" 0 "off" ;
+VAL_ Parkout_RadarInitSwitch 15 "no request" 14 "avm mode" 13 "160CM" 12 "150CM" 11 "140CM" 10 "130CM" 9 "120CM" 8 "110CM" 7 "100CM" 6 "90CM" 5 "80CM" 4 "70CM" 3 "60CM" 2 "50CM" 1 "40CM" 0 "30CM" ;
+VAL_ Radar_InitStatus 3 "NOK_big" 2 "NOK_small" 1 "OK" 0 "No request" ;
+VAL_ ACC_Status 3 "Start" 2 "ACC" 1 "ACC OFF" 0 "ACC ON" ;
+VAL_ ControlSpeedChangeSwitch 1 "on" 0 "off" ;
+VAL_ ControlYawrate 1 "on" 0 "off" ;
+VAL_ ControlBlindFill 1 "on" 0 "off" ;
+

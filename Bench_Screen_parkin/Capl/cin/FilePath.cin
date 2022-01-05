@@ -1,0 +1,7 @@
+/*@!Encoding:936*/
+variables
+{
+	const long Size       = 1000 ;
+	char FilePath[ Size ] = "..\\Base_Template";
+	char USBUpgradeOpenFilePath[30] = "D:\\USBupgrade\\Progressbar.txt";
+}

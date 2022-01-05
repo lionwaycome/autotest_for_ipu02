@@ -1,0 +1,17 @@
+/*@!Encoding:936*/
+includes
+{
+  
+}
+
+variables
+{
+  
+}
+on start
+{
+  $YRS_YawRateSensorState=0;
+  $YRS_LateralSensorState=0;
+  $YRS_LateralAcce=0;
+  $YRS_YawRate=0;
+}

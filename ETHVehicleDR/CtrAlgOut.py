@@ -1,0 +1,54 @@
+from ctypes import *
+
+class stCtrAlgOut2Mcu(Structure):
+    _fields_ = [("APA_Terminate_type",c_ubyte),\
+                ("APA_AlgorithmSts",c_ubyte),\
+                ("RPA_Terminate_type",c_ubyte),\
+                ("RPA_AlgorithmSts",c_ubyte),\
+                ("RPP_Terminate_type",c_ubyte),\
+                ("RPP_AlgorithmSts",c_ubyte),\
+                ("HPP_APA_Terminate_type",c_ubyte),\
+                ("HPP_APA_AlgorithmSts",c_ubyte),\
+                ("ParkingOutToRoad_Status",c_ubyte),\
+                ("UNDO_Status",c_ubyte),\
+                ("APA_SetSteeringWheelAng",c_float),\
+                ("APA_VLCAxTarAim",c_float),\
+                ("APA_VLCAxTarUpperComfBand",c_float),\
+                ("APA_VLCAxTarLowerComfBand",c_float),\
+                ("APA_StopDistance",c_float),\
+                ("APA_VLCdAxTarUpperLimit",c_float),\
+                ("APA_BrakePreferred",c_ubyte),\
+                ("APA_VLCdAxTarLowerLimit",c_float),\
+                ("APA_DriverOffReq",c_ubyte),\
+                ("APA_VLCModeReq",c_ubyte),\
+                ("APA_StandstillReq",c_ubyte),\
+                ("APA_EmergencyBrakeReq",c_ubyte),\
+                ("APA_GearRequest",c_ubyte),\
+                ("APA_Slot_Rloction_Req",c_ubyte),\
+                ("APA_Process_bar",c_ubyte),\
+                ("APA_tracking_end_x",c_float),\
+                ("APA_tracking_end_y",c_float),\
+                ("APA_tracking_end_yaw",c_float),\
+                ("APA_CurrentPathNum",c_ubyte),\
+                ("APA_TotalPathNum",c_ubyte),\
+                ("PosX",c_float),\
+                ("PosY",c_float),\
+                ("PosAng",c_float),\
+                ("ParkingInGlobalStopPt_x",c_int),\
+                ("ParkingInGlobalStopPt_x",c_int),\
+                ("ParkingInGlobalStopPt_yaw",c_float),\
+                ("ALG_Factor1_Out",c_float),\
+                ("ALG_Factor2_Out",c_float),\
+                ("ALG_Factor3_Out",c_float),\
+                ("TimeCounter",c_int),\
+                ("AlgDebug1",c_float),\
+                ("AlgDebug2",c_float),\
+                ("AlgDebug3",c_float),\
+                ("AlgDebug4",c_float),\
+                ("AlgDebug5",c_float),\
+                ("AlgDebug6",c_float),\
+                ("AlgDebug7",c_float),\
+                ("AlgDebug8",c_float),\
+                ("AlgDebug9",c_float),\
+                ("AlgDebug10",c_float)]
+#print(sizeof(stCtrAlgOut2Mcu))

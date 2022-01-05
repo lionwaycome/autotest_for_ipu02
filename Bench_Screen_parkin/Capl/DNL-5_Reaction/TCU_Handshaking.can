@@ -1,0 +1,61 @@
+/*@!Encoding:936*/
+includes
+{
+  
+}
+
+variables
+{
+  
+}
+
+on start
+{
+  //$PEPS_PowerMode=0x2;
+  $PEPS_PowerModeValidity=0x2;
+  //$GW::EMS_EngineRPM::EMS_EngStatus=3;
+}
+//*************************************Auto parking gear request********************************//
+on signal AVM_APA_GearRequest
+{ //terminal 6,change gear;握手，正常泊车，中断换档
+  if(($DrvrAsscSysSts==4||$DrvrAsscSysSts==3|| $DrvrAsscSysSts==7)&& $AVM_APA_GearBoxEnable==1)//for park in or park out
+  {
+    if($AVM_APA_GearRequest == 4)
+     {
+       $TCU_ModeGearDisplaySts = 4;
+       if($AVM_APS::AVM_APAStatus::AVM_APA_AutoSearchSts==4)
+       write("TCU:modegear is D,park in");
+       else
+       write("TCU:modegear is D,park out");
+     }
+    else if($AVM_APA_GearRequest==1)
+     {
+       $TCU_ModeGearDisplaySts=1;
+       if($AVM_APS::AVM_APAStatus::AVM_APA_AutoSearchSts==4)
+       write("TCU:modegear is P,park in");
+       else
+       write("TCU:modegear is P,park out"); 
+     }
+    else if($AVM_APA_GearRequest==2)
+     {
+       $TCU_ModeGearDisplaySts=2;
+       if($AVM_APS::AVM_APAStatus::AVM_APA_AutoSearchSts==4)
+       write("TCU:modegear is R,park in");
+       else
+       write("TCU:modegear is R,park out"); 
+     }
+    else if($AVM_APA_GearRequest==3)
+     {
+       $TCU_ModeGearDisplaySts=3;
+       if($AVM_APS::AVM_APAStatus::AVM_APA_AutoSearchSts==4)
+       write("TCU:modegear is N,park in");
+       else
+       write("TCU:modegear is N,park out"); 
+     }
+    else
+       write("TCU:modegear, no request or invalid or reserved");
+  }
+  else
+    write("TCU:not in APS or env error !");
+}
+//**************************************End*************************************//

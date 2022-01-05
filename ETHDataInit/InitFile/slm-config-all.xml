@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SLM:system xmlns:SLM="SLM">
+
+    <!-- enter module start -->
+    <SLM:module name="start-enter">
+	    <SLM:member>start-first</SLM:member> 
+		<SLM:member>start-second</SLM:member>
+    </SLM:module>
+    <!-- enter module end -->
+
+    <!-- first module start -->
+    <SLM:module name="start-first">
+	    <SLM:member>mqueue</SLM:member>
+		<SLM:member>mtouch</SLM:member>
+	    <SLM:member>svp.svc.bridge</SLM:member>
+		<SLM:member>avm3d_service</SLM:member>
+		<SLM:member>avm3d_app</SLM:member>
+	    <SLM:member>vx_desay_dispatch.out</SLM:member>
+		<SLM:member>uds_app</SLM:member>
+		<SLM:member>syslog</SLM:member>
+		<!--SLM:member>slog2logcat</SLM:member-->
+		<SLM:member>mcu2logcat1</SLM:member>
+		<SLM:member>mcu2logcat2</SLM:member>
+		<SLM:member>mcu2logcat3</SLM:member>
+		<SLM:member>mcu2logcat4</SLM:member>
+    </SLM:module>
+	
+    <SLM:component name="mqueue">
+        <SLM:command>/sbin/mqueue</SLM:command>
+    </SLM:component>
+	
+    <SLM:component name="early_start">
+        <SLM:command launch="builtin">no_op</SLM:command>
+		<SLM:waitfor wait="pathname" polltime="10:15000">/dev/shmem/net_started</SLM:waitfor>
+    </SLM:component>
+	
+    <SLM:component name="avm3d_service">
+        <SLM:command>/svp/bin/avm3d_service</SLM:command>
+		<SLM:priority>19r</SLM:priority>
+		<SLM:depend>early_start</SLM:depend>
+		<SLM:depend>mqueue</SLM:depend>
+		<SLM:depend>pps</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+    </SLM:component>
+	
+    <SLM:component name="vx_desay_dispatch.out">
+        <SLM:command>/vision_apps/vx_desay_dispatch.out</SLM:command>
+		<SLM:priority>20r</SLM:priority>
+		<SLM:depend>mqueue</SLM:depend>
+		<SLM:depend>early_start</SLM:depend>
+		<SLM:depend>delay-1</SLM:depend>
+		<SLM:depend>pps</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+    </SLM:component>
+	
+    <SLM:component name="svp.svc.bridge">
+        <SLM:command>/svp/bin/svp.svc.bridge</SLM:command>
+		<SLM:priority>19r</SLM:priority>
+		<SLM:depend>early_start</SLM:depend>
+		<SLM:depend>pps</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+    </SLM:component>
+	
+    <SLM:component name="init_qdb">
+        <SLM:command launch="builtin">no_op</SLM:command>
+		<SLM:waitfor wait="pathname" polltime="10:15000">/dev/shmem/qdb</SLM:waitfor>
+    </SLM:component>
+	<SLM:component name="pps">
+        <SLM:command launch="builtin">no_op</SLM:command>
+		<SLM:waitfor wait="pathname" polltime="10:15000">/pps</SLM:waitfor>
+    </SLM:component>
+    <SLM:component name="avm3d_app">
+        <SLM:command>/svp/bin/avm3d_app</SLM:command>
+		<SLM:depend>avm3d_service</SLM:depend>
+		<SLM:depend>mtouch</SLM:depend>
+		<SLM:depend>init_qdb</SLM:depend>
+		<SLM:priority>19r</SLM:priority>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+    </SLM:component>
+	
+	<SLM:component name="uds_app">
+		<SLM:command>/svp/bin/uds_app</SLM:command>
+		<SLM:depend>svp.svc.bridge</SLM:depend>
+		<SLM:priority>20r</SLM:priority>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+	
+	<SLM:component name="mount_asix">
+		<SLM:command>/proc/boot/mount</SLM:command>
+		<SLM:args>-T io-pkt /lib/dll/devnp-asix.so</SLM:args>
+	</SLM:component>
+
+	<SLM:component name="syslog">
+		<SLM:command>/scripts/syslog.sh</SLM:command>
+		<SLM:waitfor wait="exits"></SLM:waitfor>
+	</SLM:component>
+
+	<SLM:component name="slog2logcat">
+		<SLM:command>/svp/bin/slog2logcat</SLM:command>
+		<SLM:args>-b console,svp.svc.hpp,svp.svc.bridge,avm3d_app,avp_app -n -s PATH -g</SLM:args>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+
+    <SLM:component name="mcu2logcat1">
+        <SLM:command>/svp/bin/mcu2logcat</SLM:command>
+        <SLM:args>-d AC004000 -f sv_mcu_1_0 -s PATH -c</SLM:args>
+        <SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+        <SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+    </SLM:component>
+
+    <SLM:component name="mcu2logcat2">
+        <SLM:command>/svp/bin/mcu2logcat</SLM:command>
+        <SLM:args>-d AC014000 -f sv_mcu_3_0 -s PATH -c</SLM:args>
+        <SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+        <SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+    </SLM:component>
+
+    <SLM:component name="mcu2logcat3">
+        <SLM:command>/svp/bin/mcu2logcat</SLM:command>
+        <SLM:args>-d AC00C000 -f sv_mcu_2_0 -s PATH -c</SLM:args>
+        <SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+        <SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+    </SLM:component>
+
+    <SLM:component name="mcu2logcat4">
+        <SLM:command>/svp/bin/mcu2logcat</SLM:command>
+        <SLM:args>-d AC010000 -f sv_mcu_2_1 -s PATH -c</SLM:args>
+        <SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+        <SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+    </SLM:component>
+
+    <!-- first module end -->
+	
+	<!-- second module start -->
+    <SLM:module name="start-second">
+		<SLM:member>https_service</SLM:member>
+		<SLM:member>avm3d_gui</SLM:member>
+		<SLM:member>link_manager</SLM:member>
+		<SLM:member>avp_app</SLM:member>
+		<SLM:member>usblauncher_otg</SLM:member>
+		<SLM:member>ErrMService</SLM:member>
+		<SLM:member>update_service</SLM:member>
+		<SLM:member>power_service</SLM:member>
+		<!--SLM:member>mount_asix</SLM:member-->
+		<SLM:member>io-hid</SLM:member>
+		<SLM:member>vx_desay_func</SLM:member>
+		<SLM:member>sshd_init</SLM:member>
+		<SLM:member>devc-pty</SLM:member>
+		<SLM:member>dumper</SLM:member>
+		<SLM:member>ethernet_service</SLM:member>
+		<SLM:member>vx_rtp.out</SLM:member>
+		<SLM:member>hpp</SLM:member>
+		<!--SLM:member>fusion</SLM:member-->
+		<SLM:member>LogService</SLM:member>
+		<SLM:member>ExeMService</SLM:member>
+		<SLM:member>svp.svc.udptest</SLM:member>
+    </SLM:module>
+
+	<SLM:component name="avm3d_gui">
+        <SLM:command>/svp/bin/avm3d_gui</SLM:command>
+		<SLM:depend>avm3d_service</SLM:depend>
+		<SLM:depend>mtouch</SLM:depend>
+		<!--SLM:priority>19r</SLM:priority-->
+		<!--SLM:depend>delay-6</SLM:depend-->
+		<SLM:depend>init_qdb</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+    </SLM:component>
+
+    <SLM:component name="io-hid">
+        <SLM:command>/sbin/io-hid</SLM:command>
+        <SLM:args>-d usb</SLM:args>
+		<SLM:depend>delay-9</SLM:depend>
+		<SLM:stdout>/dev/null</SLM:stdout>
+		<SLM:stderr>/dev/null</SLM:stderr>
+    </SLM:component>
+
+	<SLM:component name="mtouch">
+		<SLM:command>/usr/sbin/mtouch</SLM:command>
+		<SLM:args>-c /boot/mtouch.conf</SLM:args>
+		<SLM:stdout>/dev/null</SLM:stdout>
+		<SLM:stderr>/dev/null</SLM:stderr>
+	</SLM:component>
+
+	<SLM:component name="usblauncher_otg">
+		<SLM:command>/bin/usblauncher_otg</SLM:command>
+		<SLM:args>-S 1 -c /etc/usblauncher/rules.lua -M /etc/usblauncher/rules.mnt -m /var/pps -n /dev/usb/io-usb-otg -E -e -0</SLM:args>
+		<SLM:depend>delay-9</SLM:depend>
+		<SLM:stdout>/dev/null</SLM:stdout>
+		<SLM:stderr>/dev/null</SLM:stderr>
+	</SLM:component>
+	
+	<SLM:component name="ErrMService">
+		<SLM:command>/svp/bin/ErrMService</SLM:command>
+		<SLM:depend>delay-9</SLM:depend>
+		<SLM:depend>early_start</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+	
+	<SLM:component name="svp.svc.udptest">
+        <SLM:command>/svp/bin/svp.svc.udptest</SLM:command>
+		<SLM:priority>22r</SLM:priority>
+		<SLM:depend>pps</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+    </SLM:component>
+	
+	<SLM:component name="vx_desay_func">
+		<SLM:command>/vision_apps/vx_desay_func.out</SLM:command>
+		<SLM:depend>early_start</SLM:depend>
+		<SLM:depend>delay-9</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+	
+	<SLM:component name="https_service">
+		<SLM:command>/svp/bin/https_service</SLM:command>
+		<SLM:depend>delay-3</SLM:depend>
+		<SLM:depend>svp.svc.bridge</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+	
+	<SLM:component name="avp_app">
+		<SLM:command>/svp/bin/avp_app</SLM:command>
+		<!--SLM:depend>delay-3</SLM:depend-->
+		<SLM:depend>svp.svc.bridge</SLM:depend>
+		<SLM:depend>init_qdb</SLM:depend>
+		<!--<SLM:depend>hpp</SLM:depend>-->
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+		<SLM:component name="ethernet_service">
+		<SLM:command>/svp/bin/ethernet_service</SLM:command>
+		<SLM:depend>delay-3</SLM:depend>
+		<SLM:depend>early_start</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+
+	<SLM:component name="link_manager">
+		<SLM:command>/svp/bin/link_manager</SLM:command>
+		<SLM:depend>delay-3</SLM:depend>
+		<SLM:depend>early_start</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+	
+	<SLM:component name="update_service">
+		<SLM:command>/svp/bin/update_service</SLM:command>
+		<SLM:depend>delay-9</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+	
+	<SLM:component name="power_service">
+		<SLM:command>/svp/bin/power_service</SLM:command>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+
+	<SLM:component name="LogService">
+		<SLM:command>/svp/bin/LogService</SLM:command>
+		<SLM:depend>delay-9</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+	<SLM:component name="ham">
+		<SLM:command>/usr/bin/ham</SLM:command>
+		<SLM:depend>delay-6</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+	<SLM:component name="ExeMService">
+		<SLM:command>/svp/bin/ExeMService</SLM:command>
+		<SLM:depend>delay-9</SLM:depend>
+		<SLM:depend>ham</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+
+	<SLM:component name="vx_rtp.out">
+		<SLM:command>/vision_apps/vx_rtp.out</SLM:command>
+		<SLM:depend>delay-6</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+	
+	<SLM:component name="devc-pty">
+		<SLM:command>/sbin/devc-pty</SLM:command>
+		<SLM:depend>delay-9</SLM:depend>
+	</SLM:component>
+	
+	<SLM:component name="dumper">
+		<SLM:command>/usr/sbin/dumper</SLM:command>
+		<SLM:args>-d /tmp</SLM:args>
+		<SLM:depend>delay-9</SLM:depend>
+	</SLM:component>
+	<SLM:component name="hpp">
+		<SLM:command>/momenta/hpp/bin/run_hpp.sh</SLM:command>
+		<SLM:priority>30r</SLM:priority>
+		<SLM:depend>svp.svc.bridge</SLM:depend>
+		<SLM:depend>vx_desay_dispatch.out</SLM:depend>
+		<SLM:stdout iomode="a">/storage/hpp_stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/hpp_stdout.log</SLM:stderr>
+		<SLM:waitfor wait="exits"></SLM:waitfor>
+	</SLM:component>
+
+	<SLM:component name="fusion">
+		<SLM:command>/svp/bin/fusion</SLM:command>
+		<SLM:depend>delay-6</SLM:depend>
+		<SLM:stdout iomode="a">/storage/stdout.log</SLM:stdout>
+		<SLM:stderr iomode="a+">/storage/stdout.log</SLM:stderr>
+	</SLM:component>
+
+	<SLM:component name="sshd_init">
+		<SLM:command>/etc/system/config/ssh/sshd_init.sh</SLM:command>
+		<SLM:depend>delay-9</SLM:depend>
+	</SLM:component>
+
+	<SLM:component name="delay-1">
+		<SLM:command>sleep</SLM:command>
+		<SLM:args>1</SLM:args>
+		<SLM:waitfor wait="exits"></SLM:waitfor>
+	</SLM:component>
+
+	<SLM:component name="delay-3">
+		<SLM:command>sleep</SLM:command>
+		<SLM:args>3</SLM:args>
+		<SLM:waitfor wait="exits"></SLM:waitfor>
+	</SLM:component>
+
+	<SLM:component name="delay-6">
+		<SLM:command>sleep</SLM:command>
+		<SLM:args>6</SLM:args>
+		<SLM:waitfor wait="exits"></SLM:waitfor>
+	</SLM:component>
+	
+	<SLM:component name="delay-9">
+		<SLM:command>sleep</SLM:command>
+		<SLM:args>9</SLM:args>
+		<SLM:waitfor wait="exits"></SLM:waitfor>
+	</SLM:component>
+    <!-- second module end -->
+	
+</SLM:system>

@@ -1,0 +1,10 @@
+/*@!Encoding:1252*/
+includes
+{
+  
+}
+
+variables
+{
+  const int COM_TimerDelay = 2000;
+}

@@ -1,0 +1,25 @@
+/*@!Encoding:936*/
+includes
+{
+  
+}
+
+variables
+{
+  mstimer delaytimer0;
+}
+
+on start
+{
+  $SAS_SteerWheelAngle = -780;
+
+  settimer(delaytimer0,10000);
+  
+}
+
+On timer delaytimer0
+{
+  stop();
+}
+
+

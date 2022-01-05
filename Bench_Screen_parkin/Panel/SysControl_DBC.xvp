@@ -1,0 +1,1076 @@
+<?xml version="1.0"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="Panel" Children="Controls" ControlName="Draft">
+    <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl8" Children="Controls" ControlName="Input/Output Box 2">
+      <Property Name="Name">TextBoxControl8</Property>
+      <Property Name="Size">277, 21</Property>
+      <Property Name="Location">493, 561</Property>
+      <Property Name="AlarmUpperTextColor">WindowText</Property>
+      <Property Name="ValueDecimalPlaces">9</Property>
+      <Property Name="AlarmLowerBkgColor">Salmon</Property>
+      <Property Name="ValueDisplay">Double</Property>
+      <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+      <Property Name="AlarmLowerTextColor">WindowText</Property>
+      <Property Name="AlarmGeneralSettings">1;2;-14.5;14.5</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">PinionSteerAgGroupSteerWhlTq:</Property>
+      <Property Name="DescriptionSize">184, 23</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;PinionSteerAgGroupSteerWhlTq;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">19</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StartStopControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="StartStopControl1" Children="Controls" ControlName="Start Stop Control">
+      <Property Name="Name">StartStopControl1</Property>
+      <Property Name="Size">112, 56</Property>
+      <Property Name="Location">19, 11</Property>
+      <Property Name="TabIndex">18</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl3" Children="Controls" ControlName="Input/Output Box">
+      <Property Name="Name">TextBoxControl3</Property>
+      <Property Name="Size">221, 21</Property>
+      <Property Name="Location">19, 131</Property>
+      <Property Name="AlarmUpperTextColor">WindowText</Property>
+      <Property Name="ValueDecimalPlaces">5</Property>
+      <Property Name="AlarmLowerBkgColor">Salmon</Property>
+      <Property Name="ValueDisplay">Double</Property>
+      <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+      <Property Name="AlarmLowerTextColor">WindowText</Property>
+      <Property Name="AlarmGeneralSettings">1;2;0;125.0027</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">WhlSpdCircumlFrntRi:</Property>
+      <Property Name="DescriptionSize">128, 23</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlSpdCircumlFrntWhlSpdCircumlFrntRi;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">17</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl2" Children="Controls" ControlName="Input/Output Box">
+      <Property Name="Name">TextBoxControl2</Property>
+      <Property Name="Size">221, 21</Property>
+      <Property Name="Location">19, 102</Property>
+      <Property Name="AlarmUpperTextColor">WindowText</Property>
+      <Property Name="ValueDecimalPlaces">5</Property>
+      <Property Name="AlarmLowerBkgColor">Salmon</Property>
+      <Property Name="ValueDisplay">Double</Property>
+      <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+      <Property Name="AlarmLowerTextColor">WindowText</Property>
+      <Property Name="AlarmGeneralSettings">1;2;0;125.0027</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">WhlSpdCircumlFrntLe:</Property>
+      <Property Name="DescriptionSize">128, 23</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlSpdCircumlFrntLe;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">17</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl5" Children="Controls" ControlName="Input/Output Box">
+      <Property Name="Name">TextBoxControl5</Property>
+      <Property Name="Size">209, 21</Property>
+      <Property Name="Location">18, 190</Property>
+      <Property Name="AlarmUpperTextColor">WindowText</Property>
+      <Property Name="ValueDecimalPlaces">5</Property>
+      <Property Name="AlarmLowerBkgColor">Salmon</Property>
+      <Property Name="ValueDisplay">Double</Property>
+      <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+      <Property Name="AlarmLowerTextColor">WindowText</Property>
+      <Property Name="AlarmGeneralSettings">1;2;0;125.0027</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">WhlSpdCircumlReRi:</Property>
+      <Property Name="DescriptionSize">116, 23</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlSpdCircumlReRi;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">17</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl4" Children="Controls" ControlName="Input/Output Box">
+      <Property Name="Name">TextBoxControl4</Property>
+      <Property Name="Size">209, 21</Property>
+      <Property Name="Location">18, 160</Property>
+      <Property Name="AlarmUpperTextColor">WindowText</Property>
+      <Property Name="ValueDecimalPlaces">5</Property>
+      <Property Name="AlarmLowerBkgColor">Salmon</Property>
+      <Property Name="ValueDisplay">Double</Property>
+      <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+      <Property Name="AlarmLowerTextColor">WindowText</Property>
+      <Property Name="AlarmGeneralSettings">1;2;0;125.0027</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">WhlSpdCircumlReLe:</Property>
+      <Property Name="DescriptionSize">116, 23</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlSpdCircumlReLe;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">17</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl7" Children="Controls" ControlName="Input/Output Box">
+      <Property Name="Name">TextBoxControl7</Property>
+      <Property Name="Size">221, 21</Property>
+      <Property Name="Location">19, 361</Property>
+      <Property Name="AlarmUpperTextColor">WindowText</Property>
+      <Property Name="ValueDecimalPlaces">5</Property>
+      <Property Name="AlarmLowerBkgColor">Salmon</Property>
+      <Property Name="ValueDisplay">Double</Property>
+      <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+      <Property Name="AlarmLowerTextColor">WindowText</Property>
+      <Property Name="AlarmGeneralSettings">1;2;0;125.0027</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">WhlRotToothCntrReRi:</Property>
+      <Property Name="DescriptionSize">128, 23</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlRotToothCntrReRi;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">17</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl6" Children="Controls" ControlName="Input/Output Box">
+      <Property Name="Name">TextBoxControl6</Property>
+      <Property Name="Size">221, 21</Property>
+      <Property Name="Location">19, 332</Property>
+      <Property Name="AlarmUpperTextColor">WindowText</Property>
+      <Property Name="ValueDecimalPlaces">5</Property>
+      <Property Name="AlarmLowerBkgColor">Salmon</Property>
+      <Property Name="ValueDisplay">Double</Property>
+      <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+      <Property Name="AlarmLowerTextColor">WindowText</Property>
+      <Property Name="AlarmGeneralSettings">1;2;0;125.0027</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">WhlRotToothCntrReLe:</Property>
+      <Property Name="DescriptionSize">128, 23</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlRotToothCntrReLe;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">17</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TextBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="TextBoxControl1" Children="Controls" ControlName="Input/Output Box">
+      <Property Name="Name">TextBoxControl1</Property>
+      <Property Name="Size">166, 21</Property>
+      <Property Name="Location">491, 419</Property>
+      <Property Name="AlarmUpperTextColor">WindowText</Property>
+      <Property Name="ValueDecimalPlaces">5</Property>
+      <Property Name="AlarmLowerBkgColor">Salmon</Property>
+      <Property Name="ValueDisplay">Double</Property>
+      <Property Name="AlarmUpperBkgColor">IndianRed</Property>
+      <Property Name="AlarmLowerTextColor">WindowText</Property>
+      <Property Name="AlarmGeneralSettings">1;2;0;125.0027</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">VehSpdLgtA:</Property>
+      <Property Name="DescriptionSize">73, 23</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;VehSpdLgtA;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">17</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl22" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl22</Property>
+      <Property Name="Size">157, 20</Property>
+      <Property Name="Location">19, 390</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">TrSts:</Property>
+      <Property Name="DescriptionSize">42, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;TrSts;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl28" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl28</Property>
+      <Property Name="Size">231, 20</Property>
+      <Property Name="Location">491, 51</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">MirrFoldStsAtPass:</Property>
+      <Property Name="DescriptionSize">116, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;MirrFoldStsAtPass;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl34" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl34</Property>
+      <Property Name="Size">194, 20</Property>
+      <Property Name="Location">491, 278</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">DoorPassSts:</Property>
+      <Property Name="DescriptionSize">79, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorPassSts;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl27" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl27</Property>
+      <Property Name="Size">225, 20</Property>
+      <Property Name="Location">19, 503</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">VehMtnStVehMtnSt:</Property>
+      <Property Name="DescriptionSize">110, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;VehMtnStVehMtnSt;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl33" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl33</Property>
+      <Property Name="Size">200, 20</Property>
+      <Property Name="Location">491, 222</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">EpbStsEpbSts:</Property>
+      <Property Name="DescriptionSize">85, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;EpbStsEpbSts;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl10" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl10</Property>
+      <Property Name="Size">225, 20</Property>
+      <Property Name="Location">19, 219</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">WhlDirRotlFrntLe:</Property>
+      <Property Name="DescriptionSize">110, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlDirRotlFrntLe;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl39" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl39</Property>
+      <Property Name="Size">169, 20</Property>
+      <Property Name="Location">491, 391</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">HoodSts:</Property>
+      <Property Name="DescriptionSize">54, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;HoodSts;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl16" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl16</Property>
+      <Property Name="Size">243, 20</Property>
+      <Property Name="Location">18, 819</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">SurrndgsObjDetnResp:</Property>
+      <Property Name="DescriptionSize">128, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;SurrndgsObjDetnResp;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl45" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl45</Property>
+      <Property Name="Size">206, 20</Property>
+      <Property Name="Location">492, 819</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">PlaModStsResp:</Property>
+      <Property Name="DescriptionSize">91, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;PlaModStsResp;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl11" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl11</Property>
+      <Property Name="Size">243, 20</Property>
+      <Property Name="Location">18, 763</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">TopVisnDispExtnResp:</Property>
+      <Property Name="DescriptionSize">128, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;TopVisnDispExtnResp;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl44" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl44</Property>
+      <Property Name="Size">262, 20</Property>
+      <Property Name="Location">493, 706</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">TurnEntryAgWideVisResp:</Property>
+      <Property Name="DescriptionSize">147, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;TurnEntryAgWideVisResp;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl15" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl15</Property>
+      <Property Name="Size">212, 20</Property>
+      <Property Name="Location">19, 650</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">VisnAgExtnResp:</Property>
+      <Property Name="DescriptionSize">97, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;VisnAgExtnResp;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl20" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl20</Property>
+      <Property Name="Size">212, 20</Property>
+      <Property Name="Location">19, 275</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">WhlDirRotlReLe:</Property>
+      <Property Name="DescriptionSize">97, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlDirRotlReLe;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl26" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl26</Property>
+      <Property Name="Size">212, 20</Property>
+      <Property Name="Location">19, 446</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">SunRoofPosnSts:</Property>
+      <Property Name="DescriptionSize">97, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;SunRoofPosnSts;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl32" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl32</Property>
+      <Property Name="Size">225, 20</Property>
+      <Property Name="Location">491, 107</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">ExtrLtgStsLoBeam:</Property>
+      <Property Name="DescriptionSize">110, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgStsLoBeam;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl38" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl38</Property>
+      <Property Name="Size">194, 20</Property>
+      <Property Name="Location">491, 335</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">DoorRiReSts:</Property>
+      <Property Name="DescriptionSize">79, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorRiReSts;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl43" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl43</Property>
+      <Property Name="Size">231, 20</Property>
+      <Property Name="Location">492, 763</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">PrkgIndcrLineResp:</Property>
+      <Property Name="DescriptionSize">116, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;PrkgIndcrLineResp;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl9" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl9</Property>
+      <Property Name="Size">243, 20</Property>
+      <Property Name="Location">18, 706</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">ThrDTouringViewResp:</Property>
+      <Property Name="DescriptionSize">128, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;ThrDTouringViewResp;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl42" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl42</Property>
+      <Property Name="Size">206, 20</Property>
+      <Property Name="Location">493, 650</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">VehMdlClrResp:</Property>
+      <Property Name="DescriptionSize">91, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;VehMdlClrResp;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl6" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl6</Property>
+      <Property Name="Size">262, 20</Property>
+      <Property Name="Location">18, 594</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">SwtDispOnAndOffStsResp:</Property>
+      <Property Name="DescriptionSize">147, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;SwtDispOnAndOffStsResp;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl41" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl41</Property>
+      <Property Name="Size">262, 20</Property>
+      <Property Name="Location">492, 734</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">PrkgIndcrLineReqOnOff1:</Property>
+      <Property Name="DescriptionSize">147, 22</Property>
+      <Property Name="SymbolConfiguration">5;16;Signal;;;PrkgIndcrLineReqOnOff1;1;;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl8" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl8</Property>
+      <Property Name="Size">274, 20</Property>
+      <Property Name="Location">18, 678</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">ThrDTouringViewReqOnOff1:</Property>
+      <Property Name="DescriptionSize">159, 22</Property>
+      <Property Name="SymbolConfiguration">5;16;Signal;;;ThrDTouringViewReqOnOff1;1;;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl46" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl46</Property>
+      <Property Name="Size">237, 20</Property>
+      <Property Name="Location">492, 533</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">VisnImgDispModResp:</Property>
+      <Property Name="DescriptionSize">122, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;PAS;PASSafetyCANFD4Fr15;VisnImgDispModResp;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl37" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl37</Property>
+      <Property Name="Size">231, 20</Property>
+      <Property Name="Location">492, 505</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">VisnImgDispModReq:</Property>
+      <Property Name="DescriptionSize">116, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl40" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl40</Property>
+      <Property Name="Size">237, 20</Property>
+      <Property Name="Location">493, 622</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">VehMdlClrReqOnOff1:</Property>
+      <Property Name="DescriptionSize">122, 22</Property>
+      <Property Name="SymbolConfiguration">5;16;Signal;;;VehMdlClrReqOnOff1;1;;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl14" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl14</Property>
+      <Property Name="Size">237, 20</Property>
+      <Property Name="Location">19, 566</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">SwtDispOnAndOffReq:</Property>
+      <Property Name="DescriptionSize">122, 22</Property>
+      <Property Name="SymbolConfiguration">5;16;Signal;;;SwtDispOnAndOffReq;1;;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl25" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl25</Property>
+      <Property Name="Size">231, 20</Property>
+      <Property Name="Location">491, 23</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">MirrFoldStsAtDrvr:</Property>
+      <Property Name="DescriptionSize">116, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;MirrFoldStsAtDrvr;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl31" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl31</Property>
+      <Property Name="Size">194, 20</Property>
+      <Property Name="Location">491, 250</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">DoorDrvrSts:</Property>
+      <Property Name="DescriptionSize">79, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorDrvrSts;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl18" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl18</Property>
+      <Property Name="Size">212, 20</Property>
+      <Property Name="Location">19, 303</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">WhlDirRotlReRi:</Property>
+      <Property Name="DescriptionSize">97, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlDirRotlReRi;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl24" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl24</Property>
+      <Property Name="Size">305, 20</Property>
+      <Property Name="Location">19, 474</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">BltLockStSafeAtDrvrBltLockSt1:</Property>
+      <Property Name="DescriptionSize">190, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;BltLockStSafeAtDrvrBltLockSt1;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl30" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl30</Property>
+      <Property Name="Size">225, 20</Property>
+      <Property Name="Location">491, 194</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">ExtrLtgStsStopLi:</Property>
+      <Property Name="DescriptionSize">110, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgStsStopLi;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl21" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl21</Property>
+      <Property Name="Size">181, 20</Property>
+      <Property Name="Location">492, 791</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">PlaModReq:</Property>
+      <Property Name="DescriptionSize">66, 22</Property>
+      <Property Name="SymbolConfiguration">5;16;Signal;;;PlaModReq;1;;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl13" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl13</Property>
+      <Property Name="Size">274, 20</Property>
+      <Property Name="Location">18, 791</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">SurrndgsObjDetnReqOnOff1:</Property>
+      <Property Name="DescriptionSize">159, 22</Property>
+      <Property Name="SymbolConfiguration">5;16;Signal;;;SurrndgsObjDetnReqOnOff1;1;;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl7" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl7</Property>
+      <Property Name="Size">274, 20</Property>
+      <Property Name="Location">18, 734</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">TopVisnDispExtnReqOnOff1:</Property>
+      <Property Name="DescriptionSize">159, 22</Property>
+      <Property Name="SymbolConfiguration">5;16;Signal;;;TopVisnDispExtnReqOnOff1;1;;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl19" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl19</Property>
+      <Property Name="Size">293, 20</Property>
+      <Property Name="Location">493, 678</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">TurnEntryAgWideVisReqOnOff1:</Property>
+      <Property Name="DescriptionSize">178, 22</Property>
+      <Property Name="SymbolConfiguration">5;16;Signal;;;TurnEntryAgWideVisReqOnOff1;1;;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl36" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl36</Property>
+      <Property Name="Size">262, 20</Property>
+      <Property Name="Location">491, 363</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">AccrPedlPsdAccrPedlPsd:</Property>
+      <Property Name="DescriptionSize">147, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;AccrPedlPsdAccrPedlPsd;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl12" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl12</Property>
+      <Property Name="Size">206, 20</Property>
+      <Property Name="Location">19, 622</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">VisnAgExtnReq:</Property>
+      <Property Name="DescriptionSize">91, 22</Property>
+      <Property Name="SymbolConfiguration">5;16;Signal;;;VisnAgExtnReq;1;;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl17" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl17</Property>
+      <Property Name="Size">225, 20</Property>
+      <Property Name="Location">19, 247</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">WhlDirRotlFrntRi:</Property>
+      <Property Name="DescriptionSize">110, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlDirRotlFrntRi;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl23" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl23</Property>
+      <Property Name="Size">249, 20</Property>
+      <Property Name="Location">19, 418</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">BrkPedlPsdBrkPedlPsd:</Property>
+      <Property Name="DescriptionSize">134, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;BrkPedlPsdBrkPedlPsd;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl29" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl29</Property>
+      <Property Name="Size">225, 20</Property>
+      <Property Name="Location">491, 79</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">ExtrLtgStsHiBeam:</Property>
+      <Property Name="DescriptionSize">110, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgStsHiBeam;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl28" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl28</Property>
+      <Property Name="Size">138, 17</Property>
+      <Property Name="Location">760, 737</Property>
+      <Property Name="Text">PrkgIndcrLineReq_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr09;PrkgIndcrLineReq_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">14</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl35" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl35</Property>
+      <Property Name="Size">194, 20</Property>
+      <Property Name="Location">491, 307</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">DoorLeReSts:</Property>
+      <Property Name="DescriptionSize">79, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorLeReSts;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl9" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl9</Property>
+      <Property Name="Size">150, 17</Property>
+      <Property Name="Location">298, 680</Property>
+      <Property Name="Text">ThrDTouringViewReq_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr09;ThrDTouringViewReq_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">14</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl21" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl21</Property>
+      <Property Name="Size">144, 17</Property>
+      <Property Name="Location">729, 507</Property>
+      <Property Name="Text">VisnImgDispModReq_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;VisnImgDispModReq_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">14</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl23" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl23</Property>
+      <Property Name="Size">114, 17</Property>
+      <Property Name="Location">736, 624</Property>
+      <Property Name="Text">VehMdlClrReq_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr09;VehMdlClrReq_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">14</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl1" Children="Controls" ControlName="Combo Box 3">
+      <Property Name="Name">ComboBoxControl1</Property>
+      <Property Name="Size">200, 20</Property>
+      <Property Name="Location">19, 74</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">GearLvrIndcn:</Property>
+      <Property Name="DescriptionSize">85, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;GearLvrIndcn;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">16</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl5" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl5</Property>
+      <Property Name="Size">150, 17</Property>
+      <Property Name="Location">262, 568</Property>
+      <Property Name="Text">SwtDispOnAndOffReq_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr09;SwtDispOnAndOffReq_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">14</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl31" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl31</Property>
+      <Property Name="Size">150, 17</Property>
+      <Property Name="Location">776, 563</Property>
+      <Property Name="Text">PinionSteerAgGroup_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;PinionSteerAgGroup_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">13</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl3" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl3</Property>
+      <Property Name="Size">78, 17</Property>
+      <Property Name="Location">796, 451</Property>
+      <Property Name="Text">CarMod_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;VehModMngtGlbSafe1_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">13</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl5" Children="Controls" ControlName="Combo Box 2">
+      <Property Name="Name">ComboBoxControl5</Property>
+      <Property Name="Size">293, 20</Property>
+      <Property Name="Location">492, 477</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">VehModMngtGlbSafe1UsgModSts:</Property>
+      <Property Name="DescriptionSize">178, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;VehModMngtGlbSafe1UsgModSts;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">12</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl4" Children="Controls" ControlName="Combo Box 2">
+      <Property Name="Name">ComboBoxControl4</Property>
+      <Property Name="Size">299, 20</Property>
+      <Property Name="Location">491, 448</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">VehModMngtGlbSafe1CarModSts1:</Property>
+      <Property Name="DescriptionSize">184, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;VehModMngtGlbSafe1CarModSts1;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">11</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl3" Children="Controls" ControlName="Combo Box">
+      <Property Name="Name">ComboBoxControl3</Property>
+      <Property Name="Size">249, 20</Property>
+      <Property Name="Location">491, 166</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">ExtrLtgStsTurnIndrRi:</Property>
+      <Property Name="DescriptionSize">134, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgStsTurnIndrRi;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">6</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="ComboBoxControl2" Children="Controls" ControlName="Combo Box">
+      <Property Name="Name">ComboBoxControl2</Property>
+      <Property Name="Size">249, 20</Property>
+      <Property Name="Location">491, 138</Property>
+      <Property Name="DropDownWidth">115</Property>
+      <Property Name="BackColor">Window</Property>
+      <Property Name="ForeColor">WindowText</Property>
+      <Property Name="TextBackColor">White</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionText">ExtrLtgStsTurnIndrLe:</Property>
+      <Property Name="DescriptionSize">134, 22</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgStsTurnIndrLe;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">5</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl25" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl25</Property>
+      <Property Name="Size">108, 17</Property>
+      <Property Name="Location">691, 337</Property>
+      <Property Name="Text">DoorRiReSts_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorRiReSts_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl24" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl24</Property>
+      <Property Name="Size">78, 17</Property>
+      <Property Name="Location">697, 224</Property>
+      <Property Name="Text">EpbSts_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;EpbSts_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl11" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl11</Property>
+      <Property Name="Size">150, 17</Property>
+      <Property Name="Location">298, 793</Property>
+      <Property Name="Text">SurrndgsObjDetnReq_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr09;SurrndgsObjDetnReq_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl18" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl18</Property>
+      <Property Name="Size">96, 17</Property>
+      <Property Name="Location">679, 793</Property>
+      <Property Name="Text">PlaModReq_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr09;PlaModReq_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl35" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl35</Property>
+      <Property Name="Size">90, 17</Property>
+      <Property Name="Location">250, 505</Property>
+      <Property Name="Text">VehMtnSt_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;VehMtnSt_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl7" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl7</Property>
+      <Property Name="Size">150, 17</Property>
+      <Property Name="Location">298, 737</Property>
+      <Property Name="Text">TopVisnDispExtnReq_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr09;TopVisnDispExtnReq_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl15" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl15</Property>
+      <Property Name="Size">168, 17</Property>
+      <Property Name="Location">792, 680</Property>
+      <Property Name="Text">TurnEntryAgWideVisReq_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr09;TurnEntryAgWideVisReq_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl13" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl13</Property>
+      <Property Name="Size">102, 17</Property>
+      <Property Name="Location">274, 420</Property>
+      <Property Name="Text">BrkPedlPsd_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;BrkPedlPsd_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl34" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl34</Property>
+      <Property Name="Size">120, 17</Property>
+      <Property Name="Location">231, 624</Property>
+      <Property Name="Text">VisnAgExtnReq_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr09;VisnAgExtnReq_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl22" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl22</Property>
+      <Property Name="Size">108, 17</Property>
+      <Property Name="Location">691, 309</Property>
+      <Property Name="Text">DoorLeReSts_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorLeReSts_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl32" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl32</Property>
+      <Property Name="Size">156, 17</Property>
+      <Property Name="Location">330, 477</Property>
+      <Property Name="Text">BltLockStSafeAtDrvr_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;BltLockStSafeAtDrvr_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl12" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl12</Property>
+      <Property Name="Size">72, 17</Property>
+      <Property Name="Location">182, 392</Property>
+      <Property Name="Text">TrSts_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;TrSts_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl20" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl20</Property>
+      <Property Name="Size">102, 17</Property>
+      <Property Name="Location">722, 81</Property>
+      <Property Name="Text">ExtrLtgSts_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr06;ExtrLtgSts_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl8" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl8</Property>
+      <Property Name="Size">114, 17</Property>
+      <Property Name="Location">237, 277</Property>
+      <Property Name="Text">WhlDirRotlRe_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlDirRotlRe_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl4" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl4</Property>
+      <Property Name="Size">132, 17</Property>
+      <Property Name="Location">256, 162</Property>
+      <Property Name="Text">WhlSpdCircumlRe_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlSpdCircumlRe_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl19" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl19</Property>
+      <Property Name="Size">108, 17</Property>
+      <Property Name="Location">691, 281</Property>
+      <Property Name="Text">DoorPassSts_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorPassSts_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl30" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl30</Property>
+      <Property Name="Size">96, 17</Property>
+      <Property Name="Location">663, 421</Property>
+      <Property Name="Text">VehSpdLgt_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;VehSpdLgt_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl29" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl29</Property>
+      <Property Name="Size">126, 17</Property>
+      <Property Name="Location">237, 448</Property>
+      <Property Name="Text">SunRoofPosnSts_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;SunRoofPosnSts_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl17" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl17</Property>
+      <Property Name="Size">144, 17</Property>
+      <Property Name="Location">728, 53</Property>
+      <Property Name="Text">MirrFoldStsAtPass_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;MirrFoldStsAtPass_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl16" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl16</Property>
+      <Property Name="Size">108, 17</Property>
+      <Property Name="Location">691, 252</Property>
+      <Property Name="Text">DoorDrvrSts_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;DoorDrvrSts_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl27" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl27</Property>
+      <Property Name="Size">84, 17</Property>
+      <Property Name="Location">666, 393</Property>
+      <Property Name="Text">HoodSts_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;HoodSts_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl10" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl10</Property>
+      <Property Name="Size">132, 17</Property>
+      <Property Name="Location">246, 335</Property>
+      <Property Name="Text">WhlRotToothCntr_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlRotToothCntr_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl26" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl26</Property>
+      <Property Name="Size">108, 17</Property>
+      <Property Name="Location">759, 365</Property>
+      <Property Name="Text">AccrPedlPsd_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr01;AccrPedlPsd_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl6" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl6</Property>
+      <Property Name="Size">126, 17</Property>
+      <Property Name="Location">250, 221</Property>
+      <Property Name="Text">WhlDirRotlFrnt_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlDirRotlFrnt_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl14" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl14</Property>
+      <Property Name="Size">144, 17</Property>
+      <Property Name="Location">728, 25</Property>
+      <Property Name="Text">MirrFoldStsAtDrvr_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr05;MirrFoldStsAtDrvr_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl2" Children="Controls" ControlName="Check Box 2">
+      <Property Name="Name">CheckBoxControl2</Property>
+      <Property Name="Size">144, 17</Property>
+      <Property Name="Location">268, 104</Property>
+      <Property Name="Text">WhlSpdCircumlFrnt_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr03;WhlSpdCircumlFrnt_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">3</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=11.0.42.0, Culture=neutral, PublicKeyToken=null" Name="CheckBoxControl1" Children="Controls" ControlName="Check Box">
+      <Property Name="Name">CheckBoxControl1</Property>
+      <Property Name="Size">114, 17</Property>
+      <Property Name="Location">225, 76</Property>
+      <Property Name="Text">GearLvrIndcn_UB</Property>
+      <Property Name="SymbolConfiguration">5;2;SafetyCANFD4;ASDM;ASDMSafetyCANFD4Fr02;GearLvrIndcn_UB;1;CAN1;;-1;;;</Property>
+      <Property Name="TabIndex">2</Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">976, 862</Property>
+    <Property Name="BackColor">White</Property>
+  </Object>
+</Panel>

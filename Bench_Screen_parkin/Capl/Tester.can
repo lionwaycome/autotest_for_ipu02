@@ -1,0 +1,305 @@
+/*@!Encoding:936*/
+includes
+{
+  
+}
+
+variables
+{
+  long gearN,Vehmove,SteerAgLe,SteerAgRi,SteerStraight,Transmission_Ratio=17;
+  double PrkgAssiAReq,v,s,W,tan,SteerAg;
+  msTimer mt_RCacc_FL,mt_RCacc_FR,mt_RCacc_RL,mt_RCacc_RR,mt_vehmove,mt_gearN,mt_10ms;
+}
+
+on start
+{
+  setTimer(mt_10ms,10);
+}
+
+on sysvar (test::VehSpdLgtA | test::RCRL_ChangeSpeed | test::RCRR_ChangeSpeed)//车速控制轮速脉冲
+{
+  $ESC_VehicleSpeed = @sysvar::test::VehSpdLgtA;
+  $ESC_FLWheelSpeedKPH = @sysvar::test::VehSpdLgtA;
+  $ESC_FRWheelSpeedKPH = @sysvar::test::VehSpdLgtA;
+  $ESC_RLWheelSpeedKPH = @sysvar::test::VehSpdLgtA;
+  $ESC_RRWheelSpeedKPH = @sysvar::test::VehSpdLgtA;
+  if($ESC_EPBStatus ==0 && $ESC_BrakePedalSwitchStatus ==0 && ($TCU_ModeGearDisplaySts == 2 || $TCU_ModeGearDisplaySts == 4 || $TCU_ModeGearDisplaySts == 5))
+  {
+    if(@test::VehSpdLgtA >0)
+    {
+      if(@sysvar::test::RCRL_ChangeSpeed >0 && @sysvar::test::RCRR_ChangeSpeed >0)//判断轮数脉冲增加周期正常
+      {
+        @test::RC_intlRL = (1000 / ((@sysvar::test::VehSpdLgtA)/(1.95936/48))) + @sysvar::test::RCRL_ChangeSpeed;//48齿轮，17寸轮胎轮速脉冲时间间隔计算
+        @test::RC_intlRR = (1000 / ((@sysvar::test::VehSpdLgtA)/(1.95936/48))) + @sysvar::test::RCRR_ChangeSpeed;
+        @test::RC_intlFL = (1000 / ((@sysvar::test::VehSpdLgtA)/(1.95936/48))) + @sysvar::test::RCRL_ChangeSpeed;
+        @test::RC_intlFR = (1000 / ((@sysvar::test::VehSpdLgtA)/(1.95936/48))) + @sysvar::test::RCRR_ChangeSpeed;
+        @test::RCAcc_OnOff = 1;
+        write("RCAcc_On");
+      }
+      else//判断轮数脉冲增加周期异常
+      {
+        writeDbgLevel(1,"RC_intl Error!!!Waiting...");
+      }
+    }
+//******************************优化******************************//
+    else if(@test::VehSpdLgtA ==0)
+    {
+      @test::RCAcc_OnOff = 0;
+      write("RCAcc_Off");
+    }
+  }
+  else if(@test::VehSpdLgtA ==0)
+  {
+    @test::RCAcc_OnOff = 0;
+    write("RCAcc_Off");
+  }
+//******************************优化******************************//
+}
+
+on signal_update SAS_SteerWheelAngle//方向盘转角和轮速脉冲变化关系处理
+{
+  SteerAg = $SAS_SteerWheelAngle;
+  if(SteerAg <= Transmission_Ratio *-1)//1.右转
+  {//轮速脉冲的递增周期RCRL_ChangeSpeed、RCRR_ChangeSpeed，需要调整参数RC_factorX，这个公式原理不清楚。
+    @sysvar::test::RCRL_ChangeSpeed=((SteerAg/@sysvar::test::RC_factor1*@sysvar::test::RC_factor2)/2)+@sysvar::test::RC_factor3;
+    @sysvar::test::RCRR_ChangeSpeed=(-(SteerAg/@sysvar::test::RC_factor4*@sysvar::test::RC_factor5)/2)+@sysvar::test::RC_factor6;
+  }
+  else if(SteerAg >= Transmission_Ratio)//左转
+  {
+    @sysvar::test::RCRL_ChangeSpeed=((SteerAg/@sysvar::test::RC_factor7*@sysvar::test::RC_factor8)/2)+@sysvar::test::RC_factor9;
+    @sysvar::test::RCRR_ChangeSpeed=(-(SteerAg/@sysvar::test::RC_factor10*@sysvar::test::RC_factor11)/2)+@sysvar::test::RC_factor12;
+  }
+  else
+  {
+    @sysvar::test::RCRL_ChangeSpeed = @sysvar::test::RC_factor0;
+    @sysvar::test::RCRR_ChangeSpeed = @sysvar::test::RC_factor0;
+  }
+}
+
+on signal (ESC_VehicleSpeed | TCU_ModeGearDisplaySts | SAS_SteerWheelAngle)//偏航角计算和车辆运动方向关联
+{//阿克曼转向定律转换成偏航角估算
+  v = @sysvar::test::VehSpdLgtA;
+  s = ABS($SAS_SteerWheelAngle)*(PI/180);
+  tan = (sin(s))/(cos(s));
+  W = ((float)((int)((((v*tan)/2.7)*(180/PI))*100)))/100;
+  if(($TCU_ModeGearDisplaySts == 4 && $SAS_SteerWheelAngle >0) || ($TCU_ModeGearDisplaySts == 2 && $SAS_SteerWheelAngle <0))
+  {
+    $AgDataRawSafeYawRate = (((float)((int)(W*100)))/100)*4096;
+  }
+  if(($TCU_ModeGearDisplaySts == 2 && $SAS_SteerWheelAngle >0) || ($TCU_ModeGearDisplaySts == 4 && $SAS_SteerWheelAngle <0))
+  {
+    $AgDataRawSafeYawRate = -(((float)((int)(W*100)))/100)*4096;
+  }
+//******************************档位与车辆运动方向关联******************************//
+  if($TCU_ModeGearDisplaySts ==2 && @sysvar::test::VehSpdLgtA >0)
+  {
+    $ESC_FLWheelDirection = 2;
+    $ESC_FRWheelDirection = 2;
+    $ESC_RLWheelDirection = 2;
+    $ESC_RRWheelDirection = 2;
+    $VehMtnStVehMtnSt = 0;
+  }
+  if($TCU_ModeGearDisplaySts ==4 && @sysvar::test::VehSpdLgtA >0)
+  {
+    $ESC_FLWheelDirection = 1;
+    $ESC_FRWheelDirection = 1;
+    $ESC_RLWheelDirection = 1;
+    $ESC_RRWheelDirection = 1;
+    $VehMtnStVehMtnSt = 0;
+  }
+  if(@sysvar::test::VehSpdLgtA ==0)
+  {
+    $ESC_FLWheelDirection = 1;
+    $ESC_FRWheelDirection = 1;
+    $ESC_RLWheelDirection = 1;
+    $ESC_RRWheelDirection = 1;
+    $VehMtnStVehMtnSt = 1;
+  }
+//******************************档位与车辆运动方向关联******************************//
+}
+
+on signal ESC_BrakePedalSwitchStatus//刹车踏板与车速关联
+{
+  if(this ==1)
+  {
+    if(@sysvar::test::VehSpdLgtA !=0)
+      @sysvar::test::VehSpdLgtA =0;
+  }
+}
+
+on signal ESC_EPBStatus//手刹与车速关联
+{
+  if(this ==1 || this ==2)
+  {
+    if(@sysvar::test::VehSpdLgtA !=0)
+      @sysvar::test::VehSpdLgtA =0;
+  }
+}
+
+on sysvar sysvar::test::RCAcc_OnOff
+{
+  if(@this ==0)
+  {
+    cancelTimer(mt_RCacc_FL);cancelTimer(mt_RCacc_FR);cancelTimer(mt_RCacc_RL);cancelTimer(mt_RCacc_RR);
+  }
+  else if(@this ==1)
+  {
+    settimer(mt_RCacc_FL,0);settimer(mt_RCacc_FR,0);settimer(mt_RCacc_RL,0);settimer(mt_RCacc_RR,0);
+  }
+}
+on timer mt_RCacc_FL
+{
+  $ESC_FLWheelSpeedRC ++;
+  settimer(mt_RCacc_FL,@sysvar::test::RC_intlFL);
+}
+on timer mt_RCacc_FR
+{
+  $ESC_FRWheelSpeedRC ++;
+  settimer(mt_RCacc_FR,@sysvar::test::RC_intlFR);
+}
+on timer mt_RCacc_RL
+{
+  $ESC_RLWheelSpeedRC ++;
+  settimer(mt_RCacc_RL,@test::RC_intlRL);
+}
+on timer mt_RCacc_RR
+{
+  $ESC_RRWheelSpeedRC ++;
+  settimer(mt_RCacc_RR,@test::RC_intlRR);
+}
+
+on signal TCU_ModeGearDisplaySts//档位限制
+{
+  switch(this)
+  {
+    case(1)://挂P档无车速
+      if(@sysvar::test::VehSpdLgtA >0)
+      {
+        @sysvar::test::VehSpdLgtA =0;
+        @test::RCAcc_OnOff =0;
+      }
+      else if(@sysvar::test::VehSpdLgtA ==0)
+      write("Please engage a gear D or R before improve the speed!!!");
+      break;
+    case(3)://挂N档车辆滑行
+      if(@sysvar::test::VehSpdLgtA >0)
+        setTimer(mt_gearN,0);
+      else if(@sysvar::test::VehSpdLgtA ==0)
+        write("Please engage a gear D or R before improve the speed!!!");
+      break;
+  }
+}
+on timer mt_gearN
+{
+  gearN =1;
+  if(@sysvar::test::VehSpdLgtA >1)
+  {
+    @sysvar::test::VehSpdLgtA -=1;
+    setTimer(mt_gearN,50);
+    write("Slow down by gear N!!!");
+  }
+//  else if(@sysvar::test::VehSpdLgtA<=1 || @sysvar::test::VehSpdLgtA>125)
+//  {
+//    gearN =0;
+//    @sysvar::test::VehSpdLgtA =0;
+//    @test::RCAcc_OnOff =0;
+//    write("Please check the Gear N!!!");
+//  }
+}
+
+on signal (DrvrAsscSysSts | ESC_BrakePedalSwitchStatus | AVM_APA_StopDistance)//响应加速度请求
+{
+  if($DrvrAsscSysSts ==4 || $DrvrAsscSysSts ==7)
+  {
+    if($ESC_BrakePedalSwitchStatus ==0)
+    {
+      settimer(mt_vehmove,0);
+    }
+    else if($ESC_BrakePedalSwitchStatus ==1)
+    {
+      cancelTimer(mt_vehmove);
+    }
+  }
+}
+on timer mt_vehmove
+{
+  PrkgAssiAReq = $AVM_APA_VLCAxTarAim*2;//因为减速度请求比加速度请求小了4倍，增加系数2提高减速度
+  if($AVM_APA_StopDistance !=0)
+  {
+    if(@sysvar::test::VehSpdLgtA + PrkgAssiAReq >0)
+    {
+      @sysvar::test::VehSpdLgtA += PrkgAssiAReq;
+    }
+    else if(@sysvar::test::VehSpdLgtA + PrkgAssiAReq <0)
+    {
+      @sysvar::test::VehSpdLgtA =0;
+    }
+    settimer(mt_vehmove,200);
+  }
+  else if($AVM_APA_StopDistance ==0)
+  {
+    @sysvar::test::VehSpdLgtA =0;
+  }
+}
+
+on signal_update (DrvrAsscSysSts | AVM_APA_SetSteeringWheelAng)//响应方向盘请求
+{
+  if($DrvrAsscSysSts ==4 || $DrvrAsscSysSts ==7 || $DrvrAsscSysSts ==9)
+  {
+    $SAS_SteerWheelAngle=$AVM_APA_SetSteeringWheelAng;
+  }
+}
+
+on signal (DrvrAsscSysSts | AVM_APA_GearRequest)//响应档位请求
+{
+  if($DrvrAsscSysSts ==4 || $DrvrAsscSysSts ==5 || $DrvrAsscSysSts ==7 || $DrvrAsscSysSts ==9)
+  {
+    switch($AVM_APA_GearRequest)
+    {
+      case(1):
+        $TCU_ModeGearDisplaySts = 1;
+        $VCU_ModeGearDisplaySts =1;
+        writeDbgLevel(1,"Reaction gear P!");
+        break;
+      case(2):
+        $TCU_ModeGearDisplaySts = 2;
+        $VCU_ModeGearDisplaySts =2;
+        writeDbgLevel(1,"Reaction gear R!");
+        break;
+      case(4):
+        $TCU_ModeGearDisplaySts = 4;
+        $VCU_ModeGearDisplaySts =4;
+        writeDbgLevel(1,"Reaction gear D!");
+        break;
+    }
+  }
+}
+
+on signal (DrvrAsscSysSts | PrkgBrkElectcCtrlReqReq)//响应EPB请求
+{
+  if($DrvrAsscSysSts ==4 || $DrvrAsscSysSts ==5  || $DrvrAsscSysSts ==7 || $DrvrAsscSysSts ==9)
+  {
+    if($PrkgBrkElectcCtrlReqReq==1)
+    {
+      $ESC_EPBStatus=0;
+    }
+    else if($PrkgBrkElectcCtrlReqReq==2)
+    {
+      $ESC_EPBStatus=1;
+    }
+  }
+}
+
+on timer mt_10ms
+{
+  if($ESC_VehicleSpeed < 0.1)
+  {
+    $ESC_Vehiclestandstill = 1;
+  }
+  else
+  {
+    $ESC_Vehiclestandstill = 0;
+  }
+  setTimer(mt_10ms,10);
+}
+

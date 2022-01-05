@@ -1,0 +1,301 @@
+/*@!Encoding:936*/
+/*This is used for GEEA20 E2E Check*/
+includes
+{
+    #include "MYETE.cin"
+}
+
+variables
+{
+  //创建一个数组,用来存储如下信息,从[6]开始,元素的值会随数组而变化
+  //SGArr[0] = SGCheckedNumber,创建一个变量用来记录报文检测（收到）的次数,同时用来表征该报文是否被收到过
+  //SGArr[1] = SGCntrErrNumber,创建一个变量用来记录Cntr出错的次数
+  //SGArr[2] = SGChksErrNumber,创建一个变量用来记录Chks出错的次数
+  //SGArr[3] = SGCntrSequenceErrReportedFlag,创建一个变量用来记录Cntr顺序出错是否被报告过了
+  //SGArr[4] = SGCntrInvalidErrReportedFlag,创建一个变量用来记录Cntr编码出错是否被报告过了
+  //SGArr[5] = SGCntrLastValue,创建一个变量用来记录该报文上一次发送内容中的Cntr值
+  
+  //SGArr[6] = SGUpdateBitPosition,用来记录SignalGroup的UB在报文中的位置
+  //SGArr[7] = SGChksPosition，用来记录SignalGroup的Chks的起始位
+  //SGArr[8] = SGCntrposition,用来记录SignalGroup的Cntr的起始位
+  //SGArr[9] = SGDataID,用来存储SignalGroup的DataID的值
+  //SGArr[10] = FrameID,用来存储SignalGroup所在报文的ID
+  //SGArr[11] = SGUBSet,用来表征SignalGroup的UB是否置位过
+  
+  dword EngRunngReqByParkAssiSigGrpArr[12]={0,0,0,0,0,0,174,183,171,15,96,0};
+  char EngRunngReqByParkAssiSigGrpName[50] = "EngRunngReqByParkAssi";    //存储SignalGroup的名称，在write窗口输出是调用
+  //The items in SigGrp[][3] are: ByteNum,StartBitPosition,SignalLength
+  byte EngRunngReqByParkAssiSigGrpChkdElements[1][3]={
+    {21,5,2} //EngRunngReqByParkAssi1
+  };
+  
+  
+//  dword VehSpdLgtSigGrpArr[12]={0,0,0,0,0,0,271,287,295,55,101,0};
+//  char VehSpdLgtSigGrpName[50] = "VehSpdLgt";
+//  byte VehSpdLgtSigGrpChkdElements[3][3]={
+//    {34,7,8},
+//    {33,6,7},
+//    {36,3,2}
+//  };  
+  
+  
+  dword PrkgStandstillReqSigGrpArr[12]={0,0,0,0,0,0,82,79,87,451,96,0};
+  char PrkgStandstillReqSigGrpName[50] = "PrkgStandstillReq";
+  byte PrkgStandStillReqSigGrpChkdElements[1][3]={
+    {10,3,1} //PrkgStandstillReqReqSts1
+  };
+  
+  
+  dword GearPrkgAssiReqGroupSigGrpArr[12]={0,0,0,0,0,0,25,23,31,2,96,0};
+  char GearPrkgAssiReqGroupSigGrpName[50] = "GearPrkgAssiReqGroup";    //存储SignalGroup的名称，在write窗口输出是调用
+  //The items in SigGrp[][3] are: ByteNum,StartBitPosition,SignalLength
+  byte GearPrkgAssiReqGroupSigGrpChkdElements[1][3]={
+    {3,3,2} //GearPrkgAssiReqGroupGearPrkgAssiReq1
+  };
+
+
+  dword MobDevRPAAuthentReqSigGrpArr[12]={0,0,0,0,0,0,191,199,187,5100,96,0};
+  char MobDevRPAAuthentReqSigGrpName[50] = "MobDevRPAAuthentReq";    //存储SignalGroup的名称，在write窗口输出是调用
+  //The items in SigGrp[][3] are: ByteNum,StartBitPosition,SignalLength
+  byte MobDevRPAAuthentReqSigGrpChkdElements[3][3]={
+    {23,6,3}, //MobDevRPAAuthentReqAuthentSts
+    {25,7,8}, //MobDevRPAAuthentReqRndX
+    {26,7,8}  //MobDevRPAAuthentReqRndY
+  };
+
+
+  dword PrkgAssiElectcStabyProgCtrlModReqGroupSigGrpArr[12]={0,0,0,0,0,0,47,55,43,455,96,0};
+  char PrkgAssiElectcStabyProgCtrlModReqGroupSigGrpName[50] = "PrkgAssiElectcStabyProgCtrlModReqGroup";    //存储SignalGroup的名称，在write窗口输出是调用
+  //The items in SigGrp[][3] are: ByteNum,StartBitPosition,SignalLength
+  byte PrkgAssiElectcStabyProgCtrlModReqGroupSigGrpChkdElements[1][3]={
+    {5,6,3} //PrkgAssiElectcStabyProgCtrlModReqGroupPASElectcStabyProgCtrlModReq
+  };
+
+
+  dword PrkgBrkElectcCtrlReqSigGrpArr[12]={0,0,0,0,0,0,6,15,3,555,96,0};
+  char PrkgBrkElectcCtrlReqSigGrpName[50] = "PrkgBrkElectcCtrlReq";    //存储SignalGroup的名称，在write窗口输出是调用
+  //The items in SigGrp[][3] are: ByteNum,StartBitPosition,SignalLength
+  byte PrkgBrkElectcCtrlReqSigGrpChkdElements[1][3]={
+    {0,5,2} //PrkgBrkElectcCtrlReqReq
+  };
+
+
+  dword PrkgSpdCtrlSafeGroupSigGrpArr[12]={0,0,0,0,0,0,152,111,119,60,96,0};
+  char PrkgSpdCtrlSafeGroupSigGrpName[50] = "PrkgSpdCtrlSafeGroup";    //存储SignalGroup的名称，在write窗口输出是调用
+  //The items in SigGrp[][3] are: ByteNum,StartBitPosition,SignalLength
+  byte PrkgSpdCtrlSafeGroupSigGrpChkdElements[6][3]={
+    {14,3,2}, //PrkgSpdCtrlSafeGroupDrvrAsscSysBrkFctMod
+    {15,7,8}, //PrkgSpdCtrlSafeGroupPrkgAssiALowrLim
+    {18,7,7}, //PrkgSpdCtrlSafeGroupPrkgAssiALowrSlop
+    {16,7,8}, //PrkgSpdCtrlSafeGroupPrkgAssiAReq1
+    {17,7,8}, //PrkgSpdCtrlSafeGroupPrkgAssiAUpprLim
+    {19,7,7}  //PrkgSpdCtrlSafeGroupPrkgAssiAUpprSlop
+  };
+//  timer T1;
+  
+  dword VehModMngtGlbSafe1ReqSigGrpArr[12] = {0,0,0,0,0,0,280,255,263,116,105,0};
+  char VehModMngtGlbSafe1ReqSigGrpName[50] = "VehModMngtGlbSafe1";
+  byte VehModMngtGlbSafe1ReqSigGrpChkdElements[8][3]={
+    {35,7,3},
+    {35,4,3},
+    {32,3,4},
+    {33,7,4},
+    {35,1,1},
+    {33,3,4},
+    {34,7,4},
+    {34,3,4}
+  };
+}
+
+on message 0x60
+{
+  byte EngRunngReqByParkAssiReceivedChks;      //定义一个变量，用于存储接收到的Chks的值
+  byte EngRunngReqByParkAssiReceivedCntr;      //定义一个变量，用于存储接收到的Cntr的
+  byte EngRunngReqByParkAssiCalculatedChks;    //通过计算得出的Chks的值
+  byte EngRunngReqByParkAssiDataToBeChecked[4];//定义一个变量数组，用于存储用于CRC算法的数据,前两个用来存储DataID，
+  byte EngRunngReqByParkAssiUpdateBitValue;         //定义一个变量，用于存储UpdateBit的值
+
+  byte GearPrkgAssiReqGroupReceivedChks;      //定义一个变量，用于存储接收到的Chks的值
+  byte GearPrkgAssiReqGroupReceivedCntr;      //定义一个变量，用于存储接收到的Cntr的
+  byte GearPrkgAssiReqGroupCalculatedChks;    //通过计算得出的Chks的值
+  byte GearPrkgAssiReqGroupDataToBeChecked[4];//定义一个变量数组，用于存储用于CRC算法的数据,前两个用来存储DataID，
+  byte GearPrkgAssiReqGroupUpdateBitValue;         //定义一个变量，用于存储UpdateBit的值
+
+  byte MobDevRPAAuthentReqReceivedChks;      //定义一个变量，用于存储接收到的Chks的值
+  byte MobDevRPAAuthentReqReceivedCntr;      //定义一个变量，用于存储接收到的Cntr的
+  byte MobDevRPAAuthentReqCalculatedChks;    //通过计算得出的Chks的值
+  byte MobDevRPAAuthentReqDataToBeChecked[6];//定义一个变量数组，用于存储用于CRC算法的数据,前两个用来存储DataID，
+  byte MobDevRPAAuthentReqUpdateBitValue;         //定义一个变量，用于存储UpdateBit的值
+
+  byte PrkgAssiElectcStabyProgCtrlModReqGroupReceivedChks;      //定义一个变量，用于存储接收到的Chks的值
+  byte PrkgAssiElectcStabyProgCtrlModReqGroupReceivedCntr;      //定义一个变量，用于存储接收到的Cntr的
+  byte PrkgAssiElectcStabyProgCtrlModReqGroupCalculatedChks;    //通过计算得出的Chks的值
+  byte PrkgAssiElectcStabyProgCtrlModReqGroupDataToBeChecked[4];//定义一个变量数组，用于存储用于CRC算法的数据,前两个用来存储DataID，
+  byte PrkgAssiElectcStabyProgCtrlModReqGroupUpdateBitValue;         //定义一个变量，用于存储UpdateBit的值
+
+  byte PrkgBrkElectcCtrlReqReceivedChks;      //定义一个变量，用于存储接收到的Chks的值
+  byte PrkgBrkElectcCtrlReqReceivedCntr;      //定义一个变量，用于存储接收到的Cntr的
+  byte PrkgBrkElectcCtrlReqCalculatedChks;    //通过计算得出的Chks的值
+  byte PrkgBrkElectcCtrlReqDataToBeChecked[4];//定义一个变量数组，用于存储用于CRC算法的数据,前两个用来存储DataID，
+  byte PrkgBrkElectcCtrlReqUpdateBitValue;         //定义一个变量，用于存储UpdateBit的值
+
+  byte PrkgSpdCtrlSafeGroupReceivedChks;      //定义一个变量，用于存储接收到的Chks的值
+  byte PrkgSpdCtrlSafeGroupReceivedCntr;      //定义一个变量，用于存储接收到的Cntr的
+  byte PrkgSpdCtrlSafeGroupCalculatedChks;    //通过计算得出的Chks的值
+  byte PrkgSpdCtrlSafeGroupDataToBeChecked[9];//定义一个变量数组，用于存储用于CRC算法的数据,前两个用来存储DataID，
+  byte PrkgSpdCtrlSafeGroupUpdateBitValue;         //定义一个变量，用于存储UpdateBit的值
+  
+  byte PrkgStandstillReqReceivedChks;      //定义一个变量，用于存储接收到的Chks的值
+  byte PrkgStandstillReqReceivedCntr;      //定义一个变量，用于存储接收到的Cntr的
+  byte PrkgStandstillReqCalculatedChks;    //通过计算得出的Chks的值
+  byte PrkgStandstillReqDataToBeChecked[4];//定义一个变量数组，用于存储用于CRC算法的数据,前两个用来存储DataID，
+  byte PrkgStandstillReqUpdateBitValue;         //定义一个变量，用于存储UpdateBit的值
+  
+  byte i;
+  byte MessageData[64];
+  for(i=0;i<64;i++){MessageData[i]=this.byte(i);}
+
+  monitor_e2e(this, MessageData,
+    PrkgStandstillReqSigGrpArr, 
+    PrkgStandstillReqSigGrpName, 
+    PrkgStandStillReqSigGrpChkdElements, 
+    PrkgStandstillReqUpdateBitValue, 
+    PrkgStandstillReqReceivedCntr, 
+    PrkgStandstillReqReceivedChks, 
+    PrkgStandstillReqCalculatedChks, 
+    PrkgStandstillReqDataToBeChecked);
+  
+  monitor_e2e(this, MessageData,
+    PrkgSpdCtrlSafeGroupSigGrpArr, 
+    PrkgSpdCtrlSafeGroupSigGrpName, 
+    PrkgSpdCtrlSafeGroupSigGrpChkdElements, 
+    PrkgSpdCtrlSafeGroupUpdateBitValue, 
+    PrkgSpdCtrlSafeGroupReceivedCntr, 
+    PrkgSpdCtrlSafeGroupReceivedChks, 
+    PrkgSpdCtrlSafeGroupCalculatedChks, 
+    PrkgSpdCtrlSafeGroupDataToBeChecked);
+
+  monitor_e2e(this, MessageData,
+    EngRunngReqByParkAssiSigGrpArr, 
+    EngRunngReqByParkAssiSigGrpName, 
+    EngRunngReqByParkAssiSigGrpChkdElements, 
+    EngRunngReqByParkAssiUpdateBitValue, 
+    EngRunngReqByParkAssiReceivedCntr, 
+    EngRunngReqByParkAssiReceivedChks, 
+    EngRunngReqByParkAssiCalculatedChks, 
+    EngRunngReqByParkAssiDataToBeChecked);
+
+  monitor_e2e(this, MessageData,
+    GearPrkgAssiReqGroupSigGrpArr, 
+    GearPrkgAssiReqGroupSigGrpName, 
+    GearPrkgAssiReqGroupSigGrpChkdElements, 
+    GearPrkgAssiReqGroupUpdateBitValue, 
+    GearPrkgAssiReqGroupReceivedCntr, 
+    GearPrkgAssiReqGroupReceivedChks, 
+    GearPrkgAssiReqGroupCalculatedChks, 
+    GearPrkgAssiReqGroupDataToBeChecked);
+  
+  monitor_e2e(this, MessageData,
+    MobDevRPAAuthentReqSigGrpArr, 
+    MobDevRPAAuthentReqSigGrpName, 
+    MobDevRPAAuthentReqSigGrpChkdElements, 
+    MobDevRPAAuthentReqUpdateBitValue, 
+    MobDevRPAAuthentReqReceivedCntr, 
+    MobDevRPAAuthentReqReceivedChks, 
+    MobDevRPAAuthentReqCalculatedChks, 
+    MobDevRPAAuthentReqDataToBeChecked);
+  
+  monitor_e2e(this, MessageData,
+    PrkgAssiElectcStabyProgCtrlModReqGroupSigGrpArr, 
+    PrkgAssiElectcStabyProgCtrlModReqGroupSigGrpName, 
+    PrkgAssiElectcStabyProgCtrlModReqGroupSigGrpChkdElements, 
+    PrkgAssiElectcStabyProgCtrlModReqGroupUpdateBitValue, 
+    PrkgAssiElectcStabyProgCtrlModReqGroupReceivedCntr, 
+    PrkgAssiElectcStabyProgCtrlModReqGroupReceivedChks, 
+    PrkgAssiElectcStabyProgCtrlModReqGroupCalculatedChks, 
+    PrkgAssiElectcStabyProgCtrlModReqGroupDataToBeChecked);
+  
+  monitor_e2e(this, MessageData,
+    PrkgBrkElectcCtrlReqSigGrpArr, 
+    PrkgBrkElectcCtrlReqSigGrpName, 
+    PrkgBrkElectcCtrlReqSigGrpChkdElements, 
+    PrkgBrkElectcCtrlReqUpdateBitValue, 
+    PrkgBrkElectcCtrlReqReceivedCntr, 
+    PrkgBrkElectcCtrlReqReceivedChks, 
+    PrkgBrkElectcCtrlReqCalculatedChks, 
+    PrkgBrkElectcCtrlReqDataToBeChecked);
+}
+
+
+on message 0x69
+{
+  byte VehModMngtGlbSafe1ReqReceivedChks;      //定义一个变量，用于存储接收到的Chks的值
+  byte VehModMngtGlbSafe1ReqReceivedCntr;      //定义一个变量，用于存储接收到的Cntr的
+  byte VehModMngtGlbSafe1ReqCalculatedChks;    //通过计算得出的Chks的值
+  byte VehModMngtGlbSafe1ReqDataToBeChecked[11];//定义一个变量数组，用于存储用于CRC算法的数据,前两个用来存储DataID
+  byte VehModMngtGlbSafe1ReqUpdateBitValue;    //定义一个变量，用于存储UpdateBit的值
+  
+  byte i;
+  byte MessageData[64];
+  for(i=0;i<64;i++){MessageData[i]=this.byte(i);}
+  
+  monitor_e2e(this, MessageData,
+    VehModMngtGlbSafe1ReqSigGrpArr, 
+    VehModMngtGlbSafe1ReqSigGrpName, 
+    VehModMngtGlbSafe1ReqSigGrpChkdElements, 
+    VehModMngtGlbSafe1ReqUpdateBitValue, 
+    VehModMngtGlbSafe1ReqReceivedCntr, 
+    VehModMngtGlbSafe1ReqReceivedChks, 
+    VehModMngtGlbSafe1ReqCalculatedChks, 
+    VehModMngtGlbSafe1ReqDataToBeChecked);
+}
+
+void monitor_e2e(message * msg,
+  byte MessageData[],
+  dword SigGrpArr[],
+  char SigName[],
+  byte SigGrpChkdElements[][],
+  byte & UpdateBitValue,
+  byte & RecCntr,
+  byte & RecChks,
+  byte & CalcChks,
+  byte DataToBeChecked[])
+{
+  byte i;
+  UpdateBitValue = msg.byte(SigGrpArr[6]/8) & GetBitValueMask(SigGrpArr[6]%8);
+  if(UpdateBitValue!=0)//只有UB=1的情况下才判断
+  {
+    SigGrpArr[11] = 1;
+    SigGrpArr[0] ++;
+    RecCntr = GetCntrValue(MessageData,SigGrpArr[8]);//Cntr赋值
+    //检查Cntr是否有无效值，是否有不连续现象
+    CntrChecksFunction(SigGrpArr,RecCntr,SigName,msg.time);
+    //检查Chks是否正确，
+    RecChks = GetChksValue(MessageData,SigGrpArr[7]);
+    //给DataToBeChecked数组赋值
+    DataToBeChecked[0] = SigGrpArr[9]&0xFF;//取DataID的低字节
+    DataToBeChecked[1] = SigGrpArr[9]>>8;  //取DataID的高字节
+    DataToBeChecked[2] = RecCntr;  //Cntr的值
+    for(i=3;i<(elcount(SigGrpChkdElements)+3);i++) //这个地方确认一下循环次数有没有少
+    {
+        DataToBeChecked[i] = GetElementValue(MessageData,SigGrpChkdElements,i-3);
+    }
+    //计算正确的CRC值
+    CalcChks = Crc_CalculateCRC8(DataToBeChecked,elCount(DataToBeChecked),0x00);
+    //比对计算的和接收到的CRC值，若错误则增加错误计数，若同时是第一次发生错误，则输出Write窗口报错
+    ChksChecksFunction(SigGrpArr,CalcChks,RecChks,SigName,msg.time);
+  }
+}
+
+//on timer T1
+on StopMeasurement
+{
+  FinalReportFunction(PrkgStandstillReqSigGrpArr,PrkgStandstillReqSigGrpName);
+  FinalReportFunction(MobDevRPAAuthentReqSigGrpArr,MobDevRPAAuthentReqSigGrpName);
+  FinalReportFunction(GearPrkgAssiReqGroupSigGrpArr,GearPrkgAssiReqGroupSigGrpName);
+  FinalReportFunction(PrkgBrkElectcCtrlReqSigGrpArr,PrkgBrkElectcCtrlReqSigGrpName);
+  FinalReportFunction(PrkgSpdCtrlSafeGroupSigGrpArr,PrkgSpdCtrlSafeGroupSigGrpName);
+  FinalReportFunction(EngRunngReqByParkAssiSigGrpArr,EngRunngReqByParkAssiSigGrpName);
+  FinalReportFunction(PrkgAssiElectcStabyProgCtrlModReqGroupSigGrpArr,PrkgAssiElectcStabyProgCtrlModReqGroupSigGrpName);
+  FinalReportFunction(VehModMngtGlbSafe1ReqSigGrpArr,VehModMngtGlbSafe1ReqSigGrpName);
+}
